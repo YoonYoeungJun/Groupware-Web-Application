@@ -1,0 +1,81 @@
+.dxwscCheckedTextContainer_eniThm
+{
+    background-color: white;
+    border: 1px solid #a5acb5;
+    vertical-align: top;
+    overflow: auto;
+    height: 110px;
+    width: 340px;
+    padding: 5px;
+}
+.dxwscErrorWord_eniThm
+{
+    background: url('scErrorUnderline.gif') repeat-x left bottom;
+    padding-bottom: 3px;
+    color: Black;
+    font-weight: bold;
+}
+/* -- Loading panel -- */
+.dxwscLoadingPanel_eniThm
+{
+    font: 12px Dotum, '돋움', 'Segoe UI', Helvetica, 'Droid Sans', AppleSDGothicNeo, Tahoma, Geneva, sans-serif;;
+    color: #585e68;
+    background: White none;
+    border: 1px solid #80858d;
+}
+.dxwscLoadingPanel_eniThm td.dx
+{
+    white-space: nowrap;
+    text-align: center;
+    padding: 10px 14px;
+}
+.dxwscLoadingPanel_eniThm .dxlp-loadingImage
+{
+    background-image: url('../Web/Loading.gif');
+    height: 16px;
+    width: 16px;
+}
+/* -- Forms -- */
+.dxwsc-main .dxpcLite_eniThm .dxwscDlgFooter
+{
+    background-color: #e9edf1;
+    border-top: 1px solid #c9cdd2;
+    padding: 12px 12px;
+    text-align: right;
+}
+.dxwsc-main.dxwsc-rtl .dxpcLite_eniThm .dxwscDlgFooter
+{
+    text-align: left;
+}
+.dxwsc-main .dxpcLite_eniThm .dxwscDlgFooterBtn
+{
+    width: 80px;
+    margin-left: 8px;
+}
+.dxwsc-main.dxwsc-rtl .dxpcLite_eniThm .dxwscDlgFooterBtn
+{
+    margin-right: 8px;
+    margin-left: 0;
+}
+.dxwsc-main .dxpcLite_eniThm .dxwscDlgSpellCheckBtn
+{
+    width: 132px;
+}
+.dxwsc-main .dxpcLite_eniThm .dxwscDlgMainSpellCheckFormTable .dxwscDlgContentSCFormContainer
+{
+    padding: 9px 12px 0px;
+}
+.dxwsc-main .dxpcLite_eniThm .dxwscDlgSpellCheckForm .dxwscDlgListBoxContainer
+{
+    padding-top: 5px;
+    padding-bottom: 12px;
+}
+.dxwsc-main .dxpcLite_eniThm .dxwscDlgMainSpellCheckOptionsFormTable .dxwscDlgContentSCOptionsFormContainer
+{
+    padding: 12px 12px 0px;
+}
+.dxwsc-main .dxpcLite_eniThm .dxwscDlgOptionsForm .dxwscDlgLanguagePanel
+{
+    padding-top: 10px;
+    padding-bottom: 12px;
+}

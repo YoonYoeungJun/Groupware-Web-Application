@@ -1,0 +1,457 @@
+/* ----------------- Main ----------------- */
+/* Loading panel */
+.dxheLoadingDiv_eniThm
+{
+    background: White;
+    opacity: 0.85;
+    filter: alpha(opacity=85);
+}
+.dxheLoadingPanel_eniThm
+{
+    font: 12px Dotum, '돋움', 'Segoe UI', Helvetica, 'Droid Sans', AppleSDGothicNeo, Tahoma, Geneva, sans-serif;;
+    color: #585e68;
+    background: White none;
+    border: 1px solid #80858d;
+}
+.dxheLoadingPanel_eniThm td.dx
+{
+    white-space: nowrap;
+    text-align: center;
+    padding: 10px 14px;
+}
+.dxheLoadingPanel_eniThm .dxlp-loadingImage,
+.dxheDesignViewArea_eniThm .dx-base64img-wrapper:after
+{
+    background-image: url('../Web/Loading.gif');
+    height: 16px;
+    width: 16px;
+}
+.dxheDesignViewArea_eniThm .dx-base64img-wrapper:after
+{
+    margin: -8px 0px 0px -8px;
+}
+.dxheControl_eniThm
+{
+    border: 1px solid #868b91;
+    font: 12px Dotum, '돋움', 'Segoe UI', Helvetica, 'Droid Sans', AppleSDGothicNeo, Tahoma, Geneva, sans-serif;;
+}
+/* Area */
+.dxheContentArea_eniThm
+{
+    padding: 0;
+    background-color: #e9edf1;
+}
+.dxheErrorFrame_eniThm
+{
+    font: 12px Dotum, '돋움', 'Segoe UI', Helvetica, 'Droid Sans', AppleSDGothicNeo, Tahoma, Geneva, sans-serif;;
+    color: #D00707;
+    background-color: #FBC7C7;
+    border-bottom: solid 1px #DEC0C0;
+}
+.dxheControl_eniThm .dxeMemo_eniThm .dxheErrorFrame_eniThm .dxhe,
+.dxheControl_eniThm.dxhe-rtl .dxeMemo_eniThm .dxheErrorFrame_eniThm .dxhe,
+.dxheErrorFrame_eniThm .dxhe
+{
+    padding: 5px;
+}
+.dxheControl_eniThm .dxeMemo_eniThm .dxheErrorFrame_eniThm .dxhe td,
+.dxheControl_eniThm.dxhe-rtl .dxeMemo_eniThm .dxheErrorFrame_eniThm .dxhe td,
+.dxheErrorFrame_eniThm .dxhe td
+{
+    padding: 0px;
+}
+.dxheErrorFrame_eniThm .dxheErrorFrameCloseButton_eniThm
+{
+    cursor: pointer;
+}
+.dxheControl_eniThm .dxheViewArea_eniThm
+{
+    border-width: 0;
+}
+.dxheContentArea_eniThm td.dxheViewArea_eniThm
+{
+    line-height: 0;
+}
+.dxheContentArea_eniThm td.dxheViewArea_eniThm.dxheHtmlViewArea_eniThm
+{
+    line-height: inherit;
+}
+.dxheDesignViewArea_eniThm,
+.dxhePreviewArea_eniThm
+{
+    background-color: #FFFFFF;
+}
+.dxheControl_eniThm .dxheHtmlViewArea_eniThm,
+body.dxheDesignViewArea_eniThm,
+body.dxhePreviewArea_eniThm
+{
+    margin: 0px;
+    background-color: White;
+    background-image: none;
+    font-size: smaller;
+    font: 12px Arial, Helvetica, sans-serif;
+}
+.dxheControl_eniThm .dxeMemo_eniThm.dxheHtmlViewArea_eniThm .dxeMemoEditArea_eniThm,
+body.dxheDesignViewArea_eniThm,
+body.dxhePreviewArea_eniThm
+{
+    padding: 15px 20px 0 20px;
+}
+.dxheControl_eniThm .dxeMemo_eniThm.dxheHtmlViewArea_eniThm td
+{
+    padding: 0 40px 0 0;
+}
+.dxheControl_eniThm.dxhe-rtl .dxheContentArea_eniThm .dxeMemo_eniThm.dxheHtmlViewArea_eniThm td
+{
+    padding: 0 0 0 40px;
+}
+.dxheControl_eniThm .dxeMemo_eniThm textarea
+{
+    resize: none;
+}
+.dxheControl_eniThm input.dxeEditArea_eniThm
+{
+    margin-top: -1px;
+}
+.dxheControl_eniThm input.dxeEditArea_eniThm,
+.dxheControl_eniThm td.dxic .dxeEditArea_eniThm
+{
+    padding-bottom: 0px;
+}
+.dxheControl_eniThm td.dxheDesignViewArea_eniThm .dxm-main.dxmtb
+{
+    border: 1px solid #868b91;
+}
+.dxheControl_eniThm td.dxheDesignViewArea_eniThm
+{
+    position: relative;
+}
+td.dxheDesignViewArea_eniThm .dxmLite_eniThm
+{
+    position: absolute;
+    right: 0;
+    padding-top: 5px;
+    padding-right: 22px;
+}
+td.dxheDesignViewArea_eniThm .dxmLite_eniThm.dxm-rtl
+{
+    right: inherit;
+    padding-right: 0px;
+    padding-left: 5px;
+}
+.dxheViewArea_eniThm .dxheAudio
+{
+    background-image: url('dxheAudio.png');
+}
+.dxheViewArea_eniThm .dxheFlash
+{
+    background-image: url('dxheFlash.png');
+}
+.dxheViewArea_eniThm .dxheVideo
+{
+    background-image: url('dxheVideo.png');
+}
+.dxheViewArea_eniThm .dxheYoutube
+{
+    background-image: url('dxheYoutube.png');
+}
+.dxheViewArea_eniThm img.dxheNotSupported
+{
+    background-image: url('dxheNotSupported.png');
+}
+.dxheViewArea_eniThm img.dxheAudio,
+.dxheViewArea_eniThm img.dxheFlash,
+.dxheViewArea_eniThm img.dxheVideo,
+.dxheViewArea_eniThm img.dxheYoutube,
+.dxheViewArea_eniThm img.dxheNotSupported
+{
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #cfcfcf;
+    border: 1px dotted #FFFFFF;
+    opacity: 0.8;
+}
+.dxheViewArea_eniThm .dxhePlaceholder
+{
+    cursor: default;
+    white-space: nowrap;
+}
+.dxheViewArea_eniThm.dxheDesignViewArea_eniThm .dxheSelected
+{
+    background-color: #E2ECF7;
+}
+.dxhe-insertPlaceholder .dxeListBox_eniThm.dxeFocused_eniThm
+{
+    border: 1px solid #A5ACB5;
+}
+.dxpc-contentWrapper .dxflFormLayout_eniThm.dxhe-insertPlaceholder .dxflGroup_eniThm .dxflGroupBox_eniThm
+{
+    padding: 0 0 6px 0;
+    margin: 0;
+}
+.dxpc-contentWrapper .dxflFormLayout_eniThm.dxhe-insertPlaceholder .dxflGroup_eniThm .dxflGroupBox_eniThm .dxflListBoxItemSys
+{
+    padding-top: 0;
+}
+.dxhe-insertPlaceholder .dxflGroup_eniThm .dxhe-dialogLI.dxhe-dialogButtonsContainer
+{
+    padding-top: 10px;
+}
+.dxhe-insertPlaceholder .dxeListBox_eniThm,
+.dxhe-insertPlaceholder .dxeListBox_eniThm .dxlbd
+{
+    width: 220px;
+    height: 200px;
+}
+/* CodeMirror */
+.dxheHtmlViewArea_eniThm .CodeMirror-activeline-background
+{
+    background: #fdf7d9;
+}
+.dxheHtmlViewArea_eniThm .CodeMirror-foldgutter-open::after
+{
+    content: url('heFoldGutterOpen.png');
+}
+.dxheHtmlViewArea_eniThm .CodeMirror-foldgutter-folded::after
+{
+    content: url('heFoldGutterFolded.png');
+}
+.dxheHtmlViewArea_eniThm .CodeMirror-foldmarker::after
+{
+    content: url('dxheFoldMarker.png');
+}
+/* Element appearance in DesignView */
+body.dxheDesignViewArea_eniThm table.dxEmptyBorderTable,
+body.dxheDesignViewArea_eniThm table.dxEmptyBorderTable td
+{
+    border: 1px dotted Gray;
+}
+@media print
+{
+    body.dxheDesignViewArea_eniThm table.dxEmptyBorderTable,
+    body.dxheDesignViewArea_eniThm table.dxEmptyBorderTable td
+    {
+        border: 0px;
+    }
+}
+body.dxheDesignViewArea_eniThm
+{
+    word-wrap: inherit;
+}
+body.dxheDesignViewArea_eniThm pre
+{
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+/* Status Bar */
+.dxheStatusBar_eniThm .dxheStatusBarTab_eniThm
+{
+    border-bottom-width: 0 !important;
+    border-left-width: 0 !important;
+}
+.dxheControl_eniThm .dxheStatusBar_eniThm .dxheStatusBarTab_eniThm .dxtc-link
+{
+    padding: 4px 35px 5px 34px;
+}
+.dxheControl_eniThm.dxhe-rtl .dxheStatusBar_eniThm .dxheStatusBarTab_eniThm
+{
+    border-left-width: 1px !important;
+    border-right-width: 0 !important;
+}
+.dxHtmlEditor_heSizeGrip_eniThm
+{
+    cursor: se-resize;
+}
+.dxHtmlEditor_heSizeGripRtl_eniThm
+{
+    cursor: ne-resize;
+}
+.dxheSizeGripContainer_eniThm
+{
+    width: 100%;
+    text-align: right;
+    font-size: 0;
+    margin-top: -13px;
+}
+.dxheControl_eniThm.dxhe-rtl .dxheSizeGripContainer_eniThm
+{
+    text-align: left;
+}
+/* ----------------- Dialog Forms ----------------- */
+.dxpcLite_eniThm .dxheDlgFooter,
+.dxpcLite_eniThm .dxheCustomDialog_eniThm .dxhecd-Buttons
+{
+    background-color: #e9edf1;
+    border-top: 1px solid #c9cdd2;
+    padding: 10px 11px;
+    text-align: right;
+}
+.dxpcLite_eniThm.dxRtl .dxheDlgFooter,
+.dxpcLite_eniThm.dxRtl .dxheCustomDialog_eniThm .dxhecd-Buttons
+{
+    text-align: left;
+}
+.dxpcLite_eniThm .dxheDlgFooterBtn
+{
+    width: 80px;
+    margin-left: 8px;
+}
+.dxpcLite_eniThm.dxRtl .dxheDlgFooterBtn
+{
+    margin-right: 8px;
+    margin-left: 0;
+}
+.dxpcLite_eniThm .dxheDlgInsertImageForm .dxheDlgImagePreviewCell
+{
+    color: #737373;
+    border: 1px dashed #cac8c8;
+}
+.dxpcLite_eniThm .dxheDlgPasteFromWordForm .dxheDlgPasteContainerCell td
+{
+    border: 1px solid #a5acb5;
+}
+/*----------------- Toolbars -----------------*/
+.dxtbSpacing_eniThm
+{
+    height: 1px;
+}
+.dxtbControl_eniThm
+{
+    color: Black;
+    background-color: #e9edf1;
+    width: 100%;
+    border-bottom: 1px solid #868b91;
+}
+.dxtbControl_eniThm td.dxmMenu_eniThm
+{
+    border: 0;
+}
+.dxtbComboBoxMenuItem_eniThm
+{
+    padding: 2px 2px 1px;
+}
+.dxheControl_eniThm .dxrControl_eniThm
+{
+    background-color: #E9EDF1;
+}
+.dxheControl_eniThm .dxrControl_eniThm .dxtcLite_eniThm .dxtc-stripContainer .dxtc-spacer,
+.dxheControl_eniThm .dxrControl_eniThm .dxtcLite_eniThm.dxtc-top .dxtc-leftIndent
+{
+    width: 3px;
+}
+.dxheControl_eniThm .dxrControl_eniThm .dxr-tabContent
+{
+    border-width: 0 0 1px 0;
+}
+.dxheControl_eniThm .dxrControl_eniThm .dxr-minBtn
+{
+    padding-right: 7px;
+}
+.dxheControl_eniThm .dxtbControl_eniThm.dxtbr_eniThm,
+.dxheControl_eniThm .dxrControl_eniThm .dxpc-mainDiv.dxr-minPopup
+{
+    border: 0;
+}
+/* Toolbars Lightweight Mode */
+.dxtbControl_eniThm .dxmLite_eniThm .dxm-main
+{
+    border-width: 0;
+}
+.dxmLite_eniThm .dxhetipControl_eniThm img
+{
+    vertical-align: top;
+}
+/* ToolbarColorButton */
+.dxtcbColorDiv_eniThm
+{
+    width: 16px;
+    height: 3px;
+    font-size: 0;
+    background-color: Transparent;
+    margin-top: -3px;
+}
+/*----------------- RoundPanel -----------------*/
+.dxheRP.dxrpControl_eniThm .dxrpcontent
+{
+    padding: 9px !important;
+}
+/* InsertMediaDialogs */
+.dxflFormLayout_eniThm .dxhe-dialogSettings
+{
+    width: 250px;
+    padding-left: 16px;
+}
+.dxflFormLayout_eniThm.dxhe-mediaDialog
+{
+    width: 720px;
+}
+.dxflFormLayout_eniThm.dxhe-mediaDialog .dxic-control,
+.dxflFormLayout_eniThm.dxhe-mediaDialog .dxhe-dialogSettings
+{
+    height: 410px;
+}
+div.dxflFormLayout_eniThm.dxhe-dialog table.dxhe-dialogLG
+{
+    padding-left: 32px;
+    padding-right: 32px;
+}
+div.dxflFormLayout_eniThm.dxhe-dialog > table.dxhe-dialogLG.dxflGroupSys,
+div.dxflFormLayout_eniThm.dxhe-dialog .dxhe-dialogButtonsContainer
+{
+    padding: 16px;
+}
+div.dxflFormLayout_eniThm.dxhe-mediaDialogStyleSettings > table.dxhe-dialogLG.dxflGroupSys,
+div.dxflFormLayout_eniThm.dxhe-mediaDialogMainSettings > table.dxhe-dialogLG.dxflGroupSys
+{
+    padding: 32px;
+}
+/* tag inspector */
+.dxheDesignViewArea_eniThm .dxhe-tiSelection
+{
+    box-sizing: border-box;
+    position: absolute;
+    border: 1px solid #2255FF;
+    background-color: #0066FF;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+    opacity: 0.3;
+}
+.dxhe-intelliSenseSysWin .dxeListBox_eniThm.dxeFocused_eniThm
+{
+    border-color: #a5acb5;
+}
+div.dxhe-searchQuick div.dxbButton_eniThm,
+div.dxhe-searchQuick div.dxbButton_eniThm .dxb
+{
+    background: none !important;
+    border: none !important;
+}
+.dxpcLite_eniThm.dxhe-quickSearchSysWin .dxhe-flItem0
+{
+    padding-left: 2px !important;
+}
+div.dxhe-searchAdvancedButtons div.dxbButton_eniThm .dxb
+{
+    padding: 2px 6px;
+}
+.dxheHtmlViewArea_eniThm,
+.dxheDesignViewArea_eniThm,
+.dxhePreviewArea_eniThm
+{
+    border-color: #868b91;
+}
+.dxheStatusBarTab_eniThm
+{
+    border-top-color: #868b91;
+}
+.dxheStatusBar_eniThm .dxtcSys > .dxtc-stripContainer .dxtc-spacer
+{
+    width: 0px;
+}
+.dxhe-dialogWrapperPanel .dxucBrowseButton_eniThm
+{
+    padding: 3px 16px;
+}
+.dxflFormLayout_eniThm.dxhe-insertTableDialog
+{
+    width: 490px;
+}

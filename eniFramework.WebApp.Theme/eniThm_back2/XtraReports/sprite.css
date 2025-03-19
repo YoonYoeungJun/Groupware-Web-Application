@@ -1,0 +1,195 @@
+.dxXtraReports_BtnFirstPage_eniThm,
+.dxXtraReports_BtnFirstPageDisabled_eniThm,
+.dxXtraReports_BtnLastPage_eniThm,
+.dxXtraReports_BtnLastPageDisabled_eniThm,
+.dxXtraReports_BtnNextPage_eniThm,
+.dxXtraReports_BtnNextPageDisabled_eniThm,
+.dxXtraReports_BtnPrevPage_eniThm,
+.dxXtraReports_BtnPrevPageDisabled_eniThm,
+.dxXtraReports_BtnPrint_eniThm,
+.dxXtraReports_BtnPrintDisabled_eniThm,
+.dxXtraReports_BtnPrintPage_eniThm,
+.dxXtraReports_BtnPrintPageDisabled_eniThm,
+.dxXtraReports_BtnSave_eniThm,
+.dxXtraReports_BtnSaveDisabled_eniThm,
+.dxXtraReports_BtnSaveWindow_eniThm,
+.dxXtraReports_BtnSaveWindowDisabled_eniThm,
+.dxXtraReports_BtnSearch_eniThm,
+.dxXtraReports_BtnSearchDisabled_eniThm,
+.dxXtraReports_PageBorder_blc_eniThm,
+.dxXtraReports_PageBorder_brc_eniThm,
+.dxXtraReports_PageBorder_tlc_eniThm,
+.dxXtraReports_PageBorder_trc_eniThm
+{
+    background-image: url('sprite.png');
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+.dxXtraReports_BtnFirstPage_eniThm
+{
+    background-position: 0px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnFirstPageDisabled_eniThm
+{
+    background-position: 0px -289px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnLastPage_eniThm
+{
+    background-position: 0px -85px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnLastPageDisabled_eniThm
+{
+    background-position: 0px -51px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnNextPage_eniThm
+{
+    background-position: 0px -255px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnNextPageDisabled_eniThm
+{
+    background-position: 0px -119px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnPrevPage_eniThm
+{
+    background-position: 0px -136px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnPrevPageDisabled_eniThm
+{
+    background-position: 0px -204px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnPrint_eniThm
+{
+    background-position: 0px -102px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnPrintDisabled_eniThm
+{
+    background-position: 0px -272px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnPrintPage_eniThm
+{
+    background-position: 0px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnPrintPageDisabled_eniThm
+{
+    background-position: 0px -68px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnSave_eniThm
+{
+    background-position: 0px -170px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnSaveDisabled_eniThm
+{
+    background-position: 0px -187px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnSaveWindow_eniThm
+{
+    background-position: 0px -153px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnSaveWindowDisabled_eniThm
+{
+    background-position: 0px -221px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnSearch_eniThm
+{
+    background-position: 0px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_BtnSearchDisabled_eniThm
+{
+    background-position: 0px -238px;
+    width: 16px;
+    height: 16px;
+}
+.dxXtraReports_PageBorder_blc_eniThm
+{
+    background-position: 0px -306px;
+    width: 10px;
+    height: 10px;
+}
+.dxXtraReports_PageBorder_brc_eniThm
+{
+    background-position: 0px -317px;
+    width: 10px;
+    height: 10px;
+}
+.dxXtraReports_PageBorder_tlc_eniThm
+{
+    background-position: 0px -328px;
+    width: 10px;
+    height: 10px;
+}
+.dxXtraReports_PageBorder_trc_eniThm
+{
+    background-position: 0px -339px;
+    width: 10px;
+    height: 10px;
+}
+.dxXtraReports_PageBorder_t_eniThm,
+.dxXtraReports_PageBorder_l_eniThm,
+.dxXtraReports_PageBorder_r_eniThm,
+.dxXtraReports_PageBorder_b_eniThm {
+    padding: 0px;
+    background-color: transparent;
+}
+
+.dxXtraReports_PageBorder_t_eniThm {
+    background-image: url('pageTopBorder.png');
+    background-repeat: repeat-x;
+    width: 1px;
+    height: 10px;
+}
+
+.dxXtraReports_PageBorder_l_eniThm {
+    background-image: url('pageLeftBorder.png');
+    background-repeat: repeat-y;
+    width: 10px;
+    height: 1px;
+}
+
+.dxXtraReports_PageBorder_r_eniThm {
+    background-image: url('pageRightBorder.png');
+    background-repeat: repeat-y;
+    width: 10px;
+    height: 1px;
+}
+
+.dxXtraReports_PageBorder_b_eniThm {
+    background-image: url('pageBottomBorder.png');
+    background-repeat: repeat-x;
+    width: 1px;
+    height: 10px;
+}
+

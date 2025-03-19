@@ -1,0 +1,145 @@
+﻿<%@ Register TagPrefix="dx" Namespace="DevExpress.Data" Assembly="DevExpress.Data.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Web.ASPxTreeList" Assembly="DevExpress.Web.ASPxTreeList.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="eni" Namespace="eniFramework.WebApp.Controls" Assembly="eniFramework.WebApp.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" %>
+
+<%-- eniFramework Default Mode Skin --%>
+<eni:eniTreeList runat="server">
+    <Styles CssFilePath="{0}/styles.css" CssPostfix="eniThm">
+        <LoadingPanel ImageSpacing="5" />
+        <AlternatingNode Enabled="True" />
+    </Styles>
+    <Images SpriteCssFilePath="{0}/sprite.css">
+    </Images>
+    <Settings SuppressOuterGridLines="true" />
+    <SettingsPager CurrentPageNumberFormat="{0}" />
+</eni:eniTreeList>
+
+<%-- eniFramework BoardList Skin --%>
+<eni:eniTreeList runat="server" SkinID="BoardList"
+    Width="100%" BackColor="White" AutoGenerateColumns="False">
+    <Border BorderWidth="0px"/>
+    <Images SpriteCssFilePath="{0}/sprite.css">
+        <ExpandedButton Width="0px" Height="1px"></ExpandedButton>
+    </Images>
+    <Settings ShowRoot="false" ShowTreeLines="true" ShowColumnHeaders="true" HorizontalScrollBarMode="Auto" VerticalScrollBarMode="Auto"/>
+    <SettingsPager Mode="ShowPager" PageSize="50" CurrentPageNumberFormat="{0}">
+        <Summary Visible="false" />
+        <FirstPageButton Visible="true"></FirstPageButton>
+        <LastPageButton Visible="true"></LastPageButton>
+        <PageSizeItemSettings Items="25, 50, 100, 200, 400, 800" Visible="true"></PageSizeItemSettings>
+    </SettingsPager>
+    <SettingsLoadingPanel ShowOnPostBacks="true" Delay="1" />
+    <SettingsBehavior AllowDragDrop="False" AutoExpandAllNodes="True" FocusNodeOnExpandButtonClick="False" FocusNodeOnLoad="False" />
+    <SettingsDataSecurity AllowInsert="false" AllowEdit="false" AllowDelete="false" />
+    <StylesEditors EnableFocusedStyle="True"></StylesEditors>
+    <Styles CssFilePath="{0}/styles.css" CssPostfix="eniThm">
+        <Node ForeColor="#333333"></Node>
+        <AlternatingNode Enabled="True" ForeColor="#333333"></AlternatingNode>
+        <Cell>
+            <Paddings PaddingTop="5px" PaddingBottom="1px" PaddingLeft="3px" PaddingRight="3px" />
+        </Cell>
+        <Indent>
+            <Paddings Padding="0px" />
+        </Indent>
+        <IndentWithButton>
+            <Paddings PaddingLeft="15px" />
+        </IndentWithButton>
+        <Header HorizontalAlign="Center" Font-Bold="true">
+            <Border BorderWidth="0px"/>
+            <BorderBottom BorderWidth="1px" BorderStyle="Solid" BorderColor="#C0C0C0" />
+            <Paddings PaddingLeft="0px" PaddingRight="0px" PaddingTop="2px" PaddingBottom="0px" />
+        </Header>
+        <LoadingPanel ImageSpacing="5" />
+    </Styles>
+    <StylesPager>
+        <CurrentPageNumber Font-Bold="true" ForeColor="#0033FF" BackColor="Transparent">
+            <Paddings PaddingTop="6px" PaddingBottom="5px" PaddingLeft="4px" PaddingRight="4px" />
+            <Border BorderWidth="0px" />
+        </CurrentPageNumber>
+    </StylesPager>
+</eni:eniTreeList>
+
+
+<%-- eniFramework Advanced-01 Skin --%>
+<eni:eniTreeList runat="server" CssClass="eniTreeList-Advanced-01" SkinID="Advanced-01"
+    Width="100%" BackColor="White" AutoGenerateColumns="False">
+    <Border BorderWidth="0px"/>
+    <Images SpriteCssFilePath="{0}/sprite.css">
+        <ExpandedButton Width="0px" Height="1px"></ExpandedButton>
+    </Images>
+    <Settings HorizontalScrollBarMode="Auto" VerticalScrollBarMode="Auto"/>
+    <SettingsPager Mode="ShowPager" PageSize="50" CurrentPageNumberFormat="{0}">
+        <Summary Visible="false" />
+        <FirstPageButton Visible="true"></FirstPageButton>
+        <LastPageButton Visible="true"></LastPageButton>
+        <PageSizeItemSettings Items="25, 50, 100, 200, 400, 800" Visible="true"></PageSizeItemSettings>
+    </SettingsPager>
+    <SettingsLoadingPanel ShowOnPostBacks="true" Delay="1" />
+    <SettingsBehavior AllowDragDrop="False" AutoExpandAllNodes="True" FocusNodeOnExpandButtonClick="False" FocusNodeOnLoad="False" />
+    <SettingsDataSecurity AllowInsert="false" AllowEdit="false" AllowDelete="false" />
+    <StylesEditors EnableFocusedStyle="True"></StylesEditors>
+    <Styles CssFilePath="{0}/styles.css" CssPostfix="eniThm">
+        <Node CssClass="Advanced-01_Node" ForeColor="#333333"></Node>
+        <AlternatingNode CssClass="Advanced-01_AlternatingNode" ForeColor="#333333"></AlternatingNode>
+        <Cell CssClass="Advanced-01_Cell">
+            <Paddings PaddingTop="5px" PaddingBottom="1px" PaddingLeft="3px" PaddingRight="3px" />
+        </Cell>
+        <Indent CssClass="Advanced-01_Indent">
+            <Paddings Padding="0px" />
+        </Indent>
+        <IndentWithButton CssClass="Advanced-01_IndentWithButton">
+            <Paddings PaddingLeft="15px" />
+        </IndentWithButton>
+        <Header CssClass="Advanced-01_Header" HorizontalAlign="Center" Font-Bold="true">
+            <Border BorderWidth="0px"/>
+            <BorderBottom BorderWidth="1px" BorderStyle="Solid" BorderColor="#C0C0C0" />
+            <Paddings PaddingLeft="0px" PaddingRight="0px" PaddingTop="2px" PaddingBottom="0px" />
+        </Header>
+        <LoadingPanel ImageSpacing="5" />
+    </Styles>
+    <StylesPager>
+        <CurrentPageNumber Font-Bold="true" ForeColor="#0033FF" BackColor="Transparent">
+            <Paddings PaddingTop="6px" PaddingBottom="5px" PaddingLeft="4px" PaddingRight="4px" />
+            <Border BorderWidth="0px" />
+        </CurrentPageNumber>
+    </StylesPager>
+</eni:eniTreeList>
+
+<%-- eniFramework Board Skin --%>
+<eni:eniTreeList runat="server" CssClass="eniTreeList-Board" SkinID="Board"
+    Width="100%" BackColor="White" AutoGenerateColumns="False">
+    <Border BorderWidth="0px"/>
+    <Images SpriteCssFilePath="{0}/sprite.css">
+        <ExpandedButton Width="0px" Height="1px"></ExpandedButton>
+    </Images>
+    <Settings HorizontalScrollBarMode="Auto" VerticalScrollBarMode="Auto"/>
+    <Styles CssFilePath="{0}/styles.css" CssPostfix="eniThm">
+        <Node CssClass="Board_Node" ForeColor="#333333"></Node>
+        <AlternatingNode CssClass="Board_AlternatingNode" ForeColor="#333333"></AlternatingNode>
+        <Cell CssClass="Board_Cell">
+            <Paddings PaddingTop="5px" PaddingBottom="1px" PaddingLeft="3px" PaddingRight="3px" />
+        </Cell>
+        <Indent CssClass="Board_Indent">
+            <Paddings Padding="0px" />
+        </Indent>
+        <IndentWithButton CssClass="Board_IndentWithButton">
+            <Paddings PaddingLeft="15px" />
+        </IndentWithButton>
+        <Header CssClass="Board_Header" HorizontalAlign="Center" Font-Bold="true">
+            <Border BorderWidth="0px"/>
+            <BorderBottom BorderWidth="1px" BorderStyle="Solid" BorderColor="#C0C0C0" />
+            <Paddings PaddingLeft="0px" PaddingRight="0px" PaddingTop="2px" PaddingBottom="0px" />
+        </Header>
+        <LoadingPanel ImageSpacing="5" />
+        <PagerBottomPanel HorizontalAlign="Center">
+            <BorderTop BorderWidth="1px" BorderStyle="Solid" BorderColor="#C0C0C0" />
+            <Paddings Padding="0px" />
+        </PagerBottomPanel>
+    </Styles>
+    <StylesPager>
+        <CurrentPageNumber Font-Bold="true" ForeColor="#0033FF" BackColor="Transparent">
+            <Border BorderWidth="0px" />
+            <Paddings PaddingTop="6px" PaddingBottom="5px" PaddingLeft="4px" PaddingRight="4px" />
+        </CurrentPageNumber>
+    </StylesPager>
+</eni:eniTreeList>

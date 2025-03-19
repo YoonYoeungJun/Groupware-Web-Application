@@ -1,0 +1,18 @@
+﻿<%@ Register TagPrefix="dx" Namespace="DevExpress.Data" Assembly="DevExpress.Data.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Web" Assembly="DevExpress.Web.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="eni" Namespace="eniFramework.WebApp.Controls" Assembly="eniFramework.WebApp.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" %>
+
+<%-- eniFramework Default Skin --%>
+<eni:eniTokenBox runat="server" CssFilePath="{0}/styles.css" CssPostfix="eniThm"
+	SpriteCssFilePath="{0}/sprite.css">
+    <LoadingPanelStyle ImageSpacing="5" />
+</eni:eniTokenBox>
+
+<%-- eniFramework Advanced-01 Skin --%>
+<eni:eniTokenBox runat="server" CssFilePath="{0}/styles.css" CssPostfix="eniThm" SpriteCssFilePath="{0}/sprite.css" SkinID="Advanced-01">
+    <TokenStyle CssClass="Advanced-01_TokenStyle"></TokenStyle>
+    <TokenRemoveButtonStyle CssClass="Advanced-01_RemoveStyle"></TokenRemoveButtonStyle>
+    <TokenTextStyle CssClass="Advanced-01_TextStyle"></TokenTextStyle>
+    <FocusedStyle CssClass="Advanced-01_FocusedStyle"></FocusedStyle>
+    <LoadingPanelStyle ImageSpacing="5" />
+</eni:eniTokenBox>

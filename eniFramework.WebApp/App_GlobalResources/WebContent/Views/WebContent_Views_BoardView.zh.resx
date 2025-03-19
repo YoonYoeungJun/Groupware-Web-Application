@@ -1,0 +1,798 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CSTRESX00001" xml:space="preserve">
+    <value>公告栏</value>
+    <comment>게시판</comment>
+  </data>
+  <data name="CSTRESX00002" xml:space="preserve">
+    <value>菜单</value>
+    <comment>메뉴</comment>
+  </data>
+  <data name="CSTRESX00003" xml:space="preserve">
+    <value>显示菜单.</value>
+    <comment>메뉴를 표시 합니다.</comment>
+  </data>
+  <data name="CSTRESX00004" xml:space="preserve">
+    <value>输入2字以上关键词</value>
+    <comment>검색어를 2글자 이상 입력하세요.</comment>
+  </data>
+  <data name="CSTRESX00005" xml:space="preserve">
+    <value>搜索</value>
+    <comment>검색</comment>
+  </data>
+  <data name="CSTRESX00006" xml:space="preserve">
+    <value>搜索公告栏.</value>
+    <comment>게시판에서 검색합니다.</comment>
+  </data>
+  <data name="CSTRESX00007" xml:space="preserve">
+    <value>上一封</value>
+    <comment>이전글</comment>
+  </data>
+  <data name="CSTRESX00008" xml:space="preserve">
+    <value>确认目前文章,上一封.</value>
+    <comment>현재 게시글의 이전글을 확인합니다.</comment>
+  </data>
+  <data name="CSTRESX00009" xml:space="preserve">
+    <value>下一封</value>
+    <comment>다음글</comment>
+  </data>
+  <data name="CSTRESX00010" xml:space="preserve">
+    <value>确认目前文章,下一封</value>
+    <comment>현재 게시글의 다음글을 확인합니다.</comment>
+  </data>
+  <data name="CSTRESX00011" xml:space="preserve">
+    <value>回复</value>
+    <comment>답글</comment>
+  </data>
+  <data name="CSTRESX00012" xml:space="preserve">
+    <value>制作目前文章,回复</value>
+    <comment>현재 게시글에 답을을 작성합니다.</comment>
+  </data>
+  <data name="CSTRESX00013" xml:space="preserve">
+    <value>修改</value>
+    <comment>수정</comment>
+  </data>
+  <data name="CSTRESX00014" xml:space="preserve">
+    <value>修改目前文章.</value>
+    <comment>현재 게시글을 수정합니다.</comment>
+  </data>
+  <data name="CSTRESX00015" xml:space="preserve">
+    <value>保存</value>
+    <comment>저장</comment>
+  </data>
+  <data name="CSTRESX00016" xml:space="preserve">
+    <value>保存目前文章.</value>
+    <comment>현재 게시글을 저장합니다.</comment>
+  </data>
+  <data name="CSTRESX00017" xml:space="preserve">
+    <value>草稿箱</value>
+    <comment>임시보관</comment>
+  </data>
+  <data name="CSTRESX00018" xml:space="preserve">
+    <value>制作中的文章草稿箱.</value>
+    <comment>작성중인 게시글을 임시보관 합니다.</comment>
+  </data>
+  <data name="CSTRESX00019" xml:space="preserve">
+    <value>取消</value>
+    <comment>취소</comment>
+  </data>
+  <data name="CSTRESX00020" xml:space="preserve">
+    <value>取消目前模式.</value>
+    <comment>현재 모드를 취소 합니다.</comment>
+  </data>
+  <data name="CSTRESX00021" xml:space="preserve">
+    <value>删除</value>
+    <comment>삭제</comment>
+  </data>
+  <data name="CSTRESX00022" xml:space="preserve">
+    <value>文章删除.</value>
+    <comment>게시글을 삭제합니다.</comment>
+  </data>
+  <data name="CSTRESX00023" xml:space="preserve">
+    <value>目录</value>
+    <comment>목록</comment>
+  </data>
+  <data name="CSTRESX00024" xml:space="preserve">
+    <value>返回到公告栏目录.</value>
+    <comment>게시판 리스트로 되돌아 갑니다.</comment>
+  </data>
+  <data name="CSTRESX00025" xml:space="preserve">
+    <value>写做</value>
+    <comment>글쓰기</comment>
+  </data>
+  <data name="CSTRESX00026" xml:space="preserve">
+    <value>有关公告栏,制作写做.</value>
+    <comment>해당 게시판에 글을 작성합니다.</comment>
+  </data>
+  <data name="CSTRESX00027" xml:space="preserve">
+    <value>标记公告栏合并号码.</value>
+    <comment>게시판 통합 번호를 표시합니다.</comment>
+  </data>
+  <data name="CSTRESX00028" xml:space="preserve">
+    <value>标题</value>
+    <comment>제목</comment>
+  </data>
+  <data name="CSTRESX00029" xml:space="preserve">
+    <value>标记标题.</value>
+    <comment>제목을 표시합니다.</comment>
+  </data>
+  <data name="CSTRESX00030" xml:space="preserve">
+    <value>制作者</value>
+    <comment>작성자</comment>
+  </data>
+  <data name="CSTRESX00031" xml:space="preserve">
+    <value>标记文章制作者.</value>
+    <comment>게시글 작성자를 표시합니다.</comment>
+  </data>
+  <data name="CSTRESX00032" xml:space="preserve">
+    <value>制作日</value>
+    <comment>작성일</comment>
+  </data>
+  <data name="CSTRESX00033" xml:space="preserve">
+    <value>标记文章制作日.</value>
+    <comment>게시글 작성일을 표시합니다.</comment>
+  </data>
+  <data name="CSTRESX00034" xml:space="preserve">
+    <value>查询</value>
+    <comment>조회</comment>
+  </data>
+  <data name="CSTRESX00035" xml:space="preserve">
+    <value>标记文章查询的次数.</value>
+    <comment>게시글을 조회된 횟수를 표시합니다.</comment>
+  </data>
+  <data name="CSTRESX00036" xml:space="preserve">
+    <value>推荐</value>
+    <comment>추천</comment>
+  </data>
+  <data name="CSTRESX00037" xml:space="preserve">
+    <value>标记文章推荐次数.</value>
+    <comment>게시글 추천된 횟수를 표시합니다.</comment>
+  </data>
+  <data name="CSTRESX00038" xml:space="preserve">
+    <value>类别</value>
+    <comment>카테고리</comment>
+  </data>
+  <data name="CSTRESX00039" xml:space="preserve">
+    <value>选择公告栏</value>
+    <comment>게시판선택</comment>
+  </data>
+  <data name="CSTRESX00040" xml:space="preserve">
+    <value>请选择公告栏.</value>
+    <comment>게시판을 선택하세요.</comment>
+  </data>
+  <data name="CSTRESX00041" xml:space="preserve">
+    <value>选择Group</value>
+    <comment>그룹선택</comment>
+  </data>
+  <data name="CSTRESX00042" xml:space="preserve">
+    <value>请选择公告栏Group</value>
+    <comment>게시판 그룹을 선택하세요.</comment>
+  </data>
+  <data name="CSTRESX00043" xml:space="preserve">
+    <value>选择话题</value>
+    <comment>말머리선택</comment>
+  </data>
+  <data name="CSTRESX00044" xml:space="preserve">
+    <value>文章目录,选择显示的话题.</value>
+    <comment>게시글 리스트에서 보여질 말머리를 선택하세요.</comment>
+  </data>
+  <data name="CSTRESX00045" xml:space="preserve">
+    <value>公告事项</value>
+    <comment>공지사항</comment>
+  </data>
+  <data name="CSTRESX00046" xml:space="preserve">
+    <value>公告事项打勾时,在公告栏第一个显示.</value>
+    <comment>공지사항 채크시 제일 게시판의 제일 위에 표시됩니다.</comment>
+  </data>
+  <data name="CSTRESX00047" xml:space="preserve">
+    <value>为止</value>
+    <comment>까지</comment>
+  </data>
+  <data name="CSTRESX00048" xml:space="preserve">
+    <value>标题</value>
+    <comment>제목</comment>
+  </data>
+  <data name="CSTRESX00049" xml:space="preserve">
+    <value>请输入文章标题</value>
+    <comment>게시글 제목을 입력하세요.</comment>
+  </data>
+  <data name="CSTRESX00050" xml:space="preserve">
+    <value>取消</value>
+    <comment>취소</comment>
+  </data>
+  <data name="CSTRESX00051" xml:space="preserve">
+    <value>确认</value>
+    <comment>확인</comment>
+  </data>
+  <data name="CSTRESX00052" xml:space="preserve">
+    <value>自定义颜色</value>
+    <comment>사용자 지정 색상</comment>
+  </data>
+  <data name="CSTRESX00053" xml:space="preserve">
+    <value>指定文章标题颜色.</value>
+    <comment>게시글 제목의 색상을 지정합니다.</comment>
+  </data>
+  <data name="CSTRESX00054" xml:space="preserve">
+    <value>粗体</value>
+    <comment>굵게</comment>
+  </data>
+  <data name="CSTRESX00055" xml:space="preserve">
+    <value>标记文章标题为粗体.</value>
+    <comment>게시글 제목을 굵게 표시합니다.</comment>
+  </data>
+  <data name="CSTRESX00056" xml:space="preserve">
+    <value>附加文件</value>
+    <comment>파일첨부</comment>
+  </data>
+  <data name="CSTRESX00057" xml:space="preserve">
+    <value>标记附加文件目录板.</value>
+    <comment>첨부파일 리스트 패널을 표시 합니다.</comment>
+  </data>
+  <data name="CSTRESX00058" xml:space="preserve">
+    <value>云盘</value>
+    <comment>웹하드에서</comment>
+  </data>
+  <data name="CSTRESX00059" xml:space="preserve">
+    <value>云盘读取.</value>
+    <comment>웹하드에서 가져옵니다.</comment>
+  </data>
+  <data name="CSTRESX00060" xml:space="preserve">
+    <value>删除</value>
+    <comment>삭제</comment>
+  </data>
+  <data name="CSTRESX00061" xml:space="preserve">
+    <value>附加文件删除.</value>
+    <comment>첨부된 파일을 삭제 합니다.</comment>
+  </data>
+  <data name="CSTRESX00062" xml:space="preserve">
+    <value>无附加文件.</value>
+    <comment>첨부된 파일이 없습니다.</comment>
+  </data>
+  <data name="CSTRESX00063" xml:space="preserve">
+    <value>选择</value>
+    <comment>선택</comment>
+  </data>
+  <data name="CSTRESX00064" xml:space="preserve">
+    <value>文件名</value>
+    <comment>파일명</comment>
+  </data>
+  <data name="CSTRESX00065" xml:space="preserve">
+    <value>确认上传的文件名.</value>
+    <comment>업로드된 파일명을 확인합니다.</comment>
+  </data>
+  <data name="CSTRESX00066" xml:space="preserve">
+    <value>扩展名</value>
+    <comment>확장자</comment>
+  </data>
+  <data name="CSTRESX00067" xml:space="preserve">
+    <value>确认上传的文件扩展名.</value>
+    <comment>업로드된 파일 확장자를 확인합니다.</comment>
+  </data>
+  <data name="CSTRESX00068" xml:space="preserve">
+    <value>容量</value>
+    <comment>용량</comment>
+  </data>
+  <data name="CSTRESX00069" xml:space="preserve">
+    <value>确认上传的文件容量</value>
+    <comment>업로드된 파일의 용량을 확인합니다.</comment>
+  </data>
+  <data name="CSTRESX00070" xml:space="preserve">
+    <value>Tag</value>
+    <comment>태그</comment>
+  </data>
+  <data name="CSTRESX00071" xml:space="preserve">
+    <value>Tag和Tag逗号(,)来区分, 最多可输入10个.</value>
+    <comment>태그와 태그는 쉼표(,)로 구분하며, 최대 10개까지 입력가능합니다.</comment>
+  </data>
+  <data name="CSTRESX00072" xml:space="preserve">
+    <value>搜索请使用单词.</value>
+    <comment>검색에 사용될 단어를 위주로 사용하여 주세요.</comment>
+  </data>
+  <data name="CSTRESX00073" xml:space="preserve">
+    <value>公开设置</value>
+    <comment>공개설정</comment>
+  </data>
+  <data name="CSTRESX00074" xml:space="preserve">
+    <value>全部公开</value>
+    <comment>전체공개</comment>
+  </data>
+  <data name="CSTRESX00075" xml:space="preserve">
+    <value>内部公开</value>
+    <comment>내부공개</comment>
+  </data>
+  <data name="CSTRESX00076" xml:space="preserve">
+    <value>相同事业部</value>
+    <comment>같은사업부만</comment>
+  </data>
+  <data name="CSTRESX00077" xml:space="preserve">
+    <value>选择相同事业部使用者才可阅览.</value>
+    <comment>채크시 나와 같은 사업부 사용자만 열람가능하게 합니다.</comment>
+  </data>
+  <data name="CSTRESX00078" xml:space="preserve">
+    <value>相同工厂</value>
+    <comment>같은공장만</comment>
+  </data>
+  <data name="CSTRESX00079" xml:space="preserve">
+    <value>选择相同工厂使用者才可阅览.</value>
+    <comment>채크시 나와 같은 공장 사용자만 열람가능하게 합니다.</comment>
+  </data>
+  <data name="CSTRESX00080" xml:space="preserve">
+    <value>相同部门</value>
+    <comment>같은부서만</comment>
+  </data>
+  <data name="CSTRESX00081" xml:space="preserve">
+    <value>选择相同部门使用者才可阅览</value>
+    <comment>채크시 나와 같은 부서의 사용자만 열람가능하게 합니다.</comment>
+  </data>
+  <data name="CSTRESX00082" xml:space="preserve">
+    <value>现场公开</value>
+    <comment>현장공개</comment>
+  </data>
+  <data name="CSTRESX00083" xml:space="preserve">
+    <value>选择现场组的使用者才可阅览.</value>
+    <comment>채크시 현장계정그룹의 사용자들은 열람가능하게 합니다.</comment>
+  </data>
+  <data name="CSTRESX00084" xml:space="preserve">
+    <value>内部协力社公开</value>
+    <comment>내부협력사공개</comment>
+  </data>
+  <data name="CSTRESX00085" xml:space="preserve">
+    <value>选择内部协力社组的使用者才可阅览.</value>
+    <comment>채크시 내부협력사 계정그룹의 사용자들은 열람가능하게 합니다.</comment>
+  </data>
+  <data name="CSTRESX00086" xml:space="preserve">
+    <value>客户公开</value>
+    <comment>고객사공개</comment>
+  </data>
+  <data name="CSTRESX00087" xml:space="preserve">
+    <value>选择客户组的使用者才可阅览.</value>
+    <comment>채크시 고객사 계정그룹의 사용자들은 열람가능하게 합니다.</comment>
+  </data>
+  <data name="CSTRESX00088" xml:space="preserve">
+    <value>外部协力社公开</value>
+    <comment>외부협력사공개</comment>
+  </data>
+  <data name="CSTRESX00089" xml:space="preserve">
+    <value>选择外部协力社组的使用者才可阅览.</value>
+    <comment>채크시 외부협력사 계정그룹의 사용자들은 열람가능하게 합니다.</comment>
+  </data>
+  <data name="CSTRESX00090" xml:space="preserve">
+    <value>- 全部公开,Groupware登陆的使用者都可阅览.</value>
+    <comment>- 전체공개이면 그룹웨어에 로그인된 사용자는 모두 열람가능합니다.</comment>
+  </data>
+  <data name="CSTRESX00091" xml:space="preserve">
+    <value>- DIC公开的协力社或客户,因登录权限限制,无法确认.</value>
+    <comment>- 디아이씨공개이면 협력사 또는 고객사권한으로 로그인한 사용자는 확인할수 없습니다.</comment>
+  </data>
+  <data name="CSTRESX00092" xml:space="preserve">
+    <value>搜索设置</value>
+    <comment>검색설정</comment>
+  </data>
+  <data name="CSTRESX00093" xml:space="preserve">
+    <value>允许搜索</value>
+    <comment>검색허용</comment>
+  </data>
+  <data name="CSTRESX00094" xml:space="preserve">
+    <value>允许在Groupware搜索.</value>
+    <comment>그룹웨어에서 검색되는것을 허용합니다.</comment>
+  </data>
+  <data name="CSTRESX00095" xml:space="preserve">
+    <value>写信画面加载中.请稍等.</value>
+    <comment>글쓰기화면을 로딩중입니다. 잠시만 기다려 주세요.</comment>
+  </data>
+  <data name="CSTRESX00096" xml:space="preserve">
+    <value>文件上传到服务器中,发送服务器内部错误,导致无法上传.</value>
+    <comment>파일을 서버에 업로드 중 서버 내부오류가 발생하여 업로드 할 수 없습니다.</comment>
+  </data>
+  <data name="CSTRESX00097" xml:space="preserve">
+    <value>无法查找选择的文件,导致上传取消.</value>
+    <comment>선택한 파일을 찾을수 없어 업로드가 취소되었습니다.</comment>
+  </data>
+  <data name="CSTRESX00098" xml:space="preserve">
+    <value>最大添加附件容量为6G.</value>
+    <comment>최대 첨부가능한 용량 6G 를 넘을수 없습니다.</comment>
+  </data>
+  <data name="CSTRESX00099" xml:space="preserve">
+    <value>选择的扩展名,无法上传.</value>
+    <comment>선택한 확장자는 업로드 할 수 없습니다.</comment>
+  </data>
+  <data name="CSTRESX00100" xml:space="preserve">
+    <value>回帖</value>
+    <comment>덧글</comment>
+  </data>
+  <data name="CSTRESX00101" xml:space="preserve">
+    <value>个</value>
+    <comment>개</comment>
+  </data>
+  <data name="CSTRESX00102" xml:space="preserve">
+    <value>查询数</value>
+    <comment>조회수</comment>
+  </data>
+  <data name="CSTRESX00103" xml:space="preserve">
+    <value>推荐</value>
+    <comment>추천</comment>
+  </data>
+  <data name="CSTRESX00104" xml:space="preserve">
+    <value>打印</value>
+    <comment>인쇄</comment>
+  </data>
+  <data name="CSTRESX00105" xml:space="preserve">
+    <value>打印帖子.</value>
+    <comment>게시물을 인쇄합니다.</comment>
+  </data>
+  <data name="CSTRESX00106" xml:space="preserve">
+    <value>跟帖</value>
+    <comment>답글</comment>
+  </data>
+  <data name="CSTRESX00107" xml:space="preserve">
+    <value>跟帖公告.</value>
+    <comment>답글을 게시합니다.</comment>
+  </data>
+  <data name="CSTRESX00108" xml:space="preserve">
+    <value>修改</value>
+    <comment>수정</comment>
+  </data>
+  <data name="CSTRESX00109" xml:space="preserve">
+    <value>跟帖修改.</value>
+    <comment>답글을 수정합니다.</comment>
+  </data>
+  <data name="CSTRESX00110" xml:space="preserve">
+    <value>删除</value>
+    <comment>삭제</comment>
+  </data>
+  <data name="CSTRESX00111" xml:space="preserve">
+    <value>跟帖删除.</value>
+    <comment>답글을 삭제합니다.</comment>
+  </data>
+  <data name="CSTRESX00112" xml:space="preserve">
+    <value>修改取消</value>
+    <comment>수정 취소</comment>
+  </data>
+  <data name="CSTRESX00113" xml:space="preserve">
+    <value>跟帖修改取消.</value>
+    <comment>답글 수정을 취소합니다.</comment>
+  </data>
+  <data name="CSTRESX00114" xml:space="preserve">
+    <value>답글 달기</value>
+    <comment>답글 달기</comment>
+  </data>
+  <data name="CSTRESX00115" xml:space="preserve">
+    <value>답글을 게시합니다.</value>
+    <comment>답글을 게시합니다.</comment>
+  </data>
+  <data name="CSTRESX00116" xml:space="preserve">
+    <value>덧글 달기</value>
+    <comment>덧글 달기</comment>
+  </data>
+  <data name="CSTRESX00117" xml:space="preserve">
+    <value>덧글을 게시합니다.</value>
+    <comment>덧글을 게시합니다.</comment>
+  </data>
+  <data name="CSTRESX00118" xml:space="preserve">
+    <value>公告事项</value>
+    <comment>공지사항</comment>
+  </data>
+  <data name="CSTRESX00119" xml:space="preserve">
+    <value>新的文章</value>
+    <comment>새로운 글</comment>
+  </data>
+  <data name="CSTRESX00120" xml:space="preserve">
+    <value>阅读率高的公告</value>
+    <comment>많이 본 게시글</comment>
+  </data>
+  <data name="CSTRESX00121" xml:space="preserve">
+    <value>有{0}个附加文件.</value>
+    <comment>{0}개의 첨부파일이 있습니다.</comment>
+  </data>
+  <data name="CSTRESX00122" xml:space="preserve">
+    <value>有{0}个回帖.</value>
+    <comment>{0}개의 덧글이 있습니다.</comment>
+  </data>
+  <data name="CSTRESX00123" xml:space="preserve">
+    <value>yyyy年 MM月 dd日 HH时 mm分 ss秒</value>
+    <comment>yyyy년 MM월 dd일 HH시 mm분 ss초</comment>
+  </data>
+  <data name="CSTRESX00124" xml:space="preserve">
+    <value>{0}名确认.</value>
+    <comment>{0}명 확인 하였습니다.</comment>
+  </data>
+  <data name="CSTRESX00125" xml:space="preserve">
+    <value>{0}名推荐.</value>
+    <comment>{0}명이 추천 하였습니다.</comment>
+  </data>
+  <data name="CSTRESX00126" xml:space="preserve">
+    <value>跟帖</value>
+    <comment>답글</comment>
+  </data>
+  <data name="CSTRESX00127" xml:space="preserve">
+    <value>全部公告栏</value>
+    <comment>전체 게시판</comment>
+  </data>
+  <data name="CSTRESX00128" xml:space="preserve">
+    <value>全部公告栏</value>
+    <comment>전체 게시판 입니다.</comment>
+  </data>
+  <data name="CSTRESX00129" xml:space="preserve">
+    <value>取消跟帖</value>
+    <comment>답글 취소</comment>
+  </data>
+  <data name="CSTRESX00130" xml:space="preserve">
+    <value>此电脑</value>
+    <comment>내 PC</comment>
+  </data>
+  <data name="CSTRESX00131" xml:space="preserve">
+    <value>一般附加文件</value>
+    <comment>일반 첨부파일</comment>
+  </data>
+  <data name="CSTRESX00132" xml:space="preserve">
+    <value />
+    <comment>PC로 저장</comment>
+  </data>
+  <data name="CSTRESX00133" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00134" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00135" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00136" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00137" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00138" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00139" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00140" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00141" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00142" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00143" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00144" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00145" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00146" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00147" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00148" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00149" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00150" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00151" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00152" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00153" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00154" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00155" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00156" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00157" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00158" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00159" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00160" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00161" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00162" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00163" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00164" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00165" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00166" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00167" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00168" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00169" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00170" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00171" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00172" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00173" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00174" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00175" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00176" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00177" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00178" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00179" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00180" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00181" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00182" xml:space="preserve">
+    <value />
+  </data>
+</root>

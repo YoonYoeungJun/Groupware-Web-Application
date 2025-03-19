@@ -1,0 +1,83 @@
+﻿<%@ Register TagPrefix="dx" Namespace="DevExpress.Data" Assembly="DevExpress.Data.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Web" Assembly="DevExpress.Web.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="eni" Namespace="eniFramework.WebApp.Controls" Assembly="eniFramework.WebApp.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" %>
+
+<%-- eniFramework Default Mode Skin --%>
+<eni:eniTreeView runat="server">
+    <Styles CssPostfix="eniThm" CssFilePath="{0}/styles.css" >
+    </Styles>
+    <Images SpriteCssFilePath="{0}/sprite.css">
+    <NodeLoadingPanel Url="Web/tvNodeLoading.gif" />
+    </Images>
+</eni:eniTreeView>
+
+<%-- eniFramework AdminMenu Skin --%>
+<eni:eniTreeView runat="server" AllowSelectNode="true" SkinID="BSL" Width="100%">
+    <Styles CssPostfix="eniThm" CssFilePath="{0}/styles.css">
+        <Node CssClass="FloatN">
+            <Paddings Padding="1px" />
+            <Border BorderWidth="1px" BorderStyle="Solid" BorderColor="White" />
+            <HoverStyle BackColor="#C2C2C2">
+                <BackgroundImage ImageUrl="none" />
+                <Border BorderWidth="1px" BorderStyle="Solid" BorderColor="#C2C2C2" />
+            </HoverStyle>
+        </Node>
+        <NodeImage Paddings-PaddingTop="0px" CssClass="VerticalAlignT Margin0 Margin5R -Margin1T"></NodeImage>
+        <NodeText>
+            <Paddings Padding="0px" PaddingTop="5px" />
+        </NodeText>
+    </Styles>
+    <Images SpriteCssFilePath="{0}/sprite.css">
+        <NodeImage Width="16px" Height="16px"></NodeImage>
+        <NodeLoadingPanel Url="Web/tvNodeLoading.gif" />
+    </Images>
+</eni:eniTreeView>
+
+<%-- eniFramework BoardMenu Skin --%>
+<eni:eniTreeView runat="server" AllowSelectNode="true" SkinID="BoardMenu">
+    <Images SpriteCssFilePath="{0}/sprite.css">
+        <NodeImage Width="10px" Height="11px"></NodeImage>
+        <NodeLoadingPanel Url="Web/tvNodeLoading.gif" />
+    </Images>
+    <Styles CssPostfix="eniThm" CssFilePath="{0}/styles.css">
+        <Link>
+            <HoverFont Bold="true" />
+        </Link>
+        <Node>
+            <HoverStyle BackColor="White">
+                <BackgroundImage ImageUrl="none" />
+                <Border BorderColor="White" />
+            </HoverStyle>
+            <SelectedStyle BackColor="White">
+                <BackgroundImage ImageUrl="none" />
+                <Border BorderColor="White" />
+            </SelectedStyle>
+        </Node>
+        <NodeText BackColor="#F6F6F6"></NodeText>
+        <NodeImage Paddings-PaddingTop="0px"></NodeImage>
+    </Styles>
+</eni:eniTreeView>
+
+
+<%-- eniFramework Advanced-01 Mode Skin --%>
+<eni:eniTreeView runat="server" SkinID="Advanced-01">
+    <Images SpriteCssFilePath="{0}/sprite.css">
+        <NodeImage Width="26px" Height="16px"></NodeImage>
+        <NodeLoadingPanel Url="Web/tvNodeLoading.gif" />
+    </Images>
+    <Styles CssPostfix="eniThm" CssFilePath="{0}/styles.css">
+        <Node>
+            <HoverStyle BackColor="#EEF4FF">
+                <BackgroundImage ImageUrl="none" />
+                <Border BorderColor="#60A9F1" />
+            </HoverStyle>
+            <SelectedStyle BackColor="#D6E4FE">
+                <BackgroundImage ImageUrl="none" />
+                <Border BorderColor="#60A9F1" />
+            </SelectedStyle>
+        </Node>
+        <NodeImage>
+            <Paddings PaddingTop="3px"></Paddings>
+        </NodeImage>
+    </Styles>
+</eni:eniTreeView>

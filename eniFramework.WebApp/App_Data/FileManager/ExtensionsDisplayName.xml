@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Names>
+  <Extension Extension=".txt" DisplayName="Text Document (.txt)" />
+  <Extension Extension=".rtf" DisplayName="Rich Text Document (.rtf)" />
+  <Extension Extension=".xml" DisplayName="XML File (.xml)" />
+  <Extension Extension=".png" DisplayName="PNG image (.png)" />
+  <Extension Extension=".jpg" DisplayName="JPEG image (.jpg)" />
+  <Extension Extension=".mp3" DisplayName="MPEG Layer 3 Audio File (.mp3)" />
+  <Extension Extension=".avi" DisplayName="AVI File (.avi)" />
+  <Extension Extension=".zip" DisplayName="Compressed (zipped) Folder (.zip)" />
+  <Extension Extension=".xls" DisplayName="Office Excel File" />
+  <Extension Extension=".xlsx" DisplayName="Office Excel File" />
+</Names>

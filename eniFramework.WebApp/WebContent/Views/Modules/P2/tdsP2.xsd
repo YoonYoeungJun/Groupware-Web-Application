@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="tdsP2" targetNamespace="http://tempuri.org/tdsP2.xsd" xmlns:mstns="http://tempuri.org/tdsP2.xsd" xmlns="http://tempuri.org/tdsP2.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="tdsP2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="tdsP2" msprop:Generator_UserDSName="tdsP2">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="P2000MA1" msprop:Generator_TableClassName="P2000MA1DataTable" msprop:Generator_TableVarName="tableP2000MA1" msprop:Generator_TablePropName="P2000MA1" msprop:Generator_RowDeletingName="P2000MA1RowDeleting" msprop:Generator_RowChangingName="P2000MA1RowChanging" msprop:Generator_RowEvHandlerName="P2000MA1RowChangeEventHandler" msprop:Generator_RowDeletedName="P2000MA1RowDeleted" msprop:Generator_UserTableName="P2000MA1" msprop:Generator_RowChangedName="P2000MA1RowChanged" msprop:Generator_RowEvArgName="P2000MA1RowChangeEvent" msprop:Generator_RowClassName="P2000MA1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" minOccurs="0" />
+              <xs:element name="ADDRESS" msprop:Generator_ColumnVarNameInTable="columnADDRESS" msprop:Generator_ColumnPropNameInRow="ADDRESS" msprop:Generator_ColumnPropNameInTable="ADDRESSColumn" msprop:Generator_UserColumnName="ADDRESS" type="xs:string" minOccurs="0" />
+              <xs:element name="PASSWORD" msprop:Generator_ColumnVarNameInTable="columnPASSWORD" msprop:Generator_ColumnPropNameInRow="PASSWORD" msprop:Generator_ColumnPropNameInTable="PASSWORDColumn" msprop:Generator_UserColumnName="PASSWORD" type="xs:string" minOccurs="0" />
+              <xs:element name="FIRST_NAME" msprop:Generator_ColumnVarNameInTable="columnFIRST_NAME" msprop:Generator_ColumnPropNameInRow="FIRST_NAME" msprop:Generator_ColumnPropNameInTable="FIRST_NAMEColumn" msprop:Generator_UserColumnName="FIRST_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="LAST_NAME" msprop:Generator_ColumnVarNameInTable="columnLAST_NAME" msprop:Generator_ColumnPropNameInRow="LAST_NAME" msprop:Generator_ColumnPropNameInTable="LAST_NAMEColumn" msprop:Generator_UserColumnName="LAST_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="MAX_SIZE" msprop:Generator_ColumnVarNameInTable="columnMAX_SIZE" msprop:Generator_ColumnPropNameInRow="MAX_SIZE" msprop:Generator_ColumnPropNameInTable="MAX_SIZEColumn" msprop:Generator_UserColumnName="MAX_SIZE" type="xs:int" minOccurs="0" />
+              <xs:element name="SIZE" msprop:Generator_ColumnVarNameInTable="columnSIZE" msprop:Generator_ColumnPropNameInRow="SIZE" msprop:Generator_ColumnPropNameInTable="SIZEColumn" msprop:Generator_UserColumnName="SIZE" type="xs:decimal" minOccurs="0" />
+              <xs:element name="IMAP_FORDER_CNT" msprop:Generator_ColumnVarNameInTable="columnIMAP_FORDER_CNT" msprop:Generator_ColumnPropNameInRow="IMAP_FORDER_CNT" msprop:Generator_ColumnPropNameInTable="IMAP_FORDER_CNTColumn" msprop:Generator_UserColumnName="IMAP_FORDER_CNT" type="xs:int" minOccurs="0" />
+              <xs:element name="MESSAGE_CNT" msprop:Generator_ColumnVarNameInTable="columnMESSAGE_CNT" msprop:Generator_ColumnPropNameInRow="MESSAGE_CNT" msprop:Generator_ColumnPropNameInTable="MESSAGE_CNTColumn" msprop:Generator_UserColumnName="MESSAGE_CNT" type="xs:int" minOccurs="0" />
+              <xs:element name="LAST_LOGIN_DT" msprop:Generator_ColumnVarNameInTable="columnLAST_LOGIN_DT" msprop:Generator_ColumnPropNameInRow="LAST_LOGIN_DT" msprop:Generator_ColumnPropNameInTable="LAST_LOGIN_DTColumn" msprop:Generator_UserColumnName="LAST_LOGIN_DT" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="IS_AD" msprop:Generator_ColumnVarNameInTable="columnIS_AD" msprop:Generator_ColumnPropNameInRow="IS_AD" msprop:Generator_ColumnPropNameInTable="IS_ADColumn" msprop:Generator_UserColumnName="IS_AD" type="xs:boolean" minOccurs="0" />
+              <xs:element name="AD_USER_NAME" msprop:Generator_ColumnVarNameInTable="columnAD_USER_NAME" msprop:Generator_ColumnPropNameInRow="AD_USER_NAME" msprop:Generator_ColumnPropNameInTable="AD_USER_NAMEColumn" msprop:Generator_UserColumnName="AD_USER_NAME" type="xs:string" minOccurs="0" />
+              <xs:element name="AD_USER_LEVEL" msprop:Generator_ColumnVarNameInTable="columnAD_USER_LEVEL" msprop:Generator_ColumnPropNameInRow="AD_USER_LEVEL" msprop:Generator_ColumnPropNameInTable="AD_USER_LEVELColumn" msprop:Generator_UserColumnName="AD_USER_LEVEL" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

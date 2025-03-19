@@ -1,0 +1,205 @@
+﻿<%@ Register TagPrefix="dx" Namespace="DevExpress.Data" Assembly="DevExpress.Data.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Web" Assembly="DevExpress.Web.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="eni" Namespace="eniFramework.WebApp.Controls" Assembly="eniFramework.WebApp.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" %>
+
+<%-- eniFramework Default Mode Skin --%>
+<eni:eniGridView runat="server" CssFilePath="{0}/styles.css" CssPostfix="eniThm">
+	<Images SpriteCssFilePath="{0}/sprite.css">
+	</Images>
+    <SettingsPager CurrentPageNumberFormat="{0}" />
+    <Styles>
+        <Header SortingImageSpacing="5" />
+	    <LoadingPanel ImageSpacing="5" />
+    </Styles>	
+</eni:eniGridView>
+
+<%-- eniFramework Standard Mode Skin --%>
+<eni:eniGridView runat="server" CssFilePath="{0}/styles.css" CssPostfix="eniThm" CreateMode="StandardMode" SkinID="Standard"
+    style="background-color:#F5F5F5">
+    <Images SpriteCssFilePath="{0}/sprite.css"></Images>
+    <Settings ShowFilterRow="false" ShowFilterRowMenu="true" ShowHeaderFilterBlankItems="true" ShowFilterRowMenuLikeItem="True" 
+                ShowGroupedColumns="True" HorizontalScrollBarMode="Auto" VerticalScrollBarMode="Auto" ShowGroupPanel="false" 
+                ShowHeaderFilterButton="True" ShowStatusBar="Hidden"/>
+    <SettingsBehavior AllowFocusedRow="True" AllowSelectByRowClick="true" EnableRowHotTrack="true" ColumnResizeMode="Control" EnableCustomizationWindow="true"/>
+    <SettingsCookies StoreColumnsVisiblePosition="true" StoreColumnsWidth="false" StoreControlWidth="false" StoreFiltering="false" StoreGroupingAndSorting="true" StorePaging="false" />
+    <SettingsContextMenu Enabled="true" />
+    <SettingsEditing Mode="Batch" NewItemRowPosition="Top">
+        <BatchEditSettings EditMode="Cell" StartEditAction="DblClick" ShowConfirmOnLosingChanges="false"/>
+    </SettingsEditing>
+    <SettingsLoadingPanel Mode="Disabled" Text="처리중입니다.&hellip;"/>
+    <SettingsPager Position="Bottom" PageSize="100" PageNumberFormat="{0}" CurrentPageNumberFormat="{0}" LastPageButton-Visible="True" >
+        <PageSizeItemSettings Visible="true" Items="100, 200, 400, 800, 1200" DropDownImage-IconID="content_textbox_16x16" ShowAllItem="True"></PageSizeItemSettings>
+    </SettingsPager>
+    <Styles CssPostfix="eniThm" CssFilePath="{0}/styles.css" Cell-Wrap="False">
+        <AlternatingRow Enabled="True"></AlternatingRow>
+        <Header SortingImageSpacing="5px" ImageSpacing="5px" HorizontalAlign="Center"></Header>
+        <LoadingPanel ImageSpacing="5px"></LoadingPanel>
+    </Styles>
+    <Border BorderColor="#A5ACB5" BorderStyle="Solid" BorderWidth="1px" />
+    <Paddings Padding="0px" />
+</eni:eniGridView>
+
+<%-- eniFramework Standard Popup Skin --%>
+<eni:eniGridView runat="server" CssFilePath="{0}/styles.css" CssPostfix="eniThm" CreateMode="StandardMode" SkinID="Popup" Width="100%"
+    style="background-color:#F5F5F5">
+    <Images SpriteCssFilePath="{0}/sprite.css"></Images>
+    <Settings ShowFilterRow="false" ShowFilterRowMenu="true" ShowHeaderFilterBlankItems="true" ShowFilterRowMenuLikeItem="True" 
+                ShowGroupedColumns="True" HorizontalScrollBarMode="Auto" VerticalScrollBarMode="Auto" ShowGroupPanel="false" 
+                ShowHeaderFilterButton="True" ShowStatusBar="Hidden"/>
+    <SettingsBehavior AllowFocusedRow="True" AllowSelectByRowClick="true" EnableRowHotTrack="true" ColumnResizeMode="Control" EnableCustomizationWindow="true"/>
+    <SettingsCookies StoreColumnsVisiblePosition="true" StoreColumnsWidth="false" StoreControlWidth="false" StoreFiltering="false" StoreGroupingAndSorting="true" StorePaging="false" />
+    <SettingsContextMenu Enabled="true" />
+    <SettingsLoadingPanel Mode="Disabled" Text="처리중입니다.&hellip;"/>
+    <SettingsPager Position="Bottom" PageSize="100" PageNumberFormat="{0}" CurrentPageNumberFormat="{0}" LastPageButton-Visible="True" >
+        <PageSizeItemSettings Visible="true" Items="100, 200, 400, 800, 1200" DropDownImage-IconID="content_textbox_16x16" ShowAllItem="True"></PageSizeItemSettings>
+    </SettingsPager>
+    <Styles CssPostfix="eniThm" CssFilePath="{0}/styles.css" Cell-Wrap="False">
+        <AlternatingRow Enabled="True"></AlternatingRow>
+        <Header SortingImageSpacing="5px" ImageSpacing="5px" HorizontalAlign="Center"></Header>
+        <LoadingPanel ImageSpacing="5px"></LoadingPanel>
+    </Styles>
+    <Border BorderColor="#A5ACB5" BorderStyle="Solid" BorderWidth="1px" />
+    <Paddings Padding="0px" />
+</eni:eniGridView>
+
+<%-- eniFramework MailList(사용안함) Skin --%>
+<eni:eniGridView runat="server" CssFilePath="{0}/styles.css" CssPostfix="eniThm" CreateMode="DefaultMode" SkinID="MailList"
+    Width="100%" AutoGenerateColumns="False" KeyboardSupport="false">
+	<Images SpriteCssFilePath="{0}/sprite.css"></Images>
+    <Paddings Padding="0px" />
+    <BorderTop BorderWidth="1px" BorderStyle="Solid" BorderColor="#C0C0C0" />
+    <BorderLeft BorderWidth="0px" />
+    <BorderRight BorderWidth="0px" />
+    <BorderBottom BorderWidth="0px" />
+    <Styles>
+        <SearchPanel BorderBottom-BorderColor="#C0C0C0"/>
+        <GroupPanel>
+            <Paddings Padding="5" />
+        </GroupPanel>
+        <Header HorizontalAlign="Center" VerticalAlign="NotSet" SortingImageSpacing="5"></Header>
+        <AlternatingRow Enabled="False"></AlternatingRow>
+        <LoadingPanel ImageSpacing="5" />
+        <PagerTopPanel HorizontalAlign="Center"></PagerTopPanel>
+        <PagerBottomPanel HorizontalAlign="Center">
+            <BorderTop BorderWidth="1px" BorderStyle="Solid" BorderColor="#C0C0C0" />
+        </PagerBottomPanel>
+    </Styles>
+    <StylesPager>
+        <CurrentPageNumber Font-Bold="true" ForeColor="#0033FF" BackColor="Transparent">
+            <Paddings PaddingTop="6px" PaddingBottom="5px" PaddingLeft="4px" PaddingRight="4px" />
+            <Border BorderWidth="0px" />
+        </CurrentPageNumber>
+    </StylesPager>
+    <Settings   GroupFormat="{1}"
+                ShowFilterRow="false"
+                ShowFilterRowMenu="true"
+                ShowFilterRowMenuLikeItem="True" 
+                ShowHeaderFilterButton="True" 
+                ShowHeaderFilterBlankItems="true"
+                ShowGroupPanel="false" 
+                ShowGroupedColumns="True" 
+                ShowFooter="true"
+                ShowStatusBar="Hidden"
+                HorizontalScrollBarMode="Auto"
+                VerticalScrollBarMode="Auto" 
+                GridLines="Horizontal" />
+    <SettingsBehavior AutoExpandAllGroups="true" AllowSelectByRowClick="true" ColumnResizeMode="NextColumn" AllowFixedGroups="false"/>
+    <SettingsContextMenu Enabled="true"></SettingsContextMenu>
+    <SettingsDataSecurity AllowInsert="false" AllowEdit="false" AllowDelete="false" />
+    <SettingsSearchPanel Visible="true" ShowClearButton="True" />
+    <SettingsLoadingPanel Delay="1"/>
+    <SettingsPager Position="Bottom" PageSize="50" CurrentPageNumberFormat="{0}">
+        <Summary Visible="false"/>
+        <PageSizeItemSettings Visible="true" Items="25, 50, 100, 200, 300" />
+        <FirstPageButton Visible="true"></FirstPageButton>
+        <LastPageButton Visible="true"></LastPageButton>
+    </SettingsPager>
+</eni:eniGridView>
+
+<%-- eniFramework ContactsList Skin --%>
+<eni:eniGridView runat="server" CssFilePath="{0}/styles.css" CssPostfix="eniThm" CreateMode="DefaultMode" SkinID="ContactsList"
+    Width="100%" AutoGenerateColumns="False" KeyboardSupport="false">
+	<Images SpriteCssFilePath="{0}/sprite.css"></Images>
+    <Paddings Padding="0px" />
+    <BorderTop BorderWidth="0px"/>
+    <BorderLeft BorderWidth="0px" />
+    <BorderRight BorderWidth="0px" />
+    <BorderBottom BorderWidth="0px" />
+    <Styles>
+        <SearchPanel BorderBottom-BorderColor="#C0C0C0"/>
+        <GroupPanel>
+            <Paddings Padding="5" />
+        </GroupPanel>
+        <Header HorizontalAlign="Center" VerticalAlign="NotSet" SortingImageSpacing="5"></Header>
+        <AlternatingRow Enabled="False"></AlternatingRow>
+        <LoadingPanel ImageSpacing="5" />
+        <PagerTopPanel HorizontalAlign="Center"></PagerTopPanel>
+        <PagerBottomPanel HorizontalAlign="Center">
+            <BorderTop BorderWidth="1px" BorderStyle="Solid" BorderColor="#C0C0C0" />
+        </PagerBottomPanel>
+    </Styles>
+    <StylesPager>
+        <CurrentPageNumber Font-Bold="true" ForeColor="#0033FF" BackColor="Transparent">
+            <Paddings PaddingTop="6px" PaddingBottom="5px" PaddingLeft="4px" PaddingRight="4px" />
+            <Border BorderWidth="0px" />
+        </CurrentPageNumber>
+    </StylesPager>
+    <Settings   GroupFormat="{1}"
+                ShowFilterRow="false"
+                ShowFilterRowMenu="true"
+                ShowFilterRowMenuLikeItem="True" 
+                ShowHeaderFilterButton="True" 
+                ShowHeaderFilterBlankItems="true"
+                ShowGroupPanel="false" 
+                ShowGroupedColumns="True" 
+                ShowStatusBar="Hidden"
+                HorizontalScrollBarMode="Auto"
+                VerticalScrollBarMode="Auto" 
+                GridLines="Horizontal" />
+    <SettingsBehavior AutoExpandAllGroups="true" AllowSelectByRowClick="true" ColumnResizeMode="NextColumn" AllowFixedGroups="false"/>
+    <SettingsContextMenu Enabled="true"></SettingsContextMenu>
+    <SettingsDataSecurity AllowInsert="false" AllowEdit="false" AllowDelete="false" />
+    <SettingsSearchPanel Visible="true" ShowClearButton="True" />
+    <SettingsLoadingPanel Delay="1"/>
+    <SettingsPager Position="Bottom" PageSize="50" CurrentPageNumberFormat="{0}">
+        <Summary Visible="false"/>
+        <PageSizeItemSettings Visible="true" Items="25, 50, 100, 200, 300" />
+        <FirstPageButton Visible="true"></FirstPageButton>
+        <LastPageButton Visible="true"></LastPageButton>
+    </SettingsPager>
+</eni:eniGridView>
+
+
+<%-- eniFramework Advanced-01 Skin --%>
+<eni:eniGridView runat="server" CssFilePath="{0}/styles.css" CssPostfix="eniThm" CssClass="eniGridView-Advanced-01" CreateMode="DefaultMode" SkinID="Advanced-01"
+    Width="100%" AutoGenerateColumns="False" KeyboardSupport="false">
+	<Images SpriteCssFilePath="{0}/sprite.css"></Images>
+    <Paddings Padding="0px" />
+    <Styles>
+        <SearchPanel BorderBottom-BorderColor="#C0C0C0"/>
+        <GroupPanel>
+            <Paddings Padding="5" />
+        </GroupPanel>
+        <Header HorizontalAlign="Center" VerticalAlign="NotSet" SortingImageSpacing="5" CssClass="Advanced-01_hRow"></Header>
+        <GroupRow CssClass="Advanced-01_gRow"></GroupRow>
+        <Row CssClass="Advanced-01_dRow"></Row>
+        <SelectedRow CssClass="Advanced-01_sdRow"></SelectedRow>
+        <FocusedRow CssClass="Advanced-01_fdRow"></FocusedRow>
+        <LoadingPanel ImageSpacing="5" />
+        <LoadingDiv CssClass="Advanced-01_LoadingDiv"></LoadingDiv>
+        <PagerTopPanel HorizontalAlign="Center"></PagerTopPanel>
+        <PagerBottomPanel HorizontalAlign="Center">
+            <BorderTop BorderWidth="1px" BorderStyle="Solid" BorderColor="#C0C0C0" />
+        </PagerBottomPanel>
+        <EmptyDataRow CssClass="Advanced-01_edRow"></EmptyDataRow>
+    </Styles>
+    <StylesPager>
+        <CurrentPageNumber Font-Bold="true" ForeColor="#0033FF" BackColor="Transparent">
+            <Paddings PaddingTop="6px" PaddingBottom="5px" PaddingLeft="4px" PaddingRight="4px" />
+            <Border BorderWidth="0px" />
+        </CurrentPageNumber>
+    </StylesPager>
+    <Settings ShowVerticalScrollBar="true" GroupFormat="{1}"/>
+    <SettingsLoadingPanel Delay="1"/>
+    <SettingsSearchPanel ShowClearButton="True" />
+</eni:eniGridView>

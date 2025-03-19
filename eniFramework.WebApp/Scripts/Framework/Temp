@@ -1,0 +1,6116 @@
+﻿///*
+//Text
+//jsChangeComma( str ) ' -> ` 로 대치
+//jsStrCheck(checkStr, checkOK)
+//  들어가서는 안되는 데이타(checkOK)가 checkStr에 포함되어있는지 체크
+//jsMoveFocus( varTextObj, varLength, varFocusToObj )
+//  TextBox에서 조건이 만족하면 특정객체로 포커스를 이동
+//jsCheckNull( toCheck ) toCheck의 값이 Null값인지를 체크
+//jsDeleteComma( varNumber ) 컴마를 삭제하고 리턴
+//jsDeleteChar( varText, varDelete ) 문자열에서 해당 character를 지우고 리턴
+
+
+//CheckBox
+//jsCheckBoxSelectedCnt( FormObj, checkBoxName ) 
+//  FormObj에서 checkBox 가 몇개 선택되었는지  리턴한다.
+//jsToggle(FormObj, elemNm, checkYn)
+//  특정 폼안의 체크박스오브젝트를 전체선택하거나 전체반전시킴
+  
+//SelectBox
+//jsCheckSelectBox ( sb ) SelectBox에서 선택된 값의 value를 리턴
+//jsCheckSelectBoxNm ( sb ) SelectBox에서 선택된 값의 Text를 리턴
+//cmInitSelectBox( varObjFullNm, varDeleteCnt )
+//  해당 SelectBox를 초기화 시킨다. varDeleteCnt가 1이면 첫번째값을 지우지 않는다.
+//cmMakeSelectBox( varObjFullNm, varText, varValue ) 해당 selectBox에 하나의 값을 추가시킴
+    
+//날짜  
+//jsCheckYYYY(toCheck) 년도를 체크
+//jsCheckYYYYMM(toCheck) 년월을 체크
+//jsCheckMM(toCheck) 월을 체크
+//jsCheckDD(yyyy,mm,toCheck) 일을 체크
+//jsCheckDate( dateVal ) 날짜를 체크 
+//jsAddYear( startDt, plusYear ) 날짜에 년수를 더함
+//jsAddMonths( startDt, plusMonth ) 날짜에 월수를 더함
+//jsGetBetweenDay( startDt, endDt ) 날짜와 날짜사이의 일수를 리턴
+//jsCheckTime( toCheck ) 시간포맷인지를 체크
+//jsMakeYyyyMm( varTextObj ) 
+//  해당 텍스트박스 객체필드에 YYYY/MM형식으로 [/]를 찍어서 채워준다. 
+//jsMakeYyyyMmString( varText ) 넘어온 값에 날짜형식으로 [/]를 찍어서 리턴.
+//jsMakeDate( varTextObj ) 넘어온 Object의 값을 날짜형식으로 채워줌
+//jsMakeDateString( varText )넘어온 값을 날짜형식으로 리턴
+//toTimeString( varDateObj ) DateObj를 넘겨주면 년월일을 리턴  20030201
+//jsAfterThisDate( varStdDate , varYYYY , varMM , varDD )
+//  날짜형식의 문자열에 특정 년, 월, 일을 더한값을 리턴
+
+
+//날짜 체크 사용 예 호출하는 페이지에 다음 부분을 추가
+
+//<input ... onKeyUp='jsChkDate(this,lottSearchForm.txtEdate)' onBlur='compareDate()'>
+
+
+//function compareDate(){   
+
+// if( jsCheckNull(document.forms[0].txtSdate.value) || 
+
+//     jsCheckNull(document.forms[0].txtEdate.value) )
+//     return;
+  
+// var from = document.forms[0].txtSdate.value.replace(/(\,|\.|\-|\/|\:)/g,'');
+// var to   = document.forms[0].txtEdate.value.replace(/(\,|\.|\-|\/|\:)/g,'');
+
+// if( jsGetBetweenDay(from,to) < 0 ) {
+//  alert("기간이 잘못 입력되었습니다. 다시입력하세요");
+//  document.forms[0].txtSdate.value = "";
+//  document.forms[0].txtEdate.value = "";
+//  document.forms[0].txtSdate.focus();
+//  return ;
+// }
+
+//}
+
+//function jsChkDate( valObj, nextPos ){
+
+// if( valObj.value.length == 8 ) {
+//  if( !jsCheckDate( valObj.value ) ) {
+//   alert("일자 입력오류입니다. 다시 입력해 주십시요.");
+//   valObj.value = '';
+//   valObj.focus();
+//   return;
+//  }  
+//  jsMakeDate( valObj );
+//  nextPos.focus();
+// } 
+//}
+
+            
+
+   
+//주민등록번호
+//jsCheckJumin(toCheck) 주민등록번호 체크
+
+//사업자등록번호
+//jsCheckSaupJa(toCheck) 사업자등록번호 체크
+
+//문자열길이 체크
+//getByteLength(s) 한글2바이트, 영문 1바이트로 바이트수를 리턴
+
+//쿠키
+//setCookie( name, value, expireFlag ) Set Cookie 
+//getCookie( name ) get Cookie
+
+//숫자
+//jsParseInt( varStr ) 문자를 숫자로 변환 null일때 
+//jsConvertNumberToHangul( varNum ) 숫자를 한글로 변환
+//jsMakeCurrency( varTextObj ) 넘어온 숫자에 컴마를 찍어서 리턴 소숫점 허용안함
+//jsMakeForeignCurrency( varTextObj ) 넘어온 숫자에 컴마를 찍어서 리턴 소숫점 허용함
+//jsOnlyNumber( varTextObj ) 해당 텍스트박스 객체에 숫자만 입력받을수 있도록
+//jsOnlyFloat( varTextObj ) 해당 텍스트박스 객체에 숫자와 1개의 point만을 입력받게 해준다.
+//jsAddComma( varNumber ) 
+//  숫자를 받아서 comma를 찍어서 리턴한다 소수점 인식 숫자가 아닌값 -1을 리턴 음수표현가능
+//jsAddCommaAndZero( varNumber ) 
+//  숫자를 받아서 comma를 찍어서 리턴한다 소수점 인식 숫자가 아닌값 -1을 리턴 음수표현 불가능
+//jsCheckFloat(toCheck) Folat형인지를 체크 정수도 Float으로 인식
+//jsCheckPoint( toCheck , Positive , Negative ) 자리수 체크 정수 몇자리 소수 몇자리
+//jsCheckNumber(toCheck) Number타입인지 체크, 소수점은 Number타입으로 인식하지 않음  
+//getCutNumber(num, place) 소수점 아래 몇자리 이하 절삭
+//jsOnlyNumberKey() text 입력시 숫자이외의 키를 눌렀을때 무효화시킨다.
+//jsCheckFloatType( varNum, varLeft, varRight ) 정수부분자리수 소수부분자리수 체크  
+  
+//기타
+//jsSplitCode(varString, varSplitChar, varIndex) 구분자로 구분해서 index의 문자를 리턴
+//jsCheckIp(toCheck) toCheck값이 정확한 IP Address인지 체크
+//jsCheckEmail( emailVal ) 이메일을 체크 - 보완요망
+//jsShowHelp( helpfile ) helpfile를 팝업으로 오픈
+//jsGetObjCnt( FormObj, varObjName ) 특정폼에서 해당오브젝트가 몇개인지를 리턴
+//jsClearFrame( fr ) 특정프레임에 공백 jsp를 띄워줌
+//jsDeleteCharAll( FormObj ) 
+//  해당 폼에 해당하는 모든 오브젝트의 값들에서 ',' and '/'문자를 지워준다.    
+//isAlphaNum(input) 영문과 숫자로만 이루어졌는지를 체크
+
+//IsHangul(field) 입력값에 한글이 있는지 체크
+//containsCharsOnly(input,chars) 입력값이 특정 문자(chars)만으로 되어있는지 체크
+//popup1( varAction, varWinName, varWidth, varHeight ) 팝업을 호출
+//jsBack() 이전 페이지로 이동
+//jsVisible( str ) 특정조건에 해당하면 모래시계를 보여줌
+//jsRunAfterTime() 설정한 시간뒤에 특정 function을 호출
+//trim(text) ltrim(text) rtrim(text) text의 좌우측, 좌측, 우측의 공백을 제거해서 리턴
+//*/
+
+
+
+///*--------------------------------------------------
+//  기능   : Cookie Setting
+//  INPUT  : name, value
+//           expireFg : 'Y' : 2020년 까지 쿠키저장
+//           expireFg : 'N' : session이 끊어질때 쿠키지움
+//  RETURN : NONE
+//----------------------------------------------------*/
+//function setCookie(name, value, expireFg) {
+//    var expireDate = new Date(2020, 1, 1, 1, 1, 1);
+
+//    if (expireFg = 'Y')
+//        document.cookie = name + "=" + value + "; expires=" + expireDate.toGMTString();
+//    else
+//        document.cookie = name + "=" + value + ";";
+
+//}
+///*--------------------------------------------------
+//  기능   : Cookie Get
+//  INPUT  : name
+//  RETURN : 쿠키값( 없으면 "" )
+//----------------------------------------------------*/
+//function getCookie(name) {
+//    var cookieFound = false;
+//    var start = 0;
+//    var end = 0;
+//    var cookieString = document.cookie;
+
+//    var i = 0;
+
+//    // name에 해당되는 cookie를 찾는다.
+//    while (i <= cookieString.length) {
+//        start = i;
+//        end = start + name.length;
+//        if (cookieString.substring(start, end) == name) {
+//            cookieFound = true;
+//            break;
+//        }
+//        i++;
+//    }
+
+//    // cookie를 찾았으면 해당하는 값을 그렇지 않으면 ""을 return ;
+//    if (cookieFound) {
+//        start = end + 1;
+//        end = document.cookie.indexOf(";", start);
+//        if (end < start)
+//            end = document.cookie.length;
+//        return document.cookie.substring(start, end);
+//    }
+
+//    return "";
+//}
+
+///*-----------------------------------------------
+// ' ->문자를 쿼리문에 사용시 에러가 발생하므로 `로 대치
+// INPUT  : str
+// RETURN : 문자열안의 문자중 ' 문자를 ` 로 변경한 문자열
+//-------------------------------------------------*/
+//function jsChangeComma(str) {
+//    while (str.indexOf("'") != -1) {
+//        str = str.replace("'", "`");
+//    }
+//    return str;
+//}
+
+///*----------------------------------------------------------
+//  기능   : Split Code RETURN Splited code by varSplitChar
+//  INPUT  : varString 문자
+//     : varSplitChar 구분자
+//   : varIndex 구분자의 위치
+//  RETURN : Splited code by varSplitChar
+//  예     : jsSplitCode( "111^222^333", "^", 2 ) == "222"
+//-----------------------------------------------------------*/
+//function jsSplitCode(varString, varSplitChar, varIndex) {
+//    var varArray = varString.split(varSplitChar);
+
+//    return varArray[eval(varIndex) - 1];
+//}
+
+///*--------------------------------------------------
+//  기능   : Check Null RETURN T/F
+//  INPUT  : check  data
+//  RETURN : true  -> NULL
+//           false -> NOT NULL
+//----------------------------------------------------*/
+//function jsCheckNull(toCheck) {
+//    var chkstr = toCheck + "";
+//    var is_Space = true;
+
+//    if ((chkstr == "") || (chkstr == null))
+//        return (true);
+
+//    for (j = 0 ; is_Space && (j < chkstr.length) ; j++) {
+//        if (chkstr.substring(j, j + 1) != " ") {
+//            is_Space = false;
+//        }
+//    }
+//    return (is_Space);
+//}
+
+///*--------------------------------------------------
+//  기능   : Check IP address RETURN T/F
+//  INPUT  : toCheck  -> check data
+//  RETURN : true  -> IP address
+//           false -> not IP address
+//----------------------------------------------------*/
+//function jsCheckIp(toCheck) {
+//    var chkstr = toCheck + "";
+//    var isIp = true;
+
+//    if (jsCheckNull(toCheck))
+//        return false;
+
+//    for (j = 0 ; isIp && (j < toCheck.length) ; j++) {
+//        if ((toCheck.substring(j, j + 1) < "0") || (toCheck.substring(j, j + 1) > "9")) {
+//            if (toCheck.substring(j, j + 1) == ".")
+//                if (j == 0)
+//                    isIp = false;
+//                else
+//                    isIp = false;
+//        }
+//    }
+
+//    return isIp;
+//}
+
+///*--------------------------------------------------
+//  기능   : Check Number RETURN T/F ( 소수점"."은 Number로 취급안함 )
+//  INPUT  : toCheck  -> check data
+//  RETURN : true  -> number ( "."이 포함안됨 )
+//           false -> not number
+//----------------------------------------------------*/
+//function jsCheckNumber(toCheck) {
+//    var chkstr = toCheck + "";
+//    var isNum = true;
+
+//    if (jsCheckNull(toCheck))
+//        return false;
+
+//    for (j = 0 ; isNum && (j < toCheck.length) ; j++) {
+//        if ((toCheck.substring(j, j + 1) < "0") || (toCheck.substring(j, j + 1) > "9")) {
+//            if (toCheck.substring(j, j + 1) == "-" || toCheck.substring(j, j + 1) == "+") {
+//                if (j != 0) {
+//                    isNum = false;
+//                }
+//            }
+//            else
+//                isNum = false;
+//        }
+//    }
+
+//    if (chkstr == "+" || chkstr == "-") isNum = false;
+
+//    return isNum;
+//}
+
+///*--------------------------------------------------
+//  기능   : Check data RETURN T/F
+//  INPUT  : toCheck  -> check data
+//           checkOK  -> 들어가서는 안되는 data
+//  RETURN : false -> 들어가서는 안되는 data가 없다
+//           true  -> 들어가서는 안되는 data가 있다.
+//  예1    : jsStrCheck( '12345', 'ABab' )
+//           string '12345'에는 'ABab'가 없으므로
+//           false를 리턴
+//  예2    : jsStrCheck( '12$45', 'ABab$#%' )
+//           string '12$45'에는 '$'가 있으므로
+//           true를 리턴
+//----------------------------------------------------*/
+//function jsStrCheck(checkStr, checkOK) {
+//    for (i = 0; i < checkStr.length; i++) {
+//        ch = checkStr.charAt(i);
+//        for (j = 0; j < checkOK.length; j++)
+//            if (ch == checkOK.charAt(j))
+//                break;
+//        if (j == checkOK.length) {
+//            return false;
+//            break;
+//        }
+//    }
+//    return true;
+//}
+
+///*--------------------------------------------------
+//  기능   : Check Float RETURN T/F (정수도 Float로 취급)
+//  INPUT  : toCheck  -> check data
+//  RETURN : true  -> number
+//           false -> not number
+//----------------------------------------------------*/
+//function jsCheckFloat(toCheck) {
+//    var chkstr = toCheck + "";
+//    var isFloat = true;
+
+//    var chkPoint = false;
+//    var chkMinus = false;
+
+//    if (jsCheckNull(toCheck)) {
+//        return false;
+//    }
+
+//    for (j = 0 ; isFloat && (j < toCheck.length) ; j++) {
+//        if ((toCheck.substring(j, j + 1) < "0") || (toCheck.substring(j, j + 1) > "9")) {
+
+//            if (toCheck.substring(j, j + 1) == ".") {
+//                if (!chkPoint) chkPoint = true;
+//                else isFloat = false;
+//            }
+//            else if (toCheck.substring(j, j + 1) == "-" || toCheck.substring(j, j + 1) == "+") {
+//                if ((j == 0) && (!chkMinus)) chkMinus = true;
+//                else isFloat = false;
+//            }
+//            else isFloat = false;
+//        }
+//    }
+
+//    return isFloat;
+//}
+
+///*--------------------------------------------------
+//  기능   : 자릿수 check RETURN T/F
+//  INPUT  : toCheck  -> check data
+//  RETURN : true  -> number
+//           false -> not number
+//----------------------------------------------------*/
+//function jsCheckPoint(toCheck, Positive, Negative) {
+//    var strPos = toCheck + "";
+//    var isPoint = true;
+
+//    if (jsCheckFloat(toCheck)) {
+
+//        var inx = strPos.indexOf(".");
+
+//        if (inx == -1) {
+//            if (strPos.length > parseInt(Positive))
+//                isPoint = false;
+//            else
+//                isPoint = true;
+//        }
+//        else {
+//            var pos = strPos.substring(0, inx);
+//            var nev = strPos.substring(inx + 1);
+
+//            if (pos.length > parseInt(Positive))
+//                isPoint = false;
+//            else if (nev.length > parseInt(Negative))
+//                isPoint = false;
+//            else
+//                isPoint = true;
+//        }
+//    }
+//    else if (jsCheckNumber(toCheck))
+//        isPoint = true;
+//    else
+//        isPoint = false;
+
+//    return isPoint;
+
+//}
+
+//////////////////////////////////////////////////////////////////n
+//////////////    DATE  VALIDATION  CHECK    //////////////////////
+///////////////////////////////////////////////////////////////////
+
+///*--------------------------------------------------
+//  기능   : calender에서 사용할 월별 배열를 만든다.
+//  INPUT  : 각 인자의 값
+//----------------------------------------------------*/
+//function jsMonthArray(m0, m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11) {
+//    this[0] = m0;
+//    this[1] = m1;
+//    this[2] = m2;
+//    this[3] = m3;
+//    this[4] = m4;
+//    this[5] = m5;
+//    this[6] = m6;
+//    this[7] = m7;
+//    this[8] = m8;
+//    this[9] = m9;
+//    this[10] = m10;
+//    this[11] = m11;
+//}
+
+
+///*--------------------------------------------------
+//  기능   : 년도를 check한다.
+//  INPUT  : toCheck
+//  RETURN : NONE
+//     MSG :
+//----------------------------------------------------*/
+
+//function jsCheckYYYY(toCheck) {
+//    return ((toCheck.length == 4) && (jsCheckNumber(toCheck)) && (toCheck != "0000"));
+//}
+
+///*--------------------------------------------------
+//  기능   : 년월을 check한다.
+//  INPUT  : toCheck
+//  RETURN : NONE
+//     MSG :
+//----------------------------------------------------*/
+
+//function jsCheckYYYYMM(toCheck) {
+//    var isDate = true;
+
+//    if (toCheck.length != 6) {
+//        isDate = false;
+//    }
+//    else {
+
+//        var yy = toCheck.substring(0, 4) + "";
+//        var mm = toCheck.substring(4, 6) + "";
+
+//        if (!jsCheckYYYY(yy))
+//            isDate = false;
+//        else if (!jsCheckMM(mm))
+//            isDate = false;
+//    }
+
+//    return isDate;
+//}
+
+///*--------------------------------------------------
+//  기능   : 월을 check한다.
+//  INPUT  : toCheck
+//  RETURN :
+//    MSG  :
+//----------------------------------------------------*/
+//function jsCheckMM(toCheck) {
+//    return ((toCheck.length > 0) && (jsCheckNumber(toCheck)) && (0 < eval(toCheck)) && (eval(toCheck) < 13));
+//}
+
+///*--------------------------------------------------
+//  기능   : 일을 check한다.
+//  INPUT  : toCheck
+//  RETURN : NONE
+//     MSG :
+//----------------------------------------------------*/
+//function jsCheckDD(yyyy, mm, toCheck) {
+//    var isYMD = false;
+//    var monthDD = new jsMonthArray(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+//    var im = eval(mm) - 1;
+//    if (toCheck.length == 0) return false;
+//    if (!jsCheckNumber(toCheck)) return false;
+//    var dd = eval(toCheck);
+//    if (((yyyy % 4 == 0) && (yyyy % 100 != 0)) || (yyyy % 400 == 0)) {
+//        monthDD[1] = 29;
+//    }
+//    if ((0 < dd) && (dd <= monthDD[im])) isYMD = true;
+//    return isYMD;
+//}
+
+///*--------------------------------------------------
+//  기능   : 날짜를 check한다.
+//  INPUT  : dateVal '20030321'
+//  RETURN : NONE
+//     MSG :
+//----------------------------------------------------*/
+//function jsCheckDate(dateVal) {
+
+//    var isDate = true;
+
+//    if (dateVal.length != 8) {
+//        isDate = false;
+//    }
+//    else {
+
+//        var yy = dateVal.substring(0, 4) + "";
+//        var mm = dateVal.substring(4, 6) + "";
+//        var dd = dateVal.substring(6, 8) + "";
+
+//        if (!jsCheckYYYY(yy))
+//            isDate = false;
+//        else if (!jsCheckMM(mm))
+//            isDate = false;
+//        else if (!jsCheckDD(yy, mm, dd))
+//            isDate = false;
+//    }
+
+//    return isDate;
+
+//}
+
+///*--------------------------------------------------
+//  기능   : 날짜에 년수를 더한다.
+//  INPUT  : startDt(YYYYMMDD), year
+//  RETURN : rtnValue : 날짜에 년수를 더한 날짜
+//           -1       : ERROR..!
+//           예) 20000110 + 1년 = 20010110
+//           예) 20000229 + 1년 = 20010228
+//     MSG :
+//----------------------------------------------------*/
+//function jsAddYear(startDt, plusYear) {
+//    var rtnValue = -1;
+
+//    // input date의 날짜 체크
+//    if (!jsCheckDate(startDt) || !jsCheckNumber(plusYear)) {
+//        rtnValue = -1;
+//        return rtnValue;
+//    }
+
+//    var yyyy = startDt.substring(0, 4) + "";
+//    var mm = startDt.substring(4, 6) + "";
+//    var dd = startDt.substring(6, 8) + "";
+
+//    var newYyyy = (eval(yyyy) + eval(plusYear));
+
+//    // 윤달(29일) 인 경우 28일로 고침
+//    // 예) 20000229 에 1년을 더하면 20000228
+//    var isYoonYear = false;
+//    // 4 로 나누어 떨어지면 윤년
+//    // 100 으로 나누어 떨어지면 윤년 아님
+//    // 400 으로 나누어 떨어지면 윤년
+//    if ((eval(newYyyy) % 4) == 0) isYoonYear = true;
+//    if ((eval(newYyyy) % 100) == 0) isYoonYear = false;
+//    if ((eval(newYyyy) % 400) == 0) isYoonYear = true;
+
+//    if ((mm == '02') && (dd == '29') && !isYoonYear) dd = '28';
+
+//    rtnValue = newYyyy + mm + dd;
+
+//    return rtnValue;
+//}
+
+///*--------------------------------------------------
+//  기능   : 날짜에 월수를 더한다.
+//  INPUT  : startDt(YYYYMMDD), year
+//  RETURN : rtnValue : 날짜에 월수를 더한 날짜
+//           -1       : ERROR..!
+//           예) 20000110 + 3월  = 20000410
+//           예) 20000229 + 12월 = 20000228
+//     MSG :
+//----------------------------------------------------*/
+//function jsAddMonths(startDt, plusMonth) {
+//    var rtnValue = -1;
+
+//    // input date의 날짜 체크
+//    if (!jsCheckDate(startDt) || !jsCheckNumber(plusMonth)) {
+//        rtnValue = -1;
+//        return rtnValue;
+//    }
+
+//    var yyyy = startDt.substring(0, 4) + "";
+//    var mm = startDt.substring(4, 6) + "";
+//    var dd = startDt.substring(6, 8) + "";
+
+//    var newMm = null;
+
+//    // 월수를 더하여 1년이 넘는 경우
+//    if ((eval(mm) + eval(plusMonth)) > 12) {
+//        yyyy = eval(yyyy) + 1;
+//        newMm = eval(mm) + eval(plusMonth) - 12;
+//    } else {
+//        newMm = eval(mm) + eval(plusMonth);
+//    }
+
+//    // 윤년 처리
+//    var isYoonYear = false;
+//    // 4 로 나누어 떨어지면 윤년
+//    // 100 으로 나누어 떨어지면 윤년 아님
+//    // 400 으로 나누어 떨어지면 윤년
+//    if ((eval(yyyy) % 4) == 0) isYoonYear = true;
+//    if ((eval(yyyy) % 100) == 0) isYoonYear = false;
+//    if ((eval(yyyy) % 400) == 0) isYoonYear = true;
+
+//    // 윤년인 경우
+//    if (isYoonYear) {
+//        if ((newMm == '02') && (dd == '30' || dd == '31')) dd = '29';
+//        // 평년인 경우
+//    } else {
+//        if ((newMm == '02') && (dd == '29' || dd == '30' || dd == '31')) dd = '28';
+//    }
+
+//    // 월의 자리수를 맞춘다. ( 2 월 -> 02 )
+//    if (eval(newMm) < 10) { newMm = "0" + newMm };
+//    rtnValue = yyyy + newMm + dd;
+
+//    return rtnValue;
+//}
+
+///*--------------------------------------------------
+//  기능   : 날짜와 날짜 사이의 일수를 리턴한다.
+//  INPUT  : startDt(YYYYMMDD), endDt(YYYYMMDD)
+//  RETURN : rtnValue : 날짜와 날짜 사이의 일수
+//           -1       : ERROR..!
+//     MSG :
+
+//----------------------------------------------------*/
+//function jsGetBetweenDay(startDt, endDt) {
+//    var rtnValue = 0;
+
+//    // input date의 날짜 체크
+//    if (!jsCheckDate(startDt) || !jsCheckDate(endDt)) {
+//        rtnValue = -1;
+//    }
+//    else {
+//        var yyyy = startDt.substring(0, 4) + "";
+//        var mm = startDt.substring(4, 6) + "";
+//        var dd = startDt.substring(6, 8) + "";
+//        var startDate = new Date(yyyy, (eval(mm) - 1), dd); // 달 은 한달이 느리므로 1을 빼준다.
+
+//        yyyy = endDt.substring(0, 4) + "";
+//        mm = endDt.substring(4, 6) + "";
+//        dd = endDt.substring(6, 8) + "";
+//        var endDate = new Date(yyyy, (eval(mm) - 1), dd);
+
+//        // 1000분의 1초 단위를 일 단위로 바꾸기
+//        rtnValue = ((endDate - startDate) / 60 / 60 / 24 / 1000);
+//    }
+
+//    return rtnValue;
+
+//}
+///*--------------------------------------------------
+//  기능   : Check Time RETURN T/F
+//  INPUT  : check  time
+//  RETURN : true  -> TIME
+//           false -> NOT TIME
+//----------------------------------------------------*/
+//function jsCheckTime(toCheck) {
+//    var chkstr = toCheck + "";
+
+//    if ((chkstr == "") || (chkstr == null))
+//        return (false);
+
+//    var mm = chkstr.substring(0, 2);
+//    var ss = chkstr.substring(3, 5);
+
+//    if ((mm <= "23") && (mm >= "00")) {
+//        if ((ss <= "60") && (ss >= "00")) {
+//            if (chkstr.substring(2, 3) == ":") {
+//                return (true);
+//            }
+//        }
+//    }
+//    return (false);
+//}
+
+///*--------------------------------------------------
+//  기능   : Check 주민등록번호 RETURN T/F
+//  INPUT  : toCheck
+//  RETURN : true  -> 올바른 번호
+//           false ->
+//----------------------------------------------------*/
+//function jsCheckJumin(toCheck) {
+//    var isJumin = true;
+//    if (jsCheckNull(toCheck)) {
+//        return false;
+//    } else if (toCheck.length < 13 || toCheck.length > 13) {
+//        return false;
+//    } else if (toCheck.substring(2, 3) > "1" || toCheck.substring(6, 7) > "2" || toCheck.substring(6, 7) == "0") {
+//        return false;
+//    } else if (toCheck.substring(2, 3) == "1" && toCheck.substring(3, 4) > "2") {
+//        return false;
+//    } else if (!(toCheck.substring(4, 6) >= "01" && toCheck.substring(4, 6) <= "31")) {
+//        return false;
+//    }
+//    for (j = 0; isJumin && (j < toCheck.length) ; j++) {
+//        if (((toCheck.substring(j, j + 1) < "0") || (toCheck.substring(j, j + 1) > "9"))) {
+//            isJumin = false;
+//        }
+//    }
+
+
+//    var a1 = toCheck.substring(0, 1)
+//    var a2 = toCheck.substring(1, 2)
+//    var a3 = toCheck.substring(2, 3)
+//    var a4 = toCheck.substring(3, 4)
+//    var a5 = toCheck.substring(4, 5)
+//    var a6 = toCheck.substring(5, 6)
+//    var check_digit = a1 * 2 + a2 * 3 + a3 * 4 + a4 * 5 + a5 * 6 + a6 * 7
+//    var b1 = toCheck.substring(6, 7)
+//    var b2 = toCheck.substring(7, 8)
+//    var b3 = toCheck.substring(8, 9)
+//    var b4 = toCheck.substring(9, 10)
+//    var b5 = toCheck.substring(10, 11)
+//    var b6 = toCheck.substring(11, 12)
+//    var b7 = toCheck.substring(12, 13)
+
+//    var check_digit = check_digit + b1 * 8 + b2 * 9 + b3 * 2 + b4 * 3 + b5 * 4 + b6 * 5
+//    check_digit = check_digit % 11
+//    check_digit = 11 - check_digit
+//    check_digit = check_digit % 10
+//    if (check_digit != b7) {
+//        isJumin = false;
+//    }
+
+//    return isJumin;
+//}
+
+///*--------------------------------------------------
+//  기능   : Check 사업자 등록번호 RETURN T/F
+//  INPUT  : toCheck
+//  RETURN : true  -> 올바른 번호
+//           false ->
+//----------------------------------------------------*/
+//function jsCheckSaupJa(toCheck) {
+//    var isSaupJa = true;
+//    if (jsCheckNull(toCheck)) {
+//        return false;
+//    } else if (toCheck.length < 10 || toCheck.length > 10) {
+//        return false;
+//    }
+//    for (j = 0; isSaupJa && (j < toCheck.length) ; j++) {
+//        if (((toCheck.substring(j, j + 1) < "0") || (toCheck.substring(j, j + 1) > "9"))) {
+//            isSaupJa = false;
+//        }
+//    }
+//    return isSaupJa;
+//}
+
+///*--------------------------------------------------
+//  기능   : E-Mail를 check한다.
+//  INPUT  : emailVal
+//  RETURN : NONE
+//     MSG :
+//----------------------------------------------------*/
+//function jsCheckEmail(emailVal) {
+//    if (jsCheckNull(emailVal)) return true;
+
+//    var inx = emailVal.indexOf("@");
+
+//    if (inx <= 0 || inx == emailVal.length - 1) return false;
+
+//    return true;
+//}
+///*--------------------------------------------------
+//  기능   :
+//  INPUT  : varNum : 실수
+//       varLeft : 정수부분 자리수
+//       varRight : 소수부분 자리수
+//  RETURN : true : 실수가 정/소수부분의 자리수를 초과하지 않는다.
+//       false : 실수가 정/소수부분의 자리수를 초과한다.
+//----------------------------------------------------*/
+//function jsCheckFloatType(varNum, varLeft, varRight) {
+
+//    var resultFlag = true;
+
+//    if (varNum.charAt(0) == "-") {
+//        varNum = varNum.substring(1, varNum.length);
+//    }
+
+//    var PointIndex = varNum.indexOf(".");
+
+//    if (PointIndex < 0) {
+//        if (varNum.length > varLeft)
+//            resultFlag = false;
+//    } else {
+//        var LeftLength = varNum.substring(0, PointIndex).length;
+//        var RightLength = varNum.substring(PointIndex + 1, varNum.length).length;
+
+//        if ((LeftLength > varLeft) || (RightLength > varRight))
+//            resultFlag = false;
+//    }
+
+//    return resultFlag;
+
+//}
+
+///*--------------------------------------------------
+//  기능   :
+//  INPUT  : helpfile
+//  RETURN :
+//----------------------------------------------------*/
+//function jsShowHelp(helpfile) {
+//    var helpstr = helpfile + "";
+//    var URL = "";
+//    var cWin;
+
+//    URL = "/help/" + helpfile + ".html";
+
+//    cWin = window.open(URL, "help", "toolbar=0,location=0,directories=0,status=0,menubar=1,scrollbars=1,resizable=1,width=560,height=320");
+
+//    cWin.focus();
+//}
+
+///*--------------------------------------------------
+//  기능   : 한글이든 영문이든 제대로 갯수 체크를 해준다.
+//  INPUT  : String
+//  RETURN :
+//----------------------------------------------------*/
+//function getByteLength(s) {
+//    var len = 0;
+//    if (s == null) return 0;
+//    for (var i = 0; i < s.length; i++) {
+//        var c = escape(s.charAt(i));
+//        if (c.length == 1) len++;
+//        else if (c.indexOf("%u") != -1) len += 2;
+//        else if (c.indexOf("%") != -1) len += c.length / 3;
+//    }
+//    return len;
+//}
+
+///*--------------------------------------------------
+//  기능   : FormObj에서 varObjName이 몇개 존재하는지 리턴한다.
+//  INPUT  : FormObj : FormName
+//     : varObjName : 객체명
+//  RETURN :
+//----------------------------------------------------*/
+//function jsGetObjCnt(FormObj, varObjName) {
+//    var cnt = 0;
+//    for (var inx = 0; inx < FormObj.elements.length ; inx++) {
+//        if (FormObj.elements[inx].name == varObjName) {
+//            cnt++;
+//        }
+//    }
+//    return cnt;
+//}
+
+///*--------------------------------------------------
+//  기능   :  SELECT OPTION BOX의 값을 RETURN 한다.
+//  INPUT  : sb = selectBoxName
+//  RETURN :
+//----------------------------------------------------*/
+//function jsCheckSelectBox(sb) {
+//    var temp = sb.options[sb.selectedIndex].value;
+//    return (temp);
+//}
+
+//function jsCheckSelectBoxNm(sb) {
+//    var temp = sb.options[sb.selectedIndex].text;
+//    return (temp);
+//}
+
+///*--------------------------------------------------
+//  기능   :  해당 Frame을 공백페이지로 변경
+//  INPUT  : fr : FrameName
+//  RETURN :
+//----------------------------------------------------*/
+//function jsClearFrame(fr) {
+//    fr.location = "/common/blank.jsp";
+//}
+
+///*--------------------------------------------------
+//  기능   : checkBox를 전체선택 및 해제를 할수 있게 한다.
+//  INPUT  : FormObj FormName
+//       elemNm CheckBox name
+//       checkYn boolean
+//  RETURN :
+//----------------------------------------------------*/
+//function jsToggle(FormObj, elemNm, checkYn) {
+//    var i = 0;
+//    while (i < FormObj.elements.length) {
+//        if (FormObj.elements[i].name == elemNm) {
+//            FormObj.elements[i].checked = checkYn;
+//        }
+//        i++;
+//    }
+//}
+
+///*--------------------------------------------------
+//  기능   : focus 옮기기
+//  INPUT  : varTextObj : TextBox 객체명
+//       varLength  : 조건에 맞는 textLength
+//       varFocusToObj : Focus를 옮겨갈 객체명
+//  RETURN :
+//----------------------------------------------------*/
+//function jsMoveFocus(varTextObj, varLength, varFocusToObj) {
+//    if (varTextObj.value.length == varLength) {
+//        varFocusToObj.focus();
+//        varFocusToObj.select();
+//        return;
+//    }
+//}
+
+///*--------------------------------------------------
+//  기능   : 문자를 숫자로 convert 한다. 단, 
+//       parseFloat 와 다른 점은 null 이 올때 0 으로 인식한다.
+//  INPUT  : 
+//  RETURN :
+//----------------------------------------------------*/
+//function jsParseInt(varStr) {
+//    if (varStr == null || varStr == "")
+//        return 0;
+//    else
+//        return parseInt(varStr);
+//}
+
+///*--------------------------------------------------
+//  기능   : 숫자를 한글로 변환한다.
+//   예) 450,000,000 -> 사억오천만
+//  INPUT  : 
+//  RETURN :
+//----------------------------------------------------*/
+//function jsConvertNumberToHangul(varNum) {
+//    // 리턴할 문자열
+//    var returnStr = "";
+
+//    // 음수일 때는 에러
+//    if (eval(varNum) < 0) {
+//        return returnStr;
+//    }
+
+//    // 넘어온 숫자를 문자로 변환
+//    var numLen = varNum.length;
+//    // 변환된 문자를 앞에서 부터 한자씩 잘라서 보관할 변수
+//    var oneChar = null;
+//    var isDone1 = true;
+//    var isDone2 = true;
+//    var isDone3 = true;
+//    var isDone4 = true;
+//    var isDone5 = false;
+//    for (var inx = 0 ; inx < numLen ; inx++) {
+//        oneChar = varNum.substring(inx, inx + 1);
+//        isDone5 = false;
+
+//        if (oneChar == "0") {
+//            // 아무일도 안함
+//        } else if (oneChar == "1") {
+//            returnStr = returnStr + "일";
+//            isDone5 = true;
+//        } else if (oneChar == "2") {
+//            returnStr = returnStr + "이";
+//            isDone5 = true;
+//        } else if (oneChar == "3") {
+//            returnStr = returnStr + "삼";
+//            isDone5 = true;
+//        } else if (oneChar == "4") {
+//            returnStr = returnStr + "사";
+//            isDone5 = true;
+//        } else if (oneChar == "5") {
+//            returnStr = returnStr + "오";
+//            isDone5 = true;
+//        } else if (oneChar == "6") {
+//            returnStr = returnStr + "육";
+//            isDone5 = true;
+//        } else if (oneChar == "7") {
+//            returnStr = returnStr + "칠";
+//            isDone5 = true;
+//        } else if (oneChar == "8") {
+//            returnStr = returnStr + "팔";
+//            isDone5 = true;
+//        } else if (oneChar == "9") {
+//            returnStr = returnStr + "구";
+//            isDone5 = true;
+//        }
+
+//        if (((numLen - inx) % 4) == 0 && oneChar != "0") {
+//            returnStr = returnStr + "천";
+//        } else if (((numLen - inx) % 4) == 3 && oneChar != "0") {
+//            returnStr = returnStr + "백";
+//        } else if (((numLen - inx) % 4) == 2 && oneChar != "0") {
+//            returnStr = returnStr + "십";
+//        } else if (((numLen - inx) % 4) == 1) {
+//            if (numLen >= 17 && isDone1 && isDone5) {
+//                returnStr = returnStr + "경";
+//                isDone1 = false;
+//            } else if (numLen >= 13 && isDone2 && isDone5) {
+//                returnStr = returnStr + "조";
+//                isDone2 = false;
+//            } else if (numLen >= 9 && isDone3 && isDone5) {
+//                returnStr = returnStr + "억";
+//                isDone3 = false;
+//            } else if (numLen >= 5 && isDone4 && isDone5) {
+//                returnStr = returnStr + "만";
+//                isDone4 = false;
+//            }
+//        }
+//    }
+
+//    return returnStr;
+//}
+
+///*--------------------------------------------------
+//  기능   : 파라메터로 넘어온 필드에 comma를 찍어서 comma 를 찍어서 채워준다.
+//      소수점 허용 안함 
+//    예) 1000.00 -> 1,000    
+//  INPUT  :
+//  RETURN :
+//----------------------------------------------------*/
+//function jsMakeCurrency(varTextObj) {
+//    varTextObj.value = jsDeleteComma(varTextObj.value);
+
+//    var varLength = varTextObj.value.length;
+//    var varText = "";
+//    var isPointed = false;
+//    for (var inx = 0 ; inx < varLength ; inx++) {
+//        if (jsCheckNumber(varTextObj.value.substring(inx, inx + 1))) {
+//            varText = varText + varTextObj.value.substring(inx, inx + 1);
+//        }
+//    }
+
+//    varTextObj.value = jsAddComma(varText);
+//}
+
+
+///*--------------------------------------------------
+//  기능   : 파라메터로 넘어온 필드에 comma를 찍어서 comma 를 찍어서 채워준다.
+//      소수점 허용 함    
+//    예) 1000.00 -> 1,000.00    
+//  INPUT  :
+//  RETURN :
+//----------------------------------------------------*/
+//function jsMakeForeignCurrency(varTextObj) {
+//    varTextObj.value = jsDeleteComma(varTextObj.value);
+
+//    var varLength = varTextObj.value.length;
+//    var varText = "";
+//    var isPointed = false;
+//    for (var inx = 0 ; inx < varLength ; inx++) {
+//        if (jsCheckNumber(varTextObj.value.substring(inx, inx + 1)) || (varTextObj.value.substring(inx, inx + 1) == '.')) {
+//            // 점이 안찍히고 처음으로 점이 들어왔을때
+//            if (!isPointed && varTextObj.value.substring(inx, inx + 1) == '.') {
+//                isPointed = true;
+//                varText = varText + varTextObj.value.substring(inx, inx + 1);
+//                // 숫자 일때
+//            } else if (jsCheckNumber(varTextObj.value.substring(inx, inx + 1))) {
+//                varText = varText + varTextObj.value.substring(inx, inx + 1);
+//            }
+
+//        }
+//    }
+
+//    varTextObj.value = jsAddComma(varText);
+//}
+
+///*--------------------------------------------------
+//  기능   : 파라메터로 넘어온 객체필드에 숫자만을 입력받게 해준다.
+//  INPUT  :
+//  RETURN :
+//----------------------------------------------------*/
+//function jsOnlyNumber(varTextObj) {
+
+//    var varLength = varTextObj.value.length;
+//    var varText = "";
+//    for (var inx = 0 ; inx < varLength ; inx++) {
+//        if (jsCheckNumber(varTextObj.value.substring(inx, inx + 1))) {
+//            varText = varText + varTextObj.value.substring(inx, inx + 1);
+//        }
+//    }
+
+//    // 앞에 붙은 0 없애기 (예) 00200 -> 200
+//    varLength = varText.length;
+//    var varTempReturnNumber = varText;
+//    var varReturnNumber = "";
+//    for (var inx = 0 ; inx < varLength ; inx++) {
+//        if (varTempReturnNumber.substring(inx, inx + 1) == '0') {
+//            // '0' 이 넘어왔을 경우 '0'을 그대로 리턴해야 한다.
+//            if (varLength == 1) varReturnNumber = "0";
+//            else if (eval(jsDeleteComma(varTempReturnNumber)) == '0') {
+//                varReturnNumber = "0";
+//                break;
+//            }
+//        } else {
+//            varReturnNumber = varTempReturnNumber.substring(inx, varLength + 1);
+//            break;
+//        }
+//    }
+
+//    varTextObj.value = varReturnNumber;
+//}
+
+///*--------------------------------------------------
+//  기능   : 파라메터로 넘어온 필드에 숫자와 1개의 point만을 입력받게 해준다.
+//  INPUT  :
+//  RETURN :
+//----------------------------------------------------*/
+//function jsOnlyFloat(varTextObj) {
+
+//    varTextObj.value = jsDeleteComma(varTextObj.value);
+
+//    var varLength = varTextObj.value.length;
+//    var varText = "";
+//    var isPointed = false;
+//    for (var inx = 0 ; inx < varLength ; inx++) {
+//        if (jsCheckNumber(varTextObj.value.substring(inx, inx + 1)) || (varTextObj.value.substring(inx, inx + 1) == '.')) {
+//            // 점이 안찍히고 처음으로 점이 들어왔을때
+//            if (!isPointed && varTextObj.value.substring(inx, inx + 1) == '.') {
+//                isPointed = true;
+//                varText = varText + varTextObj.value.substring(inx, inx + 1);
+//                // 숫자 일때
+//            } else if (jsCheckNumber(varTextObj.value.substring(inx, inx + 1))) {
+//                varText = varText + varTextObj.value.substring(inx, inx + 1);
+//            }
+
+//        }
+//    }
+
+//    // 앞에 붙은 0 없애기 (예) 00200 -> 200
+//    varLength = varText.length;
+
+//    var varReturnNumber = "";
+//    for (var inx = 0 ; inx < varLength ; inx++) {
+//        if (varText.substring(inx, inx + 1) == '0') {
+//            // '0' 이 넘어왔을 경우 '0'을 그대로 리턴해야 한다.
+//            if (varLength == 1) varReturnNumber = "0";
+//            else if (eval(jsDeleteComma(varText)) == '0') {
+//                varReturnNumber = "0";
+//                break;
+//            }
+//        } else {
+//            varReturnNumber = varText.substring(inx, varLength + 1);
+//            break;
+//        }
+//    }
+
+//    varTextObj.value = varReturnNumber;
+
+//}
+
+///*--------------------------------------------------
+//  기능   : 파라메터로 넘어온 필드에 YYYY/MM형식으로 [/]를 찍어서 채워준다. 
+//  INPUT  :
+//  RETURN :
+//----------------------------------------------------*/
+//function jsMakeYyyyMm(varTextObj) {
+//    varTextObj.value = jsDeleteChar(varTextObj.value, '/');
+
+//    var varLength = varTextObj.value.length;
+//    var varText = "";
+//    for (var inx = 0 ; inx < varLength ; inx++) {
+//        if (jsCheckNumber(varTextObj.value.substring(inx, inx + 1))) {
+//            varText = varText + varTextObj.value.substring(inx, inx + 1);
+//        }
+//    }
+
+//    if (varText.length < 6) {
+//        varTextObj.value = varText;
+//    } else {
+//        varTextObj.value = varText.substring(0, 4) + "/" + varText.substring(4, 6);
+//    }
+//}
+
+///*--------------------------------------------------
+//  기능   : 파라메터로 넘어온 String에 날짜형식으로 [/]를 찍어서 리턴.
+//    예) 200103 -> 2001/03
+//  INPUT  :
+//  RETURN :
+//----------------------------------------------------*/
+//function jsMakeYyyyMmString(varText) {
+//    if (varText.length != 6 || !jsCheckNumber(varText)) {
+//        return varText;
+//    }
+
+//    var varReturnText = "";
+
+//    varReturnText = varText.substring(0, 4) + "/" + varText.substring(4, 6);
+
+//    return varReturnText
+//}
+
+///*--------------------------------------------------
+//  기능   : 파라메터로 넘어온 필드에 날짜형식으로 [/]를 찍어서 채워준다.      
+//    예) 20010301 -> 2001/03/01          
+//  INPUT  : Text Object
+//  RETURN :
+//----------------------------------------------------*/
+//function jsMakeDate(varTextObj) {
+//    varTextObj.value = jsDeleteChar(varTextObj.value, '/');
+
+//    var varLength = varTextObj.value.length;
+//    var varText = "";
+//    for (var inx = 0 ; inx < varLength ; inx++) {
+//        if (jsCheckNumber(varTextObj.value.substring(inx, inx + 1))) {
+//            varText = varText + varTextObj.value.substring(inx, inx + 1);
+//        }
+//    }
+
+//    if (varText.length < 8) {
+//        varTextObj.value = varText;
+//    } else {
+//        varTextObj.value = varText.substring(0, 4) + "/" + varText.substring(4, 6) + "/" + varText.substring(6, 8);
+//    }
+//}
+
+///*--------------------------------------------------
+//  기능   : 파라메터로 넘어온 String에 날짜형식으로 [/]를 찍어서 채워준다.      
+//    예) 20010301 -> 2001/03/01          
+//  INPUT  :
+//  RETURN :
+//----------------------------------------------------*/
+//function jsMakeDateString(varText) {
+//    if (varText.length != 8 || !jsCheckNumber(varText)) {
+//        return varText;
+//    }
+
+//    var varReturnText = "";
+
+//    varReturnText = varText.substring(0, 4) + "/" + varText.substring(4, 6) + "/" + varText.substring(6, 8);
+
+//    return varReturnText
+//}
+
+///*--------------------------------------------------
+//  기능   : 숫자를 받아서 comma를 찍어서 리턴한다. 음수도 표현가능
+//    예) 1000.00 -> 1,000.00 
+//    예) 숫자가 아닌 값 -> -1 리턴      
+//  INPUT  :
+//  RETURN :
+//----------------------------------------------------*/
+//function jsAddComma(varNumber) {
+//    // 숫자가 아니면 -1을 리턴한다.
+//    if (jsCheckNull(varNumber)) return "";
+//    if (!jsCheckFloat(varNumber)) {
+//        return -1;
+//    }
+
+//    // 소수 이상, 이하 부분을 따로 보관.
+//    var PointIndex = varNumber.indexOf(".");
+//    var varUnderPoint = "";
+//    var isPointed = false;
+//    // 소수 이하가 없을때
+//    if (PointIndex < 0) {
+//        isPointed = false;
+//        // 소수 이하 부분
+//        varUnderPoint = "";
+//        // 소수 이상 부분
+//        varOverPoint = varNumber;
+//        // 소수 이하가 있을때
+//    } else {
+//        isPointed = true;
+//        // 소수 이하 부분
+//        varUnderPoint = varNumber.substring(PointIndex + 1, varNumber.length);
+//        // 소수 이상 부분
+//        varOverPoint = varNumber.substring(0, PointIndex);
+//    }
+
+//    // 음수일때 앞의 "-" 따로 보관
+//    var negativeFlag = false;
+//    if (varOverPoint.substring(0, 1) == "-") {
+//        negativeFlag = true;
+//        varOverPoint = varOverPoint.substring(1, varOverPoint.length + 1);
+//    }
+
+//    // 소수 이상 부분에 comma 넣기
+//    var varLength = varOverPoint.length;
+//    var varCnt = 0;
+//    var varTempReturnNumber = "";
+//    for (var inx = varLength - 1 ; inx >= 0 ; inx--) {
+//        varCnt++;
+
+//        // 소수점 찍기
+//        if (varCnt == 4) {
+//            varTempReturnNumber = varOverPoint.substring(inx, inx + 1) + "," + varTempReturnNumber;
+//            varCnt = 1;
+//            // 소수점 안찍기
+//        } else {
+//            varTempReturnNumber = varOverPoint.substring(inx, inx + 1) + varTempReturnNumber;
+//        }
+
+//    }
+
+//    // 앞에 붙은 0 없애기 (예) 00200 -> 200
+//    varLength = varTempReturnNumber.length;
+//    var varReturnNumber = "";
+//    for (var inx = 0 ; inx < varLength ; inx++) {
+//        if (varTempReturnNumber.substring(inx, inx + 1) == '0') {
+//            // '0' 이 넘어왔을 경우 '0'을 그대로 리턴해야 한다.
+//            if (varLength == 1) varReturnNumber = "0";
+//            else if (eval(jsDeleteComma(varTempReturnNumber)) == '0') {
+//                varReturnNumber = "0";
+//                break;
+//            }
+//        } else {
+//            varReturnNumber = varTempReturnNumber.substring(inx, varLength + 1);
+//            break;
+//        }
+//    }
+
+//    // 소수점 이하 붙이기
+//    if (isPointed) {
+//        varReturnNumber = varReturnNumber + "." + varUnderPoint;
+//    }
+
+//    // 음수 붙이기
+//    if (negativeFlag) {
+//        varReturnNumber = "-" + varReturnNumber;
+//    }
+
+//    return varReturnNumber;
+
+//}
+
+///*--------------------------------------------------
+//  기능   : 숫자를 받아서 comma를 찍어서 리턴한다.
+//    예) 1000 -> 1,000.00
+//    예) 숫자가 아닌 값 -> -1 리턴   
+//  INPUT  :
+//  RETURN :
+//----------------------------------------------------*/
+//function jsAddCommaAndZero(varNumber) {
+//    // 숫자가 아니면 -1을 리턴한다.
+//    if (jsCheckNull(varNumber)) return "";
+//    if (!jsCheckFloat(varNumber)) {
+//        return -1;
+//    }
+
+//    // 소수 이상, 이하 부분을 따로 보관.
+//    var PointIndex = varNumber.indexOf(".");
+//    var varUnderPoint = "";
+//    // 소수 이하가 없을때
+//    if (PointIndex < 0) {
+//        // 소수 이하 부분
+//        varUnderPoint = "";
+//        // 소수 이상 부분
+//        varOverPoint = varNumber;
+//        // 소수 이하가 있을때
+//    } else {
+//        // 소수 이하 부분
+//        varUnderPoint = varNumber.substring(PointIndex + 1, varNumber.length);
+//        // 소수 이상 부분
+//        varOverPoint = varNumber.substring(0, PointIndex);
+//    }
+
+//    // 소수 이상 부분에 comma 넣기
+//    var varLength = varOverPoint.length;
+//    var varCnt = 0;
+//    var varTempReturnNumber = "";
+//    for (var inx = varLength - 1 ; inx >= 0 ; inx--) {
+//        varCnt++;
+
+//        // 소수점 찍기
+//        if (varCnt == 4) {
+//            varTempReturnNumber = varOverPoint.substring(inx, inx + 1) + "," + varTempReturnNumber;
+//            varCnt = 1;
+//            // 소수점 안찍기
+//        } else {
+//            varTempReturnNumber = varOverPoint.substring(inx, inx + 1) + varTempReturnNumber;
+//        }
+
+//    }
+
+//    // 앞에 붙은 0 없애기 (예) 00200 -> 200
+//    varLength = varTempReturnNumber.length;
+//    var varReturnNumber = "";
+//    for (var inx = 0 ; inx < varLength ; inx++) {
+//        if (varTempReturnNumber.substring(inx, inx + 1) == '0') {
+//        } else {
+//            varReturnNumber = varTempReturnNumber.substring(inx, varLength + 1);
+//            break;
+//        }
+//    }
+
+//    // 소수점 이하 붙이기
+//    if (varUnderPoint.length == 0) {
+//        varReturnNumber = varReturnNumber + "." + "00";
+//    } else if (varUnderPoint.length == 1) {
+//        varReturnNumber = varReturnNumber + "." + varUnderPoint + "0";
+//    } else if (varUnderPoint.length == 2) {
+//        varReturnNumber = varReturnNumber + "." + varUnderPoint;
+//    }
+
+//    return varReturnNumber;
+
+//}
+
+///*--------------------------------------------------
+//  기능   : 숫자를 받아서 comma를 없애고 리턴한다
+//    예) 1,000.00 -> 1000.00     
+//  INPUT  :
+//  RETURN :
+//----------------------------------------------------*/
+//function jsDeleteComma(varNumber) {
+//    var varLength = varNumber.length;
+
+//    varReturnNumber = "";
+
+//    for (var inx = 0 ; inx < varLength ; inx++) {
+//        if (varNumber.substring(inx, inx + 1) != ",") {
+//            varReturnNumber = varReturnNumber + varNumber.substring(inx, inx + 1);
+//        }
+//    }
+
+//    return varReturnNumber;
+//}
+
+///*--------------------------------------------------
+//  기능   : 글자를 받아서 param를 없애고 리턴한다.
+//    예) 2001/01/01 -> 20010101     
+//  INPUT  : varText 문자열 varDelete 삭제하고자하는 Character
+//  RETURN :
+//----------------------------------------------------*/
+//function jsDeleteChar(varText, varDelete) {
+//    var varLength = varText.length;
+
+//    varReturnText = "";
+
+//    for (var inx = 0 ; inx < varLength ; inx++) {
+//        if (varText.substring(inx, inx + 1) != varDelete) {
+//            varReturnText = varReturnText + varText.substring(inx, inx + 1);
+//        }
+//    }
+
+//    return varReturnText;
+//}
+
+///*--------------------------------------------------
+//  기능   : 폼 이름을 받아서 모든 text,hidden값에 comma, / 문자를 없애준다 
+//  INPUT  :
+//  RETURN :
+//----------------------------------------------------*/
+//function jsDeleteCharAll(FormObj) {
+//    for (i = 0; i < FormObj.elements.length; i++) {
+//        if (FormObj.elements[i].type == "text" || FormObj.elements[i].type == "hidden") {
+//            if (!jsCheckNull(FormObj.elements[i].value) && jsCheckFloat(jsDeleteComma(FormObj.elements[i].value))) {
+//                FormObj.elements[i].value = jsDeleteComma(FormObj.elements[i].value);
+//            } else if (!jsCheckNull(FormObj.elements[i].value) && jsCheckDate(jsDeleteChar(FormObj.elements[i].value, '/'))) {
+//                FormObj.elements[i].value = jsDeleteChar(FormObj.elements[i].value, '/');
+//            }
+//        }
+//    }
+//}
+
+///*--------------------------------------------------
+//  기능   : FormObj에서 checkBox 가 몇개 선택되었는지  리턴한다.
+//  INPUT  :
+//  RETURN :
+//----------------------------------------------------*/
+//function jsCheckBoxSelectedCnt(FormObj, checkBoxName) {
+//    var cnt = 0;
+//    for (var inx = 0; inx < FormObj.elements.length ; inx++) {
+//        if (FormObj.elements[inx].name == checkBoxName && FormObj.elements[inx].checked) {
+//            cnt++;
+//        }
+//    }
+//    return cnt;
+//}
+
+///*--------------------------------------------------
+//  기능   : 영문 과 숫자로만 이루어 졌는지  체크를 해준다.
+//  INPUT  :
+//  RETURN :
+//----------------------------------------------------*/
+//function isAlphaNum(input) {
+//    var chars = " ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+//    return containsCharsOnly(input, chars);
+//}
+
+
+////입력값이 한글이 포함되어있는지 체크
+
+//function IsHangul(field) {
+//    if (field == "") return false;
+
+//    var rtnLen = 0;
+
+//    for (i = 0; i < field.length; i++) {
+//        // 한글인 경우 길이가 UniCode 값은 10000 이상이다.
+//        if (field.charCodeAt(i) > 10000) {
+//            rtnLen++;
+//        }
+//    }
+
+//    if (rtnLen > 0)
+//        return true;
+//    else
+//        return false;
+//}
+
+
+///*----------------------------------------------------
+//  입력값이 특정 문자(chars)만으로 되어있는지 체크
+//  특정 문자만 허용하려 할 때 사용
+//  ex) if (!containsCharsOnly(form.blood,"ABO")) {
+//          alert("혈액형 필드에는 A,B,O 문자만 사용할 수 있습니다.");
+//      }
+//------------------------------------------------------*/
+//function containsCharsOnly(input, chars) {
+//    for (var inx = 0; inx < input.value.length; inx++) {
+//        if (chars.indexOf(input.value.charAt(inx)) == -1)
+//            return false;
+//    }
+//    return true;
+//}
+
+///*--------------------------------------------------
+//  기능   : POPUP OPEN Script
+//  INPUT  :
+//  RETURN :
+//----------------------------------------------------*/
+//function popup1(varAction, varWinName, varWidth, varHeight) {
+//    var win = window.open(varAction, varWinName, "toolbar=0,location=0,directories=0,status=1,menubar=0,scrollbars=1,resizable=1, width=" + varWidth + ",height=" + varHeight + ", left=50,top=50");
+//    return win;
+
+//    //var FormObj = document.dataForm;
+//    //FormObj.target = varWinName ;
+//    //FormObj.action = varAction ;
+//    //FormObj.submit() ;
+//}
+
+
+//function toTimeString(varDateObj) { //formatTime(date)
+//    var year = varDateObj.getFullYear();
+//    var month = varDateObj.getMonth() + 1; // 1월=0,12월=11이므로 1 더함
+//    var day = varDateObj.getDate();
+
+//    if (("" + month).length == 1) { month = "0" + month; }
+//    if (("" + day).length == 1) { day = "0" + day; }
+
+//    return ("" + year + month + day);
+//}
+
+//function jsAfterThisDate(varStdDate, varYYYY, varMM, varDD) {
+
+//    var varDateObj = new Date();
+
+//    varStdDate = jsDeleteChar(varStdDate, "/");
+
+//    var yyyy = varStdDate.substring(0, 4) + "";
+//    var mm = varStdDate.substring(4, 6) + "";
+//    var dd = varStdDate.substring(6, 8) + "";
+
+//    var startDate = new Date(yyyy, (eval(mm) - 1), dd); // 달 은 한달이 느리므로 1을 빼준다.
+
+//    varDateObj.setFullYear(startDate.getFullYear() + eval(varYYYY)); //년을 더함
+//    varDateObj.setMonth(startDate.getMonth() + eval(varMM));       //월을 더함
+//    varDateObj.setDate(startDate.getDate() + eval(varDD));         //일을 더함
+
+//    return toTimeString(varDateObj);
+//}
+
+///*--------------------------------------------------
+//  기능   : text 입력시 숫자이외의 키를 눌렀을때 무효화시킨다.
+//  INPUT  : 없음
+//  RETURN : 이벤트 무효화
+
+//  주의!  : onKeypress 이벤트만 사용할것
+//          예) <input type="text" onKeypress="jsOnlyNumberKey();">
+//----------------------------------------------------*/
+//function jsOnlyNumberKey() {
+//    if (event != null) {
+//        if (event.keyCode < 48 || event.keyCode > 57) {
+//            event.returnValue = false;
+//        }
+//    }
+//}
+
+///* 이전페이지로 이동 */
+//function jsBack() {
+//    history.go(-1);
+//}
+
+///* 모래시계 보이게 하기 */
+//function jsVisible(str) {
+//    if (str == '1')
+//        document.body.style.cursor = 'wait'
+//    else
+//        document.body.style.cursor = 'auto'
+//}
+
+///* 15초후에 jsRefresh()라는 function을 호출 */
+//var timeId = null;
+
+//function jsRunAfterTime() {
+//    //15초 후에 Refresh
+//    timeId = setTimeout("jsRefresh()", 15000);
+//}
+
+///**
+// * 소수점 아래 몇자리 이하 절삭.
+// *
+// * @param num 숫자
+// * @param place 자리수
+// * @return 절삭된 숫자
+// */
+//function getCutNumber(num, place) {
+//    var returnNum;
+//    var str = "1";
+
+//    return Math.floor(num * Math.pow(10, parseInt(place, 10))) / Math.pow(10, parseInt(place, 10));
+//}
+
+///* text의 좌우 공백을 제거해서 리턴*/
+//function trim(text) {
+//    if (text == "") {
+//        return text;
+//    }
+
+//    var len = text.length;
+//    var st = 0;
+
+//    while ((st < len) && (text.charAt(st) <= ' ')) {
+//        st++;
+//    }
+
+//    while ((st < len) && (text.charAt(len - 1) <= ' ')) {
+//        len--;
+//    }
+
+//    return ((st > 0) || (len < text.length)) ? text.substring(st, len) : text;
+//}
+
+///* text의 좌측의 공백을 제거해서 리턴*/
+//function ltrim(text) {
+//    if (text == "") {
+//        return text;
+//    }
+
+//    var len = text.length;
+//    var st = 0;
+
+//    while ((st < len) && (text.charAt(st) <= ' ')) {
+//        st++;
+//    }
+
+//    return (st > 0) ? text.substring(st, len) : text;
+//}
+
+///* text의 우측의 공백을 제거해서 리턴*/
+//function rtrim(text) {
+//    if (text == "") {
+//        return text;
+//    }
+
+//    var len = text.length;
+//    var st = 0;
+
+//    while ((st < len) && (text.charAt(len - 1) <= ' ')) {
+//        len--;
+//    }
+
+//    return (len < text.length) ? text.substring(st, len) : text;
+//}
+
+///*--------------------------------------------------
+//  기능   : select box 를 CLEAR 시킨다.
+//  INPUT  : varObjFullNm : select box 객체
+//           varDeleteCnt : 첫번째 아이템 삭제 여부 결정
+//  RETURN : NONE
+//----------------------------------------------------*/
+//function cmInitSelectBox(varObjFullNm, varDeleteCnt) {
+//    varObj = eval(varObjFullNm);
+//    varObj.length = varDeleteCnt;
+//}
+
+///*--------------------------------------------------
+//  기능   :  select box 를 만든다.
+//  INPUT  : varObjFullNm :  select box 객체
+//           varText      : 
+//           varValue     :  
+//  RETURN : NONE
+//----------------------------------------------------*/
+//function cmMakeSelectBox(varObjFullNm, varText, varValue) {
+//    varObj = eval(varObjFullNm);
+
+//    var empOption = null;
+
+//    empOption = document.createElement("OPTION");
+//    empOption.text = varText;
+//    empOption.value = varValue;
+//    varObj.options.add(empOption);
+//}
+
+
+///*
+//Text
+//jsChangeComma( str ) ' -> ` 로 대치
+//jsStrCheck(checkStr, checkOK)
+//  들어가서는 안되는 데이타(checkOK)가 checkStr에 포함되어있는지 체크
+//jsMoveFocus( varTextObj, varLength, varFocusToObj )
+//  TextBox에서 조건이 만족하면 특정객체로 포커스를 이동
+//jsCheckNull( toCheck ) toCheck의 값이 Null값인지를 체크
+//jsDeleteComma( varNumber ) 컴마를 삭제하고 리턴
+//jsDeleteChar( varText, varDelete ) 문자열에서 해당 character를 지우고 리턴
+
+
+//CheckBox
+//jsCheckBoxSelectedCnt( FormObj, checkBoxName ) 
+//  FormObj에서 checkBox 가 몇개 선택되었는지  리턴한다.
+//jsToggle(FormObj, elemNm, checkYn)
+//  특정 폼안의 체크박스오브젝트를 전체선택하거나 전체반전시킴
+  
+//SelectBox
+//jsCheckSelectBox ( sb ) SelectBox에서 선택된 값의 value를 리턴
+//jsCheckSelectBoxNm ( sb ) SelectBox에서 선택된 값의 Text를 리턴
+//cmInitSelectBox( varObjFullNm, varDeleteCnt )
+//  해당 SelectBox를 초기화 시킨다. varDeleteCnt가 1이면 첫번째값을 지우지 않는다.
+//cmMakeSelectBox( varObjFullNm, varText, varValue ) 해당 selectBox에 하나의 값을 추가시킴
+    
+//날짜  
+//jsCheckYYYY(toCheck) 년도를 체크
+//jsCheckYYYYMM(toCheck) 년월을 체크
+//jsCheckMM(toCheck) 월을 체크
+//jsCheckDD(yyyy,mm,toCheck) 일을 체크
+//jsCheckDate( dateVal ) 날짜를 체크 
+//jsAddYear( startDt, plusYear ) 날짜에 년수를 더함
+//jsAddMonths( startDt, plusMonth ) 날짜에 월수를 더함
+//jsGetBetweenDay( startDt, endDt ) 날짜와 날짜사이의 일수를 리턴
+//jsCheckTime( toCheck ) 시간포맷인지를 체크
+//jsMakeYyyyMm( varTextObj ) 
+//  해당 텍스트박스 객체필드에 YYYY/MM형식으로 [/]를 찍어서 채워준다. 
+//jsMakeYyyyMmString( varText ) 넘어온 값에 날짜형식으로 [/]를 찍어서 리턴.
+//jsMakeDate( varTextObj ) 넘어온 Object의 값을 날짜형식으로 채워줌
+//jsMakeDateString( varText )넘어온 값을 날짜형식으로 리턴
+//toTimeString( varDateObj ) DateObj를 넘겨주면 년월일을 리턴  20030201
+//jsAfterThisDate( varStdDate , varYYYY , varMM , varDD )
+//  날짜형식의 문자열에 특정 년, 월, 일을 더한값을 리턴
+
+
+//날짜 체크 사용 예 호출하는 페이지에 다음 부분을 추가
+
+//<input ... onKeyUp='jsChkDate(this,lottSearchForm.txtEdate)' onBlur='compareDate()'>
+
+
+//function compareDate(){   
+
+// if( jsCheckNull(document.forms[0].txtSdate.value) || 
+
+//     jsCheckNull(document.forms[0].txtEdate.value) )
+//     return;
+  
+// var from = document.forms[0].txtSdate.value.replace(/(\,|\.|\-|\/|\:)/g,'');
+// var to   = document.forms[0].txtEdate.value.replace(/(\,|\.|\-|\/|\:)/g,'');
+
+// if( jsGetBetweenDay(from,to) < 0 ) {
+//  alert("기간이 잘못 입력되었습니다. 다시입력하세요");
+//  document.forms[0].txtSdate.value = "";
+//  document.forms[0].txtEdate.value = "";
+//  document.forms[0].txtSdate.focus();
+//  return ;
+// }
+
+//}
+
+//function jsChkDate( valObj, nextPos ){
+
+// if( valObj.value.length == 8 ) {
+//  if( !jsCheckDate( valObj.value ) ) {
+//   alert("일자 입력오류입니다. 다시 입력해 주십시요.");
+//   valObj.value = '';
+//   valObj.focus();
+//   return;
+//  }  
+//  jsMakeDate( valObj );
+//  nextPos.focus();
+// } 
+//}
+
+            
+
+   
+//주민등록번호
+//jsCheckJumin(toCheck) 주민등록번호 체크
+
+//사업자등록번호
+//jsCheckSaupJa(toCheck) 사업자등록번호 체크
+
+//문자열길이 체크
+//getByteLength(s) 한글2바이트, 영문 1바이트로 바이트수를 리턴
+
+//쿠키
+//setCookie( name, value, expireFlag ) Set Cookie 
+//getCookie( name ) get Cookie
+
+//숫자
+//jsParseInt( varStr ) 문자를 숫자로 변환 null일때 
+//jsConvertNumberToHangul( varNum ) 숫자를 한글로 변환
+//jsMakeCurrency( varTextObj ) 넘어온 숫자에 컴마를 찍어서 리턴 소숫점 허용안함
+//jsMakeForeignCurrency( varTextObj ) 넘어온 숫자에 컴마를 찍어서 리턴 소숫점 허용함
+//jsOnlyNumber( varTextObj ) 해당 텍스트박스 객체에 숫자만 입력받을수 있도록
+//jsOnlyFloat( varTextObj ) 해당 텍스트박스 객체에 숫자와 1개의 point만을 입력받게 해준다.
+//jsAddComma( varNumber ) 
+//  숫자를 받아서 comma를 찍어서 리턴한다 소수점 인식 숫자가 아닌값 -1을 리턴 음수표현가능
+//jsAddCommaAndZero( varNumber ) 
+//  숫자를 받아서 comma를 찍어서 리턴한다 소수점 인식 숫자가 아닌값 -1을 리턴 음수표현 불가능
+//jsCheckFloat(toCheck) Folat형인지를 체크 정수도 Float으로 인식
+//jsCheckPoint( toCheck , Positive , Negative ) 자리수 체크 정수 몇자리 소수 몇자리
+//jsCheckNumber(toCheck) Number타입인지 체크, 소수점은 Number타입으로 인식하지 않음  
+//getCutNumber(num, place) 소수점 아래 몇자리 이하 절삭
+//jsOnlyNumberKey() text 입력시 숫자이외의 키를 눌렀을때 무효화시킨다.
+//jsCheckFloatType( varNum, varLeft, varRight ) 정수부분자리수 소수부분자리수 체크  
+  
+//기타
+//jsSplitCode(varString, varSplitChar, varIndex) 구분자로 구분해서 index의 문자를 리턴
+//jsCheckIp(toCheck) toCheck값이 정확한 IP Address인지 체크
+//jsCheckEmail( emailVal ) 이메일을 체크 - 보완요망
+//jsShowHelp( helpfile ) helpfile를 팝업으로 오픈
+//jsGetObjCnt( FormObj, varObjName ) 특정폼에서 해당오브젝트가 몇개인지를 리턴
+//jsClearFrame( fr ) 특정프레임에 공백 jsp를 띄워줌
+//jsDeleteCharAll( FormObj ) 
+//  해당 폼에 해당하는 모든 오브젝트의 값들에서 ',' and '/'문자를 지워준다.    
+//isAlphaNum(input) 영문과 숫자로만 이루어졌는지를 체크
+
+//IsHangul(field) 입력값에 한글이 있는지 체크
+//containsCharsOnly(input,chars) 입력값이 특정 문자(chars)만으로 되어있는지 체크
+//popup1( varAction, varWinName, varWidth, varHeight ) 팝업을 호출
+//jsBack() 이전 페이지로 이동
+//jsVisible( str ) 특정조건에 해당하면 모래시계를 보여줌
+//jsRunAfterTime() 설정한 시간뒤에 특정 function을 호출
+//trim(text) ltrim(text) rtrim(text) text의 좌우측, 좌측, 우측의 공백을 제거해서 리턴
+//*/
+
+
+
+///*--------------------------------------------------
+//  기능   : Cookie Setting
+//  INPUT  : name, value
+//           expireFg : 'Y' : 2020년 까지 쿠키저장
+//           expireFg : 'N' : session이 끊어질때 쿠키지움
+//  RETURN : NONE
+//----------------------------------------------------*/
+//function setCookie(name, value, expireFg) {
+//    var expireDate = new Date(2020, 1, 1, 1, 1, 1);
+
+//    if (expireFg = 'Y')
+//        document.cookie = name + "=" + value + "; expires=" + expireDate.toGMTString();
+//    else
+//        document.cookie = name + "=" + value + ";";
+
+//}
+///*--------------------------------------------------
+//  기능   : Cookie Get
+//  INPUT  : name
+//  RETURN : 쿠키값( 없으면 "" )
+//----------------------------------------------------*/
+//function getCookie(name) {
+//    var cookieFound = false;
+//    var start = 0;
+//    var end = 0;
+//    var cookieString = document.cookie;
+
+//    var i = 0;
+
+//    // name에 해당되는 cookie를 찾는다.
+//    while (i <= cookieString.length) {
+//        start = i;
+//        end = start + name.length;
+//        if (cookieString.substring(start, end) == name) {
+//            cookieFound = true;
+//            break;
+//        }
+//        i++;
+//    }
+
+//    // cookie를 찾았으면 해당하는 값을 그렇지 않으면 ""을 return ;
+//    if (cookieFound) {
+//        start = end + 1;
+//        end = document.cookie.indexOf(";", start);
+//        if (end < start)
+//            end = document.cookie.length;
+//        return document.cookie.substring(start, end);
+//    }
+
+//    return "";
+//}
+
+///*-----------------------------------------------
+// ' ->문자를 쿼리문에 사용시 에러가 발생하므로 `로 대치
+// INPUT  : str
+// RETURN : 문자열안의 문자중 ' 문자를 ` 로 변경한 문자열
+//-------------------------------------------------*/
+//function jsChangeComma(str) {
+//    while (str.indexOf("'") != -1) {
+//        str = str.replace("'", "`");
+//    }
+//    return str;
+//}
+
+///*----------------------------------------------------------
+//  기능   : Split Code RETURN Splited code by varSplitChar
+//  INPUT  : varString 문자
+//     : varSplitChar 구분자
+//   : varIndex 구분자의 위치
+//  RETURN : Splited code by varSplitChar
+//  예     : jsSplitCode( "111^222^333", "^", 2 ) == "222"
+//-----------------------------------------------------------*/
+//function jsSplitCode(varString, varSplitChar, varIndex) {
+//    var varArray = varString.split(varSplitChar);
+
+//    return varArray[eval(varIndex) - 1];
+//}
+
+///*--------------------------------------------------
+//  기능   : Check Null RETURN T/F
+//  INPUT  : check  data
+//  RETURN : true  -> NULL
+//           false -> NOT NULL
+//----------------------------------------------------*/
+//function jsCheckNull(toCheck) {
+//    var chkstr = toCheck + "";
+//    var is_Space = true;
+
+//    if ((chkstr == "") || (chkstr == null))
+//        return (true);
+
+//    for (j = 0 ; is_Space && (j < chkstr.length) ; j++) {
+//        if (chkstr.substring(j, j + 1) != " ") {
+//            is_Space = false;
+//        }
+//    }
+//    return (is_Space);
+//}
+
+///*--------------------------------------------------
+//  기능   : Check IP address RETURN T/F
+//  INPUT  : toCheck  -> check data
+//  RETURN : true  -> IP address
+//           false -> not IP address
+//----------------------------------------------------*/
+//function jsCheckIp(toCheck) {
+//    var chkstr = toCheck + "";
+//    var isIp = true;
+
+//    if (jsCheckNull(toCheck))
+//        return false;
+
+//    for (j = 0 ; isIp && (j < toCheck.length) ; j++) {
+//        if ((toCheck.substring(j, j + 1) < "0") || (toCheck.substring(j, j + 1) > "9")) {
+//            if (toCheck.substring(j, j + 1) == ".")
+//                if (j == 0)
+//                    isIp = false;
+//                else
+//                    isIp = false;
+//        }
+//    }
+
+//    return isIp;
+//}
+
+///*--------------------------------------------------
+//  기능   : Check Number RETURN T/F ( 소수점"."은 Number로 취급안함 )
+//  INPUT  : toCheck  -> check data
+//  RETURN : true  -> number ( "."이 포함안됨 )
+//           false -> not number
+//----------------------------------------------------*/
+//function jsCheckNumber(toCheck) {
+//    var chkstr = toCheck + "";
+//    var isNum = true;
+
+//    if (jsCheckNull(toCheck))
+//        return false;
+
+//    for (j = 0 ; isNum && (j < toCheck.length) ; j++) {
+//        if ((toCheck.substring(j, j + 1) < "0") || (toCheck.substring(j, j + 1) > "9")) {
+//            if (toCheck.substring(j, j + 1) == "-" || toCheck.substring(j, j + 1) == "+") {
+//                if (j != 0) {
+//                    isNum = false;
+//                }
+//            }
+//            else
+//                isNum = false;
+//        }
+//    }
+
+//    if (chkstr == "+" || chkstr == "-") isNum = false;
+
+//    return isNum;
+//}
+
+///*--------------------------------------------------
+//  기능   : Check data RETURN T/F
+//  INPUT  : toCheck  -> check data
+//           checkOK  -> 들어가서는 안되는 data
+//  RETURN : false -> 들어가서는 안되는 data가 없다
+//           true  -> 들어가서는 안되는 data가 있다.
+//  예1    : jsStrCheck( '12345', 'ABab' )
+//           string '12345'에는 'ABab'가 없으므로
+//           false를 리턴
+//  예2    : jsStrCheck( '12$45', 'ABab$#%' )
+//           string '12$45'에는 '$'가 있으므로
+//           true를 리턴
+//----------------------------------------------------*/
+//function jsStrCheck(checkStr, checkOK) {
+//    for (i = 0; i < checkStr.length; i++) {
+//        ch = checkStr.charAt(i);
+//        for (j = 0; j < checkOK.length; j++)
+//            if (ch == checkOK.charAt(j))
+//                break;
+//        if (j == checkOK.length) {
+//            return false;
+//            break;
+//        }
+//    }
+//    return true;
+//}
+
+///*--------------------------------------------------
+//  기능   : Check Float RETURN T/F (정수도 Float로 취급)
+//  INPUT  : toCheck  -> check data
+//  RETURN : true  -> number
+//           false -> not number
+//----------------------------------------------------*/
+//function jsCheckFloat(toCheck) {
+//    var chkstr = toCheck + "";
+//    var isFloat = true;
+
+//    var chkPoint = false;
+//    var chkMinus = false;
+
+//    if (jsCheckNull(toCheck)) {
+//        return false;
+//    }
+
+//    for (j = 0 ; isFloat && (j < toCheck.length) ; j++) {
+//        if ((toCheck.substring(j, j + 1) < "0") || (toCheck.substring(j, j + 1) > "9")) {
+
+//            if (toCheck.substring(j, j + 1) == ".") {
+//                if (!chkPoint) chkPoint = true;
+//                else isFloat = false;
+//            }
+//            else if (toCheck.substring(j, j + 1) == "-" || toCheck.substring(j, j + 1) == "+") {
+//                if ((j == 0) && (!chkMinus)) chkMinus = true;
+//                else isFloat = false;
+//            }
+//            else isFloat = false;
+//        }
+//    }
+
+//    return isFloat;
+//}
+
+///*--------------------------------------------------
+//  기능   : 자릿수 check RETURN T/F
+//  INPUT  : toCheck  -> check data
+//  RETURN : true  -> number
+//           false -> not number
+//----------------------------------------------------*/
+//function jsCheckPoint(toCheck, Positive, Negative) {
+//    var strPos = toCheck + "";
+//    var isPoint = true;
+
+//    if (jsCheckFloat(toCheck)) {
+
+//        var inx = strPos.indexOf(".");
+
+//        if (inx == -1) {
+//            if (strPos.length > parseInt(Positive))
+//                isPoint = false;
+//            else
+//                isPoint = true;
+//        }
+//        else {
+//            var pos = strPos.substring(0, inx);
+//            var nev = strPos.substring(inx + 1);
+
+//            if (pos.length > parseInt(Positive))
+//                isPoint = false;
+//            else if (nev.length > parseInt(Negative))
+//                isPoint = false;
+//            else
+//                isPoint = true;
+//        }
+//    }
+//    else if (jsCheckNumber(toCheck))
+//        isPoint = true;
+//    else
+//        isPoint = false;
+
+//    return isPoint;
+
+//}
+
+//////////////////////////////////////////////////////////////////n
+//////////////    DATE  VALIDATION  CHECK    //////////////////////
+///////////////////////////////////////////////////////////////////
+
+///*--------------------------------------------------
+//  기능   : calender에서 사용할 월별 배열를 만든다.
+//  INPUT  : 각 인자의 값
+//----------------------------------------------------*/
+//function jsMonthArray(m0, m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11) {
+//    this[0] = m0;
+//    this[1] = m1;
+//    this[2] = m2;
+//    this[3] = m3;
+//    this[4] = m4;
+//    this[5] = m5;
+//    this[6] = m6;
+//    this[7] = m7;
+//    this[8] = m8;
+//    this[9] = m9;
+//    this[10] = m10;
+//    this[11] = m11;
+//}
+
+
+///*--------------------------------------------------
+//  기능   : 년도를 check한다.
+//  INPUT  : toCheck
+//  RETURN : NONE
+//     MSG :
+//----------------------------------------------------*/
+
+//function jsCheckYYYY(toCheck) {
+//    return ((toCheck.length == 4) && (jsCheckNumber(toCheck)) && (toCheck != "0000"));
+//}
+
+///*--------------------------------------------------
+//  기능   : 년월을 check한다.
+//  INPUT  : toCheck
+//  RETURN : NONE
+//     MSG :
+//----------------------------------------------------*/
+
+//function jsCheckYYYYMM(toCheck) {
+//    var isDate = true;
+
+//    if (toCheck.length != 6) {
+//        isDate = false;
+//    }
+//    else {
+
+//        var yy = toCheck.substring(0, 4) + "";
+//        var mm = toCheck.substring(4, 6) + "";
+
+//        if (!jsCheckYYYY(yy))
+//            isDate = false;
+//        else if (!jsCheckMM(mm))
+//            isDate = false;
+//    }
+
+//    return isDate;
+//}
+
+///*--------------------------------------------------
+//  기능   : 월을 check한다.
+//  INPUT  : toCheck
+//  RETURN :
+//    MSG  :
+//----------------------------------------------------*/
+//function jsCheckMM(toCheck) {
+//    return ((toCheck.length > 0) && (jsCheckNumber(toCheck)) && (0 < eval(toCheck)) && (eval(toCheck) < 13));
+//}
+
+///*--------------------------------------------------
+//  기능   : 일을 check한다.
+//  INPUT  : toCheck
+//  RETURN : NONE
+//     MSG :
+//----------------------------------------------------*/
+//function jsCheckDD(yyyy, mm, toCheck) {
+//    var isYMD = false;
+//    var monthDD = new jsMonthArray(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+//    var im = eval(mm) - 1;
+//    if (toCheck.length == 0) return false;
+//    if (!jsCheckNumber(toCheck)) return false;
+//    var dd = eval(toCheck);
+//    if (((yyyy % 4 == 0) && (yyyy % 100 != 0)) || (yyyy % 400 == 0)) {
+//        monthDD[1] = 29;
+//    }
+//    if ((0 < dd) && (dd <= monthDD[im])) isYMD = true;
+//    return isYMD;
+//}
+
+///*--------------------------------------------------
+//  기능   : 날짜를 check한다.
+//  INPUT  : dateVal '20030321'
+//  RETURN : NONE
+//     MSG :
+//----------------------------------------------------*/
+//function jsCheckDate(dateVal) {
+
+//    var isDate = true;
+
+//    if (dateVal.length != 8) {
+//        isDate = false;
+//    }
+//    else {
+
+//        var yy = dateVal.substring(0, 4) + "";
+//        var mm = dateVal.substring(4, 6) + "";
+//        var dd = dateVal.substring(6, 8) + "";
+
+//        if (!jsCheckYYYY(yy))
+//            isDate = false;
+//        else if (!jsCheckMM(mm))
+//            isDate = false;
+//        else if (!jsCheckDD(yy, mm, dd))
+//            isDate = false;
+//    }
+
+//    return isDate;
+
+//}
+
+///*--------------------------------------------------
+//  기능   : 날짜에 년수를 더한다.
+//  INPUT  : startDt(YYYYMMDD), year
+//  RETURN : rtnValue : 날짜에 년수를 더한 날짜
+//           -1       : ERROR..!
+//           예) 20000110 + 1년 = 20010110
+//           예) 20000229 + 1년 = 20010228
+//     MSG :
+//----------------------------------------------------*/
+//function jsAddYear(startDt, plusYear) {
+//    var rtnValue = -1;
+
+//    // input date의 날짜 체크
+//    if (!jsCheckDate(startDt) || !jsCheckNumber(plusYear)) {
+//        rtnValue = -1;
+//        return rtnValue;
+//    }
+
+//    var yyyy = startDt.substring(0, 4) + "";
+//    var mm = startDt.substring(4, 6) + "";
+//    var dd = startDt.substring(6, 8) + "";
+
+//    var newYyyy = (eval(yyyy) + eval(plusYear));
+
+//    // 윤달(29일) 인 경우 28일로 고침
+//    // 예) 20000229 에 1년을 더하면 20000228
+//    var isYoonYear = false;
+//    // 4 로 나누어 떨어지면 윤년
+//    // 100 으로 나누어 떨어지면 윤년 아님
+//    // 400 으로 나누어 떨어지면 윤년
+//    if ((eval(newYyyy) % 4) == 0) isYoonYear = true;
+//    if ((eval(newYyyy) % 100) == 0) isYoonYear = false;
+//    if ((eval(newYyyy) % 400) == 0) isYoonYear = true;
+
+//    if ((mm == '02') && (dd == '29') && !isYoonYear) dd = '28';
+
+//    rtnValue = newYyyy + mm + dd;
+
+//    return rtnValue;
+//}
+
+///*--------------------------------------------------
+//  기능   : 날짜에 월수를 더한다.
+//  INPUT  : startDt(YYYYMMDD), year
+//  RETURN : rtnValue : 날짜에 월수를 더한 날짜
+//           -1       : ERROR..!
+//           예) 20000110 + 3월  = 20000410
+//           예) 20000229 + 12월 = 20000228
+//     MSG :
+//----------------------------------------------------*/
+//function jsAddMonths(startDt, plusMonth) {
+//    var rtnValue = -1;
+
+//    // input date의 날짜 체크
+//    if (!jsCheckDate(startDt) || !jsCheckNumber(plusMonth)) {
+//        rtnValue = -1;
+//        return rtnValue;
+//    }
+
+//    var yyyy = startDt.substring(0, 4) + "";
+//    var mm = startDt.substring(4, 6) + "";
+//    var dd = startDt.substring(6, 8) + "";
+
+//    var newMm = null;
+
+//    // 월수를 더하여 1년이 넘는 경우
+//    if ((eval(mm) + eval(plusMonth)) > 12) {
+//        yyyy = eval(yyyy) + 1;
+//        newMm = eval(mm) + eval(plusMonth) - 12;
+//    } else {
+//        newMm = eval(mm) + eval(plusMonth);
+//    }
+
+//    // 윤년 처리
+//    var isYoonYear = false;
+//    // 4 로 나누어 떨어지면 윤년
+//    // 100 으로 나누어 떨어지면 윤년 아님
+//    // 400 으로 나누어 떨어지면 윤년
+//    if ((eval(yyyy) % 4) == 0) isYoonYear = true;
+//    if ((eval(yyyy) % 100) == 0) isYoonYear = false;
+//    if ((eval(yyyy) % 400) == 0) isYoonYear = true;
+
+//    // 윤년인 경우
+//    if (isYoonYear) {
+//        if ((newMm == '02') && (dd == '30' || dd == '31')) dd = '29';
+//        // 평년인 경우
+//    } else {
+//        if ((newMm == '02') && (dd == '29' || dd == '30' || dd == '31')) dd = '28';
+//    }
+
+//    // 월의 자리수를 맞춘다. ( 2 월 -> 02 )
+//    if (eval(newMm) < 10) { newMm = "0" + newMm };
+//    rtnValue = yyyy + newMm + dd;
+
+//    return rtnValue;
+//}
+
+///*--------------------------------------------------
+//  기능   : 날짜와 날짜 사이의 일수를 리턴한다.
+//  INPUT  : startDt(YYYYMMDD), endDt(YYYYMMDD)
+//  RETURN : rtnValue : 날짜와 날짜 사이의 일수
+//           -1       : ERROR..!
+//     MSG :
+
+//----------------------------------------------------*/
+//function jsGetBetweenDay(startDt, endDt) {
+//    var rtnValue = 0;
+
+//    // input date의 날짜 체크
+//    if (!jsCheckDate(startDt) || !jsCheckDate(endDt)) {
+//        rtnValue = -1;
+//    }
+//    else {
+//        var yyyy = startDt.substring(0, 4) + "";
+//        var mm = startDt.substring(4, 6) + "";
+//        var dd = startDt.substring(6, 8) + "";
+//        var startDate = new Date(yyyy, (eval(mm) - 1), dd); // 달 은 한달이 느리므로 1을 빼준다.
+
+//        yyyy = endDt.substring(0, 4) + "";
+//        mm = endDt.substring(4, 6) + "";
+//        dd = endDt.substring(6, 8) + "";
+//        var endDate = new Date(yyyy, (eval(mm) - 1), dd);
+
+//        // 1000분의 1초 단위를 일 단위로 바꾸기
+//        rtnValue = ((endDate - startDate) / 60 / 60 / 24 / 1000);
+//    }
+
+//    return rtnValue;
+
+//}
+///*--------------------------------------------------
+//  기능   : Check Time RETURN T/F
+//  INPUT  : check  time
+//  RETURN : true  -> TIME
+//           false -> NOT TIME
+//----------------------------------------------------*/
+//function jsCheckTime(toCheck) {
+//    var chkstr = toCheck + "";
+
+//    if ((chkstr == "") || (chkstr == null))
+//        return (false);
+
+//    var mm = chkstr.substring(0, 2);
+//    var ss = chkstr.substring(3, 5);
+
+//    if ((mm <= "23") && (mm >= "00")) {
+//        if ((ss <= "60") && (ss >= "00")) {
+//            if (chkstr.substring(2, 3) == ":") {
+//                return (true);
+//            }
+//        }
+//    }
+//    return (false);
+//}
+
+///*--------------------------------------------------
+//  기능   : Check 주민등록번호 RETURN T/F
+//  INPUT  : toCheck
+//  RETURN : true  -> 올바른 번호
+//           false ->
+//----------------------------------------------------*/
+//function jsCheckJumin(toCheck) {
+//    var isJumin = true;
+//    if (jsCheckNull(toCheck)) {
+//        return false;
+//    } else if (toCheck.length < 13 || toCheck.length > 13) {
+//        return false;
+//    } else if (toCheck.substring(2, 3) > "1" || toCheck.substring(6, 7) > "2" || toCheck.substring(6, 7) == "0") {
+//        return false;
+//    } else if (toCheck.substring(2, 3) == "1" && toCheck.substring(3, 4) > "2") {
+//        return false;
+//    } else if (!(toCheck.substring(4, 6) >= "01" && toCheck.substring(4, 6) <= "31")) {
+//        return false;
+//    }
+//    for (j = 0; isJumin && (j < toCheck.length) ; j++) {
+//        if (((toCheck.substring(j, j + 1) < "0") || (toCheck.substring(j, j + 1) > "9"))) {
+//            isJumin = false;
+//        }
+//    }
+
+
+//    var a1 = toCheck.substring(0, 1)
+//    var a2 = toCheck.substring(1, 2)
+//    var a3 = toCheck.substring(2, 3)
+//    var a4 = toCheck.substring(3, 4)
+//    var a5 = toCheck.substring(4, 5)
+//    var a6 = toCheck.substring(5, 6)
+//    var check_digit = a1 * 2 + a2 * 3 + a3 * 4 + a4 * 5 + a5 * 6 + a6 * 7
+//    var b1 = toCheck.substring(6, 7)
+//    var b2 = toCheck.substring(7, 8)
+//    var b3 = toCheck.substring(8, 9)
+//    var b4 = toCheck.substring(9, 10)
+//    var b5 = toCheck.substring(10, 11)
+//    var b6 = toCheck.substring(11, 12)
+//    var b7 = toCheck.substring(12, 13)
+
+//    var check_digit = check_digit + b1 * 8 + b2 * 9 + b3 * 2 + b4 * 3 + b5 * 4 + b6 * 5
+//    check_digit = check_digit % 11
+//    check_digit = 11 - check_digit
+//    check_digit = check_digit % 10
+//    if (check_digit != b7) {
+//        isJumin = false;
+//    }
+
+//    return isJumin;
+//}
+
+///*--------------------------------------------------
+//  기능   : Check 사업자 등록번호 RETURN T/F
+//  INPUT  : toCheck
+//  RETURN : true  -> 올바른 번호
+//           false ->
+//----------------------------------------------------*/
+//function jsCheckSaupJa(toCheck) {
+//    var isSaupJa = true;
+//    if (jsCheckNull(toCheck)) {
+//        return false;
+//    } else if (toCheck.length < 10 || toCheck.length > 10) {
+//        return false;
+//    }
+//    for (j = 0; isSaupJa && (j < toCheck.length) ; j++) {
+//        if (((toCheck.substring(j, j + 1) < "0") || (toCheck.substring(j, j + 1) > "9"))) {
+//            isSaupJa = false;
+//        }
+//    }
+//    return isSaupJa;
+//}
+
+///*--------------------------------------------------
+//  기능   : E-Mail를 check한다.
+//  INPUT  : emailVal
+//  RETURN : NONE
+//     MSG :
+//----------------------------------------------------*/
+//function jsCheckEmail(emailVal) {
+//    if (jsCheckNull(emailVal)) return true;
+
+//    var inx = emailVal.indexOf("@");
+
+//    if (inx <= 0 || inx == emailVal.length - 1) return false;
+
+//    return true;
+//}
+///*--------------------------------------------------
+//  기능   :
+//  INPUT  : varNum : 실수
+//       varLeft : 정수부분 자리수
+//       varRight : 소수부분 자리수
+//  RETURN : true : 실수가 정/소수부분의 자리수를 초과하지 않는다.
+//       false : 실수가 정/소수부분의 자리수를 초과한다.
+//----------------------------------------------------*/
+//function jsCheckFloatType(varNum, varLeft, varRight) {
+
+//    var resultFlag = true;
+
+//    if (varNum.charAt(0) == "-") {
+//        varNum = varNum.substring(1, varNum.length);
+//    }
+
+//    var PointIndex = varNum.indexOf(".");
+
+//    if (PointIndex < 0) {
+//        if (varNum.length > varLeft)
+//            resultFlag = false;
+//    } else {
+//        var LeftLength = varNum.substring(0, PointIndex).length;
+//        var RightLength = varNum.substring(PointIndex + 1, varNum.length).length;
+
+//        if ((LeftLength > varLeft) || (RightLength > varRight))
+//            resultFlag = false;
+//    }
+
+//    return resultFlag;
+
+//}
+
+///*--------------------------------------------------
+//  기능   :
+//  INPUT  : helpfile
+//  RETURN :
+//----------------------------------------------------*/
+//function jsShowHelp(helpfile) {
+//    var helpstr = helpfile + "";
+//    var URL = "";
+//    var cWin;
+
+//    URL = "/help/" + helpfile + ".html";
+
+//    cWin = window.open(URL, "help", "toolbar=0,location=0,directories=0,status=0,menubar=1,scrollbars=1,resizable=1,width=560,height=320");
+
+//    cWin.focus();
+//}
+
+///*--------------------------------------------------
+//  기능   : 한글이든 영문이든 제대로 갯수 체크를 해준다.
+//  INPUT  : String
+//  RETURN :
+//----------------------------------------------------*/
+//function getByteLength(s) {
+//    var len = 0;
+//    if (s == null) return 0;
+//    for (var i = 0; i < s.length; i++) {
+//        var c = escape(s.charAt(i));
+//        if (c.length == 1) len++;
+//        else if (c.indexOf("%u") != -1) len += 2;
+//        else if (c.indexOf("%") != -1) len += c.length / 3;
+//    }
+//    return len;
+//}
+
+///*--------------------------------------------------
+//  기능   : FormObj에서 varObjName이 몇개 존재하는지 리턴한다.
+//  INPUT  : FormObj : FormName
+//     : varObjName : 객체명
+//  RETURN :
+//----------------------------------------------------*/
+//function jsGetObjCnt(FormObj, varObjName) {
+//    var cnt = 0;
+//    for (var inx = 0; inx < FormObj.elements.length ; inx++) {
+//        if (FormObj.elements[inx].name == varObjName) {
+//            cnt++;
+//        }
+//    }
+//    return cnt;
+//}
+
+///*--------------------------------------------------
+//  기능   :  SELECT OPTION BOX의 값을 RETURN 한다.
+//  INPUT  : sb = selectBoxName
+//  RETURN :
+//----------------------------------------------------*/
+//function jsCheckSelectBox(sb) {
+//    var temp = sb.options[sb.selectedIndex].value;
+//    return (temp);
+//}
+
+//function jsCheckSelectBoxNm(sb) {
+//    var temp = sb.options[sb.selectedIndex].text;
+//    return (temp);
+//}
+
+///*--------------------------------------------------
+//  기능   :  해당 Frame을 공백페이지로 변경
+//  INPUT  : fr : FrameName
+//  RETURN :
+//----------------------------------------------------*/
+//function jsClearFrame(fr) {
+//    fr.location = "/common/blank.jsp";
+//}
+
+///*--------------------------------------------------
+//  기능   : checkBox를 전체선택 및 해제를 할수 있게 한다.
+//  INPUT  : FormObj FormName
+//       elemNm CheckBox name
+//       checkYn boolean
+//  RETURN :
+//----------------------------------------------------*/
+//function jsToggle(FormObj, elemNm, checkYn) {
+//    var i = 0;
+//    while (i < FormObj.elements.length) {
+//        if (FormObj.elements[i].name == elemNm) {
+//            FormObj.elements[i].checked = checkYn;
+//        }
+//        i++;
+//    }
+//}
+
+///*--------------------------------------------------
+//  기능   : focus 옮기기
+//  INPUT  : varTextObj : TextBox 객체명
+//       varLength  : 조건에 맞는 textLength
+//       varFocusToObj : Focus를 옮겨갈 객체명
+//  RETURN :
+//----------------------------------------------------*/
+//function jsMoveFocus(varTextObj, varLength, varFocusToObj) {
+//    if (varTextObj.value.length == varLength) {
+//        varFocusToObj.focus();
+//        varFocusToObj.select();
+//        return;
+//    }
+//}
+
+///*--------------------------------------------------
+//  기능   : 문자를 숫자로 convert 한다. 단, 
+//       parseFloat 와 다른 점은 null 이 올때 0 으로 인식한다.
+//  INPUT  : 
+//  RETURN :
+//----------------------------------------------------*/
+//function jsParseInt(varStr) {
+//    if (varStr == null || varStr == "")
+//        return 0;
+//    else
+//        return parseInt(varStr);
+//}
+
+///*--------------------------------------------------
+//  기능   : 숫자를 한글로 변환한다.
+//   예) 450,000,000 -> 사억오천만
+//  INPUT  : 
+//  RETURN :
+//----------------------------------------------------*/
+//function jsConvertNumberToHangul(varNum) {
+//    // 리턴할 문자열
+//    var returnStr = "";
+
+//    // 음수일 때는 에러
+//    if (eval(varNum) < 0) {
+//        return returnStr;
+//    }
+
+//    // 넘어온 숫자를 문자로 변환
+//    var numLen = varNum.length;
+//    // 변환된 문자를 앞에서 부터 한자씩 잘라서 보관할 변수
+//    var oneChar = null;
+//    var isDone1 = true;
+//    var isDone2 = true;
+//    var isDone3 = true;
+//    var isDone4 = true;
+//    var isDone5 = false;
+//    for (var inx = 0 ; inx < numLen ; inx++) {
+//        oneChar = varNum.substring(inx, inx + 1);
+//        isDone5 = false;
+
+//        if (oneChar == "0") {
+//            // 아무일도 안함
+//        } else if (oneChar == "1") {
+//            returnStr = returnStr + "일";
+//            isDone5 = true;
+//        } else if (oneChar == "2") {
+//            returnStr = returnStr + "이";
+//            isDone5 = true;
+//        } else if (oneChar == "3") {
+//            returnStr = returnStr + "삼";
+//            isDone5 = true;
+//        } else if (oneChar == "4") {
+//            returnStr = returnStr + "사";
+//            isDone5 = true;
+//        } else if (oneChar == "5") {
+//            returnStr = returnStr + "오";
+//            isDone5 = true;
+//        } else if (oneChar == "6") {
+//            returnStr = returnStr + "육";
+//            isDone5 = true;
+//        } else if (oneChar == "7") {
+//            returnStr = returnStr + "칠";
+//            isDone5 = true;
+//        } else if (oneChar == "8") {
+//            returnStr = returnStr + "팔";
+//            isDone5 = true;
+//        } else if (oneChar == "9") {
+//            returnStr = returnStr + "구";
+//            isDone5 = true;
+//        }
+
+//        if (((numLen - inx) % 4) == 0 && oneChar != "0") {
+//            returnStr = returnStr + "천";
+//        } else if (((numLen - inx) % 4) == 3 && oneChar != "0") {
+//            returnStr = returnStr + "백";
+//        } else if (((numLen - inx) % 4) == 2 && oneChar != "0") {
+//            returnStr = returnStr + "십";
+//        } else if (((numLen - inx) % 4) == 1) {
+//            if (numLen >= 17 && isDone1 && isDone5) {
+//                returnStr = returnStr + "경";
+//                isDone1 = false;
+//            } else if (numLen >= 13 && isDone2 && isDone5) {
+//                returnStr = returnStr + "조";
+//                isDone2 = false;
+//            } else if (numLen >= 9 && isDone3 && isDone5) {
+//                returnStr = returnStr + "억";
+//                isDone3 = false;
+//            } else if (numLen >= 5 && isDone4 && isDone5) {
+//                returnStr = returnStr + "만";
+//                isDone4 = false;
+//            }
+//        }
+//    }
+
+//    return returnStr;
+//}
+
+///*--------------------------------------------------
+//  기능   : 파라메터로 넘어온 필드에 comma를 찍어서 comma 를 찍어서 채워준다.
+//      소수점 허용 안함 
+//    예) 1000.00 -> 1,000    
+//  INPUT  :
+//  RETURN :
+//----------------------------------------------------*/
+//function jsMakeCurrency(varTextObj) {
+//    varTextObj.value = jsDeleteComma(varTextObj.value);
+
+//    var varLength = varTextObj.value.length;
+//    var varText = "";
+//    var isPointed = false;
+//    for (var inx = 0 ; inx < varLength ; inx++) {
+//        if (jsCheckNumber(varTextObj.value.substring(inx, inx + 1))) {
+//            varText = varText + varTextObj.value.substring(inx, inx + 1);
+//        }
+//    }
+
+//    varTextObj.value = jsAddComma(varText);
+//}
+
+
+///*--------------------------------------------------
+//  기능   : 파라메터로 넘어온 필드에 comma를 찍어서 comma 를 찍어서 채워준다.
+//      소수점 허용 함    
+//    예) 1000.00 -> 1,000.00    
+//  INPUT  :
+//  RETURN :
+//----------------------------------------------------*/
+//function jsMakeForeignCurrency(varTextObj) {
+//    varTextObj.value = jsDeleteComma(varTextObj.value);
+
+//    var varLength = varTextObj.value.length;
+//    var varText = "";
+//    var isPointed = false;
+//    for (var inx = 0 ; inx < varLength ; inx++) {
+//        if (jsCheckNumber(varTextObj.value.substring(inx, inx + 1)) || (varTextObj.value.substring(inx, inx + 1) == '.')) {
+//            // 점이 안찍히고 처음으로 점이 들어왔을때
+//            if (!isPointed && varTextObj.value.substring(inx, inx + 1) == '.') {
+//                isPointed = true;
+//                varText = varText + varTextObj.value.substring(inx, inx + 1);
+//                // 숫자 일때
+//            } else if (jsCheckNumber(varTextObj.value.substring(inx, inx + 1))) {
+//                varText = varText + varTextObj.value.substring(inx, inx + 1);
+//            }
+
+//        }
+//    }
+
+//    varTextObj.value = jsAddComma(varText);
+//}
+
+///*--------------------------------------------------
+//  기능   : 파라메터로 넘어온 객체필드에 숫자만을 입력받게 해준다.
+//  INPUT  :
+//  RETURN :
+//----------------------------------------------------*/
+//function jsOnlyNumber(varTextObj) {
+
+//    var varLength = varTextObj.value.length;
+//    var varText = "";
+//    for (var inx = 0 ; inx < varLength ; inx++) {
+//        if (jsCheckNumber(varTextObj.value.substring(inx, inx + 1))) {
+//            varText = varText + varTextObj.value.substring(inx, inx + 1);
+//        }
+//    }
+
+//    // 앞에 붙은 0 없애기 (예) 00200 -> 200
+//    varLength = varText.length;
+//    var varTempReturnNumber = varText;
+//    var varReturnNumber = "";
+//    for (var inx = 0 ; inx < varLength ; inx++) {
+//        if (varTempReturnNumber.substring(inx, inx + 1) == '0') {
+//            // '0' 이 넘어왔을 경우 '0'을 그대로 리턴해야 한다.
+//            if (varLength == 1) varReturnNumber = "0";
+//            else if (eval(jsDeleteComma(varTempReturnNumber)) == '0') {
+//                varReturnNumber = "0";
+//                break;
+//            }
+//        } else {
+//            varReturnNumber = varTempReturnNumber.substring(inx, varLength + 1);
+//            break;
+//        }
+//    }
+
+//    varTextObj.value = varReturnNumber;
+//}
+
+///*--------------------------------------------------
+//  기능   : 파라메터로 넘어온 필드에 숫자와 1개의 point만을 입력받게 해준다.
+//  INPUT  :
+//  RETURN :
+//----------------------------------------------------*/
+//function jsOnlyFloat(varTextObj) {
+
+//    varTextObj.value = jsDeleteComma(varTextObj.value);
+
+//    var varLength = varTextObj.value.length;
+//    var varText = "";
+//    var isPointed = false;
+//    for (var inx = 0 ; inx < varLength ; inx++) {
+//        if (jsCheckNumber(varTextObj.value.substring(inx, inx + 1)) || (varTextObj.value.substring(inx, inx + 1) == '.')) {
+//            // 점이 안찍히고 처음으로 점이 들어왔을때
+//            if (!isPointed && varTextObj.value.substring(inx, inx + 1) == '.') {
+//                isPointed = true;
+//                varText = varText + varTextObj.value.substring(inx, inx + 1);
+//                // 숫자 일때
+//            } else if (jsCheckNumber(varTextObj.value.substring(inx, inx + 1))) {
+//                varText = varText + varTextObj.value.substring(inx, inx + 1);
+//            }
+
+//        }
+//    }
+
+//    // 앞에 붙은 0 없애기 (예) 00200 -> 200
+//    varLength = varText.length;
+
+//    var varReturnNumber = "";
+//    for (var inx = 0 ; inx < varLength ; inx++) {
+//        if (varText.substring(inx, inx + 1) == '0') {
+//            // '0' 이 넘어왔을 경우 '0'을 그대로 리턴해야 한다.
+//            if (varLength == 1) varReturnNumber = "0";
+//            else if (eval(jsDeleteComma(varText)) == '0') {
+//                varReturnNumber = "0";
+//                break;
+//            }
+//        } else {
+//            varReturnNumber = varText.substring(inx, varLength + 1);
+//            break;
+//        }
+//    }
+
+//    varTextObj.value = varReturnNumber;
+
+//}
+
+///*--------------------------------------------------
+//  기능   : 파라메터로 넘어온 필드에 YYYY/MM형식으로 [/]를 찍어서 채워준다. 
+//  INPUT  :
+//  RETURN :
+//----------------------------------------------------*/
+//function jsMakeYyyyMm(varTextObj) {
+//    varTextObj.value = jsDeleteChar(varTextObj.value, '/');
+
+//    var varLength = varTextObj.value.length;
+//    var varText = "";
+//    for (var inx = 0 ; inx < varLength ; inx++) {
+//        if (jsCheckNumber(varTextObj.value.substring(inx, inx + 1))) {
+//            varText = varText + varTextObj.value.substring(inx, inx + 1);
+//        }
+//    }
+
+//    if (varText.length < 6) {
+//        varTextObj.value = varText;
+//    } else {
+//        varTextObj.value = varText.substring(0, 4) + "/" + varText.substring(4, 6);
+//    }
+//}
+
+///*--------------------------------------------------
+//  기능   : 파라메터로 넘어온 String에 날짜형식으로 [/]를 찍어서 리턴.
+//    예) 200103 -> 2001/03
+//  INPUT  :
+//  RETURN :
+//----------------------------------------------------*/
+//function jsMakeYyyyMmString(varText) {
+//    if (varText.length != 6 || !jsCheckNumber(varText)) {
+//        return varText;
+//    }
+
+//    var varReturnText = "";
+
+//    varReturnText = varText.substring(0, 4) + "/" + varText.substring(4, 6);
+
+//    return varReturnText
+//}
+
+///*--------------------------------------------------
+//  기능   : 파라메터로 넘어온 필드에 날짜형식으로 [/]를 찍어서 채워준다.      
+//    예) 20010301 -> 2001/03/01          
+//  INPUT  : Text Object
+//  RETURN :
+//----------------------------------------------------*/
+//function jsMakeDate(varTextObj) {
+//    varTextObj.value = jsDeleteChar(varTextObj.value, '/');
+
+//    var varLength = varTextObj.value.length;
+//    var varText = "";
+//    for (var inx = 0 ; inx < varLength ; inx++) {
+//        if (jsCheckNumber(varTextObj.value.substring(inx, inx + 1))) {
+//            varText = varText + varTextObj.value.substring(inx, inx + 1);
+//        }
+//    }
+
+//    if (varText.length < 8) {
+//        varTextObj.value = varText;
+//    } else {
+//        varTextObj.value = varText.substring(0, 4) + "/" + varText.substring(4, 6) + "/" + varText.substring(6, 8);
+//    }
+//}
+
+///*--------------------------------------------------
+//  기능   : 파라메터로 넘어온 String에 날짜형식으로 [/]를 찍어서 채워준다.      
+//    예) 20010301 -> 2001/03/01          
+//  INPUT  :
+//  RETURN :
+//----------------------------------------------------*/
+//function jsMakeDateString(varText) {
+//    if (varText.length != 8 || !jsCheckNumber(varText)) {
+//        return varText;
+//    }
+
+//    var varReturnText = "";
+
+//    varReturnText = varText.substring(0, 4) + "/" + varText.substring(4, 6) + "/" + varText.substring(6, 8);
+
+//    return varReturnText
+//}
+
+///*--------------------------------------------------
+//  기능   : 숫자를 받아서 comma를 찍어서 리턴한다. 음수도 표현가능
+//    예) 1000.00 -> 1,000.00 
+//    예) 숫자가 아닌 값 -> -1 리턴      
+//  INPUT  :
+//  RETURN :
+//----------------------------------------------------*/
+//function jsAddComma(varNumber) {
+//    // 숫자가 아니면 -1을 리턴한다.
+//    if (jsCheckNull(varNumber)) return "";
+//    if (!jsCheckFloat(varNumber)) {
+//        return -1;
+//    }
+
+//    // 소수 이상, 이하 부분을 따로 보관.
+//    var PointIndex = varNumber.indexOf(".");
+//    var varUnderPoint = "";
+//    var isPointed = false;
+//    // 소수 이하가 없을때
+//    if (PointIndex < 0) {
+//        isPointed = false;
+//        // 소수 이하 부분
+//        varUnderPoint = "";
+//        // 소수 이상 부분
+//        varOverPoint = varNumber;
+//        // 소수 이하가 있을때
+//    } else {
+//        isPointed = true;
+//        // 소수 이하 부분
+//        varUnderPoint = varNumber.substring(PointIndex + 1, varNumber.length);
+//        // 소수 이상 부분
+//        varOverPoint = varNumber.substring(0, PointIndex);
+//    }
+
+//    // 음수일때 앞의 "-" 따로 보관
+//    var negativeFlag = false;
+//    if (varOverPoint.substring(0, 1) == "-") {
+//        negativeFlag = true;
+//        varOverPoint = varOverPoint.substring(1, varOverPoint.length + 1);
+//    }
+
+//    // 소수 이상 부분에 comma 넣기
+//    var varLength = varOverPoint.length;
+//    var varCnt = 0;
+//    var varTempReturnNumber = "";
+//    for (var inx = varLength - 1 ; inx >= 0 ; inx--) {
+//        varCnt++;
+
+//        // 소수점 찍기
+//        if (varCnt == 4) {
+//            varTempReturnNumber = varOverPoint.substring(inx, inx + 1) + "," + varTempReturnNumber;
+//            varCnt = 1;
+//            // 소수점 안찍기
+//        } else {
+//            varTempReturnNumber = varOverPoint.substring(inx, inx + 1) + varTempReturnNumber;
+//        }
+
+//    }
+
+//    // 앞에 붙은 0 없애기 (예) 00200 -> 200
+//    varLength = varTempReturnNumber.length;
+//    var varReturnNumber = "";
+//    for (var inx = 0 ; inx < varLength ; inx++) {
+//        if (varTempReturnNumber.substring(inx, inx + 1) == '0') {
+//            // '0' 이 넘어왔을 경우 '0'을 그대로 리턴해야 한다.
+//            if (varLength == 1) varReturnNumber = "0";
+//            else if (eval(jsDeleteComma(varTempReturnNumber)) == '0') {
+//                varReturnNumber = "0";
+//                break;
+//            }
+//        } else {
+//            varReturnNumber = varTempReturnNumber.substring(inx, varLength + 1);
+//            break;
+//        }
+//    }
+
+//    // 소수점 이하 붙이기
+//    if (isPointed) {
+//        varReturnNumber = varReturnNumber + "." + varUnderPoint;
+//    }
+
+//    // 음수 붙이기
+//    if (negativeFlag) {
+//        varReturnNumber = "-" + varReturnNumber;
+//    }
+
+//    return varReturnNumber;
+
+//}
+
+///*--------------------------------------------------
+//  기능   : 숫자를 받아서 comma를 찍어서 리턴한다.
+//    예) 1000 -> 1,000.00
+//    예) 숫자가 아닌 값 -> -1 리턴   
+//  INPUT  :
+//  RETURN :
+//----------------------------------------------------*/
+//function jsAddCommaAndZero(varNumber) {
+//    // 숫자가 아니면 -1을 리턴한다.
+//    if (jsCheckNull(varNumber)) return "";
+//    if (!jsCheckFloat(varNumber)) {
+//        return -1;
+//    }
+
+//    // 소수 이상, 이하 부분을 따로 보관.
+//    var PointIndex = varNumber.indexOf(".");
+//    var varUnderPoint = "";
+//    // 소수 이하가 없을때
+//    if (PointIndex < 0) {
+//        // 소수 이하 부분
+//        varUnderPoint = "";
+//        // 소수 이상 부분
+//        varOverPoint = varNumber;
+//        // 소수 이하가 있을때
+//    } else {
+//        // 소수 이하 부분
+//        varUnderPoint = varNumber.substring(PointIndex + 1, varNumber.length);
+//        // 소수 이상 부분
+//        varOverPoint = varNumber.substring(0, PointIndex);
+//    }
+
+//    // 소수 이상 부분에 comma 넣기
+//    var varLength = varOverPoint.length;
+//    var varCnt = 0;
+//    var varTempReturnNumber = "";
+//    for (var inx = varLength - 1 ; inx >= 0 ; inx--) {
+//        varCnt++;
+
+//        // 소수점 찍기
+//        if (varCnt == 4) {
+//            varTempReturnNumber = varOverPoint.substring(inx, inx + 1) + "," + varTempReturnNumber;
+//            varCnt = 1;
+//            // 소수점 안찍기
+//        } else {
+//            varTempReturnNumber = varOverPoint.substring(inx, inx + 1) + varTempReturnNumber;
+//        }
+
+//    }
+
+//    // 앞에 붙은 0 없애기 (예) 00200 -> 200
+//    varLength = varTempReturnNumber.length;
+//    var varReturnNumber = "";
+//    for (var inx = 0 ; inx < varLength ; inx++) {
+//        if (varTempReturnNumber.substring(inx, inx + 1) == '0') {
+//        } else {
+//            varReturnNumber = varTempReturnNumber.substring(inx, varLength + 1);
+//            break;
+//        }
+//    }
+
+//    // 소수점 이하 붙이기
+//    if (varUnderPoint.length == 0) {
+//        varReturnNumber = varReturnNumber + "." + "00";
+//    } else if (varUnderPoint.length == 1) {
+//        varReturnNumber = varReturnNumber + "." + varUnderPoint + "0";
+//    } else if (varUnderPoint.length == 2) {
+//        varReturnNumber = varReturnNumber + "." + varUnderPoint;
+//    }
+
+//    return varReturnNumber;
+
+//}
+
+///*--------------------------------------------------
+//  기능   : 숫자를 받아서 comma를 없애고 리턴한다
+//    예) 1,000.00 -> 1000.00     
+//  INPUT  :
+//  RETURN :
+//----------------------------------------------------*/
+//function jsDeleteComma(varNumber) {
+//    var varLength = varNumber.length;
+
+//    varReturnNumber = "";
+
+//    for (var inx = 0 ; inx < varLength ; inx++) {
+//        if (varNumber.substring(inx, inx + 1) != ",") {
+//            varReturnNumber = varReturnNumber + varNumber.substring(inx, inx + 1);
+//        }
+//    }
+
+//    return varReturnNumber;
+//}
+
+///*--------------------------------------------------
+//  기능   : 글자를 받아서 param를 없애고 리턴한다.
+//    예) 2001/01/01 -> 20010101     
+//  INPUT  : varText 문자열 varDelete 삭제하고자하는 Character
+//  RETURN :
+//----------------------------------------------------*/
+//function jsDeleteChar(varText, varDelete) {
+//    var varLength = varText.length;
+
+//    varReturnText = "";
+
+//    for (var inx = 0 ; inx < varLength ; inx++) {
+//        if (varText.substring(inx, inx + 1) != varDelete) {
+//            varReturnText = varReturnText + varText.substring(inx, inx + 1);
+//        }
+//    }
+
+//    return varReturnText;
+//}
+
+///*--------------------------------------------------
+//  기능   : 폼 이름을 받아서 모든 text,hidden값에 comma, / 문자를 없애준다 
+//  INPUT  :
+//  RETURN :
+//----------------------------------------------------*/
+//function jsDeleteCharAll(FormObj) {
+//    for (i = 0; i < FormObj.elements.length; i++) {
+//        if (FormObj.elements[i].type == "text" || FormObj.elements[i].type == "hidden") {
+//            if (!jsCheckNull(FormObj.elements[i].value) && jsCheckFloat(jsDeleteComma(FormObj.elements[i].value))) {
+//                FormObj.elements[i].value = jsDeleteComma(FormObj.elements[i].value);
+//            } else if (!jsCheckNull(FormObj.elements[i].value) && jsCheckDate(jsDeleteChar(FormObj.elements[i].value, '/'))) {
+//                FormObj.elements[i].value = jsDeleteChar(FormObj.elements[i].value, '/');
+//            }
+//        }
+//    }
+//}
+
+///*--------------------------------------------------
+//  기능   : FormObj에서 checkBox 가 몇개 선택되었는지  리턴한다.
+//  INPUT  :
+//  RETURN :
+//----------------------------------------------------*/
+//function jsCheckBoxSelectedCnt(FormObj, checkBoxName) {
+//    var cnt = 0;
+//    for (var inx = 0; inx < FormObj.elements.length ; inx++) {
+//        if (FormObj.elements[inx].name == checkBoxName && FormObj.elements[inx].checked) {
+//            cnt++;
+//        }
+//    }
+//    return cnt;
+//}
+
+///*--------------------------------------------------
+//  기능   : 영문 과 숫자로만 이루어 졌는지  체크를 해준다.
+//  INPUT  :
+//  RETURN :
+//----------------------------------------------------*/
+//function isAlphaNum(input) {
+//    var chars = " ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+//    return containsCharsOnly(input, chars);
+//}
+
+
+////입력값이 한글이 포함되어있는지 체크
+
+//function IsHangul(field) {
+//    if (field == "") return false;
+
+//    var rtnLen = 0;
+
+//    for (i = 0; i < field.length; i++) {
+//        // 한글인 경우 길이가 UniCode 값은 10000 이상이다.
+//        if (field.charCodeAt(i) > 10000) {
+//            rtnLen++;
+//        }
+//    }
+
+//    if (rtnLen > 0)
+//        return true;
+//    else
+//        return false;
+//}
+
+
+///*----------------------------------------------------
+//  입력값이 특정 문자(chars)만으로 되어있는지 체크
+//  특정 문자만 허용하려 할 때 사용
+//  ex) if (!containsCharsOnly(form.blood,"ABO")) {
+//          alert("혈액형 필드에는 A,B,O 문자만 사용할 수 있습니다.");
+//      }
+//------------------------------------------------------*/
+//function containsCharsOnly(input, chars) {
+//    for (var inx = 0; inx < input.value.length; inx++) {
+//        if (chars.indexOf(input.value.charAt(inx)) == -1)
+//            return false;
+//    }
+//    return true;
+//}
+
+///*--------------------------------------------------
+//  기능   : POPUP OPEN Script
+//  INPUT  :
+//  RETURN :
+//----------------------------------------------------*/
+//function popup1(varAction, varWinName, varWidth, varHeight) {
+//    var win = window.open(varAction, varWinName, "toolbar=0,location=0,directories=0,status=1,menubar=0,scrollbars=1,resizable=1, width=" + varWidth + ",height=" + varHeight + ", left=50,top=50");
+//    return win;
+
+//    //var FormObj = document.dataForm;
+//    //FormObj.target = varWinName ;
+//    //FormObj.action = varAction ;
+//    //FormObj.submit() ;
+//}
+
+
+//function toTimeString(varDateObj) { //formatTime(date)
+//    var year = varDateObj.getFullYear();
+//    var month = varDateObj.getMonth() + 1; // 1월=0,12월=11이므로 1 더함
+//    var day = varDateObj.getDate();
+
+//    if (("" + month).length == 1) { month = "0" + month; }
+//    if (("" + day).length == 1) { day = "0" + day; }
+
+//    return ("" + year + month + day);
+//}
+
+//function jsAfterThisDate(varStdDate, varYYYY, varMM, varDD) {
+
+//    var varDateObj = new Date();
+
+//    varStdDate = jsDeleteChar(varStdDate, "/");
+
+//    var yyyy = varStdDate.substring(0, 4) + "";
+//    var mm = varStdDate.substring(4, 6) + "";
+//    var dd = varStdDate.substring(6, 8) + "";
+
+//    var startDate = new Date(yyyy, (eval(mm) - 1), dd); // 달 은 한달이 느리므로 1을 빼준다.
+
+//    varDateObj.setFullYear(startDate.getFullYear() + eval(varYYYY)); //년을 더함
+//    varDateObj.setMonth(startDate.getMonth() + eval(varMM));       //월을 더함
+//    varDateObj.setDate(startDate.getDate() + eval(varDD));         //일을 더함
+
+//    return toTimeString(varDateObj);
+//}
+
+///*--------------------------------------------------
+//  기능   : text 입력시 숫자이외의 키를 눌렀을때 무효화시킨다.
+//  INPUT  : 없음
+//  RETURN : 이벤트 무효화
+
+//  주의!  : onKeypress 이벤트만 사용할것
+//          예) <input type="text" onKeypress="jsOnlyNumberKey();">
+//----------------------------------------------------*/
+//function jsOnlyNumberKey() {
+//    if (event != null) {
+//        if (event.keyCode < 48 || event.keyCode > 57) {
+//            event.returnValue = false;
+//        }
+//    }
+//}
+
+///* 이전페이지로 이동 */
+//function jsBack() {
+//    history.go(-1);
+//}
+
+///* 모래시계 보이게 하기 */
+//function jsVisible(str) {
+//    if (str == '1')
+//        document.body.style.cursor = 'wait'
+//    else
+//        document.body.style.cursor = 'auto'
+//}
+
+///* 15초후에 jsRefresh()라는 function을 호출 */
+//var timeId = null;
+
+//function jsRunAfterTime() {
+//    //15초 후에 Refresh
+//    timeId = setTimeout("jsRefresh()", 15000);
+//}
+
+///**
+// * 소수점 아래 몇자리 이하 절삭.
+// *
+// * @param num 숫자
+// * @param place 자리수
+// * @return 절삭된 숫자
+// */
+//function getCutNumber(num, place) {
+//    var returnNum;
+//    var str = "1";
+
+//    return Math.floor(num * Math.pow(10, parseInt(place, 10))) / Math.pow(10, parseInt(place, 10));
+//}
+
+///* text의 좌우 공백을 제거해서 리턴*/
+//function trim(text) {
+//    if (text == "") {
+//        return text;
+//    }
+
+//    var len = text.length;
+//    var st = 0;
+
+//    while ((st < len) && (text.charAt(st) <= ' ')) {
+//        st++;
+//    }
+
+//    while ((st < len) && (text.charAt(len - 1) <= ' ')) {
+//        len--;
+//    }
+
+//    return ((st > 0) || (len < text.length)) ? text.substring(st, len) : text;
+//}
+
+///* text의 좌측의 공백을 제거해서 리턴*/
+//function ltrim(text) {
+//    if (text == "") {
+//        return text;
+//    }
+
+//    var len = text.length;
+//    var st = 0;
+
+//    while ((st < len) && (text.charAt(st) <= ' ')) {
+//        st++;
+//    }
+
+//    return (st > 0) ? text.substring(st, len) : text;
+//}
+
+///* text의 우측의 공백을 제거해서 리턴*/
+//function rtrim(text) {
+//    if (text == "") {
+//        return text;
+//    }
+
+//    var len = text.length;
+//    var st = 0;
+
+//    while ((st < len) && (text.charAt(len - 1) <= ' ')) {
+//        len--;
+//    }
+
+//    return (len < text.length) ? text.substring(st, len) : text;
+//}
+
+///*--------------------------------------------------
+//  기능   : select box 를 CLEAR 시킨다.
+//  INPUT  : varObjFullNm : select box 객체
+//           varDeleteCnt : 첫번째 아이템 삭제 여부 결정
+//  RETURN : NONE
+//----------------------------------------------------*/
+//function cmInitSelectBox(varObjFullNm, varDeleteCnt) {
+//    varObj = eval(varObjFullNm);
+//    varObj.length = varDeleteCnt;
+//}
+
+///*--------------------------------------------------
+//  기능   :  select box 를 만든다.
+//  INPUT  : varObjFullNm :  select box 객체
+//           varText      : 
+//           varValue     :  
+//  RETURN : NONE
+//----------------------------------------------------*/
+//function cmMakeSelectBox(varObjFullNm, varText, varValue) {
+//    varObj = eval(varObjFullNm);
+
+//    var empOption = null;
+
+//    empOption = document.createElement("OPTION");
+//    empOption.text = varText;
+//    empOption.value = varValue;
+//    varObj.options.add(empOption);
+//}
+
+////디비에 저장되어있는값을 읽어올때 공백이 아니면서 공백처럼 보이는건 이문제
+
+//// 반각 문자를 전각문자로
+//function convert2ByteChar(x_char) {
+//    var x_2byteChar = ""; //컨버트된 문자
+//    var c = x_char.charCodeAt(0);
+//    if (32 <= c && c <= 126) { //전각으로 변환될수 있는 문자의 범위
+//        if (c == 32) { //스페이스인경우 ascii 코드 32
+//            x_2byteChar = unescape("%uFFFC");
+//        } else {
+//            x_2byteChar = unescape("%u" + gf_DecToHex(c + 65248));
+//        }
+//    }
+//    return x_2byteChar;
+//}
+
+
+//// 링크 오버시 status 표시 불가
+
+//var IS_HIDDEN_LINK = true;
+
+
+
+
+//function onlyNumber(form_name) {
+
+//    for (var i = 0; i < form_name.value.length; i++) {
+
+//        var chr = form_name.value.substr(i, 1);
+
+//        if (chr < '0' || chr > '9') {
+
+//            alert("숫자로만 입력하셔야 합니다.!");
+
+//            form_name.focus();
+
+//            form_name.value = "";
+
+//        }
+
+//    }
+
+
+
+//}
+
+
+
+
+//function onlyNumber_details(form_name) {
+
+//    for (var i = 0; i < form_name.value.length; i++) {
+
+//        var chr = form_name.value.substr(i, 1);
+
+//        if (chr < '0' || chr > '9') {
+
+//            alert("숫자로만 입력하셔야 합니다.!");
+
+//            form_name.focus();
+
+//            form_name.value = "1";
+
+//        }
+
+//    }
+
+//    if (form_name.value == '0') {
+
+//        alert("상품 수량은 한개 이상 입력하셔야 합니다.!");
+
+//        form_name.focus();
+
+//        form_name.value = "1";
+
+//    }
+
+
+
+//}
+
+
+
+
+
+
+
+//function zipCheck() {
+
+//    url = "../common/ZipCheck.jsp?check=y";
+
+//    window.open(url, "post", "toolbar=no ,width=500 ,height=300 ,directories=no,status=yes,scrollbars=yes,menubar=no");
+
+//}
+
+
+
+
+//function zip_check_ty2(formName, fieldName1, fieldName2) {
+
+//    ZipCheckWindow = window.open('../common/ZipCheck.jsp?check=y&zip_ty=2&f_name1=' + formName + '&f_name2=' + fieldName1 + '&f_name3=' + fieldName2, 'ZipCheckWindow', 'toolbar=0,location=0,directories=no,status=0,menubar=0,scrollbars=yes,resizable=0,copyhistory=1,width=500,height=300,left=100,top=100');
+
+//    ZipCheckWindow.focus();
+
+//}
+
+
+
+
+
+
+
+//function checklen(form_name, form_name1, limit_length) {
+
+//    var form_2;
+
+//    msglen = 0;
+
+//    msglen2 = 0;
+
+//    total_str = "";
+
+//    l_message = 0;
+
+
+
+
+//    total_str = form_name.value;
+
+
+
+
+//    // 문자의 갯수
+
+//    l_message = total_str.length;
+
+//    temp_page_num = 1
+
+//    for (k = 0; k < l_message; k++) {
+
+//        t = total_str.charAt(k);
+
+//        msglen += CheckByte(t)
+
+//        if (CheckByte(t) == 2 && msglen2 % 75 == 74) {
+
+//            msglen2 += 3
+
+//        }
+
+//        else {
+
+//            msglen2 += CheckByte(t)
+
+
+
+
+//        }
+
+
+
+
+//    }
+
+
+
+//    if (msglen > limit_length) {
+
+//        alert('입력한 값이 너무 많습니다. \n다시 입력하세요.');
+
+//        form_name.value = "";
+
+//        return;
+
+//    }
+
+//    else {
+
+//        form_2 = eval(form_name1);
+
+//        form_2.value = msglen;
+
+//    }
+
+//}
+
+
+
+
+//// 선택된 문자(한개)의 바이트수를 계산하는 함수
+
+//function CheckByte(temp_char) {
+
+//    if (escape(temp_char).length > 4)
+
+//        return 2;
+
+//    else
+
+//        return 1;
+
+
+
+
+//}
+
+
+
+
+//function go_product_detail(p_category, prod_num) {
+
+//    var url = "../main/sma_Prod_detail.jsp?p_category=" + p_category + "&prod_num=" + prod_num;
+
+//    document.location.href = url
+
+//}
+
+
+
+
+//function imageView(strImage) {
+
+//    this.document.images['MainImage'].src = strImage;
+
+//}
+
+
+
+
+
+
+
+//function idSearch() {
+
+//    url = "../membership/id_Search.jsp";
+
+//    window.open(url, "post", "toolbar=no ,width=350,height=340");
+
+//}
+
+
+
+
+//function jsPutHanAmt(obj, type) {
+
+//    hanNumber = new Array('영', '일', '이', '삼', '사', '오', '육', '칠', '팔', '구');
+
+//    fourFour = new Array('일', '만', '억', '조');
+
+//    fourDigit = new Array('일', '십', '백', '천');
+
+
+
+
+//    num = obj.value;
+
+//    str = "";
+
+//    strr = num.split(",");
+
+//    for (i = 0; i < strr.length; i++) {
+
+//        str += strr[i];
+
+//    }
+
+//    num = str;
+
+
+
+
+//    // 한글금액 처리
+
+//    delimiter = ' ';
+
+//    var endValue = ' 원';
+
+//    var endZValue = ' 영';
+
+
+
+
+//    bPos = 0; // 만, 억, 조
+
+//    sPos = 0; // 십, 백, 천
+
+//    digit = 0;
+
+
+
+
+//    if (type == null) {		// 원단위
+
+//        bPos = 0; // 만, 억, 조
+
+//        sPos = 0; // 십, 백, 천
+
+//        endValue = " 원";
+
+//        endZValue = "영 원";
+
+//    }
+
+//    else if (type == '1') {	//만단위
+
+//        bPos = 1; // 만, 억, 조
+
+//        sPos = 0; // 십, 백, 천
+
+//        endValue = " 원";
+
+//        endZValue = "영 만원";
+
+//    }
+
+//    else if (type == '2') {	//십만단위
+
+//        bPos = 1; // 만, 억, 조
+
+//        sPos = 1; // 십, 백, 천
+
+//        endValue = "만 원";
+
+//        endZValue = "영 십만원";
+
+//    }
+
+
+
+
+//    szDigit = '';
+
+//    is_start = false;
+
+//    appendFF = false;
+
+//    len = num.length;
+
+//    szHan = '';
+
+
+
+
+//    for (i = len - 1; i >= 0; i--) {
+
+//        szDigit = num.substring(i, i + 1);
+
+//        digit = parseInt(szDigit);
+
+
+
+
+//        if (digit != 0) {
+
+//            if (bPos != 0 && sPos == 0) {
+
+//                if (is_start == true) szHan += delimiter;
+
+//                szHan += fourFour[bPos]; // 만, 억
+
+//                appendFF = false;
+
+//            }
+
+//            if (bPos != 0 && appendFF == true) {
+
+//                if (is_start == true) szHan += delimiter;
+
+//                szHan += fourFour[bPos]; // 만, 억
+
+//                appendFF = false;
+
+//            }
+
+//            if (sPos != 0) szHan += fourDigit[sPos]; // 십, 백, 천
+
+//            szHan += hanNumber[digit]; // 일, 이, 삼
+
+//            is_start = true;
+
+
+
+
+//        }
+
+//        else if (sPos == 0 && bPos != 0) appendFF = true;
+
+//        sPos++;
+
+//        if (sPos % 4 == 0) {
+
+//            sPos = 0;
+
+//            bPos++;
+
+//            if (bPos >= 4) return "(범위초과)";
+
+//        }
+
+//    }
+
+
+
+
+//    if (is_start == false) {
+
+//        rslt = '';
+
+//        if (document.all[obj.name + "_KorAmt"] != null)
+
+//            document.all[obj.name + "_KorAmt"].innerHTML = rslt + endZValue;
+
+//    }
+
+//    else {
+
+//        rslt = '';
+
+//        for (i = szHan.length - 1; i >= 0; i--) {
+
+//            rslt += szHan.substring(i, i + 1);
+
+//        }
+
+//        if (document.all[obj.name + "_KorAmt"] != null)
+
+//            document.all[obj.name + "_KorAmt"].innerHTML = rslt + endValue;
+
+//    }
+
+//}
+
+
+
+
+///**
+
+// * 입력값의 바이트 길이를 리턴
+
+// */
+
+//function getByteLength(input) {
+
+//    var byteLength = 0;
+
+//    for (var inx = 0; inx < input.value.length; inx++) {
+
+//        var oneChar = escape(input.value.charAt(inx));
+
+//        if (oneChar.length == 1) {
+
+//            byteLength++;
+
+//        } else if (oneChar.indexOf("%u") != -1) {
+
+//            byteLength += 2;
+
+//        } else if (oneChar.indexOf("%") != -1) {
+
+//            byteLength += oneChar.length / 3;
+
+//        }
+
+//    }
+
+//    return byteLength;
+
+//}
+
+
+
+
+//// 숫자에 컴마빼고 다시 계산후 컴마찍기.    
+
+//function CheckMoney(obj) {
+
+//    a = out_comma(obj.value);
+
+//    obj.value = in_comma(a);
+
+//}
+
+
+
+
+////컴마 빼기
+
+//function out_comma(str) {
+
+//    comm_str = String(str);
+
+//    uncomm_str = "";
+
+
+
+
+//    for (i = 0; i < comm_str.length; i++) {
+
+//        substr = comm_str.substring(i, i + 1);
+
+//        if (substr != ",") uncomm_str += substr;
+
+//    }
+
+
+
+
+//    return uncomm_str;
+
+//}
+
+
+
+
+////컴마 넣기
+
+//function in_comma(str) {
+
+//    uncomm_str = String(str);
+
+//    comm_str = "";
+
+//    loop_j = uncomm_str.length - 3;
+
+
+
+
+//    for (j = loop_j; j >= 1 ; j = j - 3) {
+
+//        comm_str = "," + uncomm_str.substring(j, j + 3) + comm_str;
+
+//    }
+
+//    comm_str = uncomm_str.substring(0, j + 3) + comm_str;
+
+
+
+
+//    return comm_str;
+
+//}
+
+
+
+
+//function memberid_check(memberid) {
+
+//    var pattern = /^[a-zA-Z]{1}[a-zA-Z0-9]{4,11}$/;
+
+
+
+//    return pattern.test(memberid);
+
+//}
+
+
+
+
+//function email_check(email) {
+
+//    var pattern = /^[_a-zA-Z0-9-\.]+@[\.a-zA-Z0-9-]+\.[a-zA-Z]+$/;
+
+
+
+
+//    return pattern.test(email);
+
+//}
+
+
+
+
+//function rsdt_no_check(num) {
+
+//    var pattern = /^([0-9]{6})-?([0-9]{7})$/;
+
+
+
+
+//    if (num == "9708011000000") return true;
+
+
+
+
+//    if (!pattern.test(num)) return false;
+
+//    num = RegExp.$1 + RegExp.$2;
+
+
+
+
+//    var sum = 0;
+
+//    var last = num.charCodeAt(12) - 0x30;
+
+//    var bases = "234567892345";
+
+//    for (i = 0; i < 12; i++) {
+
+//        if (isNaN(num.substring(i, i + 1))) return false;
+
+//        sum += (num.charCodeAt(i) - 0x30) * (bases.charCodeAt(i) - 0x30);
+
+//    }
+
+//    var mod = sum % 11;
+
+//    return ((11 - mod) % 10 == last) ? true : false;
+
+//}
+
+
+
+
+///**
+
+// * 입력값이 사용자가 정의한 포맷 형식인지 체크
+
+// */
+
+//function isValidFormat(input, format) {
+
+//    if (input.value.search(format) != -1) {
+
+//        return true; //올바른 포맷 형식
+
+//    }
+
+//    return false;
+
+//}
+
+
+
+
+///**
+
+// * 입력값이 전화번호 형식(숫자-숫자-숫자)인지 체크
+
+// */
+
+//function isValidPhone(input) {
+
+//    var format = /^(\d+)-(\d+)-(\d+)$/;
+
+//    return isValidFormat(input, format);
+
+//}
+
+
+
+
+////일자 유효 검증
+
+//function isValidDate(datestr) {
+
+//    //널인지?
+
+//    if (isEmpty(datestr)) {
+
+//        return true;
+
+//    }
+
+//    //숫자인지?
+
+//    if (!isNum(datestr)) {
+
+//        alert("숫자를 입력하셔야 합니다.");
+
+//        return false;
+
+//    }
+
+//    //길이가 8자리?
+
+//    if (datestr.length != 8) {
+
+//        alert("년월일 8자리를 입력하셔야 합니다.");
+
+//        return false;
+
+//    }
+
+//    var yy = eval(datestr.substring(0, 4));
+
+//    var mm = eval(datestr.substring(4, 6));
+
+//    var dd = eval(datestr.substring(6, 8));
+
+//    //월 검증
+
+//    if (!(mm > 0 && mm < 13)) {
+
+//        alert("월은 1~12 까지만 입력할 수 있습니다.  ");
+
+//        return false;
+
+//    }
+
+//    //윤년 검증
+
+//    var boundDay = "";
+
+//    if (mm != 2) {
+
+//        var mon = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+
+//        boundDay = mon[mm - 1];
+
+//    }
+
+//    else {
+
+//        if (yy % 4 == 0 && yy % 100 != 0 || yy % 400 == 0) {
+
+//            boundDay = 29;
+
+//        }
+
+//        else {
+
+//            boundDay = 28;
+
+//        }
+
+//    }
+
+//    //일 검증
+
+//    if ((dd <= 0) || (dd > boundDay)) {
+
+//        alert("유효하지 않은 일자입니다.\n(" + yy + "년 " + mm + "월은 " + boundDay + "일 까지 있습니다.)");
+
+//        return false;
+
+//    }
+
+//    return true;
+
+//}
+
+
+
+
+///**
+
+// * 유효한(존재하는) 월(月)인지 체크
+
+// */
+
+//function isValidMonth(mm) {
+
+//    var m = parseInt(mm, 10);
+
+//    return (m >= 1 && m <= 12);
+
+//}
+
+
+
+
+///**
+
+// * 유효한(존재하는) 일(日)인지 체크
+
+// */
+
+//function isValidDay(yyyy, mm, dd) {
+
+//    var m = parseInt(mm, 10) - 1;
+
+//    var d = parseInt(dd, 10);
+
+
+
+
+//    var end = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+
+//    if ((yyyy % 4 == 0 && yyyy % 100 != 0) || yyyy % 400 == 0) {
+
+//        end[1] = 29;
+
+//    }
+
+
+
+
+//    return (d >= 1 && d <= end[m]);
+
+//}
+
+
+
+
+///**
+
+// * 유효한(존재하는) 시(時)인지 체크
+
+// */
+
+//function isValidHour(hh) {
+
+//    var h = parseInt(hh, 10);
+
+//    return (h >= 1 && h <= 24);
+
+//}
+
+
+
+
+///**
+
+// * 유효한(존재하는) 분(分)인지 체크
+
+// */
+
+//function isValidMin(mi) {
+
+//    var m = parseInt(mi, 10);
+
+//    return (m >= 1 && m <= 60);
+
+//}
+
+
+
+
+///**
+
+// * Time 형식인지 체크(느슨한 체크)
+
+// */
+
+//function isValidTimeFormat(time) {
+
+//    return (!isNaN(time) && time.length == 12);
+
+//}
+
+
+
+
+///**
+
+// * 유효하는(존재하는) Time 인지 체크
+
+// * ex) var time = form.time.value; //'200102310000'
+
+// *     if (!isValidTime(time)) {
+
+// *         alert("올바른 날짜가 아닙니다.");
+
+// *     }
+
+// */
+
+//function isValidTime(time) {
+
+//    var year = time.substring(0, 4);
+
+//    var month = time.substring(4, 6);
+
+//    var day = time.substring(6, 8);
+
+//    var hour = time.substring(8, 10);
+
+//    var min = time.substring(10, 12);
+
+
+
+
+//    if (parseInt(year, 10) >= 1900 && isValidMonth(month) &&
+
+//		isValidDay(year, month, day) && isValidHour(hour) &&
+
+//		isValidMin(min)) {
+
+//        return true;
+
+//    }
+
+//    return false;
+
+//}
+
+
+
+
+///**
+
+// * Time 스트링을 자바스크립트 Date 객체로 변환
+
+// * parameter time: Time 형식의 String
+
+// */
+
+//function toTimeObject(time) { //parseTime(time)
+
+//    var year = time.substr(0, 4);
+
+//    var month = time.substr(4, 2) - 1; // 1월=0,12월=11
+
+//    var day = time.substr(6, 2);
+
+//    var hour = time.substr(8, 2);
+
+//    var min = time.substr(10, 2);
+
+
+
+
+//    return new Date(year, month, day, hour, min);
+
+//}
+
+
+
+
+///**
+
+// * 자바스크립트 Date 객체를 Date 스트링으로 변환
+
+// * parameter date: JavaScript Date Object
+
+// */
+
+//function toDateString(date) { //formatTime(date)
+
+//    var year = date.getFullYear();
+
+//    var month = date.getMonth() + 1; // 1월=0,12월=11이므로 1 더함
+
+//    var day = date.getDate();
+
+
+
+
+//    if (("" + month).length == 1) { month = "0" + month; }
+
+//    if (("" + day).length == 1) { day = "0" + day; }
+
+
+
+
+//    return ("" + year + month + day)
+
+//}
+
+
+
+
+///**
+
+// * 자바스크립트 Date 객체를 Time 스트링으로 변환
+
+// * parameter date: JavaScript Date Object
+
+// */
+
+//function toTimeString(date) { //formatTime(date)
+
+//    var year = date.getFullYear();
+
+//    var month = date.getMonth() + 1; // 1월=0,12월=11이므로 1 더함
+
+//    var day = date.getDate();
+
+//    var hour = date.getHours();
+
+//    var min = date.getMinutes();
+
+
+
+
+//    if (("" + month).length == 1) { month = "0" + month; }
+
+//    if (("" + day).length == 1) { day = "0" + day; }
+
+//    if (("" + hour).length == 1) { hour = "0" + hour; }
+
+//    if (("" + min).length == 1) { min = "0" + min; }
+
+
+
+
+//    return ("" + year + month + day + hour + min)
+
+//}
+
+
+
+
+///**
+
+// * Time이 현재시각 이후(미래)인지 체크
+
+// */
+
+//function isFutureTime(time) {
+
+//    return (toTimeObject(time) > new Date());
+
+//}
+
+
+
+
+///**
+
+// * Time이 현재시각 이전(과거)인지 체크
+
+// */
+
+//function isPastTime(time) {
+
+//    return (toTimeObject(time) < new Date());
+
+//}
+
+
+
+
+///**
+
+// * 주어진 Time 과 y년 m월 d일 h시 차이나는 Time을 리턴
+
+// * ex) var time = form.time.value; //'20000101000'
+
+// *     alert(shiftTime(time,0,0,-100,0));
+
+// *     => 2000/01/01 00:00 으로부터 100일 전 Time
+
+// */
+
+//function shiftTime(time, y, m, d, h) { //moveTime(time,y,m,d,h)
+
+//    var date = toTimeObject(time);
+
+
+
+
+//    date.setFullYear(date.getFullYear() + y); //y년을 더함
+
+//    date.setMonth(date.getMonth() + m);       //m월을 더함
+
+//    date.setDate(date.getDate() + d);         //d일을 더함
+
+//    date.setHours(date.getHours() + h);       //h시를 더함
+
+
+
+
+//    return toTimeString(date);
+
+//}
+
+
+
+
+///**
+
+// * 두 Time이 몇 개월 차이나는지 구함
+
+// * time1이 time2보다 크면(미래면) minus(-)
+
+// */
+
+//function getMonthInterval(time1, time2) { //measureMonthInterval(time1,time2)
+
+//    var date1 = toTimeObject(time1);
+
+//    var date2 = toTimeObject(time2);
+
+
+
+
+//    var years = date2.getFullYear() - date1.getFullYear();
+
+//    var months = date2.getMonth() - date1.getMonth();
+
+//    var days = date2.getDate() - date1.getDate();
+
+
+
+
+//    return (years * 12 + months + (days >= 0 ? 0 : -1));
+
+//}
+
+
+
+
+///**
+
+// * 두 Time이 며칠 차이나는지 구함
+
+// * time1이 time2보다 크면(미래면) minus(-)
+
+// */
+
+//function getDayInterval(time1, time2) {
+
+//    var date1 = toTimeObject(time1);
+
+//    var date2 = toTimeObject(time2);
+
+//    var day = 1000 * 3600 * 24; //24시간
+
+
+
+
+//    return parseInt((date2 - date1) / day, 10);
+
+//}
+
+
+
+
+///**
+
+// * 두 Time이 몇 시간 차이나는지 구함
+
+// * time1이 time2보다 크면(미래면) minus(-)
+
+// */
+
+//function getHourInterval(time1, time2) {
+
+//    var date1 = toTimeObject(time1);
+
+//    var date2 = toTimeObject(time2);
+
+//    var hour = 1000 * 3600; //1시간
+
+
+
+
+//    return parseInt((date2 - date1) / hour, 10);
+
+//}
+
+
+
+
+///////////////////////////////////////////////////////
+
+//function getCurrentDate() {
+
+//    /////////////////////////////////////////////////////
+
+//    // 현재 시각을 Time 형식으로 리턴
+
+//    return toDateString(new Date());
+
+//}
+
+
+
+
+///**
+
+// * 현재 시각을 Time 형식으로 리턴
+
+// */
+
+//function getCurrentTime() {
+
+//    return toTimeString(new Date());
+
+//}
+
+
+
+
+///**
+
+// * 현재 시각과 y년 m월 d일 h시 차이나는 Time을 리턴
+
+// */
+
+//function getRelativeTime(y, m, d, h) {
+
+//    return shiftTime(getCurrentTime(), y, m, d, h);
+
+//}
+
+
+
+
+///**
+
+// * 현재 年을 YYYY형식으로 리턴
+
+// */
+
+//function getYear() {
+
+//    return getCurrentTime().substr(0, 4);
+
+//}
+
+
+
+
+///**
+
+// * 현재 月을 MM형식으로 리턴
+
+// */
+
+//function getMonth() {
+
+//    return getCurrentTime().substr(4, 2);
+
+//}
+
+
+
+
+///**
+
+// * 현재 日을 DD형식으로 리턴
+
+// */
+
+//function getDay() {
+
+//    return getCurrentTime().substr(6, 2);
+
+//}
+
+
+
+
+///**
+
+// * 현재 時를 HH형식으로 리턴
+
+// */
+
+//function getHour() {
+
+//    return getCurrentTime().substr(8, 2);
+
+//}
+
+
+
+
+///**
+
+// * 오늘이 무슨 요일이야?
+
+// * ex) alert('오늘은 ' + getDayOfWeek() + '요일입니다.');
+
+// */
+
+//function getDayOfWeek() {
+
+//    var now = new Date();
+
+
+
+
+//    var day = now.getDay(); //일요일=0,월요일=1,...,토요일=6
+
+//    var week = new Array('일', '월', '화', '수', '목', '금', '토');
+
+
+
+
+//    return week[day];
+
+//}
+
+
+
+
+///**
+
+// * 특정날짜의 요일을 구한다.
+
+// */
+
+//function getDayOfWeek(time) {
+
+//    var now = toTimeObject(time);
+
+
+
+
+//    var day = now.getDay(); //일요일=0,월요일=1,...,토요일=6
+
+//    var week = new Array('일', '월', '화', '수', '목', '금', '토');
+
+
+
+
+//    return week[day];
+
+//}
+
+
+
+
+///**
+
+//*   문자열의 오른쪽 끝에서 부터 지정된 개수만큼의 문자들을 리턴한다.
+
+//*/
+
+//function substrInverse(str, num) {
+
+//    var len;
+
+
+
+
+//    len = str.length;
+
+
+
+
+//    return str.substr(len - num, num);
+
+//}
+
+
+
+
+///**
+
+//*  문자열로의 특정위치로부터 지정된 개수의 문자들을 리턴한다.
+
+//*/
+
+//function substrMid(str, idx, num) {
+
+//    return str.substr(idx - 1, num);
+
+//}
+
+
+
+
+///**
+
+//* Cookie설정하기
+
+//*/
+
+//function setCookie(name, value, expire) {
+
+//    document.cookie = name + "=" + escape(value)
+
+//	+ ((expire) ? "; expires=" + expire.toGMTString() : "")
+
+//}
+
+
+
+
+///**
+
+//* Cookie 구하기
+
+//*/
+
+//function getCookie(uName) {
+
+//    var flag = document.cookie.indexOf(uName + '=');
+
+//    if (flag != -1) {
+
+//        flag += uName.length + 1
+
+//        end = document.cookie.indexOf(';', flag)
+
+
+
+
+//        if (end == -1) end = document.cookie.length
+
+//        return unescape(document.cookie.substring(flag, end))
+
+//    }
+
+//}
+
+//function AddDate(stDate, stValue, stType) {
+
+//    var CurYear = eval(stDate.substring(0, 4));
+
+//    var CurMonth = eval(stDate.substring(4, 6)) - 1;
+
+//    var CurDate = eval(stDate.substring(6, 8));
+
+
+
+
+//    var TDate = new Date(CurYear, CurMonth, CurDate);
+
+
+
+
+//    if (stType == 'year') {
+
+//        CurYear = eval(CurYear) + eval(stValue);
+
+//        TDate.setFullYear(CurYear);
+
+//    } else if (stType == 'month') {
+
+//        CurMonth = eval(CurMonth) + eval(stValue);
+
+//        TDate.setMonth(CurMonth);
+
+//    } else {
+
+//        CurDate = eval(CurDate) + eval(stValue);
+
+//        TDate.setDate(CurDate);
+
+//    }
+
+
+
+
+//    CurYear = TDate.getFullYear();
+
+//    CurMonth = TDate.getMonth() + 1;
+
+//    CurDate = TDate.getDate();
+
+//    if (CurMonth < 10) CurMonth = '0' + CurMonth;
+
+//    if (CurDate < 10) CurDate = '0' + CurDate;
+
+
+
+
+//    return (CurYear.toString() + CurMonth.toString() + CurDate.toString());
+
+//}
+
+
+
+
+//// 빈값인지 리턴한다.
+
+//function isEmpty(pValue) {
+
+
+
+
+//    if ((pValue == "") || (pValue == null)) {
+
+//        return true;
+
+//    }
+
+//    return false;
+
+//}
+
+
+
+
+//function MM_preloadImages() { //v3.0
+
+//    var d = document; if (d.images) {
+//        if (!d.MM_p) d.MM_p = new Array();
+
+//        var i, j = d.MM_p.length, a = MM_preloadImages.arguments; for (i = 0; i < a.length; i++)
+
+//            if (a[i].indexOf("#") != 0) { d.MM_p[j] = new Image; d.MM_p[j++].src = a[i]; }
+//    }
+
+//}
+
+
+
+
+//function MM_openBrWindow(theURL, winName, features) { //v2.0
+
+//    window.open(theURL, winName, features);
+
+//}
+
+
+
+
+/// 캐릭터 타입 검증 'H'-한글, 'E'-영문, 'N'-숫자, 'Z'-기타
+//function getCharType(pValue){
+// var bHan = false;
+// var bAlp = false;
+// var bNum = false;
+// var bEtc = false;
+ 
+// var retStr="";
+ 
+// if(isEmpty(pValue)){
+//  return "";
+//  }
+ 
+// for(var idx=0; idx < pValue.length; idx++){
+//  if (isAlpha(pValue[idx])) {
+//   bAlp = true;
+//   }
+//   else if (isNum(pValue[idx])) {
+//       bNum = true;
+//       }
+//       else if (isHangul(pValue[idx])) {
+//   bHan = true;
+//   }
+//   else {
+//   bEtc = true;
+//   }
+  
+//  if (bHan) retStr = retStr + "H";
+//  if (bAlp) retStr = retStr + "E";
+//  if (bNum) retStr = retStr + "N";
+//  if (bEtc) retStr = retStr + "Z";
+//  }
+ 
+// return retStr;
+// } 
+ 
+//    //새창 여는 함수
+//    function uf_newWin( url, winName, sizeW, sizeH)
+//{
+//     var nLeft  = screen.width/2 - sizeW/2 ;
+//     var nTop  = screen.height/2 - sizeH/2 ;
+ 
+//     opt = ",toolbar=no,menubar=no,location=no,scrollbars=yes,status=no";
+//     window.open(url, winName, "left=" + nLeft + ",top=" +  nTop + ",width=" + sizeW + ",height=" + sizeH  + opt );
+ 
+//     }
+ 
+
+//    //새창 사이즈 정함 
+//    function uf_reSize ( sizeW, sizeH)
+//{
+//     window.resizeTo( sizeW, sizeH );
+ 
+//     }
+ 
+//    //옵션이 있는경우
+ 
+//    function selDataChange(form) {
+//      var DataIndex=form.url.selectedIndex;
+//      if (form.url.options[DataIndex].value != null) {
+//           location=form.url.options[DataIndex].value;
+//           }
+//           }
+ 
+//    function selDataChange2(form) {
+//      var DataIndex=form.url2.selectedIndex;
+//      if (form.url2.options[DataIndex].value != null) {
+//           location=form.url2.options[DataIndex].value;
+//           }
+//           }
+ 
+///**
+// * 입력값이 NULL인지 체크
+// */
+//function isNull(input) {
+//if (input.value == null || input.value == "") {
+//    return true;
+//}
+//return false;
+//}
+ 
+///**
+// * 입력값에 스페이스 이외의 의미있는 값이 있는지 체크
+// * ex) if (isEmpty(form.keyword)) {
+// *         alert("검색조건을 입력하세요.");
+// *     }
+// */
+//function isEmpty(input) {
+//    if (input.value == null || input.value.replace(/ /gi,"") == "") {
+//        return true;
+//    }
+//    return false;
+//    }
+ 
+///**
+// * 입력값에 특정 문자(chars)가 있는지 체크
+// * 특정 문자를 허용하지 않으려 할 때 사용
+// * ex) if (containsChars(form.name,"!,*&^%$#@~;")) {
+// *         alert("이름 필드에는 특수 문자를 사용할 수 없습니다.");
+// *     }
+// */
+//function containsChars(input,chars) {
+//    for (var inx = 0; inx < input.value.length; inx++) {
+//       if (chars.indexOf(input.value.charAt(inx)) != -1)
+//           return true;
+//       }
+//    return false;
+//    }
+ 
+///**
+// * 입력값이 특정 문자(chars)만으로 되어있는지 체크
+// * 특정 문자만 허용하려 할 때 사용
+// * ex) if (!containsCharsOnly(form.blood,"ABO")) {
+// *         alert("혈액형 필드에는 A,B,O 문자만 사용할 수 있습니다.");
+// *     }
+// */
+//function containsCharsOnly(input,chars) {
+//    for (var inx = 0; inx < input.value.length; inx++) {
+//       if (chars.indexOf(input.value.charAt(inx)) == -1)
+//           return false;
+//       }
+//    return true;
+//    }
+//function isStartWith(input,chars) {
+//    for (var inx = 0; inx < chars.length; inx++) {
+//       if (chars.indexOf(input.value.charAt(0)) == -1)
+//           return false;
+//       }
+//    return true;
+//    }
+///**
+// * 입력값이 알파벳인지 체크
+// * 아래 isAlphabet() 부터 isNumComma()까지의 메소드가
+// * 자주 쓰이는 경우에는 var chars 변수를 
+// * global 변수로 선언하고 사용하도록 한다.
+// * ex) var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+// *     var lowercase = "abcdefghijklmnopqrstuvwxyz"; 
+// *     var number    = "0123456789";
+// *     function isAlphaNum(input) {
+// *         var chars = uppercase + lowercase + number;
+// *         return containsCharsOnly(input,chars);
+// *     }
+// */
+//function isAlphabet(input) {
+//    var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ";
+//    return containsCharsOnly(input,chars);
+//    }
+ 
+///**
+// * 입력값이 알파벳 대문자인지 체크
+// */
+//function isUpperCase(input) {
+//    var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ ";
+//    return containsCharsOnly(input,chars);
+//    }
+ 
+///**
+// * 입력값이 알파벳 소문자인지 체크
+// */
+//function isLowerCase(input) {
+//    var chars = "abcdefghijklmnopqrstuvwxyz ";
+//    return containsCharsOnly(input,chars);
+//    }
+ 
+///**
+// * 입력값에 숫자만 있는지 체크
+// */
+//function isNumber(input) {
+//    var chars = "0123456789";
+//    return containsCharsOnly(input,chars);
+//    }
+ 
+///**
+// * 입력값이 알파벳,숫자로 되어있는지 체크
+// */
+//function isAlphaNum(input) {
+//    var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 ";
+//    return containsCharsOnly(input,chars);
+//    }
+ 
+//function isBigAlphaNum(input) {
+//    var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 ";
+//    return containsCharsOnly(input,chars);
+//    }
+///**
+// * 입력값이 숫자,대시(-)로 되어있는지 체크
+// */
+//function isNumDash(input) {
+//    var chars = "-0123456789";
+//    return containsCharsOnly(input,chars);
+//    }
+ 
+///**
+// * 입력값이 숫자,콤마(,)로 되어있는지 체크
+// */
+//function isNumComma(input) {
+//    var chars = ",0123456789";
+//    return containsCharsOnly(input,chars);
+//    }
+ 
+///**
+// * 입력값이 사용자가 정의한 포맷 형식인지 체크
+// * 자세한 format 형식은 자바스크립트의 'regular expression'을 참조
+// */
+//function isValidFormat(input,format) {
+//    if (input.value.search(format) != -1) {
+//        return true; //올바른 포맷 형식
+//    }
+//    return false;
+//    }
+ 
+///**
+// * 입력값이 이메일 형식인지 체크
+// * ex) if (!isValidEmail(form.email)) {
+// *         alert("올바른 이메일 주소가 아닙니다.");
+// *     }
+// */
+//function isValidEmail(input) {
+////    var format = /^(\S+)@(\S+)\.([A-Za-z]+)$/;
+//    var format = /^((\w|[\-\.])+)@((\w|[\-\.])+)\.([A-Za-z]+)$/;
+//    return isValidFormat(input,format);
+//    }
+ 
+///**
+// * 입력값이 전화번호 형식(숫자-숫자-숫자)인지 체크
+// */
+//function isValidPhone(input) {
+//    var format = /^(\d+)-(\d+)-(\d+)$/;
+//    return isValidFormat(input,format);
+//    }
+ 
+///**
+// * 입력값의 바이트 길이를 리턴
+// * ex) if (getByteLength(form.title) > 100) {
+// *         alert("제목은 한글 50자(영문 100자) 이상 입력할 수 없습니다.");
+// *     }
+// */
+//function getByteLength(input) {
+//    var byteLength = 0;
+//    for (var inx = 0; inx < input.value.length; inx++) {
+//        var oneChar = escape(input.value.charAt(inx));
+//        if ( oneChar.length == 1 ) {
+//            byteLength ++;
+//            } else if (oneChar.indexOf("%u") != -1) {
+//                byteLength += 2;
+//            } else if (oneChar.indexOf("%") != -1) {
+//                byteLength += oneChar.length/3;
+//                }
+//                }
+//        return byteLength;
+//    }
+ 
+///**
+// * 입력값에서 콤마를 없앤다.
+// */
+//function removeComma(input) {
+//    return input.value.replace(/,/gi,"");
+//    }
+ 
+///**
+// * 선택된 라디오버튼이 있는지 체크
+// */
+//function hasCheckedRadio(input) {
+//    if (input.length > 1) {
+//        for (var inx = 0; inx < input.length; inx++) {
+//            if (input[inx].checked) return true;
+//            }
+//            } else {
+//        if (input.checked) return true;
+//        }
+//    return false;
+//    }
+ 
+///**
+// * 선택된 체크박스가 있는지 체크
+// */
+//function hasCheckedBox(input) {
+//    return hasCheckedRadio(input);
+//    }
+ 
+
+///**
+// * 선택된 체크박스가  몇개인지  그 개수를 반환
+// */
+//function hasMultiCheckedRadio(input) {
+//var kkkk = 0;
+//    if (input.length > 1) {
+//        for (var inx = 0; inx < input.length; inx++) {
+//            if (input[inx].checked) {
+//            kkkk++;
+//            }
+//            }
+//    } else {
+//   if (input.checked) kkkk=1;
+//        }
+//           return kkkk;
+//           }
+ 
+///**
+// * 유효한(존재하는) 월(月)인지 체크
+// */
+//function isValidMonth(mm) {
+//    var m = parseInt(mm,10);
+//    return (m >= 1 && m <= 12);
+//}
+ 
+///**
+// * 유효한(존재하는) 일(日)인지 체크
+// */
+//function isValidDay(yyyy, mm, dd) {
+//    var m = parseInt(mm,10) - 1;
+//    var d = parseInt(dd,10);
+ 
+//    var end = new Array(31,28,31,30,31,30,31,31,30,31,30,31);
+//    if ((yyyy % 4 == 0 && yyyy % 100 != 0) || yyyy % 400 == 0) {
+//        end[1] = 29;
+//    }
+ 
+//    return (d >= 1 && d <= end[m]);
+//    }
+ 
+///**
+// * 유효한(존재하는) 시(時)인지 체크
+// */
+//function isValidHour(hh) {
+//    var h = parseInt(hh,10);
+//    return (h >= 1 && h <= 24);
+//}
+ 
+///**
+// * 유효한(존재하는) 분(分)인지 체크
+// */
+//function isValidMin(mi) {
+//    var m = parseInt(mi,10);
+//    return (m >= 1 && m <= 60);
+//}
+ 
+///**
+// * Time 형식인지 체크(느슨한 체크)
+// */
+//function isValidTimeFormat(time) {
+//    return (!isNaN(time) && time.length == 12);
+//    }
+ 
+///**
+// * 유효하는(존재하는) Time 인지 체크
+// * ex) var time = form.time.value; //'200102310000'
+// *     if (!isValidTime(time)) {
+// *         alert("올바른 날짜가 아닙니다.");
+// *     }
+// */
+//function isValidTime(time) {
+//    var year  = time.substring(0,4);
+//    var month = time.substring(4,6);
+//    var day   = time.substring(6,8);
+//    var hour  = time.substring(8,10);
+//    var min   = time.substring(10,12);
+ 
+//    if (parseInt(year,10) >= 1900  && isValidMonth(month) &&
+//        isValidDay(year,month,day) && isValidHour(hour)   &&
+//        isValidMin(min)) {
+//        return true;
+//    }
+//    return false;
+//    }
+ 
+///**
+// * Time 스트링을 자바스크립트 Date 객체로 변환
+// * parameter time: Time 형식의 String
+// */
+//function toTimeObject(time) { //parseTime(time)
+//    var year  = time.substr(0,4);
+//    var month = time.substr(4,2) - 1; // 1월=0,12월=11
+//    var day   = time.substr(6,2);
+//    var hour  = time.substr(8,2);
+//    var min   = time.substr(10,2);
+ 
+//    return new Date(year,month,day,hour,min);
+//    }
+ 
+///**
+// * 자바스크립트 Date 객체를 Time 스트링으로 변환
+// * parameter date: JavaScript Date Object
+// */
+//function toTimeString(date) { //formatTime(date)
+//    var year  = date.getFullYear();
+//    var month = date.getMonth() + 1; // 1월=0,12월=11이므로 1 더함
+//    var day   = date.getDate();
+//    var hour  = date.getHours();
+//    var min   = date.getMinutes();
+ 
+//    if (("" + month).length == 1) { month = "0" + month; }
+//    if (("" + day).length   == 1) { day   = "0" + day;   }
+//    if (("" + hour).length  == 1) { hour  = "0" + hour;  }
+//    if (("" + min).length   == 1) { min   = "0" + min;   }
+ 
+//    return ("" + year + month + day + hour + min)
+//    }
+ 
+///**
+// * Time이 현재시각 이후(미래)인지 체크
+// */
+//function isFutureTime(time) {
+//    return (toTimeObject(time) > new Date());
+//    }
+ 
+///**
+// * Time이 현재시각 이전(과거)인지 체크
+// */
+//function isPastTime(time) {
+//    return (toTimeObject(time) < new Date());
+//    }
+ 
+///**
+// * 주어진 Time 과 y년 m월 d일 h시 차이나는 Time을 리턴
+// * ex) var time = form.time.value; //'20000101000'
+// *     alert(shiftTime(time,0,0,-100,0));
+// *     => 2000/01/01 00:00 으로부터 100일 전 Time
+// */
+//function shiftTime(time,y,m,d,h) { //moveTime(time,y,m,d,h)
+//    var date = toTimeObject(time);
+ 
+//    date.setFullYear(date.getFullYear() + y); //y년을 더함
+//    date.setMonth(date.getMonth() + m);       //m월을 더함
+//    date.setDate(date.getDate() + d);         //d일을 더함
+//    date.setHours(date.getHours() + h);       //h시를 더함
+ 
+//    return toTimeString(date);
+//}
+ 
+///**
+// * 두 Time이 몇 개월 차이나는지 구함
+// * time1이 time2보다 크면(미래면) minus(-)
+// */
+//function getMonthInterval(time1,time2) { //measureMonthInterval(time1,time2)
+//    var date1 = toTimeObject(time1);
+//    var date2 = toTimeObject(time2);
+ 
+//    var years  = date2.getFullYear() - date1.getFullYear();
+//    var months = date2.getMonth() - date1.getMonth();
+//    var days   = date2.getDate() - date1.getDate();
+ 
+//    return (years * 12 + months + (days >= 0 ? 0 : -1) );
+//    }
+ 
+///**
+// * 두 Time이 며칠 차이나는지 구함
+// * time1이 time2보다 크면(미래면) minus(-)
+// */
+//function getDayInterval(time1,time2) {
+//    var date1 = toTimeObject(time1);
+//    var date2 = toTimeObject(time2);
+//    var day   = 1000 * 3600 * 24; //24시간
+ 
+//    return parseInt((date2 - date1) / day, 10);
+//    }
+ 
+///**
+// * 두 Time이 몇 시간 차이나는지 구함
+// * time1이 time2보다 크면(미래면) minus(-)
+// */
+//function getHourInterval(time1,time2) {
+//    var date1 = toTimeObject(time1);
+//    var date2 = toTimeObject(time2);
+//    var hour  = 1000 * 3600; //1시간
+ 
+//    return parseInt((date2 - date1) / hour, 10);
+//    }
+ 
+///**
+// * 현재 시각을 Time 형식으로 리턴
+// */
+//function getCurrentTime() {
+//    return toTimeString(new Date());
+//    }
+ 
+///**
+// * 현재 시각과 y년 m월 d일 h시 차이나는 Time을 리턴
+// */
+//function getRelativeTime(y,m,d,h) {
+ 
+//    return shiftTime(getCurrentTime(),y,m,d,h);
+//    }
+ 
+///**
+// * 현재 年을 YYYY형식으로 리턴
+// */
+//function getYear() {
+ 
+//    return getCurrentTime().substr(0,4);
+//    }
+ 
+///**
+// * 현재 月을 MM형식으로 리턴
+// */
+//function getMonth() {
+ 
+//return getCurrentTime().substr(4,2);
+//}
+ 
+///**
+// * 현재 日을 DD형식으로 리턴
+// */
+//function getDay() {
+ 
+//    return getCurrentTime().substr(6,2);
+//    }
+ 
+///**
+// * 현재 時를 HH형식으로 리턴
+// */
+//function getHour() {
+ 
+//    return getCurrentTime().substr(8,2);
+//    }
+ 
+///**
+// * 오늘이 무슨 요일이야?
+// * ex) alert('오늘은 ' + getDayOfWeek() + '요일입니다.');
+// */
+//function getDayOfWeek() {
+//    var now = new Date();
+ 
+//    var day = now.getDay(); //일요일=0,월요일=1,...,토요일=6
+//    var week = new Array('일','월','화','수','목','금','토');
+ 
+//    return week[day];
+//    }
+ 
+
+///**
+// * 특정날짜의 요일을 구한다.
+// */
+//function getDayOfWeek(time) {
+//    var now = toTimeObject(time);
+ 
+//    var day = now.getDay(); //일요일=0,월요일=1,...,토요일=6
+//    var week = new Array('일','월','화','수','목','금','토');
+ 
+//    return week[day];
+//    }
+ 
+ 
+ 
+///**
+//*   문자열의 오른쪽 끝에서 부터 지정된 개수만큼의 문자들을 리턴한다.
+//*/
+ 
+//function substrInverse(str, num)
+//{
+// var len;
+ 
+// len = str.length;
+ 
+// return str.substr(len - num, num);
+// }
+ 
+///**
+//*  문자열로의 특정위치로부터 지정된 개수의 문자들을 리턴한다.
+//*/
+//function substrMid(str, idx, num)
+//{
+// return str.substr( idx-1, num);
+// }
+ 
+
+//    /**
+//    * Cookie설정하기
+//    */
+ 
+//function setCookie(name, value, expire) {
+//          document.cookie = name + "=" + escape(value)
+//          + ( (expire) ? "; expires=" + expire.toGMTString() : "")
+//          }
+ 
+///**
+//* Cookie 구하기
+//*/
+ 
+
+//function getCookie(uName) {
+ 
+// var flag = document.cookie.indexOf(uName+'=');
+// if (flag != -1) { 
+//  flag += uName.length + 1
+//  end = document.cookie.indexOf(';', flag) 
+ 
+//  if (end == -1) end = document.cookie.length
+//  return unescape(document.cookie.substring(flag, end))
+//  }
+//  } 
+ 
+//    function Half2Full(HalfVal)
+//{
+//        var arg;
+//        arg = myHalf2Full(HalfVal);
+//  return arg;
+//  }
+ 
+//function myHalf2Full(HalfVal)
+//{
+//  var FullChar = [
+//                "　", "！","＂","＃","＄","％","＆","＇","（",     //33~
+//         "）","＊","＋","，","－","．","／","０","１","２",      //41~
+//         "３","４","５","６","７","８","９","：","；","＜",      //51~
+//         "＝","＞","？","＠","Ａ","Ｂ","Ｃ","Ｄ","Ｅ","Ｆ",      //61~
+//         "Ｇ","Ｈ","Ｉ","Ｊ","Ｋ","Ｌ","Ｍ","Ｎ","Ｏ","Ｐ",      //71~
+//         "Ｑ","Ｒ","Ｓ","Ｔ","Ｕ","Ｖ","Ｗ","Ｘ","Ｙ","Ｚ",      //81~
+//         "［","￦","］","＾","＿","｀","Ａ","Ｂ","Ｃ","Ｄ",      //91~
+//         "Ｅ","Ｆ","Ｇ","Ｈ","Ｉ","Ｊ","Ｋ","Ｌ","Ｍ","Ｎ",      //101~
+//         "Ｏ","Ｐ","Ｑ","Ｒ","Ｓ","Ｔ","Ｕ","Ｖ","Ｗ","Ｘ",      //111~
+//         "Ｙ","Ｚ","｛","｜","｝","～"                         //121~
+//                ];
+//  var stFinal = "";
+//        var ascii;
+//        for( i = 0; i < HalfVal.length; i++)
+//    {
+//                ascii = HalfVal.charCodeAt(i);
+//                if( (31 < ascii && ascii < 128))
+//            {
+//                  stFinal += FullChar[ascii-32];
+//                  }
+//                else
+//                {
+//                  stFinal += HalfVal.charAt(i);
+//                  }
+//                }
+//        return stFinal;
+//        }
+//function frmMoney(input){
+// input.value = putComma(input);
+// }
+//function unFrmMoney(input){
+//input.value = replace(input.value,",","");
+//}
+//function frmDate(input){
+// if(input.value=="") return 
+//    input.value = input.value.substring(0,4) + "-" + input.value.substring(4,6) + "-" + input.value.substring(6,8);
+//    }
+//   function unFrmDate(input){
+// input.value = replace(input.value,"-","");
+// }
+//function frmTime(input){
+// input.value = input.value.substring(0,2) + ":" + input.value.substring(2,4) + ":" + input.value.substring(4,6);
+// }
+//function unFrmTime(input){
+// input.value = replace(input.value,":","");
+// }
+//function frmAcct(input){
+// input.value = input.value.substring(0,3) + "-" + input.value.substring(3,9) + "-" + input.value.substring(9,14);
+// }
+//function unFrmAcct(input){
+// input.value = replace(input.value,"-","");
+// }
+ 
+//function setSelect(input,str) {
+// for(i=0;i<input.options.length;i++){
+//  if(input.options[i].value == str)
+//   input.options[i].selected=true;
+//   }
+//   }
+//    // 외환에서 특정 통화일때 소수점이하 금액없애기 
+//function Curr(str1, str2){
+// obj1 = eval("frm."+str1+".value")
+// obj2 = eval("frm."+str2+".style")
+// if(obj1=="JPY"||obj1=="ITL"||obj1=="BEF"||obj1=="KRW"){
+//  obj2.display = "none"
+// }else{
+//  obj2.display = ""
+// }
+// }
+//function Curr2(str1, str2, str3){
+// obj1 = eval("frm."+str1+".value")
+// obj2 = eval("frm."+str2+".style")
+// obj3 = eval("frm."+str3+".style")
+// if(obj1=="JPY"||obj1=="ITL"||obj1=="BEF"||obj1=="KRW"){
+//  obj2.display = "none"
+//  obj3.display = "none"
+//  }else{
+//   obj2.display = ""
+//  obj3.display = ""
+//  }
+//  }
+ 
+//////////////////////////////////////////////////////////////////
+//// 데이터 전송형태 관련
+//////////////////////////////////////////////////////////////////
+   
+//// get 방식의 파라미터를 해당폼에 input hidden 객체로 생성한다.
+//    function get2post(frm,sSearch){ 
+//     if (sSearch.length > 0) {
+     
+//      var asKeyValues = sSearch.split('&');
+//      var asKeyValue  = '';
+         
+//      for (var i = 0; i < asKeyValues.length; i++) {
+       
+//       asKeyValue = asKeyValues[i].split('=');
+//       var e = document.createElement("input");
+//       e.setAttribute("type","hidden");
+//       e.setAttribute("name",asKeyValue[0]);
+//       e.setAttribute("value",asKeyValue[1]);
+//       e.setAttribute("_temp","true");
+       
+//          //   alert("[" + e.name +"]:[" + e.value +"]");
+       
+//       frm.appendChild(e);
+//      }
+//      } 
+//        //  alert("form 객체 갯수" + frm.elements.length);
+//}   
+    
+//// get2post로 생성한 임시 객체를 파괴한다.  
+//    function removeTempAttribute(frm){ 
+//     var idx=0;
+//     while (idx<frm.elements.length) {
+//      var obj = frm.elements[idx];
+      
+//      if( obj.getAttribute("_temp") != null && obj.getAttribute("_temp") == "true"){
+//       frm.removeChild(obj);
+//          continue;
+//          }
+//      idx++;
+//      }
+//      }   
+    
+    
+ 
+//////////////////////////////////////////////////////////////////
+//// checkbox 관련
+//////////////////////////////////////////////////////////////////
+   
+//// check 한 개수를 리턴한다.
+//    function getCheckedCount( aElem ) {
+     
+//     var elem = document.all;
+//     var cnt = 0;
+     
+//     for ( var i=0; i<document.all.length; i++ ) {
+//      if ( ( elem[i].type == "checkbox" ) && ( elem[i].checked ) && ( elem[i].name == aElem ) ) cnt = cnt + 1;
+//      }
+     
+//     return cnt;
+//}
+    
+    
+//// 지정한 이름을 가진 모든 checkbox를 check 한다.
+//    function checkAll( aElem ) {
+     
+//     var elem = document.all;
+//     var cnt = 0;
+     
+//     for ( var i=0; i<document.all.length; i++ ) {
+//      if ( ( elem[i].type == "checkbox" ) && ( elem[i].name == aElem ) ) elem[i].checked = true;
+//     }
+//     }
+    
+    
+//// 지정한 이름을 가진 모든 checkbox의 checked 값을 반전 한다. 
+//    function invertCheck( aElem ) {
+     
+//     var elem = document.all;
+//     var cnt = 0;
+     
+//     for ( var i=0; i<document.all.length; i++ ) {
+//      if ( ( elem[i].type == "checkbox" ) && ( elem[i].name == aElem ) ) {
+//       if ( elem[i].checked ) {
+//        elem[i].checked = false;
+//       }
+//       else{
+//        elem[i].checked = true;
+//       }
+//       }
+//       }
+//        }   
+    
+ 
+    
+ 
+
+    
+ 
+
+    
+//////////////////////////////////
+//// UTIL 함수
+//////////////////////////////////
+   
+//    var isDivEvent = false;
+    
+//    function hideOneNav(){
+//     if (!isDivEvent) {
+//      window.account.style.visibility='hidden';
+//      }
+//      else{
+//      isDivEvent = false;
+//      }
+//    }
+    
+    
+//    function showOneNav(obj){
+//     isDivEvent = true;
+//     window.account.style.left = getLeftPos(obj);
+//     window.account.style.top = getTopPos(obj) + obj.offsetHeight - 8;
+//     window.account.style.visibility='visible';
+//     return false;
+//     }
+    
+//    function getLeftPos(obj){
+//     var parentObj = null;
+//     var clientObj = obj;
+//     var left = obj.offsetLeft + document.body.clientLeft;
+     
+//     while((parentObj=clientObj.offsetParent) != null){
+//      left = left + parentObj.offsetLeft;
+//      clientObj = parentObj;
+//     }
+     
+//     return left;
+//}
+    
+//    function getTopPos(obj){
+//     var parentObj = null;
+//     var clientObj = obj;
+//     var top = obj.offsetTop + document.body.clientTop;
+     
+//     while((parentObj=clientObj.offsetParent) != null){
+//      top = top + parentObj.offsetTop;
+//      clientObj = parentObj;
+//     }
+     
+//     return top;
+//}
+ 
+///**
+//*  문자열에 있는 특정문자패턴을 다른 문자패턴으로 바꾸는 함수.
+//*/
+    
+//    function replace(targetStr, searchStr, replaceStr)
+//{
+//     var len, i, tmpstr;
+    
+//     len = targetStr.length;
+//    tmpstr = "";
+    
+//     for ( i = 0 ; i < len ; i++ ) {
+//      if ( targetStr.charAt(i) != searchStr ) {
+//       tmpstr = tmpstr + targetStr.charAt(i);
+//       }
+//       else {
+//       tmpstr = tmpstr + replaceStr;
+//       }
+//       }
+//     return tmpstr;
+//     }
+   
+///**
+//*  문자열에서 좌우 공백제거
+//*/
+    
+//    function trim(str)
+//{
+//     return replace(str," ","");
+//    }
+ 
+///**
+//* 콤마설정.
+//*/
+    
+//    function putComma(input) { 
+//     var num = input;
+     
+//    if (num < 0) { 
+//      num *= -1; 
+//      var minus = true
+//      }else{
+//       var minus = false
+//      }
+     
+//     var dotPos = (num+"").split(".")
+//     var dotU = dotPos[0]
+//     var dotD = dotPos[1]
+//     var commaFlag = dotU.length%3
+    
+//     if(commaFlag) {
+//      var out = dotU.substring(0, commaFlag) 
+//      if (dotU.length > 3) out += ","
+//      }
+//      else var out = ""
+    
+//     for (var i=commaFlag; i < dotU.length; i+=3) {
+//      out += dotU.substring(i, i+3) 
+//      if( i < dotU.length-3) out += ","
+//      }
+    
+//     if(minus) out = "-" + out
+//     if(dotD) return out + "." + dotD
+//     else return out 
+//     }
+ 
+   
+//         //월의 끝 일자 얻기
+//    function getEndDate(datestr){
+     
+//     //널인지? 
+//     if(isEmpty(datestr)){
+//      return null;
+//      } 
+     
+//          //숫자인지?
+//     if(!isNum(datestr)){
+//      return null;
+//      }
+      
+//          //길이가 8자리?
+//     if(datestr.length != 6){
+//      return null;
+//      }
+     
+//     var yy = Number(datestr.substring(0,4));
+//     var mm = Number(datestr.substring(4,6));
+     
+//     //윤년 검증
+//     var boundDay = "";
+   
+//    if(mm != 2){
+//      var mon=new Array(31,28,31,30,31,30,31,31,30,31,30,31);
+//      boundDay = mon[mm-1];
+//      }
+//      else{
+//      if (yy%4 == 0 && yy%100 != 0 || yy%400 == 0){
+//       boundDay = 29;
+//      }
+//      else{
+//       boundDay = 28;
+//      }
+//     }
+     
+//     return boundDay;  
+//}
+   
+//// Left 빈자리 만큼 padStr 을 붙인다.
+//    function lpad(src, len, padStr){
+//     var retStr = "";
+//     var padCnt = Number(len) - String(src).length;
+//     for(var i=0;i<padCnt;i++) retStr += String(padStr);
+//     return retStr+src;
+//}
+   
+//// Right 빈자리 만큼 padStr 을 붙인다.
+//    function rpad(src, len, padStr){
+//     var retStr = "";
+//     var padCnt = Number(len) - String(src).length;
+//     for(var i=0;i<padCnt;i++) retStr += String(padStr);
+//     return src+retStr;
+//}
+   
+   
+//        // 전화번호 국번검증
+//    function isValidDDDPhoneNum(dddphonenum)
+//{
+    
+//        // 널인가?
+//     if (isEmpty(dddphonenum)) {
+//      return null;
+//      }
+     
+       
+//     if ( dddphonenum != "02" && dddphonenum != "031" && dddphonenum != "032" && dddphonenum != "033" && dddphonenum != "041" &&
+//          dddphonenum != "042" && dddphonenum != "043" && dddphonenum != "051" && dddphonenum != "052" && dddphonenum != "053" &&
+//          dddphonenum != "054" && dddphonenum != "055" && dddphonenum != "061" && dddphonenum != "062" && dddphonenum != "063" &&
+//          dddphonenum != "064" && dddphonenum != "011" && dddphonenum != "016" && dddphonenum != "017" && dddphonenum != "018" && dddphonenum != "019" )
+//    {
+      
+//      ERR_MSG = "잘못된 전화번호 국번입니다.";
+//      return false;
+//      }
+     
+//     return true;
+     
+//}
+   
+   
+//        // 대문자변환
+//    function toUpperCase(str){ 
+     
+//     if(isEmpty(str)) return str;
+//     return str.toUpperCase();
+//    }
+   
+    
+//         // 숫자검증
+//    function isNum(str){ 
+     
+//     if(isEmpty(str)) return false;
+     
+//     for(var idx=0;idx < str.length;idx++){
+//      if(str.charAt(idx) < '0' || str.charAt(idx) > '9'){
+//       return false;
+//      }
+//      }
+//     return true;
+//     }
+   
+   
+//         // 영문자검증
+//    function isAlpha(str){
+     
+//     if(isEmpty(str)) return false;
+     
+//     for(var idx=0;idx < str.length;idx++){
+//      if(!((str.charAt(idx) >='a' && str <= 'z') || (str.charAt(idx) >= 'A' && str <= 'Z'))){
+//       return false;
+//      }
+//      }
+//     return true;
+//     }
+   
+   
+//         // 한글검증
+//    function isHangul(str){
+     
+//     if(isEmpty(str)) return false;
+     
+//     for(var idx=0;idx < str.length;idx++){
+//          var c = escape(str.charAt(idx));
+//          if ( c.indexOf("%u") == -1 ) {
+//       return false;
+//          }
+//          }
+//     return true;  
+//     } 
+   
+    
+//// 실제길이 반환( 한글 2byte 계산 ) 
+//    function getByteLength(s){
+     
+//       var len = 0;
+//       if ( s == null ) return 0;
+//       for(var i=0;i<s.length;i++){
+//          var c = escape(s.charAt(i));
+//          if ( c.length == 1 ) len ++;
+//          else if ( c.indexOf("%u") != -1 ) len += 2;
+//          else if ( c.indexOf("%") != -1 ) len += c.length/3;
+//          }
+//       return len;
+//          }
+    
+    
+//// 빈값인지 리턴한다.
+//    function isEmpty(pValue){
+     
+//     if( (pValue == "") || (pValue == null) ){
+//      return true;
+//     }
+//     return false;
+//     }
+    
+    
+ 
+   
+////검색날짜 유효기간 
+//    function getBoundDate1(yy,mm,dd,stdDate)
+//{
+//     var today = new Date();
+//    today.setYear(stdDate.substring(0,4));
+//    today.setMonth(stdDate.substring(4,6)-1);
+//    today.setDate(stdDate.substring(6,8));
+//    today.setHours(today.getHours());
+//    today.setMinutes(today.getMinutes());
+//    today.setSeconds(today.getSeconds());
+     
+//    yy = Number(yy);
+//     mm = Number(mm);
+//     dd = Number(dd);
+     
+//    var date = new Date();
+     
+//     var DAY = 24 * 60 * 60 * 1000;
+     
+//     if ( yy != 0 ){
+//      date.setTime(today.getTime() + DAY * 365 * yy);
+//      }
+   
+//     if ( mm != 0 ){
+//      date.setTime(today.getTime() + DAY * 30 * mm);
+//      }
+     
+//     if ( dd != 0 ){
+//      date.setTime(today.getTime() + DAY * dd);
+//      }
+     
+//     return lpad(new String(date.getYear()),4,'0') + lpad(new String(date.getMonth() + 1),2,'0') + lpad(new String(date.getDate()),2,'0');    
+//     }   
+ 
+ 
+ 
+//    function getBoundDate(yy, mm, dd) {
+//     yy = Number(yy);
+//     mm = Number(mm);
+//     dd = Number(dd);
+     
+//    var date = new Date();
+     
+//     var DAY = 24 * 60 * 60 * 1000;
+ 
+     
+//     if ( yy != 0 ){
+//      date.setTime(datToday.getTime() + DAY * 365 * yy);
+//      }
+   
+//     if ( mm != 0 ){
+//      date.setTime(datToday.getTime() + DAY * 30 * mm);
+//      }
+     
+//     if ( dd != 0 ){
+//      date.setTime(datToday.getTime() + DAY * dd);
+//      }
+     
+//     return lpad(new String(date.getYear()),4,'0') + lpad(new String(date.getMonth() + 1),2,'0') + lpad(new String(date.getDate()),2,'0');
+//     }   
+     
+   
+////검색날짜 체크 
+//    function isVaildTerm(obj,yy,mm,dd)
+//{
+//     var datestr = obj.value;
+     
+     
+//     //널인지? 
+//     if(isEmpty(datestr)){
+//      return null;
+//      }
+     
+//          // 날짜 포맷제거
+//     obj_removeformat(obj);
+     
+//     //8자리인지?
+//     if (getByteLength(datestr) != 8) {
+//      alert("날짜는 '-'를 제외한 8자리 숫자로 입력하십시오.");
+//      return false;
+      
+//     }
+   
+     
+     
+//        // yy,mm,dd,fromto가 없을 경우
+//     if (yy == null) yy = 0;
+//    if (mm == null) mm = 0;
+//    if (dd == null) dd = 0;
+     
+//        // 검색날짜 유효기간 가져오기
+//     var boundDate = getBoundDate(yy,mm,dd);
+     
+//     if (yy < 0  || mm < 0  || dd < 0) {
+//      if ( boundDate > datestr) {
+//       alert("유효하지 않은 검색날짜입니다.\n유효한 날짜는" + boundDate.substring(0,4) + "년 " + boundDate.substring(4,6) + "월 " + boundDate.substring(6) + "일부터 입니다.");
+//       obj.select();
+//       return false;
+//       }
+//       } else {
+//      if ( boundDate < datestr) {
+//       alert("유효하지 않은 검색날짜입니다.\n유효한 날짜는" + boundDate.substring(0,4) + "년 " + boundDate.substring(4,6) + "월 " + boundDate.substring(6) + "일까지 입니다.");
+//       obj.select();
+//       return false;
+//       }    
+//     }
+      
+   
+//     return true;
+    
+//}
+   
+   
+   
+//        //오늘날짜
+//    function getToDay()
+//{
+   
+//        var date = datToday;
+   
+//        var year  = date.getFullYear();
+//        var month = date.getMonth() + 1; // 1월=0,12월=11이므로 1 더함
+//        var day   = date.getDate();
+    
+//        if (("" + month).length == 1) { month = "0" + month; }
+//        if (("" + day).length   == 1) { day   = "0" + day;   }
+         
+//        return ("" + year + month + day)
+    
+//        }
+    
+    
+   
+   
+ 
+    
+//    function selectComboBox(targt, optValue)
+//{
+//     last = targt.length;
+//     for(var i=0; i<last; i++){
+//      if(targt.options[i].value == optValue){
+//       targt.selectedIndex = i;
+//       targt.options[i].selected;
+//      }
+//      }
+//      }
+    
+    
+//    function isExistsComboBoxValue(targt, optValue)
+//{
+//     last = targt.length;
+//     for(var i=0; i<last; i++){
+//      if(targt.options[i].value == optValue){
+//       return true;
+//      }
+//      }
+//     return false;
+//      }
+ 
+    
+//    function getCal(aFrm, aObj){
+//      window.open('/kor/ib/common/msg/cal.jsp?objName=window.opener.'+ aFrm.name +'.' + aObj.name +'&schdate='+ aFrm.name +'.' + aObj.name ,"Window2","status=no,height=150,width=120,resizable=no,left="+x+",top="+y+",scrollbars=no");
+//      } 
+    
+//    function getCalMonth(aFrm, aObj){
+//      window.open("/kor/ib/common/msg/calendar_month.jsp?frmName="+aFrm.name + "&obj=" + aObj.name,"calMonth","status=no,height=146,width=255,resizable=no,left="+x+",top="+y+",scrollbars=no");
+//      } 
+ 
+     
+///*
+//* 전화번호
+//* 앞에 '0'을 채운다
+//* by 황상훈 2002-10-23 11:26오후
+//**/
+ 
+//function fill_zero(obj, is4){
+// var temp="";
+ 
+// if(obj.value == null || obj.value.length < 1 ) {
+//  return false;
+// }
+ 
+// if (is4 == 'Y' ) {
+//  return true;
+//  } else {
+//  if(obj.value.length != 4 ) {
+//   for(i=0;i<(4-obj.value.length);i++){
+//    temp +="0";
+//   }
+//   obj.value = temp+obj.value;
+//  }else{
+//   obj.value = obj.value;
+//   } 
+ 
+//  return true;
+// }
+//   }
+

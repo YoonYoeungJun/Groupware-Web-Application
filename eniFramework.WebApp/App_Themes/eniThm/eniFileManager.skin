@@ -1,0 +1,21 @@
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Data" Assembly="DevExpress.Data.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Web" Assembly="DevExpress.Web.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="eni" Namespace="eniFramework.WebApp.Controls" Assembly="eniFramework.WebApp.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" %>
+
+<%-- eniFramework Default Mode Skin --%>
+<eni:eniFileManager runat="server">
+    <Styles CssFilePath="{0}/styles.css" CssPostfix="eniThm">
+        <LoadingPanel ImageSpacing="5" />
+    </Styles>
+    <Images SpriteCssFilePath="{0}/sprite.css" 
+            FolderContainerNodeLoadingPanel-Url="Web/tvNodeLoading.gif"></Images>
+</eni:eniFileManager>
+
+<%-- eniFramework Advanced-01 Mode Skin --%>
+<eni:eniFileManager runat="server" CssClass="eniFileUpload-Advanced-01" SkinID="Advanced-01">
+    <Styles CssFilePath="{0}/styles.css" CssPostfix="eniThm">
+        <LoadingPanel ImageSpacing="5" />
+    </Styles>
+    <Images SpriteCssFilePath="{0}/sprite.css" 
+            FolderContainerNodeLoadingPanel-Url="Web/tvNodeLoading.gif"></Images>
+</eni:eniFileManager>

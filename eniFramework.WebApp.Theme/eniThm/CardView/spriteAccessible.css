@@ -1,0 +1,181 @@
+.dx-acc-r .dxCardView_CTClearFilter_eniThm:before,
+.dx-acc-r .dxCardView_CTClearFilterDisabled_eniThm:before,
+.dx-acc-r .dxCardView_CTDeleteRow_eniThm:before,
+.dx-acc-r .dxCardView_CTDeleteRowDisabled_eniThm:before,
+.dx-acc-r .dxCardView_CTEditRow_eniThm:before,
+.dx-acc-r .dxCardView_CTEditRowDisabled_eniThm:before,
+.dx-acc-r .dxCardView_CTNewRow_eniThm:before,
+.dx-acc-r .dxCardView_CTNewRowDisabled_eniThm:before,
+.dx-acc-r .dxCardView_CTRefresh_eniThm:before,
+.dx-acc-r .dxCardView_CTRefreshDisabled_eniThm:before,
+.dx-acc-r .dxCardView_CTShowCustomizationWindow_eniThm:before,
+.dx-acc-r .dxCardView_CTShowCustomizationWindowDisabled_eniThm:before,
+.dx-acc-r .dxCardView_CTShowFilterEditor_eniThm:before,
+.dx-acc-r .dxCardView_CTShowFilterEditorDisabled_eniThm:before,
+.dx-acc-r .dxCardView_CTShowSearchPanel_eniThm:before,
+.dx-acc-r .dxCardView_CTShowSearchPanelDisabled_eniThm:before,
+.dx-acc-r .dxCardView_gvCellError_eniThm:before,
+.dx-acc-r .dxCardView_gvFilterRowButton_eniThm:before,
+.dx-acc-r .dxCardView_gvHeaderFilter_eniThm:before,
+.dx-acc-r .dxCardView_gvHeaderFilterActive_eniThm:before,
+.dx-acc-r .dxCardView_gvHeaderSortDown_eniThm:before,
+.dx-acc-r .dxCardView_gvHeaderSortUp_eniThm:before
+
+{
+    content: url('spriteAccessible.png');
+
+}
+.dx-acc-r .dxCardView_CTClearFilter_eniThm:before
+
+{
+    left: 0px;
+    top: -255px;
+
+}
+.dx-acc-r .dxCardView_CTClearFilterDisabled_eniThm:before
+
+{
+    left: 0px;
+    top: -187px;
+
+}
+.dx-acc-r .dxCardView_CTDeleteRow_eniThm:before
+
+{
+    left: 0px;
+    top: -85px;
+
+}
+.dx-acc-r .dxCardView_CTDeleteRowDisabled_eniThm:before
+
+{
+    left: 0px;
+    top: -170px;
+
+}
+.dx-acc-r .dxCardView_CTEditRow_eniThm:before
+
+{
+    left: 0px;
+    top: 0px;
+
+}
+.dx-acc-r .dxCardView_CTEditRowDisabled_eniThm:before
+
+{
+    left: 0px;
+    top: -102px;
+
+}
+.dx-acc-r .dxCardView_CTNewRow_eniThm:before
+
+{
+    left: 0px;
+    top: -238px;
+
+}
+.dx-acc-r .dxCardView_CTNewRowDisabled_eniThm:before
+
+{
+    left: 0px;
+    top: -136px;
+
+}
+.dx-acc-r .dxCardView_CTRefresh_eniThm:before
+
+{
+    left: 0px;
+    top: -153px;
+
+}
+.dx-acc-r .dxCardView_CTRefreshDisabled_eniThm:before
+
+{
+    left: 0px;
+    top: -204px;
+
+}
+.dx-acc-r .dxCardView_CTShowCustomizationWindow_eniThm:before
+
+{
+    left: 0px;
+    top: -68px;
+
+}
+.dx-acc-r .dxCardView_CTShowCustomizationWindowDisabled_eniThm:before
+
+{
+    left: 0px;
+    top: -51px;
+
+}
+.dx-acc-r .dxCardView_CTShowFilterEditor_eniThm:before
+
+{
+    left: 0px;
+    top: -17px;
+
+}
+.dx-acc-r .dxCardView_CTShowFilterEditorDisabled_eniThm:before
+
+{
+    left: 0px;
+    top: -221px;
+
+}
+.dx-acc-r .dxCardView_CTShowSearchPanel_eniThm:before
+
+{
+    left: 0px;
+    top: -119px;
+
+}
+.dx-acc-r .dxCardView_CTShowSearchPanelDisabled_eniThm:before
+
+{
+    left: 0px;
+    top: -34px;
+
+}
+.dx-acc-r .dxCardView_gvCellError_eniThm:before
+
+{
+    left: 0px;
+    top: -304px;
+
+}
+.dx-acc-r .dxCardView_gvFilterRowButton_eniThm:before
+
+{
+    left: 0px;
+    top: -319px;
+
+}
+.dx-acc-r .dxCardView_gvHeaderFilter_eniThm:before
+
+{
+    left: 0px;
+    top: -288px;
+
+}
+.dx-acc-r .dxCardView_gvHeaderFilterActive_eniThm:before
+
+{
+    left: 0px;
+    top: -272px;
+
+}
+.dx-acc-r .dxCardView_gvHeaderSortDown_eniThm:before
+
+{
+    left: -8px;
+    top: -333px;
+
+}
+.dx-acc-r .dxCardView_gvHeaderSortUp_eniThm:before
+
+{
+    left: 0px;
+    top: -333px;
+
+}

@@ -1,0 +1,17 @@
+﻿<%@ Register TagPrefix="dx" Namespace="DevExpress.Data" Assembly="DevExpress.Data.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Web" Assembly="DevExpress.Web.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="eni" Namespace="eniFramework.WebApp.Controls" Assembly="eniFramework.WebApp.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" %>
+
+<%-- eniFramework Default Mode Skin --%>
+<eni:eniCheckBox runat="server" SpriteCssFilePath="{0}/sprite.css" CssPostfix="eniThm" CssFilePath="{0}/styles.css">
+</eni:eniCheckBox>
+
+<%-- eniFramework Advanced-01 Mode Skin --%>
+<eni:eniCheckBox runat="server" SpriteCssFilePath="{0}/sprite.css" CssPostfix="eniThm" CssFilePath="{0}/styles.css" SkinID="Advanced-01">
+    <CheckBoxStyle CssClass="Advanced-01_CheckBoxStyle" />
+    <DisabledStyle CssClass="Advanced-01_DisabledStyleStyle"></DisabledStyle>
+</eni:eniCheckBox>
+
+<%-- eniFramework LightDark Skin --%>
+<eni:eniCheckBox runat="server" SpriteCssFilePath="{0}/sprite.css" CssPostfix="eniThm" CssFilePath="{0}/styles.css" SkinID="LightDark">
+</eni:eniCheckBox>

@@ -1,0 +1,114 @@
+﻿<%@ Register TagPrefix="dx" Namespace="DevExpress.Data" Assembly="DevExpress.Data.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Web" Assembly="DevExpress.Web.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="eni" Namespace="eniFramework.WebApp.Controls" Assembly="eniFramework.WebApp.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" %>
+
+<%-- eniFramework Default Skin --%>
+<eni:eniSplitter runat="server" CssPostfix="eniThm" CssFilePath="{0}/styles.css">
+    <Images SpriteCssFilePath="{0}/sprite.css" />
+</eni:eniSplitter>
+
+<%-- eniFramework Default Mode Skin --%>
+<eni:eniSplitter runat="server" CssPostfix="eniThm" CssFilePath="{0}/styles.css" CreateMode="DefaultMode" SkinID="Default"
+    FullscreenMode="True" Width="100%" Height="100%">
+    <Images SpriteCssFilePath="{0}/sprite.css" />
+    <Border BorderWidth="0" />
+    <Styles>
+        <Separator>
+            <Border BorderWidth="0px" />
+            <Paddings Padding="0" />
+        </Separator>
+        <Pane>
+            <Border BorderWidth="0px" />
+            <Paddings Padding="0px" />
+        </Pane>
+    </Styles>
+</eni:eniSplitter>
+
+<%-- eniFramework Standard Mode Skin --%>
+<eni:eniSplitter runat="server" CssPostfix="eniThm" CssFilePath="{0}/styles.css" CreateMode="StandardMode" SkinID="Standard"
+    FullscreenMode="True" Width="100%" Height="100%">
+    <Images SpriteCssFilePath="{0}/sprite.css" />
+    <Border BorderWidth="0" />
+    <Styles>
+        <Separator>
+            <Border BorderWidth="0px" />
+            <Paddings Padding="0" />
+        </Separator>
+        <Pane>
+            <Border BorderWidth="0px" />
+            <Paddings Padding="0px" />
+        </Pane>
+    </Styles>
+</eni:eniSplitter>
+
+<%-- eniFramework Index Skin --%>
+<eni:eniSplitter runat="server" CssPostfix="eniThm" CssFilePath="{0}/styles.css" CreateMode="StandardMode" SkinID="Index"
+    FullscreenMode="True" Width="100%" Height="100%" Orientation="Vertical" SeparatorVisible="false">
+    <Images SpriteCssFilePath="{0}/sprite.css" />
+    <Border BorderWidth="0px" />
+    <Styles>
+        <Separator>
+            <Border BorderWidth="0px" />
+            <Paddings Padding="0px" />
+        </Separator>
+        <Pane>
+            <Border BorderWidth="0px" />
+            <Paddings Padding="3px"/>
+        </Pane>
+    </Styles>
+</eni:eniSplitter>
+
+<%-- eniFramework ModuleView Mode Skin --%>
+<eni:eniSplitter runat="server" CssPostfix="eniThm" CssFilePath="{0}/styles.css" CreateMode="StandardMode" SkinID="ModuleView"
+    FullscreenMode="True" Width="100%" Height="100%" ShowCollapseBackwardButton="True">
+    <Images SpriteCssFilePath="{0}/sprite.css" />
+    <Border BorderWidth="0px" />
+    <Styles>
+        <Pane>
+            <Paddings Padding="0px" />
+            <Border BorderWidth="0px" />
+        </Pane>
+        <Separator>
+            <Paddings Padding="0px" />
+            <Border BorderWidth="1px" BorderStyle="Solid" BorderColor="#C2C2C2"/>
+            <BorderTop BorderWidth="0px" />
+            <BorderBottom BorderWidth="0px" />
+        </Separator>
+    </Styles>
+</eni:eniSplitter>
+
+<%-- eniFramework BSL Mode Skin --%>
+<eni:eniSplitter runat="server" CssPostfix="eniThm" CssFilePath="{0}/styles.css" CreateMode="BSLMode" SkinID="BSL"
+    FullscreenMode="True" Width="100%" Height="100%" Orientation="Vertical" SeparatorVisible="false" PaneMinSize="10px">
+    <Images SpriteCssFilePath="{0}/sprite.css" />
+    <Border BorderWidth="0px" />
+    <Styles>
+        <Separator>
+            <Border BorderWidth="0px" />
+            <Paddings Padding="0px" />
+        </Separator>
+        <Pane>
+            <Border BorderWidth="0px" />
+            <Paddings Padding="3px"/>
+        </Pane>
+    </Styles>
+</eni:eniSplitter>
+
+<%-- eniFramework Advanced-01 Mode Skin --%>
+<eni:eniSplitter runat="server" CssPostfix="eniThm" CssFilePath="{0}/styles.css" SkinID="Advanced-01"
+    FullscreenMode="True" Width="100%" Height="100%" ShowCollapseBackwardButton="True">
+    <Images SpriteCssFilePath="{0}/sprite.css" />
+    <Border BorderWidth="0px" />
+    <Styles>
+        <Pane>
+            <Paddings Padding="0px" />
+            <Border BorderWidth="0px" />
+        </Pane>
+        <Separator>
+            <Paddings Padding="0px" />
+            <Border BorderWidth="1px" BorderStyle="Solid" BorderColor="#C2C2C2"/>
+            <BorderTop BorderWidth="0px" />
+            <BorderBottom BorderWidth="0px" />
+        </Separator>
+    </Styles>
+</eni:eniSplitter>

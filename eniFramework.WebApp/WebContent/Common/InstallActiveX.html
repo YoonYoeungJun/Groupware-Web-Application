@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>ActiveX Installer</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <script type="text/javascript" src="../../Scripts/jQuery/jQuery-1.9.1.js"></script>
+        <script type="text/javascript" src="../../Scripts/jQuery/jQuery-Migrate-1.2.1.js"></script>
+        <script type="text/javascript" src="../../Scripts/Framework/eniFramework.Utils.js"></script>
+        <script type="text/javascript" src="../../Scripts/Framework/eniFramework.UserAgent.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                var retUrl = eni.Utils.GetQueryString("ReturnUrl");
+                if (retUrl) {
+                    //parent.eni.RunPageTopFrame(retUrl);
+
+                    //ActiveX 설치 실패시
+                    if (!fpDoubleSingle || !vaSpread3 || !vaSpread6 || !vaSpread7 || !vaSpreadu7 || !RQUXViewerCAB) {
+                        parent.eni.LocalPage.SetInstallActiveXResult(false);
+                        return;
+                    }
+
+                    if (eni.UserAgent.Browser.Type === "IE") {
+                        if (eni.UserAgent.Browser.Version < 10 || eni.UserAgent.Browser.Version == 11) {
+                            parent.location.href = retUrl;
+                        } else { //IE9 버젼의 Dev 컨트롤 오류로 인해 리로드는 사용할수 없음
+                            parent.document.location = retUrl;
+                        }
+                    } else {
+                        parent.document.location = retUrl;
+                    }
+                }
+            });
+        </script>
+    </head>
+    <body>
+        <div class="DisplayNone" style="display:none;">
+            <object classid="CLSID:5220CB21-C88D-11CF-B347-00AA00A28331" width="1" height="1" style="border:0px; width:1px; height:1px; margin:0px; padding:0px;">
+                <param name="LPKPath" value="./activex/farpoint214111.lpk" />
+            </object>
+            <object classid="CLSID:DD55D13D-EBF7-11D0-8810-0000C0E5948C" codebase="./activex/Edt32x3030037.cab#version=3,0,0,37" id="fpDoubleSingle" width="1" height="1" style="border:0px; width:1px; height:1px; margin:0px; padding:0px;"></object>
+            <object classid="CLSID:E2454650-4D87-11D2-B8B2-0000C00A958C" codebase="./activex/Spr32x3030039.cab#version=3,0,0,39" id="vaSpread3" width="1" height="1" style="border:0px; width:1px; height:1px; margin:0px; padding:0px;"></object>
+            <object classid="CLSID:41F841C1-AE16-11D5-8817-0050DA6EF5E5" codebase="./activex/Spr32x6060018.cab#version=6,0,0,18" id="vaSpread6" width="1" height="1" style="border:0px; width:1px; height:1px; margin:0px; padding:0px;"></object>
+            <object classid="CLSID:7114683A-020D-4D16-80FD-6ACE384B66DF" codebase="./activex/FPSpr70035.cab#version=7,0,0,35" id="vaSpread7" width="1" height="1" style="border:0px; width:1px; height:1px; margin:0px; padding:0px;"></object>
+            <object classid="CLSID:71146838-020D-4D16-80FD-6ACE384B66DF" codebase="./activex/FPSpru70035.cab#version=7,0,0,35" id="vaSpreadu7" width="1" height="1" style="border:0px; width:1px; height:1px; margin:0px; padding:0px;"></object>
+            <!--<object classid="CLSID:5220CB21-C88D-11CF-B347-00AA00A28331">
+                <param name="LPKPath" value="/webContent/common/control/activex/farpoint151004.lpk" />
+            </object>
+            <object classid="CLSID:0F026C11-5A66-4C2B-87B5-88DDEBAE72A1" codebase="/webContent/common/control/activex/vsFlex8L.cab#version=8,0,20141,302" id="vaSpread8" width='1' height='1'></object>-->
+        </div>
+        <!--<object classid="CLSID:D603FAC3-80F3-4305-BD18-3C9AC741AC7D" codebase="../../REQUBE/lib/RQXDownLoader.cab#Version=1,1,0,1" id="RQXDownLoaderCAB" width="1" height="1" style="border:0px; width:1px; height:1px; margin:0px; padding:0px;"></object>-->
+        <object classid="CLSID:4C92CCEA-EB9F-4d87-BA27-1C8CF333A43C" codebase="/REQUBE/lib/RQUXViewer.cab#Version=6,8,7,0917" id="RQUXViewerCAB" width="1" height="1" style="border:0px; width:1px; height:1px; margin:0px; padding:0px;"></object>
+        필수 응용프로그램 설치중
+    </body>
+</html>

@@ -1,0 +1,268 @@
+.dxssControl_eniThm
+{
+    border-style: solid;
+    border-width: 1px;
+    border-color: #868b91;
+    font: 11px Dotum, '돋움', 'Segoe UI', Helvetica, 'Droid Sans', AppleSDGothicNeo, Tahoma, Geneva, sans-serif;
+}
+.dxssControl_eniThm .dxrControl_eniThm .dxr-tabContent
+{
+    border-left-style: none;
+    border-right-style: none;
+}
+.dxssControl_eniThm .dxss-gl .dxss-v,
+.dxssControl_eniThm .dxss-gl .dxss-h
+{
+    border-color: #dbdee1;
+}
+.dxssControl_eniThm .dxss-rowHeader
+{
+    border-right: 1px solid #dbdee1;
+    border-top: 1px solid #dbdee1;
+}
+.dxssControl_eniThm .dxss-colHeader
+{
+    border-bottom: 1px solid #dbdee1;
+    border-left: 1px solid #dbdee1;
+}
+.dxssControl_eniThm .dxss-crse
+{
+    background-color: #FCCD41;
+}
+.dxssControl_eniThm .dxss-trbe
+{
+    border-top-color: #c27f31;
+}
+.dxssControl_eniThm .dxss-rrbe
+{
+    border-right-color: #c27f31;
+}
+.dxssControl_eniThm .dxss-brbe
+{
+    border-bottom-color: #c27f31;
+}
+.dxssControl_eniThm .dxss-lrbe
+{
+    border-left-color: #c27f31;
+}
+.dxssControl_eniThm .dxss-fh
+{
+    background-color: #c27f31;
+}
+.dxssControl_eniThm .dxss-sbe
+{
+    border-color: #c27f31;
+}
+.dxssControl_eniThm .dxss-crs
+{
+    border-color: #c27f31;
+}
+.dxssControl_eniThm .dxrControl_eniThm .dxtcLite_eniThm.dxtc-top .dxtc-leftIndent
+{
+    width: 3px;
+}
+.dxssControl_eniThm .dxtcLite_eniThm,
+.dxssControl_eniThm .dxrControl_eniThm .dxtcLite_eniThm
+{
+    background-color: #e9edf1;
+}
+.dxssControl_eniThm .dxss-hrg,
+.dxssControl_eniThm .dxss-vrg
+{
+    background-color: #c27f31;
+}
+.dxssControl_eniThm .dxtcLite_eniThm.dxtc-bottom .dxtc-stripContainer
+{
+    padding: 0 !important;
+}
+.dxssControl_eniThm .dxtcLite_eniThm .dxtc-stripContainer .dxtc-leftIndent
+{
+    width: 0;
+}
+.dxssControl_eniThm .dxtcLite_eniThm.dxtc-bottom .dxtc-stripContainer .dxtc-tab,
+.dxssControl_eniThm .dxtcLite_eniThm.dxtc-bottom .dxtc-stripContainer .dxtc-activeTab
+{
+    border-bottom-width: 0 !important;
+    border-left-width: 0 !important;
+}
+.dxssControl_eniThm .dxtcLite_eniThm.dxtc-bottom .dxtc-stripContainer .dxtc-link
+{
+    padding: 4px 35px 5px 34px;
+}
+.dxssControl_eniThm .dxtcLite_eniThm.dxtc-bottom .dxtc-stripContainer .dxtc-spacer
+{
+    width: 0px;
+}
+.dxssControl_eniThm .dxrControl_eniThm .dxr-minBtn
+{
+    padding-right: 7px;
+}
+.dxssControl_eniThm .dxss-tse
+{
+    border-color: #c27f31;
+}
+.dxssControl_eniThm .dxss-tre
+{
+    background: url('TouchResize.png');
+}
+.dxssControl_eniThm .dxss-ddp,
+.dxssControl_eniThm .dxss-ddb
+{
+    border: 1px solid #a5acb5;
+}
+.dxssControl_eniThm .dxss-ddp tr:hover
+{
+    background-color: #e2ecf7;
+}
+/* Loading panel */
+.dxssLoadingDiv_eniThm
+{
+    background: White;
+    opacity: 0.85 !important;
+    filter: alpha(opacity=85);
+}
+.dxssLoadingPanel_eniThm
+{
+    font: 11px Dotum, '돋움', 'Segoe UI', Helvetica, 'Droid Sans', AppleSDGothicNeo, Tahoma, Geneva, sans-serif;
+    color: #585e68;
+    background: White none;
+    border: 1px solid #80858d;
+}
+.dxssLoadingPanel_eniThm td.dx
+{
+    white-space: nowrap;
+    text-align: center;
+    padding: 10px 14px;
+}
+.dxssLoadingPanel_eniThm .dxlp-loadingImage
+{
+    background-image: url('../Web/Loading.gif');
+    height: 16px;
+    width: 16px;
+}
+/* --------------Dialogs----------------- */
+.dxpcLite_eniThm .dxssDlgFooter
+{
+    background-color: #e9edf1;
+    border-top: 1px #c9cdd2 solid;
+}
+.dxpcLite_eniThm .dxssDlgInsertImageForm .dxssDlgImagePreviewCell
+{
+    color: #737373;
+    border: dashed 1px #cac8c8;
+}
+.dxssControl_eniThm .dxrpControl_eniThm .dxrpcontent
+{
+    padding: 9px !important;
+}
+.dxssModifyChartStyleContenPanel .dxbButtonHover_eniThm
+{
+    color: #3c3c3c;
+    background: #fcf8e5 url('../Editors/edtBtnHBack.png') repeat-x left top;
+    border: 1px solid #eecc53;
+}
+.dxssModifyChartStyleContenPanel .dxbButtonChecked_eniThm
+{
+    color: #3c3c3c;
+    background: #fee287 url('../Editors/edtBtnPBack.png') repeat-x left top;
+    border: 1px solid #c2762b;
+}
+.dxssModifyChartStyleContenPanel .dxbButtonPressed_eniThm
+{
+    color: #3c3c3c;
+    background: #fee287 url('../Editors/edtBtnPBack.png') repeat-x left top;
+    border: 1px solid #c2762b;
+}
+/* DX Spreadsheet Cell Editor Element, Formula Bar, IntelliSense elements */
+.dxssControl_eniThm .dxss-ctve
+{
+    border: 2px solid #c27f31;
+    /*the same -dxss-cfe */
+}
+.dxssControl_eniThm .dxss-fb
+{
+    height: 21px;
+    padding: 10px;
+    border-bottom: 1px solid #868b91;
+}
+.dxFirefox .dxssControl_eniThm .dxss-fb
+{
+    height: 23px;
+}
+.dxssControl_eniThm .dxss-fbw
+{
+    border: 1px solid #a5acb5;
+    background-color: white;
+    padding: 3px;
+}
+.dxssControl_eniThm .dxmLite_eniThm .dxss-fbMenu
+{
+    height: 21px;
+    border: 0;
+    background-color: transparent;
+    background-image: none;
+}
+.dxssControl_eniThm .dxss-fbMenu .dxm-content
+{
+    padding-top: 2px !important;
+}
+.dxssControl_eniThm .dxss-Hint
+{
+    padding: 3px 8px 4px 8px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    -webkit-box-shadow: rgba(0,0,0,0.1) 0 1px 3px;
+    -moz-box-shadow: rgba(0,0,0,0.1) 0 1px 3px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border: 1px solid #BBBFC4;
+    background-color: #F7FAFC;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F7FAFC', endColorstr='#E7EAEE');
+    background: -webkit-gradient(linear, left top, left bottom, from(#F7FAFC), to(#E7EAEE));
+    background: -moz-linear-gradient(top, #F7FAFC, #E7EAEE);
+}
+.dxssControl_eniThm .dxss-Hint.dxss-funcInfo
+{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.dxssControlSys .dxmLite_eniThm .dxm-popup .dxm-checked img[class*="ssRibbonIcons_PageMarginsNormal"],
+.dxssControlSys .dxmLite_eniThm .dxm-popup .dxm-checked img[class*="ssRibbonIcons_PageMarginsWide"],
+.dxssControlSys .dxmLite_eniThm .dxm-popup .dxm-checked img[class*="ssRibbonIcons_PageMarginsNarrow"],
+.dxssControlSys .dxmLite_eniThm .dxm-popup .dxm-checked span[class*="ssRibbonIcons_PageMarginsNormal"],
+.dxssControlSys .dxmLite_eniThm .dxm-popup .dxm-checked span[class*="ssRibbonIcons_PageMarginsWide"],
+.dxssControlSys .dxmLite_eniThm .dxm-popup .dxm-checked span[class*="ssRibbonIcons_PageMarginsNarrow"]
+{
+    margin-top: 2px !important;
+}
+.dxssControlSys .dxmLite_eniThm .dxm-popup img[class*="ssRibbonIcons_PageMarginsNormal"],
+.dxssControlSys .dxmLite_eniThm .dxm-popup img[class*="ssRibbonIcons_PageMarginsWide"],
+.dxssControlSys .dxmLite_eniThm .dxm-popup img[class*="ssRibbonIcons_PageMarginsNarrow"],
+.dxssControlSys .dxmLite_eniThm .dxm-popup span[class*="ssRibbonIcons_PageMarginsNormal"],
+.dxssControlSys .dxmLite_eniThm .dxm-popup span[class*="ssRibbonIcons_PageMarginsWide"],
+.dxssControlSys .dxmLite_eniThm .dxm-popup span[class*="ssRibbonIcons_PageMarginsNarrow"]
+{
+    margin-top: 4px !important;
+}
+.dxflGroup_eniThm.dxssFCDescription
+{
+    height: 64px;
+    padding-top: 4px !important;
+}
+.dxeListBox_eniThm.dxssFCType
+{
+    height: 160px !important;
+}
+/* Cell Editing */
+.dxssControl_eniThm.icbem .dxss-inputTarget
+{
+    border: 2px solid #c27f31;
+}
+/*Cell position hint*/
+.dxssControl_eniThm .dxss-cell-pos-hint
+{
+    background-color: #c27f31;
+    color: white;
+}

@@ -1,0 +1,44 @@
+﻿<%@ Register TagPrefix="dx" Namespace="DevExpress.Data" Assembly="DevExpress.Data.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Web" Assembly="DevExpress.Web.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="eni" Namespace="eniFramework.WebApp.Controls" Assembly="eniFramework.WebApp.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" %>
+
+<%-- eniFramework Default Mode Skin --%>
+<eni:eniPopupControl runat="server" CssFilePath="{0}/styles.css" CssPostfix="eniThm" 
+    SpriteCssFilePath="{0}/sprite.css" EnableHotTrack="False">
+    <LoadingPanelStyle ImageSpacing="5" />
+</eni:eniPopupControl>
+
+<%-- eniFramework Advanced-01 Mode Skin --%>
+<eni:eniPopupControl runat="server" CssFilePath="{0}/styles.css" CssPostfix="eniThm" SpriteCssFilePath="{0}/sprite.css" EnableHotTrack="False" CssClass="eniPopup-Advanced-01" SkinID="Advanced-01">
+    <HeaderImage Height="10px"></HeaderImage>
+    <HeaderStyle CssClass="Advanced-01_HaederStyle" Font-Bold="true">
+        <BorderBottom BorderWidth="1px" BorderStyle="Solid" BorderColor="#C0C0C0" />
+    </HeaderStyle>
+    <ContentStyle CssClass="Advanced-01_ContentStyle">
+        <Paddings Padding="0px" />
+    </ContentStyle>
+    <ModalBackgroundStyle CssClass="Advanced-01_ModalBackgroundStyle"></ModalBackgroundStyle>
+    <LoadingPanelStyle ImageSpacing="5" />
+</eni:eniPopupControl>
+
+<%-- MailRead Skin --%>
+<eni:eniPopupControl runat="server" CssFilePath="{0}/styles.css" CssPostfix="eniThm" SpriteCssFilePath="{0}/sprite.css" EnableHotTrack="False" CssClass="mailread" SkinID="MailRead">
+    <ContentStyle>
+        <Paddings Padding="0px" />
+    </ContentStyle>
+</eni:eniPopupControl>
+
+<%-- MailWrite Skin --%>
+<eni:eniPopupControl runat="server" CssFilePath="{0}/styles.css" CssPostfix="eniThm" SpriteCssFilePath="{0}/sprite.css" EnableHotTrack="False" CssClass="mailwrite" SkinID="MailWrite">
+</eni:eniPopupControl>
+
+<%-- BoardRead Skin --%>
+<eni:eniPopupControl runat="server" CssFilePath="{0}/styles.css" CssPostfix="eniThm" SpriteCssFilePath="{0}/sprite.css" EnableHotTrack="False" CssClass="boardread" SkinID="BoardRead">
+    <ContentStyle>
+        <Paddings Padding="0px" />
+    </ContentStyle>
+</eni:eniPopupControl>
+
+<%-- BoardWrite Skin --%>
+<eni:eniPopupControl runat="server" CssFilePath="{0}/styles.css" CssPostfix="eniThm" SpriteCssFilePath="{0}/sprite.css" EnableHotTrack="False" CssClass="con_write" SkinID="BoardWrite">
+</eni:eniPopupControl>

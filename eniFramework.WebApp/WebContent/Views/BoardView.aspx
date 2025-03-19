@@ -1,0 +1,3693 @@
+﻿<%@ Page Language="C#" MasterPageFile="~/WebContent/Common/CommonPage.Master" AutoEventWireup="true" CodeBehind="BoardView.aspx.cs" Inherits="eniFramework.WebApp.Modules.BoardView" %>
+
+<%@ Register Assembly="DevExpress.Web.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Data.Linq" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.ASPxTreeList.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxTreeList" TagPrefix="dx" %>
+<%@ Register Assembly="eniFramework.WebApp.Controls" Namespace="eniFramework.WebApp.Controls" TagPrefix="eni" %>
+<%@ Register Assembly="Microsoft.AspNet.EntityDataSource" Namespace="Microsoft.AspNet.EntityDataSource" TagPrefix="ef" %>
+<%@ Register Src="~/WebContent/Common/Popup/UploadStatusBox.ascx" TagPrefix="eni" TagName="UploadStatusBox" %>
+
+<%@ Import Namespace="eniFramework" %>
+<%@ Import Namespace="hMailServerService.SocketLayer" %>
+
+<%-- 1.페이지에서 해당 모듈 설명글을 작성 --%>
+<asp:Content ContentPlaceHolderID="Sub_Module_Description" runat="server">
+    <%-- 
+    **************************************************************************************************************
+    *  1. Module Name          : View
+    *  2. Function Name        :
+    *  3. Program ID           : BoardView.aspx
+    *  4. Program Name         : 게시판
+    *  5. Program Desc         : 게시판
+    *  6. Comproxy List        :
+    *  7. Modified date(First) : 2014-07-25
+    *  8. Modified date(Last)  : 2017-09-21
+    *  9. Modifier (First)     : Yoon YoungJun
+    *  9. Modifier (First)     : Yoon YoungJun
+    * 11. Comment              :
+    **************************************************************************************************************
+    --%>
+</asp:Content>
+
+<%-- 2.해당 페이지 추가 Meta 코드 사용 --%>
+<asp:Content ContentPlaceHolderID="Sub_Meta_Holder" runat="server">
+    <link rel="stylesheet" type="text/css" href="../../../Scripts/jQuery/css/jQuery-UI-1.12.1.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../Scripts/Token/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../Scripts/Token/css/bootstrap-tokenfield.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../Scripts/Se2/css/<%= GetSe2LangPath() %>/smart_editor2.css"/>
+    <script type="text/javascript" src="../../../Scripts/jQuery/jQuery-UI.1.12.1.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../../../Scripts/Token/bootstrap-tokenfield.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../../../Scripts/Se2/js/lib/jindo2.all.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../../../Scripts/Se2/js/lib/jindo_component.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../../../Scripts/Se2/js/service/husky_SE2B_Lang_<%= GetSe2LangPath() %>.js" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+        window.nhn = window.nhn || {};
+        nhn.husky = nhn.husky || {};
+        nhn.husky.SE2M_Configuration = nhn.husky.SE2M_Configuration || {};
+        nhn.husky.SE2M_Configuration.SE2B_CSSLoader = {
+            sCSSBaseURI: "../../Scripts/Se2/css"
+        };
+        nhn.husky.SE2M_Configuration.SE_EditingAreaManager = {
+            sCSSBaseURI: "../../Scripts/Se2/css",					// smart_editor2_inputarea.html 파일의 상대경로
+            sBlankPageURL: "../../Scripts/Se2/smart_editor2_inputarea.html",
+            sBlankPageURL_EmulateIE7: "../../Scripts/Se2/smart_editor2_inputarea_ie8.html",
+            aAddtionalEmulateIE7: [] // IE8 default 사용, IE9 ~ 선택적 사용
+        };
+        nhn.husky.SE2M_Configuration.SE2M_Accessibility = {
+            sBeforeElementId: 'cc_addr',
+            sNextElementId: 'to_addr',
+            sTitleElementId: 'Sub_Content_Form_Holder_popWrite_txtSubject_I'
+        };
+        nhn.husky.SE2M_Configuration.SE2M_Hyperlink = {
+            bAutolink: true	// 자동링크기능 사용여부(기본값:true)
+        };
+        nhn.husky.SE2M_Configuration.Quote = {
+            sImageBaseURL: '../../Scripts/Se2/img'
+        };
+        nhn.husky.SE2M_Configuration.SE2M_ColorPalette = {
+            bUseRecentColor: false
+        };
+    </script>	
+    <!-- 설정 파일 -->
+    <script type="text/javascript" src="../../../Scripts/Se2/js/service/SE2BasicCreator.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../../../Scripts/Se2/js/smarteditor2.min<%= (lgLang == "CN" ? ".zh" : string.Empty) %>.js" charset="utf-8"></script>
+</asp:Content>
+
+<%-- 3.해당 페이지의 컨트롤 ScriptIntellisense 기능 사용 --%>
+<asp:Content ContentPlaceHolderID="Sub_ScriptIntelliSense_Holder" runat="server">
+    <script type="text/javascript">
+        btnWrite = ASPxClientButton.Cast();
+        splContant = ASPxClientSplitter.Cast();
+        mnToolbar = ASPxClientMenu.Cast();
+        trlList = ASPxClientTreeList.Cast();
+        popmListMenu = ASPxClientPopupMenu.Cast();
+
+        popRead             = ASPxClientPopupControl.Cast();
+
+        ldpWriteLoader      = ASPxClientLoadingPanel.Cast();
+        popWrite            = ASPxClientPopupControl.Cast();
+        cboCategory         = ASPxClientComboBox.Cast();
+        cboCategoryGroup    = ASPxClientComboBox.Cast();
+        cboPreface          = ASPxClientComboBox.Cast();
+        chkIsNotice         = ASPxClientCheckBox.Cast();
+        dteNoticeEnd        = ASPxClientDateEdit.Cast();
+        txtSubject          = ASPxClientTextBox.Cast();
+        colSubject          = ASPxClientColorEdit.Cast();
+        chkUseBold          = ASPxClientCheckBox.Cast();
+        upcAttachment       = ASPxClientUploadControl.Cast();
+        btnAttachFileDel    = ASPxClientButton.Cast();
+        prgbFilesSize       = ASPxClientProgressBar.Cast();
+        lblFilesSizeInfo    = ASPxClientLabel.Cast();
+        grdAddachFileList   = ASPxClientGridView.Cast();
+        //heContent         = ASPxClientHtmlEditor.Cast();
+        txtTags             = ASPxClientTextBox.Cast();
+        rdolPublicSetting   = ASPxClientRadioButtonList.Cast();
+        chkIsPublicBizArea  = ASPxClientCheckBox.Cast();
+        chkIsPublicPlant    = ASPxClientCheckBox.Cast();
+        chkIsPublicDept     = ASPxClientCheckBox.Cast();
+        chkIsWorkPlace      = ASPxClientCheckBox.Cast();
+        chkIsLocalPartner   = ASPxClientCheckBox.Cast();
+        chkIsCustomer       = ASPxClientCheckBox.Cast();
+        chkIsExternalPartner = ASPxClientCheckBox.Cast();
+        chkIsSearch         = ASPxClientCheckBox.Cast();
+
+        splViewLayout       = ASPxClientSplitter.Cast();
+        cbpViewMenu         = ASPxClientCallbackPanel.Cast();
+        hidMenuFields       = ASPxClientHiddenField.Cast();
+        tvViewMenu          = ASPxClientTreeView.Cast();
+    </script>
+</asp:Content>
+
+<%-- 4.해당 페이지의 특정 Script 사용 --%>
+<asp:Content ContentPlaceHolderID="Sub_Script_Holder" runat="server">
+    <style type="text/css">
+        /* 메일 모듈 전체 레이아웃 */
+        .BoardView {
+        }
+        .BoardView a:focus,
+        .BoardView .btn:focus {
+            outline:none;
+            outline-offset:0;
+        }
+        .BoardView .wrap_left {
+            width:200px; 
+            max-width:200px; 
+            height:100%;
+            border-right:1px solid #b5b5b5;
+            background-color:white;
+        }
+
+        .BoardView .wrap_left ul,
+        .BoardView .wrap_left ol {
+            margin-bottom:0px;
+        }
+        .BoardView .wrap_left .used_info {
+            width: 229px; 
+            height: 50px; 
+            bottom: 0px; 
+            border-top: 1px solid #E6E6E6; 
+            display: inline-block; 
+            position: absolute;
+        }
+        .BoardView .wrap_right {
+            width:auto; 
+            height:100%; 
+            position:absolute; 
+            left:200px; 
+            right:0; 
+            bottom:0;
+        }
+        
+        .BoardView .wrap_left *,
+        .BoardView .wrap_left *::after,
+        .BoardView .wrap_left *::before,
+        .BoardView .boardread *,
+        .BoardView .boardread *::after,
+        .BoardView .boardread *::before,
+        .BoardView .wrap_right .dxm-popup *,
+        .BoardView .wrap_right .dxm-popup *::after,
+        .BoardView .wrap_right .dxm-popup *::before,
+        .BoardView #Sub_Content_Body_Holder_popmMoreMenu *,
+        .BoardView #Sub_Content_Body_Holder_popmMoreMenu *::after,
+        .BoardView #Sub_Content_Body_Holder_popmMoreMenu *::before {
+            -webkit-box-sizing:content-box;
+            -moz-box-sizing:content-box;
+            box-sizing:content-box;
+        }
+        .BoardView .boardread *,
+        .BoardView .boardread *::after,
+        .BoardView .boardread *::before,
+        .BoardView .wrap_right .dxm-popup *,
+        .BoardView .wrap_right .dxm-popup *::after,
+        .BoardView .wrap_right .dxm-popup *::before,
+        .BoardView #Sub_Content_Body_Holder_popmMoreMenu *,
+        .BoardView #Sub_Content_Body_Holder_popmMoreMenu *::after,
+        .BoardView #Sub_Content_Body_Holder_popmMoreMenu *::before {
+            cursor: auto !important;
+        }
+        .BoardView .area_header .dxsplLCC {
+            border-bottom:1px solid #b5b5b5;
+        }
+        /*.BoardView .area_content {
+            top: 80px; bottom: 0px; display: inline-block; position: absolute;
+        }*/
+        /* 퀵 버튼 배경 */
+        .BoardView .btnWrite > div {
+            line-height:27px;
+            line-height:35px \0/IE8+9;
+            width:160px;
+        }
+
+        /* 왼쪽 메일 함 디자인 */
+        .BoardView .bar {
+            margin:7px 4px 0 4px;
+            background-color:#e0e0e0;
+            opacity:1;
+            height:11px;
+            float:left;
+            width:1px;
+        }
+        .BoardView .menubox:first-child .menu_group {
+            padding-top:10px;
+        }
+        .BoardView .menubox:first-child .menu_group .list_menu li:first-child {
+            padding:0 15px 0 15px;
+        }
+        .BoardView .menubox .menu_group {
+            padding:6px 0 7px;
+            border-top: 1px solid #E6E6E6;
+        }
+        .BoardView .menubox .emph_color {
+            color:#0294e8 !important;
+        }
+        .BoardView .menubox .menu_group .list_menu .link_category {
+            overflow:hidden;
+            float:left;
+            height:25px;
+            max-width:125px;
+            text-overflow:ellipsis;
+            white-space:nowrap;
+            text-decoration:none;
+            color:#111;
+        }
+        .BoardView .menubox .menu_group .list_menu .txt_count {
+            margin-left:6px;
+            font-size:12px;
+            font-family:tahoma,sans-sarif;
+        }
+        .BoardView .menubox .menu_group .list_menu .link_more {
+            position:absolute;
+            top:4px;
+            right:15px;
+            width:17px;
+            height:17px;
+        }
+        .BoardView .menubox .menu_group .list_menu .link_empty {
+            position:absolute;
+            top:5px;
+            right:15px;
+            width:14px;
+            height:16px;
+        }
+        .BoardView .menubox .menu_group .list_menu .link_check {
+            position:absolute;
+            top:1px;
+            right:15px;
+            width:57px;
+            height:24px;
+            color:#444;
+            letter-spacing:-1px;
+            text-align:center;
+            text-decoration:none;
+            text-indent:0px;
+            cursor:pointer;
+        }
+        .BoardView .menubox .menu_group .list_menu li {
+            height:25px;
+            line-height:27px;
+            overflow:hidden;
+            position:relative;
+            padding: 0 15px 0 15px;
+            margin:0px;
+        }
+        .BoardView .menubox .menu_group .list_menu li .link_category {
+            -webkit-transform-origin:50% 50%;
+            transform-origin:50% 50%;
+        }
+        .BoardView .menubox .menu_group .list_menu .on.link_category {
+            color:#0294e8;
+            font-weight:bold;
+        }
+        .BoardView .menubox .menu_group .list_menu li .link_category:hover {
+            color:#0294e8;
+        }
+        .BoardView .menubox .menu_group .list_menu li .link_category.fst {
+            color:#6d7a87;
+            padding:0 4px;
+            font-weight:normal;
+        }
+        .BoardView .menubox .menu_group .list_menu li .on.link_category.fst {
+            color:#0294e8;
+            font-weight:bold;
+        }
+        
+        .BoardView .menubox .menu_group .list_menu li .link_category.fst:hover {
+            color:#0294e8;
+        }
+
+        .BoardView .menubox .menu_group .list_menu .link_receivenum {
+            display:inline-block;
+            height:25px;
+            margin:1px 0 0 5px;
+            text-decoration:none;
+            /*vertical-align:middle;*/
+        }
+        .BoardView .menubox .menu_group .accordion_group {
+            
+        }
+        .BoardView .menubox .menu_group .accordion_group .box_menu {
+            padding: 0px 25px 0px 16px; 
+            height: 25px; 
+            line-height: 25px;
+        }
+        .BoardView .menubox .menu_group .accordion_group .link_menu {
+            white-space:nowrap;
+            text-decoration:none;
+            color:#111
+        }
+        .BoardView .menubox .menu_group .accordion_group .link_menu:hover {
+            color:#0294e8;
+        }
+        .BoardView .menubox .menu_group .accordion_group .link_menu.on {
+            font-weight:bold;
+        }
+        .BoardView .menubox .menu_group .accordion_group .list_menu {
+            margin-left:16px;
+        }
+        
+        .BoardView .menubox .menu_group .accordion_group .ico_arrow {
+            margin:7px 6px 0 0; 
+            display:block; 
+            float:left;
+        }
+        /* 리스트 옵션 */
+        .BoardView .wrap_right .search {
+            height:32px;
+            position:relative;
+            white-space:nowrap;
+            overflow:hidden;
+            padding-right:20px;
+        }
+        .BoardView .wrap_right .search span.dx-vam, 
+        .BoardView .wrap_right .search span.dx-vat, 
+        .BoardView .wrap_right .search span.dx-vab, 
+        .BoardView .wrap_right .search a.dx-vam, 
+        .BoardView .wrap_right .search a.dx-vat, 
+        .BoardView .wrap_right .search a.dx-vab {
+            padding:0px;
+        }
+        .BoardView .wrap_right .search .search_option {
+            padding:7px 10px 0 10px;
+            float:left;
+            white-space:nowrap;
+            position:relative;
+        }
+        .BoardView .wrap_right .search .list_head {
+            padding-top:16px;
+            position:relative;
+            overflow:hidden;
+            max-width:100%;
+            text-overflow:ellipsis;
+            white-space:nowrap;
+        }
+        /* 메뉴 디자인 */
+        .BoardView .wrap_right .dxmLite_eniThm .dx.dxm-image-l {
+            width:100%;
+        }
+        .BoardView .wrap_right .dxmLite_eniThm .dxm-horizontal.dxmtb .dxm-item,
+        .BoardView .wrap_right .dxmLite_eniThm .dxm-horizontal.dxmtb .dxm-hovered.dxm-item,
+        .BoardView .wrap_right .dxmLite_eniThm .dxm-horizontal.dxmtb .dxm-selected.dxm-item,
+        .BoardView .wrap_right .dxmLite_eniThm .dxm-horizontal.dxmtb .dxm-checked.dxm-item {
+            padding:0px;
+        }
+        .BoardView .wrap_right .dxmLite_eniThm .dxm-popup .dxm-hovered,
+        .BoardView .wrap_right .dxmLite_eniThm .dxm-main .dxm-hovered.dxm-dropDownMode .dxm-popOut,
+        .BoardView .wrap_right .dxmLite_eniThm .dxm-popup .dxm-hovered.dxm-dropDownMode .dxm-popOut {
+            border-color:transparent;
+        }
+        
+        /* 게시판 디자인(default) */
+        .BoardView .wrap_right {
+            -webkit-user-select: auto;
+            -khtml-user-select: auto;
+            -moz-user-select: text;
+            -ms-user-select: text;
+            user-select: text;
+        }
+        .BoardView .wrap_right .eniTreeList-Board .Board_Indent {
+            /*width:0px !important;*/
+            background:none;
+            background-color:none;
+            border-bottom:1px solid #C0C0C0;
+        }
+        .BoardView .wrap_right .eniTreeList-Board .Board_IndentWithButton {
+            /*width:0px !important;*/
+            background:none;
+            background-color:none;
+            border-bottom:1px solid #C0C0C0;
+        }
+        .BoardView .wrap_right .eniTreeList-Board .Board_Header {
+            line-height:19px;
+            height:18px;
+        }
+        .BoardView .wrap_right .eniTreeList-Board .Board_Node,
+        .BoardView .wrap_right .eniTreeList-Board .Board_AlternatingNode {
+            height:18px;
+        }
+        .BoardView .wrap_right .eniTreeList-Board .Board_Node:hover,
+        .BoardView .wrap_right .eniTreeList-Board .Board_AlternatingNode:hover {
+            background-color:#C8D7FF;
+        }
+        .BoardView .wrap_right .eniTreeList-Board .Board_Cell {
+            border-bottom:1px solid #C0C0C0 !important;
+        }
+        /* TreeList 하단 페이지 네이션 디자인 */
+        .BoardView .wrap_right .eniTreeList-Board .dxtlPagerTopPanel_eniThm,
+        .BoardView .wrap_right .eniTreeList-Board .dxtlPagerBottomPanel_eniThm {
+            height:28px;
+            background:none;
+        }
+        .BoardView .wrap_right .eniTreeList-Board .dxgvFSDC {
+            border-top:1px solid #C0C0C0;
+        }
+        .BoardView .wrap_right .eniTreeList-Board .dxpLite_eniThm {
+            margin-left: auto;
+            margin-right: auto;
+            float:none;
+            width:1% !important;
+            height:28px;
+            max-height:28px;
+            overflow:hidden;
+            display:block !important;
+            padding: 2px 2px;
+        }
+        .BoardView .wrap_right .eniTreeList-Board .dxpLite_eniThm .dxp-pageSizeItem.dxp-right {
+            position:absolute;
+            right:0px;
+        }
+        
+        /* 게시판 읽기 */
+        .BoardView .boardread {
+            background-color:white;
+            overflow:auto !important;
+            -webkit-user-select: auto;
+            -khtml-user-select: auto;
+            -moz-user-select: text;
+            -ms-user-select: text;
+            user-select: text;
+        }
+        .BoardView .boardread blockquote p {
+            font-size:12px;
+            font-weight:normal;
+            line-height:normal;
+        }
+        /*.BoardView .boardread .area_content {
+            background-color:white;
+            overflow:auto !important;
+        }*/
+
+        .BoardView .boardread .con_title {
+            padding:10px;
+        }
+        .BoardView .boardread .con_title dl {
+            margin:5px 0 0;
+            padding:0 0 5px;
+            overflow:hidden;
+            border-bottom:1px solid #DDDDDD;
+        }
+        .BoardView .boardread .con_title dl dt {
+            position:relative;
+            float:left;
+        }
+        .BoardView .boardread .con_title dl dt.subject {
+            display:inline-block;
+            padding-right:10px;
+            border-right:1px solid #DDDDDD;
+        }
+        .BoardView .boardread .con_title dl dd.category_nm {
+            display:inline-block;
+            padding-left:5px;
+            padding-top:2px;
+            margin:0px;
+            vertical-align:bottom;
+            word-break: break-all;
+            overflow:hidden;
+        }
+        .BoardView .boardread .con_title dl dd.write_date {
+            width:100px;
+            display:inline-block;
+            /*padding-left:5px;
+            padding-top:2px;*/
+            margin:0px;
+            vertical-align:bottom;
+            word-break: break-all;
+            overflow:hidden;
+            float:right;
+        }
+        .BoardView .boardread .con_title dl dt.writer_nm {
+            display:inline-block;
+        }
+        .BoardView .boardread .con_title dl dd.link_url {
+            display:inline-block;
+            padding-left:5px;
+            padding-top:2px;
+            margin:0px;
+            vertical-align:bottom;
+            word-break: break-all;
+            overflow:hidden;
+            float:right;
+        }
+        .BoardView .boardread .con_body {
+            padding:10px;
+        }
+        .BoardView .boardread .con_body p {
+            padding:0px;
+            margin:0px;
+        }
+        .BoardView .boardread .comment_info {
+            padding:10px 10px;
+            margin:50px 0 0;
+            border-top:1px solid #DDDDDD;
+        }
+        .BoardView .boardread .comment_info ol,
+        .BoardView .boardread .comment_info ul {
+            margin:0px;
+            padding:5px 0 0;
+            list-style:none;
+        }
+        .BoardView .boardread .comment_info ol li.column,
+        .BoardView .boardread .comment_info ul li.column {
+            display:inline-block;
+            overflow:hidden;
+            border-right:1px solid #DDDDDD;
+            text-align:center;
+            vertical-align:middle;
+            white-space:nowrap;
+            letter-spacing:0px;
+        }
+        .BoardView .boardread .comment_info ol li.print,
+        .BoardView .boardread .comment_info ul li.print {
+            display:inline-block;
+            overflow:hidden;
+            float:right;
+            border-left:1px solid #DDDDDD;
+            text-align:center;
+            vertical-align:middle;
+            white-space:nowrap;
+            letter-spacing:0px;
+        }
+        .BoardView .boardread .command_wrap {
+            position: relative;
+            border:1px solid #DDDDDD;
+            border-radius:5px;
+            -ms-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -o-border-radius: 5px;
+	        -webkit-border-radius: 5px;
+        }
+
+        /* 게시글 쓰기 */
+        .BoardView .con_write .con_header {
+            margin: 0 0 2px 0;
+        }
+        .BoardView .con_write .con_footer {
+            margin: 10px 0 0 0;
+        }
+        .BoardView .con_write .con_content *,
+        .BoardView .con_write .con_content *::after,
+        .BoardView .con_write .con_content *::before  {
+            -webkit-box-sizing:content-box;
+            -moz-box-sizing:content-box;
+            box-sizing:content-box;
+        }
+        .BoardView .con_write .con_header .item,
+        .BoardView .con_write .con_footer .item {
+            position:relative;
+        }
+        .BoardView .con_write .con_header .item .title,
+        .BoardView .con_write .con_footer .item .title {
+            position:absolute;
+            left:0px;
+            top: 5px;
+            width: 60px;
+            color:#444444;
+        }
+        .BoardView .con_write .con_header .item .field,
+        .BoardView .con_write .con_footer .item .field {
+            padding: 0 0 0 70px;
+        }
+        .BoardView .con_write .con_header .item .field .notice_chk,
+        .BoardView .con_write .con_header .item .field .notice_date {
+            display:inline-block;
+            vertical-align:top;
+        }
+        .BoardView .con_write .con_header .item .field .subject {
+            width:100%;
+            display:inline-block;
+            padding-right:165px;
+            position:relative;
+        }
+        .BoardView .con_write .con_header .item .field .subject_options {
+            position:absolute;
+            width:165px;
+            top:0px;
+            right:0px;
+        }
+        .BoardView .con_write .con_header .item .field .opt_btn {
+            /*vertical-align: auto;*/
+        }
+    </style>
+    <script type="text/javascript">
+        // <![CDATA[
+        var $board_view = $;
+        var board_view = eni.Initialize(new function () {
+            var history_enable = History.enabled;
+            var history_set = false;
+
+            var $mail_view = {};
+            var $wrap_left = {};
+            var $wrap_right = {};
+            var $categorys = {};
+
+            var cur_category_id = "";
+            var cur_category_name = "";
+            var cur_bbs_id = 0;
+
+            var $cur_bbs = {};
+
+            var firstSetSubject = false;
+            var se2_html = "";
+
+            this.iFrameName = "ModuleView";
+            this.ViewType = ViewType.ModuleView;
+            this.Form_Load = function () {
+                $mail_view = jQuery("#body");
+                $wrap_right = $mail_view.find("#wrap_right");
+                
+                //히스토리 지원 브라우저 일경우
+                if (history_enable) {
+                    //히스토리 아답터 이벤트 바인딩
+                    History.Adapter.bind(window, "statechange", function () {
+                        var state = History.getState();
+                        if (!history_set) {
+                            var org_str_mv = hidFields.Get("mv");
+                            var str_mv = String(eni.GetQueryString("mv")).toLowerCase();
+                            switch (str_mv) {
+                                default:
+                                case "list":
+                                    var cur_category = $categorys.GetCurrentCategory();
+                                    if (org_str_mv != "read" && str_mv != "" && ((org_str_mv != str_mv || cur_category.category_cd != eni.GetQueryString("sccd")) ||
+                                                                (cur_category.category_cd == 0))) {
+                                        var sccd = eni.GetQueryString("sccd");
+                                        cur_category = $categorys.SelectCategoryByCd(sccd);
+                                        hidFields.Set("sccd", cur_category.category_cd);
+                                        hidFields.Set("scnm", cur_category.category_name);
+                                        hidFields.Set("prov_mv", (state.data.prov_mv ? state.data.prov_mv : "list"));
+                                        hidFields.Set("mv", "list");
+                                        trlList.PerformCallback();
+                                    } else {
+                                        eni.LocalPage.ChangeMVMode("list");
+                                    }
+                                    break;
+                                case "read":
+                                    if (cur_bbs_id != eni.GetQueryString("bid")) {
+                                        eni.Loading.DisplayStatusLoading(true);
+
+                                        cur_category_cd = eni.GetQueryString("bccd");
+                                        cur_category_name = state.data.category_name;
+
+                                        var cbArgs = new BaseCallbackArgsClass();
+                                        cbArgs.bccd = cur_category_cd;
+                                        cbArgs.bid = cur_bbs_id = eni.GetQueryString("bid");
+
+                                        hidFields.Set("bccd", eni.GetQueryString("bccd"));
+                                        hidFields.Set("bcnm", state.data.category_name);
+                                        hidFields.Set("bid", cur_bbs_id);
+                                        hidFields.Set("prov_mv", state.data.prov_mv);
+                                        hidFields.Set("mv", "read");
+
+                                        popRead.PerformCallback(cbArgs.Serialize());
+                                    } else {
+                                        eni.LocalPage.ChangeMVMode("read");
+                                    }
+                                    break;
+                                case "new":
+                                    hidFields.Set("prov_mv", state.data.prov_mv);
+                                    popWrite.Clear();
+                                    eni.LocalPage.ChangeMVMode(str_mv);
+                                    break;
+                                case "re":
+                                case "edit":
+                                case "tmp":
+                                    ldpWriteLoader.Show();
+
+                                    cur_category_cd = eni.GetQueryString("bccd");
+                                    cur_category_name = state.data.category_name;
+
+                                    var cbArgs = new BaseCallbackArgsClass();
+                                    cbArgs.bccd = cur_category_cd;
+                                    cbArgs.bid = cur_bbs_id = eni.GetQueryString("bid");
+
+                                    hidFields.Set("bccd", cur_category_cd);
+                                    hidFields.Set("bcnm", cur_category_name);
+                                    hidFields.Set("bid", cur_bbs_id);
+                                    if (str_mv != "tmp") {
+                                        hidFields.Set("parent_mid", cur_bbs_id);
+                                    } else {
+                                        hidFields.Set("tmp_mid", cur_bbs_id);
+                                    }
+                                    hidFields.Set("prov_mv", state.data.prov_mv);
+                                    hidFields.Set("mv", str_mv);
+
+                                    popWrite.Clear();
+
+                                    cbArgs = new BaseCallbackArgsClass();
+                                    cbArgs.cmd = str_mv;
+                                    cbArgs.bccd = cur_category_cd;
+                                    cbArgs.bid = cur_category_name;
+                                    cbWriteProcess.PerformCallback(cbArgs.Serialize());
+                                    break;
+                            }
+                        } else {
+                            history_set = false;
+                        }
+                    });
+                } else {
+                    $wrap_right.html("<iframe id='" + this.iFrameName + "' name='" + this.iFrameName + "' class='eni_Frame' marginwidth='0' marginheight='0' frameborder='0' framespacing='0' scrolling='no' src='" + eni.GetQueryString("mv") + "'></iframe>");
+                }
+            };
+            this.Form_Load_Complate = function () {
+                splContant.SetVisible(true);
+            };
+
+            this.PageResize = function (e) {
+                try {
+                    var arr_resize_control = [];
+                    var str_mv = hidFields.Get("mv");
+                    var add_height_size = splContant.GetPaneByName("ToolbarPane").GetSize().replaceAll("px", "") * -1;
+                    switch (str_mv) {
+                        default:
+                        case "list":
+                            arr_resize_control.insert(arr_resize_control.length, { control: trlList, add_height: add_height_size });
+                            arr_resize_control.insert(arr_resize_control.length, { control: popRead, add_height: add_height_size });
+                            arr_resize_control.insert(arr_resize_control.length, { control: popWrite, add_height: add_height_size });
+                            break;
+                        case "read":
+                            arr_resize_control.insert(arr_resize_control.length, { control: popRead, add_height: add_height_size });
+                            arr_resize_control.insert(arr_resize_control.length, { control: trlList, add_height: add_height_size });
+                            arr_resize_control.insert(arr_resize_control.length, { control: popWrite, add_height: add_height_size });
+                            break;
+                        case "new":
+                        case "newme":
+                        case "re":
+                        case "reall":
+                        case "fwd":
+                            arr_resize_control.insert(arr_resize_control.length, { control: popWrite, add_height: add_height_size });
+                            arr_resize_control.insert(arr_resize_control.length, { control: trlList, add_height: add_height_size });
+                            arr_resize_control.insert(arr_resize_control.length, { control: popRead, add_height: add_height_size });
+                            break;
+                    }
+                    var ctl_SetSize = function (ctl, iWidth, iHeight) {
+                        if (ctl.control != trlList) {
+                            ctl.control.SetWidth($wrap_right.width() + (ctl.add_width || 0) - (iWidth || 0));
+                        }
+                        ctl.control.SetHeight($wrap_right.height() + (ctl.add_height || 0) - (iHeight || 0));
+                    };
+                    switch (eni.UserAgent.Browser.Type) {
+                        case "IE":
+                            if (eni.UserAgent.Browser.Version >= 10) {//IE 10 이상
+                                $wrap_left.find("#rt_menu_container").height(document.documentElement.offsetHeight - 111);
+                                ctl_SetSize(arr_resize_control[0], 0, 0);
+                                ctl_SetSize(arr_resize_control[1], 0, 0);
+                                ctl_SetSize(arr_resize_control[2], 0, 0);
+                            } else {//IE 10 미만
+                                $wrap_left.find("#rt_menu_container").height(document.documentElement.offsetHeight - 111);
+                                ctl_SetSize(arr_resize_control[0], 0, 0);
+                                ctl_SetSize(arr_resize_control[1], 0, 0);
+                                ctl_SetSize(arr_resize_control[2], 0, 0);
+                            }
+                            break;
+                        case "OPERA":
+                            $wrap_left.find("#rt_menu_container").height(document.documentElement.offsetHeight - 111);
+                            ctl_SetSize(arr_resize_control[0], 0, 0);
+                            ctl_SetSize(arr_resize_control[1], 0, 0);
+                            ctl_SetSize(arr_resize_control[2], 0, 0);
+                            break;
+                        case "FIREFOX":
+                            $wrap_left.find("#rt_menu_container").height(document.documentElement.offsetHeight - 111);
+                            ctl_SetSize(arr_resize_control[0], 0, 0);
+                            ctl_SetSize(arr_resize_control[1], 0, 0);
+                            ctl_SetSize(arr_resize_control[2], 0, 0);
+                            break;
+                        case "CHROME":
+                            $wrap_left.find("#rt_menu_container").height(document.documentElement.offsetHeight - 111);
+                            ctl_SetSize(arr_resize_control[0], 0, 0);
+                            ctl_SetSize(arr_resize_control[1], 0, 0);
+                            ctl_SetSize(arr_resize_control[2], 0, 0);
+                            break;
+                        case "SAFARI":
+                            $wrap_left.find("#rt_menu_container").height(document.documentElement.offsetHeight - 111);
+                            ctl_SetSize(arr_resize_control[0], 0, 0);
+                            ctl_SetSize(arr_resize_control[1], 0, 0);
+                            ctl_SetSize(arr_resize_control[2], 0, 0);
+                            break;
+                        default:
+                            $wrap_left.find("#rt_menu_container").height(document.documentElement.offsetHeight - 111);
+                            ctl_SetSize(arr_resize_control[0], 0, 0);
+                            ctl_SetSize(arr_resize_control[1], 0, 0);
+                            ctl_SetSize(arr_resize_control[2], 0, 0);
+                            break;
+                    }
+                } catch (ex) {
+                    eni.Message.DisplayMsgBox(eni.Message.StrBundle("common.error"), ex.message);
+                }
+            };
+
+            this.btnWrite_Click = function (s, e) {
+                eni.LocalPage.DisplayChange("new");
+            };
+
+            this.CategorysEventBind = function () {
+                (function (categorys) {
+                    categorys.Items = [];
+                    categorys.ClearSelect = function () {
+                        for (var i = 0; i < this.Items.length; i++) {
+                            this.Items[i].LoseFocus();
+                            this.CurrentCategory = null;
+                        }
+                    };
+                    categorys.SelectCategoryByItem = function (category_item) {
+                        if (category_item && category_item.category_cd) {
+                            return this.SelectCategoryByCd(category_item.category_cd, category_item.category_option);
+                        } else {
+                            return null;
+                        }
+                    };
+                    categorys.SelectCategoryByCd = function (category, sfop) {
+                        for (var i = 0; i < this.Items.length; i++) {
+                            if (this.Items[i].category_cd == category || this.Items[i].category_name == category) {
+                                this.Items[i].SetFocus();
+                                this.CurrentCategory = this.Items[i];
+                            } else {
+                                this.Items[i].LoseFocus();
+                            }
+                        }
+                        //전체, 안읽음 옵션 폴더 옵션 설정
+                        if (this.CurrentCategory.category_cd != 0 && hidFields.Contains("sfop")) {
+                            hidFields.Remove("sfop");
+                            hidFields.Remove("sfopnm");
+                        }
+                        //제목설정
+                        if (Number(this.CurrentCategory.recent_cnt) > 0) {
+                            eni.SetTitle(this.CurrentCategory.category_name + " (" + this.CurrentCategory.recent_cnt + ")" + " - " + eni.GetTitle() + " : " + "<%= GetGlobalResource("QuickName") %>");
+                        } else {
+                            eni.SetTitle(this.CurrentCategory.category_name + " - " + eni.GetTitle() + " : " + "<%= GetGlobalResource("QuickName") %>");
+                        }
+
+                        return this.CurrentCategory;
+                    };
+                    categorys.SelectCategoryByName = function (category_name) {
+                        return this.SelectCategoryByCd(category_name);
+                    };
+                    categorys.RefreshTotalRecent = function () {
+                        var total_cnt = 0;
+                        for (var i = 0; i < this.Items.length; i++) {
+                            if (this.Items[i].category_cd != 0) {
+                                total_cnt += Number(this.Items[i].recent_cnt);
+                            }
+                        }
+
+                        this.Items[1].SetRecentCount(total_cnt);
+                    };
+                    categorys.GetCurrentCategory = function () {
+                        return this.CurrentCategory;
+                    };
+                    categorys.GetCurrentCategoryCd = function () {
+                        return this.CurrentCategory ? this.GetCurrentCategory().category_cd : null;
+                    };
+                    categorys.GetCurrentCategoryName = function () {
+                        return this.CurrentCategory ? this.GetCurrentCategory().category_name : null;
+                    };
+                    categorys.GetCategory = function (el) {
+                        el = jQuery(el.target || el);
+                        for (var i = 0; i < this.Items.length; i++) {
+                            if (this.Items[i].category_cd == String(el.parent().attr("category-cd")).toLowerCase()) {
+                                return this.Items[i];
+                            }
+                        }
+                        return null;
+                    };
+                    categorys.GetCategoryByCdOrName = function (category, fop) {
+                        for (var i = 0; i < this.Items.length; i++) {
+                            if ((this.Items[i].category_cd == category || this.Items[i].category_name == category) && this.Items[i].category_option == fop) {
+                                return this.Items[i];
+                            }
+                        }
+                        return null;
+                    };
+                    categorys.CreateMenu = function (el) {
+                        this.wrap_left = $wrap_left = jQuery(el);
+                        this.wrap_left.find(".link_menu").each(function (i, el) {
+                            var $el = jQuery(el);
+                            $el.click(function (event) {
+                                eni.Utils.EventBubblingStop(event);
+                                var target = jQuery(event.target);
+                                var ico = target.find(".ico_arrow");
+                                if (ico.hasClass("SilverArrowRight")) {
+                                    target.addClass("on");
+                                    ico.removeClass("SilverArrowRight").addClass("SilverArrowDown");
+                                } else {
+                                    target.removeClass("on");
+                                    ico.removeClass("SilverArrowDown").addClass("SilverArrowRight");
+                                }
+                                target.parent().parent().find(".list_menu").toggle("fast");
+                                return false;
+                            });
+                        });
+                        this.wrap_left.find(".link_category").each(function (i, el) {
+                            var $el = jQuery(el);
+                            $el.click(function (event) {
+                                eni.Utils.EventBubblingStop(event);
+                                if (!eni.LocalPage.IsCallbackProcess()) {
+                                    var event_category = categorys.GetCategory(event);
+                                    if (event_category) {
+                                        if (categorys.GetCurrentCategory() != event_category) {
+                                            categorys.SelectCategoryByItem(event_category);
+                                        }
+                                        eni.LocalPage.DisplayChange("list");
+                                    }
+                                }
+                                return false;
+                            });
+                            $el.SetFocus = function () {
+                                this.addClass("on");
+                            };
+                            $el.LoseFocus = function () {
+                                this.removeClass("on");
+                            };
+                            $el.SetRecentCount = function (cnt) {
+                                this.parent().attr("recent-cnt", cnt);
+                                this.recent_cnt = cnt;
+                                if (this.category_cd == 0) {
+                                    categorys.Items[1].recent_cnt = cnt;
+                                    categorys.Items[0].recent_cnt = cnt;
+                                }
+                                if (Number(cnt) > 99) {
+                                    cnt = "99+";
+                                }
+                                if (this.recent_cnt != 0) {
+                                    if (this.category_cd == 0) {
+                                        this.parent().find(".recent").text(cnt);
+                                    } else {
+                                        this.parent().find(".link_receivenum").text(cnt);
+                                        categorys.RefreshTotalRecent();
+                                    }
+                                } else {
+                                    if (this.category_cd == 0) {
+                                        this.parent().find(".recent").text("");
+                                    } else {
+                                        this.parent().find(".link_receivenum").text("");
+                                        categorys.RefreshTotalRecent();
+                                    }
+                                }
+                            };
+                            $el.AddRecentCount = function (cnt) {
+                                var recent_cnt = Number(this.GetRecentCount());
+                                cnt = Number(cnt) + recent_cnt;
+                                this.SetRecentCount(cnt);
+                                return cnt;
+                            };
+                            $el.GetRecentCount = function (cnt) {
+                                return this.parent().attr("recent-cnt");
+                            };
+                            $el.category_cd = String($el.parent().attr("category-cd")).toLowerCase();
+                            $el.category_name = $el.parent().attr("category-name");
+                            $el.recent_cnt = $el.parent().attr("recent-cnt");
+                            if ($el.hasClass("fst")) {
+                                $el.category_option = $el.attr("folder-option");
+                                $el.category_option_name = $el.attr("title");
+                            }
+                            categorys.Items.insert(i, $el);
+                        });
+
+                        //카테고리 마우스 호버 이벤트 바인딩
+                        this.wrap_left.find(".link_category:not(.fst)").parent().hover(function () {
+                            jQuery(this).find(".link_more, .link_empty").show();
+                        }, function () {
+                            jQuery(this).find(".link_more, .link_empty").hide();
+                        });
+                        //카테고리 옵션 버튼 바인딩
+                        this.wrap_left.find(".link_more").click(function (event) {
+                            eni.Utils.EventBubblingStop(event);
+                            var more = jQuery(this);
+                            var category_cd = String(more.parent().attr("category-cd")).toLowerCase();
+                            popmMoreMenu.SelectFolder = $categorys.GetCategoryByCdOrName(category_cd);
+                            if (category_cd == 0) {
+                                popmMoreMenu.GetItemByName("btnEmpty").SetVisible(false);
+                                popmMoreMenu.GetItemByName("btnFlagedRead").SetVisible(false);
+                                popmMoreMenu.GetItemByName("btnFlagedReadDelete").SetVisible(false);
+                                popmMoreMenu.GetItemByName("btnFlagedUnReadDelete").SetVisible(false);
+                            } else {
+                                popmMoreMenu.GetItemByName("btnEmpty").SetVisible(true);
+                                popmMoreMenu.GetItemByName("btnFlagedRead").SetVisible(true);
+                                popmMoreMenu.GetItemByName("btnFlagedReadDelete").SetVisible(true);
+                                popmMoreMenu.GetItemByName("btnFlagedUnReadDelete").SetVisible(true);
+                            }
+                            popmMoreMenu.ShowAtElement(this);
+                            return false;
+                        }).hover(function () {
+                            jQuery(this).removeClass("MoreMenu");
+                            jQuery(this).addClass("MoreMenuHover");
+                        }, function () {
+                            jQuery(this).removeClass("MoreMenuHover");
+                            jQuery(this).addClass("MoreMenu");
+                        });
+                        
+                        if (hidFields.Contains("sccd")) {
+                            categorys.SelectCategoryByCd(hidFields.Get("sccd"));
+                        } else {
+                            categorys.SelectCategoryByItem(categorys.Items[1]);
+                        }
+                    }
+                    return categorys;
+                }($categorys).CreateMenu("#wrap_left"));
+            };
+            this.mnToolbar_Click = function (s, e) {
+                var str_mv = hidFields.Get("mv");
+                try {
+                    switch (e.item.name) {
+                        case "btnReply":
+                            if (hidFields.Contains("bid") && hidFields.Get("bid") != "") {
+                                eni.LocalPage.DisplayChange("re", hidFields.Get("bccd"), hidFields.Get("bcnm"), hidFields.Get("bid"));
+                            }
+                            break;
+                        case "btnEdit":
+                            if (hidFields.Contains("bid") && hidFields.Get("bid") != "") {
+                                eni.LocalPage.DisplayChange("edit", hidFields.Get("bccd"), hidFields.Get("bcnm"), hidFields.Get("bid"));
+                            }
+                            break;
+                        case "btnDelete":
+                            hidFields.Set("cmd", "delete");
+                            trlList.PerformCallback();
+                            break;
+                        case "btnSave":
+                            if (cboCategory.GetValue() == "BBS_DEPT" && !cboCategoryGroup.GetValue()) {
+                                eni.Message.DisplayMsgBox(eni.Message.StrBundle("MSGBD00001"), "<%=GetResource("CSTRESX00042")%>");
+                                cboCategoryGroup.Focus();
+                                return;
+                            }
+                            var cb_data = new BaseCallbackArgsClass();
+                            cb_data.Cmd = "save";
+                            if (hidFields.Get("mv") != "new") {
+                                cb_data.bccd = hidFields.Get("bccd");
+                                if (hidFields.Contains("bid")) {
+                                    cb_data.bid = hidFields.Get("bid");
+                                }
+                                if (hidFields.Contains("parent_bid")) {
+                                    cb_data.parent_bid = hidFields.Get("parent_bid");
+                                }
+                            }
+                            cb_data.attachments = popWrite.Attachments.length > 0 ? popWrite.Attachments : [];
+                            cb_data.htmlbody = popWrite.Editor.getIR();
+                            cbWriteProcess.PerformCallback(cb_data.Serialize());
+                            break;
+                        //case "btnSaveTemp":
+                        //    var cb_data = new BaseCallbackArgsClass();
+                        //    cb_data.Cmd = "save_tmp";
+                        //    if (hidFields.Contains("tmp_mid")) {
+                        //        cb_data.mfid = hidFields.Get("mfid");
+                        //        cb_data.mid = hidFields.Get("tmp_mid");
+                        //    }
+                        //    cb_data.to_addr = popWrite.to_addr.tokenfield("getTokensList", ",");
+                        //    cb_data.cc_addr = popWrite.cc_addr.tokenfield("getTokensList", ",");
+                        //    cb_data.bcc_addr = popWrite.bcc_addr.tokenfield("getTokensList", ",");
+                        //    cb_data.attachments = popWrite.Attachments.length > 0 ? popWrite.Attachments : [];
+                        //    cb_data.htmlbody = popWrite.Editor.getIR();
+                        //    cbWriteProcess.PerformCallback(cb_data.Serialize());
+                            //    break;
+                        case "btnCancel":
+                            if (hidFields.Get("prov_mv") == "read") {
+                                eni.LocalPage.DisplayChange("read", hidFields.Get("bccd"), hidFields.Get("bcnm"), hidFields.Get("bid"));
+                            } else {
+                                eni.LocalPage.DisplayChange("list");
+                            }
+                            break;
+                        case "btnList":
+                            eni.LocalPage.DisplayChange("list");
+                            break;
+                        case "btnWrite":
+                            eni.LocalPage.DisplayChange("new");
+                            break;
+                    }
+                } catch (ex) {
+                    eni.Message.DisplayMsgBox(eni.Message.StrBundle("common.error"), ex.message);
+                }
+            };
+            this.trlList_BeginCallback = function (s, e) {
+                eni.Loading.DisplayStatusLoading(true);
+            };
+            this.trlList_EndCallback = function (s, e) {
+                var str_mv = hidFields.Get("mv");
+                if (hidFields.Contains("cmd")) {
+                    var str_cmd = hidFields.Get("cmd");
+                    if (str_cmd == "delete") {
+                        if (str_mv != "list") {
+                            eni.LocalPage.ChangeMVMode("list");
+                        } else {
+                            eni.LocalPage.ChangeMVMode(str_mv);
+                        }
+                        switch (str_mv) {
+                            case "read":
+                                if (popRead.GetVisible())
+                                    popRead.Hide();
+                                break;
+                            case "new":
+                            case "edit":
+                            case "re":
+                                if (popWrite.GetVisible())
+                                    popWrite.Hide();
+                                break;
+                        }
+                    } else {
+                        eni.LocalPage.ChangeMVMode(str_mv);
+                    }
+                    hidFields.Remove("cmd");
+                } else {
+                    if (trlList.IsBackground) {
+                        trlList.IsBackground = false;
+                    } else {
+                        eni.LocalPage.ChangeMVMode(str_mv);
+                    }
+                }
+                eni.Loading.DisplayStatusLoading(false);
+            };
+            this.hiSubject_Click = function (s, e) {
+                var cur_row = $cur_bbs = eni.LocalPage.CreateCurrentRow(jQuery(s.GetMainElement()).parent().parent());
+                var target_category = $categorys.GetCategoryByCdOrName(cur_row.bccd);
+                eni.LocalPage.DisplayChange("read", cur_row.bccd, target_category.category_name, cur_row.bid);
+            };
+            this.hlReComment_Click = function (s, e, pCmtNo) {
+                var commentPaneCtrl = eval("eniPnlReCommentArea" + pCmtNo);
+                var recommentEdit = null
+                try {
+                    eval("hlReCommentEdit" + pCmtNo);
+                } catch (ex) { }
+                var recommentDelete = null;
+                try {
+                    eval("hlReCommentDelete" + pCmtNo);
+                } catch (ex) { }
+                var recommentMemoCtrl = eval("mmReComment" + pCmtNo);
+
+                if (s.GetText() === "<%= GetResource("CSTRESX00126") %>") {
+                    s.SetText("<%= GetResource("CSTRESX00129") %>");
+                    if (commentPaneCtrl.GetClientVisible() == false)
+                        commentPaneCtrl.SetClientVisible(true);
+                    if (recommentEdit && recommentEdit.GetClientVisible() == true)
+                        recommentEdit.SetClientVisible(false);
+                    if (recommentDelete && recommentDelete.GetClientVisible() == true)
+                        recommentDelete.SetClientVisible(false);
+                } else {
+                    s.SetText("<%= GetResource("CSTRESX00126") %>");
+                    if (commentPaneCtrl.GetClientVisible() == true)
+                        commentPaneCtrl.SetClientVisible(false);
+                    if (recommentEdit && recommentEdit.GetClientVisible() == false)
+                        recommentEdit.SetClientVisible(true);
+                    if (recommentDelete && recommentDelete.GetClientVisible() == false)
+                        recommentDelete.SetClientVisible(true);
+                    recommentMemoCtrl.SetValue("");
+                }
+            };
+            this.hlReCommentEdit_Click = function (s, e, pCmtNo) {
+                var commentCtrlt = eval("lblContent" + pCmtNo);
+                var recommentCtrl = eval("hlReComment" + pCmtNo);
+                var recommentPaneCtrl = eval("eniPnlReCommentArea" + pCmtNo);
+                var recommentMemoCtrl = eval("mmReComment" + pCmtNo);
+                var recommentDelete = eval("hlReCommentDelete" + pCmtNo);
+                var recommentCancel = eval("hlReCommentEditCancel" + pCmtNo);
+
+                if (commentCtrlt.GetClientVisible())
+                    commentCtrlt.SetClientVisible(false);
+                if (recommentCtrl.GetClientVisible())
+                    recommentCtrl.SetClientVisible(false);
+                if (recommentPaneCtrl.GetClientVisible() == false)
+                    recommentPaneCtrl.SetClientVisible(true);
+                if (s.GetClientVisible())
+                    s.SetClientVisible(false);
+                if (recommentDelete.GetClientVisible())
+                    recommentDelete.SetClientVisible(false);
+                if (recommentCancel.GetClientVisible() == false)
+                    recommentCancel.SetClientVisible(true);
+
+                recommentMemoCtrl.SetValue(new String(commentCtrlt.GetValue()).replaceAll("<br>", "\n"));
+            };
+            this.hlReCommentEditCancel_Click = function (s, e, pCmtNo) {
+                var commentCtrlt = eval("lblContent" + pCmtNo);
+                var recommentCtrl = eval("hlReComment" + pCmtNo);
+                var recommentEditCtrl = eval("hlReCommentEdit" + pCmtNo);
+                var recommentPaneCtrl = eval("eniPnlReCommentArea" + pCmtNo);
+                var recommentMemoCtrl = eval("mmReComment" + pCmtNo);
+                var recommentDelete = eval("hlReCommentDelete" + pCmtNo);
+
+                if (commentCtrlt.GetClientVisible() == false)
+                    commentCtrlt.SetClientVisible(true);
+                if (recommentCtrl.GetClientVisible() == false) {
+                    recommentCtrl.SetClientVisible(true);
+                    recommentCtrl.SetText("<%= GetResource("CSTRESX00126") %>")
+                }
+                if (recommentEditCtrl.GetClientVisible() == false)
+                    recommentEditCtrl.SetClientVisible(true);
+                if (recommentPaneCtrl.GetClientVisible() == true)
+                    recommentPaneCtrl.SetClientVisible(false);
+                if (recommentDelete.GetClientVisible() == false)
+                    recommentDelete.SetClientVisible(true);
+                if (s.GetClientVisible() == true)
+                    s.SetClientVisible(false);
+
+                recommentMemoCtrl.SetValue("");
+            };
+            this.hlReCommentDelete_Click = function (s, e, pCmtNo, pCategoryCd) {
+                eni.Message.DisplayBundleMsgBox("common.delete", "board.boardread.comment.delete", MessageBoxButtons.YesNo, null, function (pDialogResult) {
+                    if (pDialogResult === DialogResult.Yes) {
+                        var cb_args = new BaseCallbackArgsClass();
+                        cb_args.DBAccessMode = DBAccessMode.Delete;
+                        cb_args.bccd = hidFields.Get("bccd");
+                        cb_args.bid = hidFields.Get("bid");
+                        cb_args.cmt_no = pCmtNo;
+
+                        trlCommentList.PerformCallback(cb_args.Serialize());
+                    }
+                });
+            };
+            this.btnSaveReComment_Click = function (s, e, pCmtNo, pCategoryCd) {
+                var recommentPaneCtrl = eval("eniPnlReCommentArea" + pCmtNo);
+                var recommentMemoCtrl = eval("mmReComment" + pCmtNo);
+
+                if (!recommentMemoCtrl.GetValue()) {
+                    eni.Message.DisplayBundleMsgBox("common.alert", "board.boardread.comment.empty");
+                } else {
+                    var commentCtrlt = eval("lblContent" + pCmtNo);
+                    var mode = "";
+                    if (commentCtrlt.GetClientVisible()) {
+                        mode = DBAccessMode.Create;
+                    } else {
+                        mode = DBAccessMode.Update;
+                    }
+
+                    var cb_args = new BaseCallbackArgsClass();
+                    cb_args.DBAccessMode = mode;
+                    cb_args.bccd = hidFields.Get("bccd");
+                    cb_args.bid = hidFields.Get("bid");
+                    cb_args.cmt_no = pCmtNo;
+                    cb_args.Data = recommentMemoCtrl.GetValue();
+
+                    trlCommentList.PerformCallback(cb_args.Serialize());
+
+                    recommentPaneCtrl.SetClientVisible(false);
+                    recommentMemoCtrl.SetValue("");
+                }
+            };
+            this.btnSaveComment_Click = function (s, e) {
+                var pCategoryCd = hidFields.Get("bccd");
+                if (!mmComment.GetValue()) {
+                    eni.Message.DisplayBundleMsgBox("common.alert", "board.boardread.comment.empty");
+                } else {
+                    var cb_args = new BaseCallbackArgsClass();
+                    cb_args.DBAccessMode = DBAccessMode.Create;
+                    cb_args.bccd = hidFields.Get("bccd");
+                    cb_args.bid = hidFields.Get("bid");
+                    cb_args.parent_cmt_no = null;
+                    cb_args.Data = mmComment.GetValue();
+                    
+                    trlCommentList.PerformCallback(cb_args.Serialize());
+
+                    mmComment.SetValue("");
+                }
+            };
+            this.trlCommentList_EndCallback = function (s, e) {
+                if (trlCommentList.GetVisibleNodeKeys().length > 0)
+                    trlCommentList.SetVisible(true);
+                lblCommentCnt.SetText(trlCommentList.GetVisibleNodeKeys().length)
+            };
+            this.popRead_BeginCallback = function (s, e) {
+                eni.Loading.DisplayStatusLoading(true);
+            }
+            this.popRead_EndCallback = function (s, e) {
+                $wrap_read = jQuery("#" + s.name + "_PW-1");
+                eni.LocalPage.ChangeMVMode("read");
+                if (hidFields.Get("prov_mv") == "new" || hidFields.Get("prov_mv") == "edit" || hidFields.Get("prov_mv") == "re") {
+                    trlList.IsBackground = true;
+                    trlList.PerformCallback();
+                }
+            };
+            this.popWrite_Init = function (s, e) {
+                s.Attachments = [];
+                s.Items = [];
+                s.GetButton = function (action) {
+                    for (var i = 0; i < this.Items.length; i++) {
+                        if (this.Items[i].action == action) {
+                            return this.Items[i];
+                        }
+                    }
+                    return null;
+                };
+                s.Clear = function () {
+                    debugger
+                    if (hidFields.Contains("mv") == "new") {
+                        if (hidFields.Contains("bccd")) hidFields.Remove("bccd");
+                        if (hidFields.Contains("bcnm")) hidFields.Remove("bcnm");
+                        if (hidFields.Contains("bid")) hidFields.Remove("bid");
+                        if (hidFields.Contains("parent_bid")) hidFields.Remove("parent_bid");
+                    }
+
+                    popWrite.Attachments = [];
+                    cboCategory.SetValue(String(hidFields.Get("sccd")).toUpperCase());
+                    eni.LocalPage.cboCategory_ValueChanged();
+                    cboCategoryGroup.SetValue(null);
+                    cboPreface.SetValue(null);
+                    chkIsNotice.SetChecked(false);
+                    eni.LocalPage.chkIsNotice_ValueChanged();
+                    dteNoticeEnd.SetText(eni.Date.GetCurrentDate());
+                    for (var i = 0; i < popWrite.Items.length; i++) {
+                        popWrite.Items[i].UnExpand();
+                    }
+                    txtSubject.SetText("");
+                    colSubject.SetText("#000111");
+                    chkUseBold.SetChecked(false);
+                    btnAttachFileDel.SetEnabled(false);
+                    popWrite.Editor.setIR("");
+                    txtTags.SetText("");
+                    chkIsSearch.SetChecked(false);
+                    rdolPublicSetting.SetValue("L");
+                    eni.LocalPage.rdolPublicSetting_SelectedIndexChanged();
+                    if (lgAccount.UserGubunCd != "D") {
+                        rdolPublicSetting.SetValue("L");
+                        switch (lgAccount.UserKindCd) {
+                            case "L":
+                                chkIsLocalPartner.SetChecked(true);
+                                chkIsLocalPartner.SetEnabled(false);
+                                break;
+                            case "P":
+                                chkIsCustomer.SetChecked(true);
+                                chkIsCustomer.SetEnabled(false);
+                                break;
+                            case "S":
+                                chkIsExternalPartner.SetChecked(true);
+                                chkIsExternalPartner.SetEnabled(false);
+                                break;
+                        }
+                    } else {
+                        chkIsPublicBizArea.SetChecked(false);
+                        chkIsPublicBizArea.SetEnabled(true);
+                        eni.LocalPage.chkIsPublicBizArea_CheckedChanged();
+                        chkIsPublicPlant.SetChecked(false);
+                        chkIsPublicPlant.SetEnabled(true);
+                        eni.LocalPage.chkIsPublicPlant_CheckedChanged();
+                        chkIsPublicDept.SetChecked(false);
+                        chkIsPublicDept.SetEnabled(true);
+                        eni.LocalPage.chkIsPublicDept_CheckedChanged();
+                        chkIsWorkPlace.SetChecked(false);
+                        chkIsWorkPlace.SetEnabled(true);
+                        chkIsLocalPartner.SetChecked(false);
+                        chkIsLocalPartner.SetEnabled(true);
+                        chkIsCustomer.SetChecked(false);
+                        chkIsCustomer.SetEnabled(true);
+                        chkIsExternalPartner.SetChecked(false);
+                        chkIsExternalPartner.SetEnabled(true);
+                    }
+                    gdvAttachList.PerformCallback("");
+                };
+                s.Focus = function () {
+                    txtSubject.SetFocus();
+                };
+                s.CreateToken = function ($el) {
+                    return $el.attr("tabindex", 0)
+                    .off("tokenfield:initialize").on("tokenfield:initialize", function (e) {
+                        jQuery(e.currentTarget).parent().find(".token-input").on("mousedown", function (s, e) {
+
+                        });
+                    })
+                    .off("tokenfield:createtoken").on("tokenfield:createtoken", function (e) {
+                        if ((e.attrs.value && e.attrs.label) && (e.attrs.value != e.attrs.label)) {
+                            e.attrs.value = e.attrs.value;
+                            e.attrs.label = e.attrs.label;
+                        } else {
+                            var data = e.attrs.value.split(" <");
+                            if (data && data.length == 1) {
+                                data = e.attrs.value.split("<");
+                            }
+                            e.attrs.value = (data[1] ? data[0] + " <" + data[1].replaceAll(">", "") + ">" : data[1]) || data[0];
+                            e.attrs.label = data[0] ? data[0] : data[1];
+                        }
+                    })
+                    .off("tokenfield:edittoken").on("tokenfield:edittoken", function (e) {
+                        if (e.attrs.value && e.attrs.label) {
+                            e.attrs.value = e.attrs.value;
+                        } else {
+                            if (e.attrs.label != e.attrs.value) {
+                                var label = e.attrs.label.split(" <");
+                                if (!label) {
+                                    e.attrs.label.split("<");
+                                }
+                                e.attrs.value = label[0] + " <" + e.attrs.value + ">";
+                            }
+                        }
+                    })
+                    .tokenfield({
+                        minWidth: 200,
+                        showAutocompleteOnFocus: true,
+                        createTokensOnBlur: true,
+                        delimiter: ",",
+                        inputType: "email"
+                    });
+                };
+                s.BeforShow = function () {
+                    eni.Loading.DisplayStatusLoading(true, eni.Message.StrBundle("MSGBD00130"));
+                    this.Container = jQuery("#<%# popWrite.ClientID %>_PW-1");
+                    this.Container.find(".Expand").each(function (i, el) {
+                        var $el = jQuery(el);
+                        $el.click(function (event) {
+                            var btn = popWrite.GetButton(jQuery(event.target).attr("action"))
+                            if (btn.hasClass("Expand")) {
+                                btn.removeClass("Expand");
+                                btn.addClass("UnExpand");
+                                popWrite.Con_Attach_List.show();
+                            } else {
+                                btn.removeClass("UnExpand");
+                                btn.addClass("Expand");
+                                popWrite.Con_Attach_List.hide();
+                            }
+                            return false;
+                        });
+                        $el.Expand = function () {
+                            if (this.hasClass("Expand")) {
+                                this.removeClass("Expand");
+                                this.addClass("UnExpand");
+                                popWrite.Con_Attach_List.show();
+                            }
+                        };
+                        $el.UnExpand = function () {
+                            if (this.hasClass("UnExpand")) {
+                                this.removeClass("UnExpand");
+                                this.addClass("Expand");
+                                popWrite.Con_Attach_List.hide();
+                            }
+                        };
+                        $el.action = $el.attr("action");
+                        popWrite.Items.insert(i, $el);
+                    });
+                    this.Con_Attach_List = this.Container.find("#con_attach_list").hide();
+                };
+                s.CreateWrite = function (el) {
+                    cboCategory.SetValue(String(hidFields.Get("sccd")).toUpperCase());
+                    eni.LocalPage.cboCategory_ValueChanged();
+                    dteNoticeEnd.SetDate(eni.Date.GetCurrentDate());
+                    this.notice_date = this.Container.find("#notice_date");
+                    this.Content = this.Container.find("#con_content");
+                    this.AutoSaveMsg = this.Content.find("#autoSaveMsg");
+                    this.EditorTextArea = this.Content.find("#ir1");
+                    //this.EditorTextArea.height(document.documentElement.offsetHeight - 300);
+                    this.Editor = createSEditor2(jindo.$("ir1"), {
+                        bUseToolbar: true,				// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
+                        bUseVerticalResizer: true,		// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
+                        bUseModeChanger: true,			// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
+                        //bSkipXssFilter : true,		// client-side xss filter 무시 여부 (true:사용하지 않음 / 그외:사용)
+                        //aAdditionalFontList: [["",""],["",""]],	// 추가 글꼴 목록
+                        fOnBeforeUnload: function () {
+                            //예제 코드
+                            //return "내용이 변경되었습니다.";
+                        }
+                    });
+                    this.Editor.run({
+                        fnOnAppReady: function () {
+                            ldpWriteLoader.Hide();
+                            popWrite.Loaded = true;
+                            if (popWrite.AfterShownCallback) {
+                                popWrite.AfterShownCallback();
+                            }
+                            eni.Loading.DisplayStatusLoading(false);
+                        },
+                        fnOnKeyDown: function (keyInfo) {
+                            eni.LocalPage.SetChangeData();
+                        }
+                    });
+                    if (lgAccount.UserGubunCd != "D") {
+                        rdolPublicSetting.SetValue("L");
+                        chkIsPublicBizArea.SetChecked(false);
+                        chkIsPublicBizArea.SetEnabled(false);
+                        chkIsPublicPlant.SetChecked(false);
+                        chkIsPublicPlant.SetEnabled(false);
+                        chkIsPublicDept.SetChecked(false);
+                        chkIsPublicDept.SetEnabled(false);
+                        chkIsWorkPlace.SetChecked(false);
+                        chkIsWorkPlace.SetEnabled(false);
+                        switch (lgAccount.UserKindCd) {
+                            case "L":
+                                chkIsLocalPartner.SetChecked(true);
+                                chkIsLocalPartner.SetEnabled(false);
+                                break;
+                            case "P":
+                                chkIsCustomer.SetChecked(true);
+                                chkIsCustomer.SetEnabled(false);
+                                break;
+                            case "S":
+                                chkIsExternalPartner.SetChecked(true);
+                                chkIsExternalPartner.SetEnabled(false);
+                                break;
+                        }
+                    }
+                }
+            };
+            this.popWrite_BeginCallback = function (s, e) {
+                if (!popWrite.Loaded) {
+                    eni.Loading.DisplayStatusLoading(true, eni.Message.StrBundle("MSGBD00129"));
+                } else {
+                    eni.Loading.DisplayStatusLoading(true);
+                }
+            };
+            this.popWrite_EndCallback = function (s, e) {
+                eni.Loading.DisplayStatusLoading(false);
+            };
+            this.popWrite_Shown = function (s, e) {
+                if (!popWrite.Loaded) {
+                    s.CreateWrite();
+                } else {
+                    ldpWriteLoader.Hide();
+                    s.Focus();
+                    if (s.AfterShownCallback) {
+                        s.AfterShownCallback();
+                    }
+                }
+            };
+            this.cboCategory_ValueChanged = function (s, e) {
+                eni.LocalPage.SetChangeData();
+                var item = cboCategory.GetSelectedItem();
+                if (String(item.value).toLowerCase() == "bbs_dept") {
+                    cboCategoryGroup.SetEnabled(true);
+                    cboCategoryGroup.SetVisible(true);
+                } else {
+                    cboCategoryGroup.SetSelectedIndex(0)
+                    cboCategoryGroup.SetEnabled(false);
+                    cboCategoryGroup.SetVisible(false);
+                }
+                var regExp = /[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi;
+                var str_caption = item.text.trim();
+                if (regExp.test(str_caption)) {
+                    str_caption = str_caption.replace(regExp, "")
+                }
+                var size = str_caption.length < 10 ? 10 : str_caption.length;
+                cboCategory.SetWidth(size * 13);
+            };
+            this.chkIsNotice_ValueChanged = function (s, e) {
+                eni.LocalPage.SetChangeData();
+                if (chkIsNotice.GetChecked()) {
+                    popWrite.notice_date.show();
+                    colSubject.SetText("#FF9900");
+                } else {
+                    popWrite.notice_date.hide();
+                    colSubject.SetText("#000111");
+                }
+            };
+            this.txtSubject_ValueChanged = function (s, e) {
+                eni.LocalPage.SetChangeData();
+                var str_subject = txtSubject.GetText();
+                if (str_subject.length > 10) {
+                    str_subject = str_subject.substring(0, 10) + "..."
+                }
+                if (hidFields.Get("mv") == "new") {
+                    eni.SetTitle(str_subject + " - " + hidFields.Get("scnm") + " : " + eni.CommonVariable.QuickName);
+                } else {
+                    eni.SetTitle(str_subject + " : " + eni.CommonVariable.QuickName);
+                }
+            };
+            this.dteNoticeEnd_ValueChanged = function (s, e) {
+                eni.LocalPage.SetChangeData();
+                if (dteNoticeEnd.GetDate() < eni.Date.GetCurrentDate()) {
+                    eni.Message.DisplayCodeMsgBox("MSGBD00001", "MSGBD00121");
+                    dteNoticeEnd.SetDate(eni.Date.GetCurrentDate());
+                }
+            };
+            this.btnAttachFromWebHard_Click = function (s, e) {
+                eni.Message.DisplayBundleMsgBox("common.devtime", "common.devtime");
+            };
+            this.upcAttachment_FileUploadStart = function (s, e) {
+                popUploadStatus.ShowUploadStatus();
+            };
+            this.upcAttachment_FileUploadComplete = function (s, e) {
+                var data = JSON.parse(e.callbackData);
+                var cur_idx = popWrite.Attachments.length;
+                popWrite.Attachments[cur_idx] = data;
+                if (txtSubject.GetText() == "" && firstSetSubject == false && cur_idx == 0) {
+                    txtSubject.SetValue('<%= GetResource("CSTRESX00145")%> ' + popWrite.Attachments[cur_idx].file_name);
+                    eni.LocalPage.txtSubject_ValueChanged();
+                    firstSetSubject = true;
+                }
+            };
+            this.upcAttachment_UploadingProgressChanged = function (s, e) {
+                popUploadStatus.SetChangeUploadingStatus(e);
+            };
+            this.upcAttachment_FilesUploadComplete = function (s, e) {
+                eni.LocalPage.SetChangeData();
+                popUploadStatus.CloseUploadStatus();
+                gdvAttachList.PerformCallback(JSON.stringify(popWrite.Attachments));
+            };
+            this.btnFileUploadCancel_Click = function (s, e) {
+                //파일 첨부 취소시 파일 삭제 메커니즘 개발
+                //upcAttachment.Cancel();
+                //popUpload.Hide();
+            };
+            this.btnAttachFileDel_Click = function (s, e) {
+                if (gdvAttachList.GetSelectedRowCount() <= 0) {
+                    eni.Message.DisplayCodeMsgBox("MSGBD00001", "MSGBD00129");
+                    return;
+                }
+                var data = String(gdvAttachList.GetSelectedKeysOnPage()).split(",");
+                data.forEach(function (item, idx, array) {
+                    popWrite.Attachments.forEach(function (attr, idx2, attr_array) {
+                        if (item == attr.temp_file_name) {
+                            attr.deleted = "Y";
+                        }
+                    });
+                });
+                gdvAttachList.PerformCallback(JSON.stringify(popWrite.Attachments));
+            };
+            this.gdvAttachList_BeginCallback = function (s, e) {
+                eni.Loading.DisplayStatusLoading(true);
+            };
+            this.gdvAttachList_EndCallback = function (s, e) {
+                if (popWrite.Attachments) {
+                    eni.Loading.DisplayStatusLoading(false);
+                    popWrite.Attachments = popWrite.Attachments.filter(function (item, index, array) {
+                        return item.deleted == "N";
+                    });
+                    if (popWrite.Attachments.length > 0) {
+                        popWrite.GetButton("attachment").Expand();
+                        btnAttachFileDel.SetEnabled(true);
+                    } else {
+                        popWrite.GetButton("attachment").UnExpand();
+                        btnAttachFileDel.SetEnabled(false);
+                    }
+                }
+            };
+            this.rdolPublicSetting_SelectedIndexChanged = function (s, e) {
+                eni.LocalPage.SetChangeData();
+                if (lgAccount.UserGubunCd != "D") {
+                    chkIsPublicBizArea.SetChecked(false);
+                    chkIsPublicBizArea.SetEnabled(false);
+                    chkIsPublicPlant.SetChecked(false);
+                    chkIsPublicPlant.SetEnabled(false);
+                    chkIsPublicDept.SetChecked(false);
+                    chkIsPublicDept.SetEnabled(false);
+                    chkIsWorkPlace.SetChecked(false);
+                    chkIsWorkPlace.SetEnabled(false);
+                    switch (lgAccount.UserKindCd) {
+                        case "L":
+                            chkIsLocalPartner.SetChecked(true);
+                            chkIsLocalPartner.SetEnabled(false);
+                            break;
+                        case "P":
+                            chkIsCustomer.SetChecked(true);
+                            chkIsCustomer.SetEnabled(false);
+                            break;
+                        case "S":
+                            chkIsExternalPartner.SetChecked(true);
+                            chkIsExternalPartner.SetEnabled(false);
+                            break;
+                    }
+                }
+
+                if (rdolPublicSetting.GetSelectedIndex() == 0) {
+                    chkIsCustomer.SetEnabled(true);
+                    chkIsExternalPartner.SetEnabled(true);
+                } else {
+                    chkIsCustomer.SetEnabled(false);
+                    chkIsExternalPartner.SetEnabled(false);
+                }
+            };
+            this.chkIsPublicBizArea_CheckedChanged = function (s, e) {
+                eni.LocalPage.SetChangeData();
+                if (lgAccount.UserGubunCd != "D") {
+                    chkIsPublicBizArea.SetChecked(false);
+                    chkIsPublicBizArea.SetEnabled(false);
+                    chkIsPublicPlant.SetChecked(false);
+                    chkIsPublicPlant.SetEnabled(false);
+                    chkIsPublicDept.SetChecked(false);
+                    chkIsPublicDept.SetEnabled(false);
+                    chkIsWorkPlace.SetChecked(false);
+                    chkIsWorkPlace.SetEnabled(false);
+                    switch (lgAccount.UserKindCd) {
+                        case "L":
+                            chkIsLocalPartner.GetChecked(true);
+                            chkIsLocalPartner.SetEnabled(false);
+                            break;
+                        case "P":
+                            chkIsCustomer.GetChecked(true);
+                            chkIsCustomer.SetEnabled(false);
+                            break;
+                        case "S":
+                            chkIsExternalPartner.GetChecked(true);
+                            chkIsExternalPartner.SetEnabled(false);
+                            break;
+                    }
+                } else {
+                    if (chkIsPublicBizArea.GetChecked() == false) {
+                        chkIsPublicPlant.SetChecked(false);
+                        chkIsPublicDept.SetChecked(false);
+                    }
+                }
+            };
+            this.chkIsPublicPlant_CheckedChanged = function (s, e) {
+                eni.LocalPage.SetChangeData();
+                if (lgAccount.UserGubunCd != "D") {
+                    chkIsPublicBizArea.SetChecked(false);
+                    chkIsPublicBizArea.SetEnabled(false);
+                    chkIsPublicPlant.SetChecked(false);
+                    chkIsPublicPlant.SetEnabled(false);
+                    chkIsPublicDept.SetChecked(false);
+                    chkIsPublicDept.SetEnabled(false);
+                    chkIsWorkPlace.SetChecked(false);
+                    chkIsWorkPlace.SetEnabled(false);
+                    switch (lgAccount.UserKindCd) {
+                        case "L":
+                            chkIsLocalPartner.GetChecked(true);
+                            chkIsLocalPartner.SetEnabled(false);
+                            break;
+                        case "P":
+                            chkIsCustomer.GetChecked(true);
+                            chkIsCustomer.SetEnabled(false);
+                            break;
+                        case "S":
+                            chkIsExternalPartner.GetChecked(true);
+                            chkIsExternalPartner.SetEnabled(false);
+                            break;
+                    }
+                } else {
+                    if (chkIsPublicPlant.GetChecked()) {
+                        chkIsPublicBizArea.SetChecked(true);
+                        chkIsPublicBizArea.SetEnabled(false);
+                    } else {
+                        chkIsPublicBizArea.SetEnabled(true);
+                    }
+                }
+            };
+            this.chkIsPublicDept_CheckedChanged = function (s, e) {
+                eni.LocalPage.SetChangeData();
+                if (lgAccount.UserGubunCd != "D") {
+                    chkIsPublicBizArea.SetChecked(false);
+                    chkIsPublicBizArea.SetEnabled(false);
+                    chkIsPublicPlant.SetChecked(false);
+                    chkIsPublicPlant.SetEnabled(false);
+                    chkIsPublicDept.SetChecked(false);
+                    chkIsPublicDept.SetEnabled(false);
+                    chkIsWorkPlace.SetChecked(false);
+                    chkIsWorkPlace.SetEnabled(false);
+                    switch (lgAccount.UserKindCd) {
+                        case "L":
+                            chkIsLocalPartner.GetChecked(true);
+                            chkIsLocalPartner.SetEnabled(false);
+                            break;
+                        case "P":
+                            chkIsCustomer.GetChecked(true);
+                            chkIsCustomer.SetEnabled(false);
+                            break;
+                        case "S":
+                            chkIsExternalPartner.GetChecked(true);
+                            chkIsExternalPartner.SetEnabled(false);
+                            break;
+                    }
+                } else {
+                    if (chkIsPublicDept.GetChecked()) {
+                        chkIsPublicBizArea.SetChecked(true);
+                        chkIsPublicBizArea.SetEnabled(false);
+                        chkIsPublicPlant.SetChecked(true);
+                        chkIsPublicPlant.SetEnabled(false);
+                    } else {
+                        chkIsPublicPlant.SetEnabled(true);
+                    }
+                }
+            };
+            this.cbWriteProcess_BeginCallback = function (s, e) {
+                eni.Loading.DisplayStatusLoading(true);
+            };
+            this.cbWriteProcess_CallbackComplete = function (s, e) {
+                eni.Loading.DisplayStatusLoading(false);
+                var cb_r_args = BaseCallbackResultArgsClass.Deserialize(e.result);
+                if (cb_r_args.Error == true) {
+                    eni.Message.DisplayMsgBox(eni.Message.StrBundle("common.error"), cb_r_args.ErrorMessage);
+                    return;
+                }
+                switch (cb_r_args.Cmd) {
+                    case "save":
+                        if (!cb_r_args.Code) {
+                            if (hidFields.Contains("parent_bid")) hidFields.Remove("parent_bid");
+                            if (hidFields.Contains("tmp_bid")) hidFields.Remove("tmp_bid");
+                            if (hidFields.Get("mv") == "new" || hidFields.Get("mv") == "re") {
+                                eni.LocalPage.DisplayChange("read", cb_r_args.bccd, $categorys.GetCategoryByCdOrName(cb_r_args.bccd), cb_r_args.bid);
+                            } else {
+                                eni.LocalPage.DisplayChange("read", hidFields.Get("bccd"), hidFields.Get("bcnm"), hidFields.Get("bid"));
+                            }
+                        } else {
+                            eni.Message.DisplayMsgBox(eni.Message.StrBundle("common.error"), cb_r_args.Message);
+                        }
+                        break;
+                    case "save_temp":
+                        if (!cb_r_args.Code) {
+                            //tmAutoSave.SetEnabled(false);
+                            //lgBlnFlgChgValue = false;
+                            hidFields.Set("tmp_bid", cb_r_args.mid);
+                            //var nowTime = "현재까지 작성된 본문이 " + eni.Date.GetCurrentTimeString() + " 에 임시저장 되었습니다.";
+                            //$autoSaveMsg[0].innerText = nowTime;
+                        } else {
+                            eni.Message.DisplayMsgBox(eni.Message.StrBundle("common.error"), cb_r_args.Message);
+                        }
+                        break;
+                    case "re":
+                    case "edit":
+                    case "tmp":
+                        if (!cb_r_args.Code) {
+                            if (cb_r_args.Cmd == "edit") {
+                                if (cb_r_args.attachments && cb_r_args.file_cnt > 0) {
+                                    popWrite.Attachments = cb_r_args.attachments;
+                                    gdvAttachList.PerformCallback(JSON.stringify(cb_r_args.attachments));
+                                } else {
+                                    gdvAttachList.PerformCallback("");
+                                }
+                            } else {
+                                gdvAttachList.PerformCallback("");
+                            }
+                            popWrite.AfterShownCallback = function () {
+                                cboCategory.SetValue(cb_r_args.category_cd);
+                                if (cb_r_args.category_cd == "BBS_DEPT") {
+                                    eni.LocalPage.cboCategory_ValueChanged();
+                                    cboCategoryGroup.SetValue(cb_r_args.category_group_cd);
+                                }
+                                if (cb_r_args.Cmd != "re") {
+                                    cboPreface.SetValue(cb_r_args.preface_cd);
+                                    if (cb_r_args.notice_yn == "Y") {
+                                        chkIsNotice.SetChecked(true);
+                                        eni.LocalPage.chkIsNotice_ValueChanged();
+                                        dteNoticeEnd.SetText(cb_r_args.notice_to);
+                                    }
+                                    txtSubject.SetText(cb_r_args.subject);
+                                    colSubject.SetText(cb_r_args.subject_color);
+                                    if (cb_r_args.subject_bold_yn == "Y") {
+                                        chkUseBold.SetChecked(true);
+                                    }
+                                    popWrite.Editor.setIR(cb_r_args.htmlbody);
+                                    txtTags.SetText(cb_r_args.tag);
+
+                                    if ((Number(cb_r_args.options_flag) & 1) == 1) {
+                                        chkIsSearch.SetChecked(true);
+                                    }
+                                    if (lgAccount.UserGubunCd != "D") {
+                                        chkIsPublicBizArea.SetChecked(false);
+                                        chkIsPublicBizArea.SetEnabled(false);
+                                        chkIsPublicPlant.SetChecked(false);
+                                        chkIsPublicPlant.SetEnabled(false);
+                                        chkIsPublicDept.SetChecked(false);
+                                        chkIsPublicDept.SetEnabled(false);
+                                        chkIsWorkPlace.SetChecked(false);
+                                        chkIsWorkPlace.SetEnabled(false);
+                                        if ((Number(cb_r_args.options_flag) & 2) == 2) {
+                                            rdolPublicSetting.SetValue("L");
+                                        } else {
+                                            rdolPublicSetting.SetValue("A");
+                                            chkIsCustomer.GetChecked(false);
+                                            chkIsCustomer.SetEnabled(true);
+                                            chkIsExternalPartner.GetChecked(false);
+                                            chkIsExternalPartner.SetEnabled(true);
+                                        }
+                                        switch (lgAccount.UserKindCd) {
+                                            case "L":
+                                                chkIsLocalPartner.GetChecked(true);
+                                                chkIsLocalPartner.SetEnabled(false);
+                                                break;
+                                            case "P":
+                                                chkIsCustomer.GetChecked(true);
+                                                chkIsCustomer.SetEnabled(false);
+                                                break;
+                                            case "S":
+                                                chkIsExternalPartner.GetChecked(true);
+                                                chkIsExternalPartner.SetEnabled(false);
+                                                break;
+                                        }
+                                    } else {
+                                        if ((Number(cb_r_args.options_flag) & 2) == 2) {
+                                            rdolPublicSetting.SetValue("L");
+                                        } else {
+                                            rdolPublicSetting.SetValue("A");
+                                            chkIsCustomer.SetEnabled(true);
+                                            chkIsExternalPartner.SetEnabled(true);
+                                        }
+                                    }
+                                    if ((Number(cb_r_args.options_flag) & 4) == 4) {
+                                        chkIsPublicBizArea.SetChecked(true);
+                                    }
+                                    if ((Number(cb_r_args.options_flag) & 8) == 8) {
+                                        chkIsPublicPlant.SetChecked(true);
+                                    }
+                                    if ((Number(cb_r_args.options_flag) & 16) == 16) {
+                                        chkIsPublicDept.SetChecked(true);
+                                    }
+                                    if ((Number(cb_r_args.options_flag) & 32) == 32) {
+                                        chkIsWorkPlace.SetChecked(true);
+                                    }
+                                    if ((Number(cb_r_args.options_flag) & 64) == 64) {
+                                        chkIsLocalPartner.SetChecked(true);
+                                    }
+                                    if ((Number(cb_r_args.options_flag) & 128) == 128) {
+                                        chkIsCustomer.SetChecked(true);
+                                    }
+                                    if ((Number(cb_r_args.options_flag) & 256) == 256) {
+                                        chkIsExternalPartner.SetChecked(true);
+                                    }
+                                } else {
+                                    hidFields.Set("bid", 0);
+                                    txtSubject.SetText(cb_r_args.subject);
+                                    popWrite.Editor.setIR(cb_r_args.htmlbody);
+                                }
+                                this.AfterShownCallback = null;
+                            };
+                            eni.LocalPage.ChangeMVMode(cb_r_args.Cmd);
+                        } else {
+                            eni.Message.DisplayMsgBox(eni.Message.StrBundle("common.error"), cb_r_args.Message);
+                        }
+                        break;
+                }
+            };
+            this.cbProcess_BeginCallback = function (s, e) {
+                eni.Loading.DisplayStatusLoading(true);
+            };
+            this.cbProcess_CallbackComplete = function (s, e) {
+                return;
+                var cb_r_args = BaseCallbackResultArgsClass.Deserialize(e.result);
+
+                eni.Loading.DisplayStatusLoading(false);
+
+                if (cb_r_args.Error == true) {
+                    eni.Message.DisplayMsgBox(eni.Message.StrBundle("common.error"), cb_r_args.ErrorMessage);
+                    return;
+                }
+
+                switch (cb_r_args.Cmd) {
+                    case "list":
+                        switch (cb_r_args.CmdDetail) {
+                            case "read_state":
+                                chkAllSelectRow.SetChecked(false);
+                                trlList.UnselectAllRowsOnPage();
+                                break;
+                            case "flagged":
+                                chkAllSelectRow.SetChecked(false);
+                                trlList.UnselectAllRowsOnPage();
+                                break;
+                        }
+                        break;
+                    case "read":
+                        switch (cb_r_args.CmdDetail) {
+                            case "read_state":
+                                break;
+                            case "flagged":
+                                break;
+                        }
+                        break;
+                }
+            };
+            this.IsCallbackProcess = function () {
+                return trlList.InCallback() || cbProcess.InCallback() || popRead.InCallback() || popWrite.InCallback();
+            };
+            this.CreateCurrentRow = function (row_main_el) {
+                var cur_row = jQuery(row_main_el);
+                cur_row.bccd = cur_row.attr("bccd");
+                cur_row.bid = cur_row.attr("bid");
+                cur_row.user_id = cur_row.attr("user_id");
+                return cur_row;
+            };
+            this.SetChangeData = function () {
+                lgBlnFlgChgValue = true;
+                mnToolbar.GetItemByName("btnSave").SetEnabled(true);
+                mnToolbar.GetItemByName("btnSaveTemp").SetEnabled(true);
+                mnToolbar.GetItemByName("btnCancel").SetEnabled(true);
+            };
+            this.DisplayChange = function (strMode, bbs_category_cd, bbs_category_name, bbs_id) {
+                strMode = String(strMode).toLocaleLowerCase();
+                var org_mode                = hidFields.Get("mv");
+                var org_category_cd         = hidFields.Get("sccd");
+                var org_category_name       = hidFields.Get("scnm");
+                var org_category_option = hidFields.Get("scop");
+                var org_category_option_name = hidFields.Get("scopnm");
+                var cur_category = $categorys.GetCurrentCategory();
+                var cur_category_cd = cur_category.category_cd;
+                var cur_category_name = cur_category.category_name;
+                var cur_category_option = cur_category.category_option;
+                var cur_category_option_name = cur_category.category_option_name;
+                var org_bbs_id = hidFields.Get("bid");
+                var req_url = "";
+
+                if (org_mode != strMode) {
+                    history_set = true;
+                    hidFields.Set("prov_mv", org_mode);
+                    hidFields.Set("mv", strMode);
+                }
+                req_url += "?mv=" + strMode;
+                if ((org_category_cd != cur_category_cd) || (cur_category_cd == "bbs_all" && org_category_option != cur_category_option)) {
+                    history_set = true;
+                    hidFields.Set("sccd", cur_category_cd);
+                    hidFields.Set("scnm", cur_category_name);
+                    if (cur_category_cd == 0) {
+                        hidFields.Set("scop", cur_category.category_option);
+                        hidFields.Set("scopnm", cur_category.category_option_name);
+                    }
+                }
+                if (cur_category_cd) {
+                    req_url += "&sccd=" + cur_category_cd;
+                    req_url += "&scnm=" + cur_category_name;
+                    if (cur_category_cd == 0) {
+                        req_url += "&scop=" + cur_category.category_option;
+                        req_url += "&scopnm=" + cur_category.category_option_name;
+                    }
+                }
+                if (bbs_id) {
+                    history_set = true;
+                    hidFields.Set("bccd", bbs_category_cd);
+                    hidFields.Set("bcnm", bbs_category_name);
+                    hidFields.Set("bid", bbs_id);
+                }
+                if (strMode == "re") {
+                    hidFields.Set("parent_bid", bbs_id);
+                } else if (strMode == "tmp") {
+                    hidFields.Set("tmp_bid", bbs_id);
+                }
+                if (bbs_category_cd) {
+                    req_url += "&bccd=" + bbs_category_cd ;
+                    req_url += "&bcnm=" + bbs_category_name;
+                }
+                if (bbs_id) {
+                    req_url += "&bid=" + bbs_id;
+                }
+                if (history_set) {
+                    var data = {
+                        prov_mv: org_mode,
+                        category_name: bbs_category_name
+                    };
+                    var path_name = window.location.pathname;
+                    path_name = path_name.substr(0, path_name.lastIndexOf("/")) + "/" + cur_category_cd;
+                    History.pushState(data, document.title, path_name + req_url);
+                }
+                switch (strMode) {
+                    case "list":
+                        if (org_category_cd == cur_category_cd && org_category_option == cur_category_option) {
+                            eni.LocalPage.ChangeMVMode(strMode);
+                        } else {
+                            trlList.PerformCallback();
+                        }
+                        break;
+                    case "read":
+                        if (org_mode != strMode || org_bbs_id != bbs_id) {
+                            var cbArgs = new BaseCallbackArgsClass();
+                            cbArgs.bccd = bbs_category_cd ;
+                            cbArgs.bid = cur_bbs_id = bbs_id;
+                            popRead.PerformCallback(cbArgs.Serialize());
+                        } else {
+                            eni.LocalPage.ChangeMVMode(strMode);
+                        }
+                        break;
+                    case "new":
+                        if (popWrite.Loaded || org_mode == strMode) {
+                            popWrite.Clear();
+                        }
+                        eni.LocalPage.ChangeMVMode(strMode);
+                        break;
+                    case "re":
+                    case "edit":
+                    case "tmp":
+                        if (popWrite.Loaded) {
+                            popWrite.Clear();
+                        }
+                        cbArgs = new BaseCallbackArgsClass();
+                        cbArgs.cmd = strMode;
+                        cbArgs.bccd = bbs_category_cd ;
+                        cbArgs.bid = bbs_id;
+                        cbWriteProcess.PerformCallback(cbArgs.Serialize());
+                        break;
+                }
+            };
+            this.ChangeMVMode = function (strMode) {
+                if (hidFields.Get("mv") != strMode) {
+                    hidFields.Set("prov_mv", hidFields.Get("mv"));
+                    hidFields.Set("mv", strMode);
+                }
+                strMode = String(strMode).toLocaleLowerCase();
+                switch (strMode) {
+                    case "list":
+                        mnToolbar.GetItemByName("btnWrite").SetVisible(true);
+                        mnToolbar.GetItemByName("btnPrev").SetVisible(false);
+                        mnToolbar.GetItemByName("btnNext").SetVisible(false);
+                        mnToolbar.GetItemByName("btnReply").SetVisible(false);
+                        mnToolbar.GetItemByName("btnEdit").SetVisible(false);
+                        mnToolbar.GetItemByName("btnDelete").SetVisible(false);
+                        mnToolbar.GetItemByName("btnList").SetVisible(false);
+                        mnToolbar.GetItemByName("btnSave").SetVisible(false);
+                        mnToolbar.GetItemByName("btnSaveTemp").SetVisible(false);
+                        mnToolbar.GetItemByName("btnCancel").SetVisible(false);
+                        if (popRead.IsVisible()) {
+                            popRead.Hide();
+                        }
+                        if (popWrite.IsVisible()) {
+                            popWrite.Hide();
+                        }
+                        break;
+                    case "read":
+                        if (popWrite.IsVisible()) {
+                            popWrite.Hide();
+                        }
+                        popRead.Show();
+                        mnToolbar.GetItemByName("btnWrite").SetVisible(false);
+                        mnToolbar.GetItemByName("btnSave").SetVisible(false);
+                        mnToolbar.GetItemByName("btnSaveTemp").SetVisible(false);
+                        mnToolbar.GetItemByName("btnCancel").SetVisible(false);
+                        mnToolbar.GetItemByName("btnPrev").SetVisible(true);
+                        mnToolbar.GetItemByName("btnNext").SetVisible(true);
+                        mnToolbar.GetItemByName("btnReply").SetVisible(true);
+                        if ($cur_bbs.user_id.toLocaleLowerCase() == lgAccount.UserId.toLocaleLowerCase() || lgAccount.AdminYn == "Y") {
+                            mnToolbar.GetItemByName("btnEdit").SetVisible(true);
+                            mnToolbar.GetItemByName("btnDelete").SetVisible(true);
+                        } else {
+                            mnToolbar.GetItemByName("btnEdit").SetVisible(false);
+                            mnToolbar.GetItemByName("btnDelete").SetVisible(false);
+                        }
+                        mnToolbar.GetItemByName("btnList").SetVisible(true);
+                        break;
+                    case "new":
+                    case "re":
+                    case "edit":
+                    case "tmp":
+                        ldpWriteLoader.Show();
+                        if (popRead.IsVisible()) {
+                            popRead.Hide();
+                        }
+                        if (!popWrite.Loaded) {
+                            popWrite.BeforShow();
+                        }
+                        if (!popWrite.IsVisible()) {
+                            popWrite.Show();
+                            mnToolbar.GetItemByName("btnWrite").SetVisible(false);
+                            mnToolbar.GetItemByName("btnPrev").SetVisible(false);
+                            mnToolbar.GetItemByName("btnNext").SetVisible(false);
+                            mnToolbar.GetItemByName("btnReply").SetVisible(false);
+                            mnToolbar.GetItemByName("btnEdit").SetVisible(false);
+                            mnToolbar.GetItemByName("btnSave").SetVisible(true);
+                            mnToolbar.GetItemByName("btnSave").SetEnabled(false);
+                            mnToolbar.GetItemByName("btnSaveTemp").SetVisible(true);
+                            mnToolbar.GetItemByName("btnSaveTemp").SetEnabled(false);
+                            if (strMode == "new" || $cur_bbs.user_id != lgAccount.UserId.toLowerCase()) {
+                                mnToolbar.GetItemByName("btnDelete").SetVisible(false);
+                            } else {
+                                mnToolbar.GetItemByName("btnDelete").SetVisible(true);
+                            }
+                            if (strMode == "edit" || strMode == "tmp") {
+                                mnToolbar.GetItemByName("btnCancel").SetVisible(true);
+                                mnToolbar.GetItemByName("btnCancel").SetEnabled(false);
+                            } else {
+                                mnToolbar.GetItemByName("btnCancel").SetVisible(false);
+                                mnToolbar.GetItemByName("btnCancel").SetEnabled(false);
+                            }
+                            mnToolbar.GetItemByName("btnList").SetVisible(true);
+                        } else {
+                            ldpWriteLoader.Hide();
+                        }
+                        break;
+                }
+                eni.Loading.DisplayStatusLoading(false);
+            };
+        });
+        // ]]>
+    </script>
+</asp:Content>
+
+<%-- 5.컨텐트 Body 부분 --%>
+<asp:Content ContentPlaceHolderID="Sub_Content_Body_Holder" runat="server">
+    <%--<ClientSideEvents ItemClick="eni.LocalPage.popmListMenu_ItemClick" />--%>
+    <%-- 게시판 리스트 추가기능 컨텍스트 팝업 컨트롤 --%>
+    <dx:ASPxPopupMenu ID="popmListMenu" ClientInstanceName="popmListMenu" runat="server" 
+        ShowPopOutImages="True"
+        AutoPostBack="false" 
+        PopupHorizontalAlign="LeftSides" 
+        PopupVerticalAlign="Below" 
+        CloseAction="MouseOut"
+        PopupVerticalOffset="5"
+        GutterWidth="0px">
+        <SeparatorPaddings Padding="0px" />
+        <ItemStyle BackColor="White">
+            <BackgroundImage ImageUrl="none" />
+            <HoverStyle BackColor="#DAF2FF" Border-BorderColor="#BFE7FF"></HoverStyle>
+        </ItemStyle>
+        <SubMenuItemImage Width="0px">
+            <SpriteProperties CssClass="Margin0" />
+        </SubMenuItemImage>
+        <DisabledStyle ForeColor="Silver"></DisabledStyle>
+        <Items>
+            <dx:MenuItem GroupName="Action" Name="btnNewMail" BeginGroup="True" Checked="false" Text="메일쓰기" ToolTip="해당 주소로 새 메일을 작성합니다."></dx:MenuItem>
+            <dx:MenuItem GroupName="Options1" Name="btnCurBoxFromSearch" BeginGroup="True" Checked="false" Text="보낸 사람으로 검색하기" ToolTip="해당 폴더에서 이사람이 보낸메일을 검색합니다." ClientEnabled="false"></dx:MenuItem>
+            <dx:MenuItem GroupName="Options1" Name="btnCurBoxToSearch" Checked="false" Text="받는 사람으로 검색하기" ToolTip="해당 폴더에서 이사람이 받는사람으로 지정된 메일을 검색합니다." ClientEnabled="false"></dx:MenuItem>
+            <dx:MenuItem GroupName="Options1" Name="btnAllBoxFromSearch" Checked="false" Text="보낸 사람으로 검색하기(전체)" ToolTip="전체 폴더에서 이사람이 보낸메일을 검색합니다." ClientEnabled="false"></dx:MenuItem>
+            <dx:MenuItem GroupName="Options1" Name="btnAllBoxToSearch" Checked="false" Text="받는 사람으로 검색하기(전체)" ToolTip="전체 폴더에서 이사람이 받는사람으로 지정된 메일을 검색합니다." ClientEnabled="false"></dx:MenuItem>
+            <dx:MenuItem GroupName="Options2" Name="btnReqRespMail" BeginGroup="True" Checked="false" Text="주고받은 메일 표시" ToolTip="이 사람과 주고 받은 메세지를 확인합니다." ClientEnabled="false"></dx:MenuItem>
+            <dx:MenuItem GroupName="Options3" Name="btnApplayFlaged" BeginGroup="True" Checked="false" Text="중요 플레그 지정하기" ToolTip="선택된 주소로 들어오는 메일은 중요 플레그를 자동으로 추가합니다." ClientEnabled="false"></dx:MenuItem>
+            <dx:MenuItem GroupName="Options3" Name="btnAddContact" Checked="false" Text="주소추가" ToolTip="이 사람을 주소록에 추가합니다." ClientEnabled="false"></dx:MenuItem>
+            <dx:MenuItem GroupName="Options4" Name="btnAddBlockList" BeginGroup="True" Checked="false" Text="차단하기" ToolTip="이 사람을 차단합니다." ClientEnabled="false"></dx:MenuItem>
+            <dx:MenuItem GroupName="Options4" Name="btnReceiveDelete" Checked="false" Text="받은 메일 모두 삭제" ToolTip="이 사람에게 받은 메일을 모두 삭제합니다." ClientEnabled="false"></dx:MenuItem>
+        </Items>
+    </dx:ASPxPopupMenu>
+
+    <%-- 게시판 읽기 팝업 컨트롤 --%>
+    <eni:eniPopupControl ID="popRead" ClientInstanceName="popRead" SkinID="BoardRead" runat="server"
+        AllowResize="false" CloseAction="CloseButton" PopupAnimationType="Fade" CloseAnimationType="Fade" PopupHorizontalOffset="231" PopupVerticalOffset="71"
+        ShowHeader="false" ShowFooter="false" ShowShadow="false" ScrollBars="Auto" Cursor="auto"
+        OnWindowCallback="popRead_WindowCallback">
+        <ClientSideEvents BeginCallback="eni.LocalPage.popRead_BeginCallback"
+                            EndCallback="eni.LocalPage.popRead_EndCallback"/>
+        <SettingsLoadingPanel Enabled="false" />
+        <Border BorderWidth="0px" />
+        <ContentCollection>
+            <dx:PopupControlContentControl ID="win_read" runat="server">
+                <div id="con_title" class="con_title">
+                    <dl>
+                        <dt class="subject">
+                            <eni:eniLabel ID="lblSubject" runat="server" CssClass="Font-Bold Font-Large"></eni:eniLabel>
+                        </dt>
+                        <dd class="category_nm">
+                            <eni:eniHyperLink id="hlCategoryName" ClientInstanceName="hlCategoryName" runat="server"
+                                Cursor="pointer" ForeColor="Black">
+                            </eni:eniHyperLink>
+                        </dd>
+                        <dd class="write_date">
+                            <eni:eniLabel ID="lblDate" ClientInstanceName="lblDate" runat="server"
+                                Width="100px" ForeColor="#BFBFBF" CssClass="Font-Align-Right">
+                            </eni:eniLabel>
+                        </dd>
+                    </dl>
+                    <dl class="Padding10B BorderBottomClear">
+                        <dt class="writer_nm">
+                            <eni:eniHyperLink ID="hlWriter" ClientInstanceName="hlWriter" runat="server" Cursor="pointer" ForeColor="Black">
+                            </eni:eniHyperLink>
+                        </dt>
+                        <dd class="link_url">
+                            <eni:eniLabel ID="lblBoardUrl" runat="server"></eni:eniLabel>
+                        </dd>
+                    </dl>
+                </div>
+                <div id="con_body" class="con_body">
+                    <asp:PlaceHolder ID="phBody" runat="server"></asp:PlaceHolder>
+                    <div class="comment_info">
+                        <ul>
+                            <li class="column" style="width:50px;">
+                                <span><%= GetResource("CSTRESX00100")%> <eni:eniLabel ID="lblCommentCnt" ClientInstanceName="lblCommentCnt" runat="server"></eni:eniLabel><%= GetResource("CSTRESX00101")%></span>
+                            </li>
+                            <li class="column" style="width:60px;">
+                                <span><%= GetResource("CSTRESX00102")%> <eni:eniLabel ID="lblVisitCnt" ClientInstanceName="lblVisitCnt" runat="server"></eni:eniLabel></span>
+                            </li>
+                            <li class="column" style="width:50px;">
+                                <span><%= GetResource("CSTRESX00103")%> <eni:eniLabel ID="lblReCommendCnt" ClientInstanceName="lblReCommendCnt" runat="server"></eni:eniLabel></span>
+                            </li>
+                            <li class="print" style="width:50px;">
+                                <eni:eniHyperLink ID="hlPrint" ClientInstanceName="hlPrint" runat="server" 
+                                    Width="40px" ForeColor="Black"
+                                    Text="인쇄"
+                                    ToolTip="아직은 지원하지 않습니다.">
+                                </eni:eniHyperLink>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <!-- 덧글 정보부 -->
+                        <dx:ASPxPanel ID="eniPnlReadFooterInfo" ClientInstanceName="eniPnlReadFooterInfo" CssClass="eniPnlReadFooterInfo" runat="server" 
+                            Width="100%" Height="28px"
+                            Paddings-PaddingLeft="5px"
+                            Paddings-PaddingRight="5px"
+                            Paddings-PaddingTop="5px"
+                            Paddings-PaddingBottom="5px" Visible="false">
+                            <PanelCollection>
+                                <dx:PanelContent>
+                                    <asp:Table runat="server" CssClass="FullScreen">
+                                        <asp:TableRow>
+                                            <asp:TableCell Width="60px" runat="server" CssClass="Padding10R" HorizontalAlign="Center" style="border-right:1px solid #BFBFBF;">
+                                            
+                                            </asp:TableCell>
+                                            <asp:TableCell Width="60px" runat="server" CssClass="Padding10LR" HorizontalAlign="Center" style="border-right:1px solid #BFBFBF;">
+                                            
+                                            </asp:TableCell>
+                                            <asp:TableCell Width="60px" CssClass="Padding10L" HorizontalAlign="Center">
+                                            
+                                            </asp:TableCell>
+                                            <asp:TableCell></asp:TableCell>
+                                            <asp:TableCell Width="40px">
+                                            
+                                            </asp:TableCell>
+                                        </asp:TableRow>
+                                    </asp:Table>
+                                </dx:PanelContent>
+                            </PanelCollection>
+                        </dx:ASPxPanel>
+                    </div>
+                    <div>
+                        <dx:ASPxPanel ID="eniPnlReadFooterCommentList" ClientInstanceName="eniPnlReadFooterCommentList" CssClass="eniPnlReadFooterCommentList command_wrap" runat="server"
+                            BackColor="#F0F0F0"
+                            Paddings-PaddingLeft="15px"
+                            Paddings-PaddingRight="15px"
+                            Paddings-PaddingTop="15px"
+                            Paddings-PaddingBottom="15px">
+                            <PanelCollection>
+                                <dx:PanelContent>
+                                    <asp:Table runat="server">
+                                        <asp:TableRow>
+                                            <asp:TableCell>
+                                                <% //게시물 덧글 리스트 %>
+                                                <eni:eniTreeList ID="trlCommentList" ClientInstanceName="trlCommentList" runat="server" CssClass="Margin10B"
+                                                    Width="100%" KeyFieldName="CMT_NO" ParentFieldName="PARENT_CMT_NO" AutoGenerateColumns="False" DataCacheMode="Enabled" ClientVisible="false"
+                                                    Settings-ShowRoot="False" 
+                                                    Settings-ShowColumnHeaders="False"
+                                                    Settings-ShowTreeLines="False" 
+                                                    SettingsBehavior-AllowDragDrop="False" 
+                                                    SettingsBehavior-AllowSort="False" 
+                                                    SettingsBehavior-FocusNodeOnLoad="False" 
+                                                    SettingsBehavior-AutoExpandAllNodes="True" 
+                                                    SettingsBehavior-FocusNodeOnExpandButtonClick="False" 
+                                                    SettingsDataSecurity-AllowDelete="False" 
+                                                    SettingsDataSecurity-AllowEdit="False" 
+                                                    SettingsDataSecurity-AllowInsert="False" 
+                                                    SettingsEditing-ConfirmDelete="False"
+                                                    SettingsPager-Visible="False" 
+                                                    StylesEditors-EnableFocusedStyle="False" 
+                                                    Border-BorderWidth="0px"
+                                                    BorderBottom-BorderWidth="1px"
+                                                    BorderBottom-BorderStyle="Dotted"
+                                                    BorderBottom-BorderColor="Silver"
+                                                    Paddings-PaddingBottom="10px"
+                                                    Styles-AlternatingNode-Enabled="False"
+                                                    Styles-Cell-BackColor="#F0F0F0"
+                                                    Styles-Indent-BackColor="#F0F0F0"
+                                                    Styles-IndentWithButton-BackColor="#F0F0F0"
+                                                    OnCustomCallback="trlCommentList_CustomCallback">
+                                                    <ClientSideEvents EndCallback="eni.LocalPage.trlCommentList_EndCallback" />
+                                                    <Columns>
+                                                        <dx:TreeListDataColumn FieldName="COMMENT" ReadOnly="True"></dx:TreeListDataColumn>
+                                                    </Columns>
+                                                    <Images>
+                                                        <ExpandedButton Width="0px" Height="0px"></ExpandedButton>
+                                                    </Images>
+                                                    <Templates>
+                                                        <DataCell>
+                                                            <% //게시물 덧글 %>
+                                                            <asp:Table CssClass="Padding5B" runat="server">
+                                                                <asp:TableRow Height="20px">
+                                                                    <asp:TableCell Width="10px" CssClass="Padding10R" Visible='<%# string.IsNullOrWhiteSpace(Eval("PARENT_CMT_NO").ToString()) == false %>'>
+                                                                        <eni:eniImage runat="server" ImageUrl="~/contents/images/ico-reply.gif"></eni:eniImage>
+                                                                    </asp:TableCell>
+                                                                    <asp:TableCell Width="80px" CssClass="Padding10R">
+                                                                        <eni:eniLabel runat="server" Font-Bold="true"
+                                                                            Text='<%# string.Format("{0}({1})", Eval("USER_ID"), Eval("NAME")) %>' 
+                                                                            ToolTip='<%# string.Format("{0}({1})", Eval("USER_ID"), Eval("NAME")) %>'>
+                                                                        </eni:eniLabel>
+                                                                    </asp:TableCell>
+                                                                    <asp:TableCell Width="50px">
+                                                                        <eni:eniHyperLink ID="hlReComment" ClientInstanceName='<%# string.Format("hlReComment{0}", Eval("CMT_NO")) %>' runat="server" 
+                                                                            Width="100px" Cursor="pointer" ForeColor="#9E9E9E"
+                                                                            Text="답글" ToolTip="답글"
+                                                                            ClientSideEvents-Click='<%# @"function(s, e){ eni.LocalPage.hlReComment_Click(s, e, """ + Eval("CMT_NO") + @"""); }"%>'>
+                                                                        </eni:eniHyperLink>
+                                                                    </asp:TableCell>
+                                                                    <asp:TableCell Width="100%"></asp:TableCell>
+                                                                    <asp:TableCell Width="60px" CssClass="Padding10R Font-Align-Right" Visible='<%# Eval("USER_ID").ToString() != lgACT.UserId ? false : true %>'>
+                                                                        <asp:Table runat="server" CssClass="FullScreen">
+                                                                            <asp:TableRow>
+                                                                                <asp:TableCell runat="server" CssClass="Padding5R" style="border-right:1px solid #BFBFBF;">
+                                                                                    <eni:eniHyperLink ID="hlReCommentEdit" ClientInstanceName='<%# "hlReCommentEdit" + Eval("CMT_NO") %>' runat="server" 
+                                                                                        Cursor="pointer" ForeColor="#9E9E9E"
+                                                                                        Text="수정" ToolTip="수정"
+                                                                                        ClientSideEvents-Click='<%# @"function(s, e){ eni.LocalPage.hlReCommentEdit_Click(s, e, """ + Eval("CMT_NO") + @"""); }"%>' >
+                                                                                    </eni:eniHyperLink>
+                                                                                </asp:TableCell>
+                                                                                <asp:TableCell runat="server" CssClass="Padding5L">
+                                                                                    <eni:eniHyperLink ID="hlReCommentDelete" ClientInstanceName='<%# "hlReCommentDelete" + Eval("CMT_NO") %>' runat="server" 
+                                                                                        Cursor="pointer" ForeColor="#9E9E9E"
+                                                                                        Text="삭제" ToolTip="삭제"
+                                                                                        ClientSideEvents-Click='<%# @"function(s, e){ eni.LocalPage.hlReCommentDelete_Click(s, e, """ + Eval("CMT_NO") + @""", """ + Eval("CATEGORY_CD") + @"""); }"%>' >
+                                                                                    </eni:eniHyperLink>
+                                                                                </asp:TableCell>
+                                                                            </asp:TableRow>
+                                                                        </asp:Table>
+                                                                    </asp:TableCell>
+                                                                    <asp:TableCell Width="80px" CssClass="Padding10L">
+                                                                        <eni:eniLabel runat="server" ForeColor="#BFBFBF"
+                                                                            Text='<%# (DateTime.Parse(Eval("DATE").ToString())).ToShortDateString() == DateTime.Now.ToShortDateString() ? (DateTime.Parse(Eval("DATE").ToString())).ToString("hh:mm:ss") : (DateTime.Parse(Eval("DATE").ToString())).ToString("yy.MM.dd hh:mm") %>'>
+                                                                        </eni:eniLabel>
+                                                                    </asp:TableCell>
+                                                                </asp:TableRow>
+                                                                <asp:TableRow>
+                                                                    <asp:TableCell runat="server" Width="10px" style="padding-right:7px" Visible='<%# string.IsNullOrWhiteSpace(Eval("PARENT_CMT_NO").ToString()) == false %>'></asp:TableCell>
+                                                                    <asp:TableCell runat="server" ColumnSpan='<%# Eval("USER_ID").ToString() != lgACT.UserId ? 4 : 5 %>' CssClass="Padding10TB">
+                                                                        <eni:eniLabel ID="lblContent" ClientInstanceName='<%# "lblContent" + Eval("CMT_NO") %>' Cursor="text" runat="server" Text='<%# Eval("DELETED_YN").ToString() == "N" ? Eval("COMMENT") : string.Format("작성자 {0}({1})에 의해 답글이 삭제되었습니다.", Eval("USER_ID"), Eval("NAME")) %>'></eni:eniLabel>
+                                                                    </asp:TableCell>
+                                                                </asp:TableRow>
+                                                            </asp:Table>
+
+                                                            <!-- 답글 컨트롤 -->
+                                                            <dx:ASPxPanel ID="eniPnlReCommentArea" ClientInstanceName='<%# "eniPnlReCommentArea" + Eval("CMT_NO") %>' runat="server" ClientVisible="false"
+                                                                CssClass="Width100f Padding10T"
+                                                                BorderTop-BorderWidth="1px"
+                                                                BorderTop-BorderStyle="Dotted"
+                                                                BorderTop-BorderColor="Silver">
+                                                                <PanelCollection>
+                                                                    <dx:PanelContent>
+                                                                        <asp:Table CssClass="Width100f" runat="server">
+                                                                            <asp:TableRow>
+                                                                                <asp:TableCell>
+                                                                                    <dx:ASPxMemo ID="mmReComment" ClientInstanceName='<%# "mmReComment" + Eval("CMT_NO") %>' runat="server" 
+                                                                                        CssClass="Width100f" Rows="7">
+                                                                                    </dx:ASPxMemo>
+                                                                                </asp:TableCell>
+                                                                                <asp:TableCell Width="5px"></asp:TableCell>
+                                                                                <asp:TableCell Width="100px" VerticalAlign="Bottom">
+                                                                                    <asp:Table runat="server">
+                                                                                        <asp:TableRow runat="server" CssClass="Font-Align-Center">
+                                                                                            <asp:TableCell CssClass="Padding15B">
+                                                                                                <eni:eniHyperLink ID="hlReCommentEditCancel" ClientInstanceName='<%# "hlReCommentEditCancel" + Eval("CMT_NO") %>' runat="server" 
+                                                                                                    Cursor="pointer" ClientVisible="false" ForeColor="#9E9E9E"
+                                                                                                    Text="수정 취소" ToolTip="수정 취소"
+                                                                                                    ClientSideEvents-Click='<%# @"function(s, e){ eni.LocalPage.hlReCommentEditCancel_Click(s, e, """ + Eval("CMT_NO") + @"""); }"%>' >
+                                                                                                </eni:eniHyperLink>
+                                                                                            </asp:TableCell>
+                                                                                        </asp:TableRow>
+                                                                                        <asp:TableRow>
+                                                                                            <asp:TableCell>
+                                                                                                <eni:eniButton ID="btnSaveReComment" ClientInstanceName='<%# "btnSaveReComment" + Eval("CMT_NO") %>' runat="server" 
+                                                                                                    AutoPostBack="false" CssClass="btnRadiusAll" Font-Bold="true" 
+                                                                                                    Width="100px" Height="50px" 
+                                                                                                    Text="답글달기" ToolTip="답글달기"
+                                                                                                    ClientSideEvents-Click='<%# "function(s, e) { eni.LocalPage.btnSaveReComment_Click(s, e, " + Eval("CMT_NO") + @", """ + Eval("CATEGORY_CD") + @"""); } " %>'>
+                                                                                                </eni:eniButton>
+                                                                                            </asp:TableCell>
+                                                                                        </asp:TableRow>
+                                                                                    </asp:Table>
+                                                                                </asp:TableCell>
+                                                                            </asp:TableRow>
+                                                                        </asp:Table>
+                                                                    </dx:PanelContent>
+                                                                </PanelCollection>
+                                                            </dx:ASPxPanel>
+                                                        </DataCell>
+                                                    </Templates>
+                                                </eni:eniTreeList>
+                                            </asp:TableCell>
+                                        </asp:TableRow>
+                                    </asp:Table>
+                                    <asp:Table runat="server" CssClass="Width100f Padding10T">
+                                        <asp:TableRow>
+                                            <asp:TableCell runat="server" CssClass="Padding5R">
+                                                <dx:ASPxMemo ID="mmComment" ClientInstanceName="mmComment" runat="server" 
+                                                    CssClass="Width100f" Rows="7">
+                                                </dx:ASPxMemo>
+                                            </asp:TableCell>
+                                            <asp:TableCell Width="100px" VerticalAlign="Bottom">
+                                                <eni:eniButton ID="btnSaveComment" ClientInstanceName="btnSaveComment" runat="server"
+                                                    Width="100px" Height="50px" AutoPostBack="false" Font-Bold="true" CssClass="btnRadiusAll"
+                                                    Text="덧글달기" ToolTip="덧글달기"
+                                                    ClientSideEvents-Click='<%#       @"function(s, e) { eni.LocalPage.btnSaveComment_Click(s, e); } "       %>'>
+                                                </eni:eniButton>
+                                            </asp:TableCell>
+                                        </asp:TableRow>
+                                    </asp:Table>
+                                </dx:PanelContent>
+                            </PanelCollection>
+                        </dx:ASPxPanel>
+                    </div>
+                </div>
+            </dx:PopupControlContentControl>
+        </ContentCollection>
+    </eni:eniPopupControl>
+
+    <%-- 글쓰기 팝업 로딩패널 컨트롤 --%>
+    <eni:eniLoadingPanel ID="ldpWriteLoader" ClientInstanceName="ldpWriteLoader" runat="server" 
+        Modal="True" Text='<%# GetResource("CSTRESX00095") %>' ToolTip='<%# GetResource("CSTRESX00095") %>'>
+        <LoadingDivStyle BackColor="Black" Opacity="50" Cursor="wait"></LoadingDivStyle>
+    </eni:eniLoadingPanel>
+
+    <%-- 업로드 상태 표시창 컨트롤 --%>
+    <eni:UploadStatusBox runat="server" ID="popUploadStatus" ClientInstanceName="popUploadStatus" />
+</asp:Content>
+
+<%-- 6.컨텐트 부분 --%>
+<asp:Content ContentPlaceHolderID="Sub_Content_Form_Holder" runat="server">
+    <div id="wrap_left" class="wrap_left">
+        <table class="FullScreen BorderClear Padding0 Margin0" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+                <td style="height:60px; border-bottom: 1px solid #E6E6E6;">
+                    <div style="text-align:center">
+                        <eni:eniButton ID="btnWrite" ClientInstanceName="btnWrite" EnableTheming="false" runat="server"
+                            Width="80px" Height="35px" AutoPostBack="false" Text="글쓰기"
+                            CssClass="btnWrite CButtonXLWhite Font-Bold"
+                            HoverStyle-CssClass="CButtonXLWhiteHover"
+                            PressedStyle-CssClass="CButtonXLWhitePress">
+                            <ClientSideEvents Click="eni.LocalPage.btnWrite_Click" />
+                        </eni:eniButton>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="VerticalAlignT">
+                    <div id="rt_menu_container" class="VerticalAutoScroll menubox">
+                        <div id="system_folder" class="menu_group" runat="server" style="border-top: 0px;">
+                            <asp:Repeater ID="rtSystemCategorys" runat="server">
+                                <HeaderTemplate>
+                                    <ul class="list_menu system_folder">
+                                </HeaderTemplate>
+                                <ItemTemplate>
+                                    <li runat="server" category-cd='<%# Eval("CATEGORY_CD")%>' category-name='<%# Eval("CATEGORY_NM")%>' recent-cnt='<%# Eval("RECENT_CNT")%>'>
+                                        <a href="javascript:;" class="link_category" style="padding-left:24px;" title='<%# Eval("CATEGORY_NM") %>'>
+                                            <span class="Icon2 Board" style="width:21px; height: 17px; display:inline-block; position:absolute; margin:4px 0 0 -24px;"></span>
+                                            <%# Eval("CATEGORY_NM") %>
+                                        </a>
+                                        <a href="javascript:;" class="link_receivenum emph_color" title='<%# Eval("CATEGORY_NM") %>'>
+                                            <span class="recent txt_receivenum"><%# int.Parse(Eval("RECENT_CNT").ToString()) > 0 ? Eval("RECENT_CNT").ToString() : string.Empty%></span>
+                                        </a>
+                                    </li>
+                                </ItemTemplate>
+                                <FooterTemplate>
+                                    </ul>
+                                </FooterTemplate>
+                            </asp:Repeater>
+                        </div>
+                        <asp:Repeater ID="rtGroupCategorys" runat="server"
+                            OnItemDataBound="rtGroupCategorys_ItemDataBound">
+                            <ItemTemplate>
+                                <div class="menu_group">
+                                    <div class="accordion_group">
+                                        <div class="box_menu">
+                                            <a class="link_menu on" href="#none">
+                                                <span class="Icon SilverArrowDown ico_arrow"></span> 
+                                                <%# Eval("CATEGORY_NM") %>
+                                            </a>
+                                        </div>
+                                        <asp:Repeater ID="rtSubCategorys" runat="server">
+                                            <HeaderTemplate>
+                                                <ul class="list_menu">
+                                            </HeaderTemplate>
+                                            <ItemTemplate>
+                                                <li runat="server" category-cd='<%# Eval("CATEGORY_CD")%>' category-name='<%# Eval("CATEGORY_NM")%>' recent-cnt='<%# Eval("RECENT_CNT")%>'>
+                                                    <a href="javascript:;" class="link_category" style="padding-left:24px;" title='<%# Eval("CATEGORY_NM")%>'>
+                                                        <span class="Icon2 Board" style="width:21px; height: 17px; display:inline-block; position:absolute; margin:4px 0 0 -24px;"></span>
+                                                        <%# Eval("CATEGORY_NM")%>
+                                                    </a>
+                                                    <a href="javascript:;" class="link_receivenum emph_color" title='<%# Eval("CATEGORY_NM")%>'>
+                                                        <span class="recent txt_receivenum"><%# int.Parse(Eval("RECENT_CNT").ToString()) > 0 ? Eval("RECENT_CNT").ToString() : string.Empty%></span>
+                                                    </a>
+                                                </li>
+                                            </ItemTemplate>
+                                            <FooterTemplate>
+                                                </ul>
+                                            </FooterTemplate>
+                                        </asp:Repeater>
+                                    </div>
+                                </div>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </div>
+                    <script type="text/javascript">
+                        eni.LocalPage.CategorysEventBind();
+                    </script>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="wrap_right" class="wrap_right">
+        <div id="area_content" class="area_content">
+            <eni:eniSplitter ID="splContant" ClientInstanceName="splContant" CssClass="splContant" runat="server" FullscreenMode="true"
+                Width="100%" Height="100%" ClientVisible="false"
+                Border-BorderWidth="0px"
+                Styles-Separator-Border-BorderWidth="0px"
+                Styles-Separator-Paddings-Padding="0px"
+                Styles-Pane-Border-BorderWidth="0px"
+                Styles-Pane-Paddings-Padding="0px" Orientation="Vertical">
+                <Panes>
+                    <dx:SplitterPane Name="ToolbarPane" AllowResize="False" Size="70px" PaneStyle-CssClass="area_header">
+                        <ContentCollection>
+                            <dx:SplitterContentControl runat="server">
+                                <div class="search">
+                                    <div class="search_option">
+                                        <eni:eniButton ID="btnBrowser" ClientInstanceName="btnBrowser" runat="server" SkinID="LightDark" CssClass="VerticalAlignT"
+                                            Height="19px" Font-Size="11px" Text="메뉴" ToolTip="메뉴를 표시 합니다." Visible="false">
+                                            <Paddings PaddingTop="4px" />
+                                        </eni:eniButton>
+                                        <span style="display:inline-block">
+                                            <eni:eniTextBox ID="txtSearchText" ClientInstanceName="txtSearchText" SkinID="LightDark" runat="server"
+                                                Width="200px" Height="24px" NullText="검색어를 2글자 이상 입력하세요.">
+                                            </eni:eniTextBox>
+                                        </span>
+                                        <span style="display:inline-block; vertical-align:top;">
+                                            <eni:eniButton ID="btnSearch" ClientInstanceName="btnSearch" runat="server" SkinID="LightDark" CssClass="VerticalAlignT"
+                                                Height="19px" Font-Size="11px" Text="검색" ToolTip="게시판에서 검색합니다.">
+                                                <ClientSideEvents Click="function(){ gdvList.Refresh(); }"></ClientSideEvents>
+                                                <Paddings PaddingTop="4px" />
+                                            </eni:eniButton>
+                                        </span>
+                                    </div>
+                                    <div class="list_head">
+                                    </div>
+                                </div>
+                                <eni:eniMenu ID="mnToolbar" ClientInstanceName="mnToolbar" SkinID="LightDark" runat="server" AutoPostBack="false" Font-Size="11px">
+                                    <ClientSideEvents ItemClick="eni.LocalPage.mnToolbar_Click" />
+                                    <SubMenuStyle SeparatorPaddings-PaddingLeft="0px" />
+                                    <SubMenuItemStyle Height="22px">
+                                        <Paddings PaddingLeft="10px" PaddingTop="4px" PaddingRight="10px" PaddingBottom="0px" />
+                                    </SubMenuItemStyle>
+                                    <Items>
+                                        <dx:MenuItem Name="btnPrev" Text="이전글" ToolTip="현재 게시글의 이전글을 확인합니다." Visible="false"></dx:MenuItem>
+                                        <dx:MenuItem Name="btnNext" Text="다음글" ToolTip="현재 게시글의 다음글을 확인합니다." Visible="false">
+                                            <ItemStyle Font-Bold="true" CssClass="Margin10R"/>
+                                        </dx:MenuItem>
+                                        <dx:MenuItem Name="btnReply" Text="답글" ToolTip="현재 게시글에 답을을 작성합니다." ClientVisible="false"></dx:MenuItem>
+                                        <dx:MenuItem Name="btnEdit" Text="수정" ToolTip="현재 게시글을 수정합니다." ClientVisible="false"></dx:MenuItem>
+                                        <dx:MenuItem Name="btnSave" Text="저장" ToolTip="현재 게시글을 저장합니다." ClientVisible="false"></dx:MenuItem>
+                                        <dx:MenuItem Name="btnSaveTemp" Text="임시보관" ToolTip="작성중인 게시글을 임시보관 합니다." Visible="false"></dx:MenuItem>
+                                        <dx:MenuItem Name="btnCancel" Text="취소" ToolTip="현재 모드를 취소 합니다." ClientVisible="false"></dx:MenuItem>
+                                        <dx:MenuItem Name="btnDelete" Text="삭제" ToolTip="게시글을 삭제합니다." ClientVisible="false"></dx:MenuItem>
+                                        <dx:MenuItem Name="btnList" Text="목록" ToolTip="게시판 리스트로 되돌아 갑니다." ItemStyle-CssClass="FloatR" ClientVisible="false">
+                                            <ItemStyle Font-Bold="true"/>
+                                        </dx:MenuItem>
+                                        <dx:MenuItem Name="btnWrite" Text="글쓰기" ToolTip="해당 게시판에 글을 작성합니다." ItemStyle-CssClass="FloatR" ItemStyle-Cursor="pointer">
+                                            <ItemStyle Font-Bold="true"/>
+                                        </dx:MenuItem>
+                                    </Items>
+                                </eni:eniMenu>
+                            </dx:SplitterContentControl>
+                        </ContentCollection>
+                    </dx:SplitterPane>
+                    <dx:SplitterPane Name="Content" Separator-Visible="False">
+                        <Panes>
+                            <dx:SplitterPane Name="ListPane" >
+                                <ContentCollection>
+                                    <dx:SplitterContentControl runat="server">
+                                        <ef:EntityDataSource ID="EntityDataSource" runat="server"
+                                            ContextTypeName="eniFramework.WebApp.Modules.Board.efV_BBSEntities"  
+                                            EntitySetName="V_BBS"
+                                            OrderBy="IT.SORT_BY ASC, IT.NO DESC"
+                                            OnSelecting="EntityDataSource_Selecting">
+                                        </ef:EntityDataSource>
+                                        <eni:eniTreeList ID="trlList" ClientInstanceName="trlList" SkinID="Board" runat="server"
+                                            DataSourceID="EntityDataSource"
+                                            KeyFieldName="NO" ParentFieldName="PARENT_NO" 
+                                            OnCustomCallback="trlList_CustomCallback"
+                                            OnHtmlRowPrepared="trlList_HtmlRowPrepared"
+                                            OnHtmlDataCellPrepared="trlList_HtmlDataCellPrepared">
+                                            <ClientSideEvents BeginCallback="eni.LocalPage.trlList_BeginCallback"
+                                                            EndCallback="eni.LocalPage.trlList_EndCallback" />
+                                            <Styles>
+                                                <AlternatingNode Enabled="True"></AlternatingNode>
+                                            </Styles>
+                                            <Settings ShowRoot="false" ShowTreeLines="true" ShowColumnHeaders="true"/>
+                                            <SettingsPager Mode="ShowPager" PageSize="100" CurrentPageNumberFormat="{0}">
+                                                <Summary Visible="false" />
+                                                <FirstPageButton Visible="true"></FirstPageButton>
+                                                <LastPageButton Visible="true"></LastPageButton>
+                                                <PageSizeItemSettings Visible="false"></PageSizeItemSettings>
+                                            </SettingsPager>
+                                            <SettingsLoadingPanel Enabled="False" />
+                                            <SettingsBehavior AllowDragDrop="False" AutoExpandAllNodes="True" AllowFocusedNode="True" FocusNodeOnExpandButtonClick="False" FocusNodeOnLoad="False" />
+                                            <SettingsDataSecurity AllowInsert="false" AllowEdit="false" AllowDelete="false" />
+                                            <StylesEditors EnableFocusedStyle="True"></StylesEditors>
+                                            <Columns>
+                                                <dx:TreeListDataColumn Name="NO" FieldName="NO" Caption=" " ToolTip="게시판 통합 번호를 표시합니다." Width="50px" VisibleIndex="1" ReadOnly="True" AllowSort="False">
+                                                    <CellStyle HorizontalAlign="Center"></CellStyle>
+                                                </dx:TreeListDataColumn>
+                                                <dx:TreeListDataColumn Name="SUBJECT" FieldName="SUBJECT" Caption="제목" ToolTip="제목을 표시합니다." Width="100%" VisibleIndex="2" ReadOnly="True">
+                                                </dx:TreeListDataColumn>
+                                                <dx:TreeListDataColumn Name="WRITE_USER_ID" FieldName="WRITE_USER_ID" Caption="작성자" ToolTip="게시글 작성자를 표시합니다." Width="120px" VisibleIndex="3" ReadOnly="True">
+                                                </dx:TreeListDataColumn>
+                                                <dx:TreeListDataColumn Name="DATE" FieldName="DATE" Caption="작성일" ToolTip="게시글 작성일을 표시합니다." Width="100px" VisibleIndex="4" ReadOnly="True">
+                                                    <CellStyle HorizontalAlign="Center"></CellStyle>
+                                                </dx:TreeListDataColumn>
+                                                <dx:TreeListDataColumn Name="VISIT" FieldName="VISIT" Caption="조회" ToolTip="게시글을 조회된 횟수를 표시합니다." Width="40px" VisibleIndex="5" ReadOnly="True">
+                                                    <CellStyle HorizontalAlign="Center"></CellStyle>
+                                                </dx:TreeListDataColumn>
+                                                <dx:TreeListDataColumn Name="RECOMMEND" FieldName="RECOMMEND" Caption="추천" ToolTip="게시글 추천된 횟수를 표시합니다." Width="40px" VisibleIndex="6" ReadOnly="True">
+                                                    <CellStyle HorizontalAlign="Center"></CellStyle>
+                                                </dx:TreeListDataColumn>
+                                            </Columns>
+                                        </eni:eniTreeList>
+                                    </dx:SplitterContentControl>
+                                </ContentCollection>
+                            </dx:SplitterPane>
+                            <dx:SplitterPane Name="ReadPane" Separator-Size="3px"
+                                Separator-SeparatorStyle-BackColor="#F6F6F6"
+                                Separator-SeparatorStyle-HoverStyle-BackColor="#E7E7E7"
+                                Separator-SeparatorStyle-BorderLeft-BorderWidth="1px"
+                                Separator-SeparatorStyle-BorderLeft-BorderStyle="Solid"
+                                Separator-SeparatorStyle-BorderLeft-BorderColor="#E6E6E6"
+                                Separator-SeparatorStyle-BorderRight-BorderWidth="1px"
+                                Separator-SeparatorStyle-BorderRight-BorderStyle="Solid"
+                                Separator-SeparatorStyle-BorderRight-BorderColor="#C0C0C0"
+                                Separator-ButtonStyle-CssClass="Height100f" ShowSeparatorImage="False" Visible="false">
+                                <ContentCollection>
+                                    <dx:SplitterContentControl runat="server">
+                                        <eni:eniCallbackPanel ID="cbpRedView" ClientInstanceName="cbpRedView" runat="server"
+                                            Width="100%" Height="100%" EnableCallbackAnimation="false" 
+                                            SettingsLoadingPanel-Enabled="false">
+                                            <PanelCollection>
+                                                <dx:PanelContent ID="pnReadView">
+                                                </dx:PanelContent>
+                                            </PanelCollection>
+                                        </eni:eniCallbackPanel>
+                                    </dx:SplitterContentControl>
+                                </ContentCollection>
+                            </dx:SplitterPane>
+                        </Panes>
+                    </dx:SplitterPane>
+                </Panes>
+            </eni:eniSplitter>
+        </div>
+    </div>
+
+    <%-- 글쓰기 팝업 컨트롤 --%>
+    <eni:eniPopupControl ID="popWrite" ClientInstanceName="popWrite" SkinID="BoardWrite" runat="server"
+        AllowResize="false" CloseAction="CloseButton" PopupAnimationType="Fade" CloseAnimationType="Fade" PopupHorizontalOffset="231" PopupVerticalOffset="71"
+        ShowHeader="false" ShowFooter="false" ShowShadow="false" ScrollBars="Auto" LoadContentViaCallback="OnPageLoad">
+        <ClientSideEvents Init="eni.LocalPage.popWrite_Init"
+                            BeginCallback="eni.LocalPage.popWrite_BeginCallback"
+                            EndCallback="eni.LocalPage.popWrite_EndCallback"
+                            Shown="eni.LocalPage.popWrite_Shown" />
+        <SettingsLoadingPanel Enabled="false" />
+        <Border BorderWidth="0px" />
+        <ContentStyle>
+            <Paddings PaddingLeft="10px" PaddingRight="10px" PaddingTop="5px" />
+        </ContentStyle>
+        <ContentCollection>
+            <dx:PopupControlContentControl ID="win_write" runat="server">
+                <ul class="con_header">
+                    <li class="item">
+                        <label class="title"><%= GetResource("CSTRESX00038")%></label>
+                        <div class="field">
+                            <eni:eniComboBox ID="cboCategory" ClientInstanceName="cboCategory" runat="server" Width="100px" SkinID="LightDark" CssClass="DisplayInlineBlock"
+                                ValueField="CATEGORY_CD" TextField="CATEGORY_NM" NullText="게시판선택" ToolTip="게시판을 선택하세요." IncrementalFilteringMode="None">
+                                <ClientSideEvents ValueChanged="eni.LocalPage.cboCategory_ValueChanged" />
+                            </eni:eniComboBox>
+                            <span style="display:inline-block">
+                                <eni:eniComboBox ID="cboCategoryGroup" ClientInstanceName="cboCategoryGroup" ClientVisible="false" runat="server" Width="100px" SkinID="LightDark"
+                                    ValueField="CATEGORY_GROUP_CD" TextField="CATEGORY_GROUP_NM" NullText="그룹선택" ToolTip="게시판 그룹을 선택하세요." IncrementalFilteringMode="None">
+                                    <ClientSideEvents ValueChanged="function(s, e){ lgBlnFlgChgValue = true; }" />
+                                </eni:eniComboBox>
+                            </span>
+                            <eni:eniComboBox ID="cboPreface" ClientInstanceName="cboPreface" runat="server" Width="100px" SkinID="LightDark" CssClass="DisplayInlineBlock"
+                                ValueField="PREFACE_CD" TextField="PREFACE_NM"  NullText="말머리선택" ToolTip="게시글 리스트에서 보여질 말머리를 선택하세요." IncrementalFilteringMode="None">
+                                <ClientSideEvents ValueChanged="function(s, e){ lgBlnFlgChgValue = true; }" />
+                            </eni:eniComboBox>
+                            <span class="notice_chk">
+                                <eni:eniCheckBox ID="chkIsNotice" ClientInstanceName="chkIsNotice" SkinID="LightDark" runat="server"
+                                    Text="공지사항" ToolTip="공지사항 채크시 제일 게시판의 제일 위에 표시됩니다." style="margin:2px 0 0 0;">
+                                    <ClientSideEvents ValueChanged="eni.LocalPage.chkIsNotice_ValueChanged" />
+                                </eni:eniCheckBox>
+                            </span>
+                            <span id="notice_date" class="notice_date" style="display:none">
+                                <eni:eniDateEdit ID="dteNoticeEnd" ClientInstanceName="dteNoticeEnd" SkinID="LightDark" runat="server" 
+                                    Width="100px" EditFormat="Date" EditFormatString="yyyy-MM-dd" UseMaskBehavior="true" style="float:left;">
+                                    <ClientSideEvents ValueChanged="eni.LocalPage.dteNoticeEnd_ValueChanged" />
+                                </eni:eniDateEdit>&nbsp;<span style="margin-top:5px; display:inline-block;"><%= GetResource("CSTRESX00047")%></span>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <label class="title"><%= GetResource("CSTRESX00048")%></label>
+                        <div class="field">
+                            <span class="subject">
+                                <eni:eniTextBox ID="txtSubject" ClientInstanceName="txtSubject" SkinID="LightDark" runat="server"
+                                    Width="100%" NullText="게시글 제목을 입력하세요.">
+                                    <ClientSideEvents ValueChanged="eni.LocalPage.txtSubject_ValueChanged" />
+                                </eni:eniTextBox>
+                            </span>
+                            <span class="subject_options">
+                                <eni:eniColorEdit ID="colSubject" Width="100px" ClientInstanceName="colSubject" SkinID="LightDark" runat="server" CssClass="DisplayInlineBlock"
+                                    CancelButtonText="취소" EnableCustomColors="false" OkButtonText="확인" CustomColorButtonText="사용자 지정 색상" ToolTip="게시글 제목의 색상을 지정합니다.">
+                                    <ClientSideEvents ValueChanged="function(s, e){ lgBlnFlgChgValue = true; }" />
+                                    <BorderLeft BorderWidth="0px" />
+                                </eni:eniColorEdit>
+                                <eni:eniCheckBox ID="chkUseBold" ClientInstanceName="chkUseBold" SkinID="LightDark" runat="server" Text="굵게" ToolTip="게시글 제목을 굵게 표시합니다." CssClass="DisplayInlineBlock">
+                                    <ClientSideEvents ValueChanged="function(s, e){ lgBlnFlgChgValue = true; }" />
+                                </eni:eniCheckBox>
+                            </span>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <label class="title"><%= GetResource("CSTRESX00056")%></label>
+                        <div class="field">
+                            <span action="attachment" class="Icon6 Expand" style="padding: 0px; position:absolute; margin: 5px 0px 0px -15px; display:inline-block;" title='<%= GetResource("CSTRESX00057") %>'></span>
+                            <eni:eniFileUpload ID="upcAttachment" ClientInstanceName="upcAttachment" runat="server" SkinID="LightDark" CssClass="DisplayInlineBlock"
+                                    UploadMode="Standard"
+                                    OnFileUploadComplete="upcAttachment_FileUploadComplete"
+                                    ValidationSettings-AllowedFileExtensions=".*"
+                                    AdvancedModeSettings-EnableMultiSelect="true"
+                                    ValidationSettings-MaxFileSize="6442450944" AutoStartUpload="True"
+                                    Font-Size="11px" BrowseButton-Text="내 PC">
+                                    <ClientSideEvents FileUploadStart="eni.LocalPage.upcAttachment_FileUploadStart"
+                                        FileUploadComplete="eni.LocalPage.upcAttachment_FileUploadComplete"
+                                        FilesUploadComplete="eni.LocalPage.upcAttachment_FilesUploadComplete"
+                                        UploadingProgressChanged="eni.LocalPage.upcAttachment_UploadingProgressChanged" />
+                            </eni:eniFileUpload>
+                            <eni:eniButton ID="btnAttachFromWebHard" ClientInstanceName="btnAttachFromWebHard" runat="server" SkinID="LightDark" CssClass="DisplayInlineBlock VerticalAlignT"
+                                Text="웹하드에서" ToolTip="웹하드에서 가져옵니다."
+                                Width="80px" Height="22px" Font-Size="11px" Visible="false">
+                                <ClientSideEvents Click="eni.LocalPage.btnAttachFileDel_Click" />
+                            </eni:eniButton>
+                            <eni:eniButton ID="btnAttachFileDel" ClientInstanceName="btnAttachFileDel" runat="server" SkinID="LightDark" CssClass="DisplayInlineBlock VerticalAlignT"
+                                Text="삭제" ToolTip="첨부된 파일을 삭제 합니다." ClientEnabled="false" Width="50px" Height="22px" Font-Size="11px">
+                                <ClientSideEvents Click="eni.LocalPage.btnAttachFileDel_Click" />
+                            </eni:eniButton>
+                            <eni:eniProgressBar ID="prbTotFileSize" ClientInstanceName="prbTotFileSize" runat="server" CssClass="DisplayInlineBlock"
+                                Width="100px" Visible="false">
+                            </eni:eniProgressBar>
+                            <eni:eniLabel runat="server" Text="파일첨부 수량 0/0" ForeColor="Red" Visible="false"></eni:eniLabel>
+                        </div>
+                    </li>
+                    <li id="con_attach_list" class="item" style="display:none;">
+                        <div class="field">
+                            <eni:eniGridView ID="gdvAttachList" ClientInstanceName="gdvAttachList" SkinID="Advanced-01" runat="server"
+                                KeyFieldName="temp_file_name" Style="padding-right:1px;"
+                                OnHtmlRowPrepared="gdvAttachList_HtmlRowPrepared"
+                                OnCustomCallback="gdvAttachList_CustomCallback">
+                                <ClientSideEvents BeginCallback="eni.LocalPage.gdvAttachList_BeginCallback"
+                                                    EndCallback="eni.LocalPage.gdvAttachList_EndCallback" />
+                                <Border BorderWidth="1px" BorderStyle="Solid" BorderColor="#C0C0C0" />
+                                <Styles>
+                                    <AlternatingRow Enabled="True"></AlternatingRow>
+                                </Styles>
+                                <Settings ShowColumnHeaders="false"
+                                    ShowFilterRow="false"
+                                    ShowFilterRowMenu="false"
+                                    ShowFilterRowMenuLikeItem="false"
+                                    ShowHeaderFilterButton="false"
+                                    ShowHeaderFilterBlankItems="false"
+                                    ShowGroupPanel="false"
+                                    ShowGroupedColumns="false"
+                                    ShowFooter="false"
+                                    ShowStatusBar="Hidden"
+                                    HorizontalScrollBarMode="Hidden"
+                                    VerticalScrollBarMode="Auto"
+                                    VerticalScrollableHeight="100"
+                                    GridLines="Horizontal" />
+                                <SettingsBehavior AllowFocusedRow="true" AllowSelectByRowClick="true" ColumnResizeMode="Disabled" />
+                                <SettingsContextMenu Enabled="false"></SettingsContextMenu>
+                                <SettingsDataSecurity AllowInsert="false" AllowEdit="false" AllowDelete="false" />
+                                <SettingsSearchPanel Visible="false" />
+                                <SettingsLoadingPanel Mode="Disabled" />
+                                <SettingsPager Visible="false" Mode="ShowAllRecords" ShowEmptyDataRows="true"></SettingsPager>
+                                <Columns>
+                                    <dx:GridViewCommandColumn Name="ALLSELECT" Caption="선택" ShowSelectCheckbox="true" Visible="true" VisibleIndex="0" Width="30px">
+                                        <HeaderTemplate>
+                                            <dx:ASPxCheckBox ID="chkAllSelectFiles" runat="server" CssClass="Padding0" Wrap="True" Cursor="pointer">
+                                                <ClientSideEvents CheckedChanged="function(s, e){gdvAttachList.SelectAllRowsOnPage(s.GetChecked());}" />
+                                            </dx:ASPxCheckBox>
+                                        </HeaderTemplate>
+                                    </dx:GridViewCommandColumn>
+                                    <dx:GridViewDataTextColumn Caption="파일명" ToolTip="업로드된 파일명을 확인합니다." Name="file_name" FieldName="file_name" VisibleIndex="1" ReadOnly="True" Width="100%" MinWidth="200">
+                                        <CellStyle HorizontalAlign="Left" VerticalAlign="Middle"></CellStyle>
+                                    </dx:GridViewDataTextColumn>
+                                    <dx:GridViewDataTextColumn Caption="확장자" ToolTip="업로드된 파일 확장자를 확인합니다." Name="file_extantion" FieldName="file_extantion" VisibleIndex="2" ReadOnly="True"
+                                        Width="50px" MinWidth="140" CellStyle-HorizontalAlign="Center">
+                                    </dx:GridViewDataTextColumn>
+                                    <dx:GridViewDataTextColumn Caption="용량" ToolTip="업로드된 파일의 용량을 확인합니다." Name="custom_file_size" FieldName="custom_file_size" Visible="true" VisibleIndex="3"
+                                        Width="90px" MinWidth="90" CellStyle-Paddings-PaddingRight="10px" CellStyle-HorizontalAlign="Right">
+                                    </dx:GridViewDataTextColumn>
+                                </Columns>
+                            </eni:eniGridView>
+                        </div>
+                    </li>
+                </ul>
+                <div id="con_content" class="con_content">
+                    <div id="con_auto_save_msg" class="con_auto_save_msg">
+                        <span id="autoSaveMsg"></span>
+                    </div>
+                    <!-- SE2 Markup Start -->	
+                    <div id="smart_editor2">
+	                    <div id="smart_editor2_content"><a href="#se2_iframe" class="blind">글쓰기영역으로 바로가기</a>
+		                    <div class="se2_tool" id="se2_tool">
+			                    <div class="se2_text_tool husky_seditor_text_tool">
+			                        <ul class="se2_font_type">
+				                        <li class="husky_seditor_ui_fontName"><button type="button" class="se2_font_family" title="<%= GetGlobalResource("GCTRRESX10000")%>"><span class="husky_se2m_current_fontName"><%= GetGlobalResource("GCTRRESX10000")%></span></button>
+					                        <!-- 글꼴 레이어 -->
+					                        <div class="se2_layer husky_se_fontName_layer">
+						                        <div class="se2_in_layer">
+							                        <ul class="se2_l_font_fam">
+							                            <li style="display:none"><button type="button"><span>@DisplayName@<span>(</span><em style="font-family:FontFamily;">@SampleText@</em><span>)</span></span></button></li>
+							                            <li class="se2_division husky_seditor_font_separator"></li>
+							                            <li><button type="button"><span><%= GetGlobalResource("GCTRRESXFONT1")%><span>(</span><em style="font-family:<%= GetGlobalResource("GCTRRESXFONTFM1")%>;"><%= GetGlobalResource("GCTRRESX10001")%></em><span>)</span></span></button></li>
+							                            <li><button type="button"><span><%= GetGlobalResource("GCTRRESXFONT2")%><span>(</span><em style="font-family:<%= GetGlobalResource("GCTRRESXFONTFM2")%>;"><%= GetGlobalResource("GCTRRESX10001")%></em><span>)</span></span></button></li>
+							                            <li><button type="button"><span><%= GetGlobalResource("GCTRRESXFONT3")%><span>(</span><em style="font-family:<%= GetGlobalResource("GCTRRESXFONTFM3")%>;"><%= GetGlobalResource("GCTRRESX10001")%></em><span>)</span></span></button></li>
+							                            <li><button type="button"><span><%= GetGlobalResource("GCTRRESXFONT4")%><span>(</span><em style="font-family:<%= GetGlobalResource("GCTRRESXFONTFM4")%>;"><%= GetGlobalResource("GCTRRESX10001")%></em><span>)</span></span></button></li>
+							                            <li><button type="button"><span><%= GetGlobalResource("GCTRRESXFONT5")%><span>(</span><em style="font-family:<%= GetGlobalResource("GCTRRESXFONTFM5")%>;"><%= GetGlobalResource("GCTRRESX10001")%></em><span>)</span></span></button></li>
+							                        </ul>
+						                        </div>
+					                        </div>
+					                        <!-- //글꼴 레이어 -->
+				                        </li>
+				                        <li class="husky_seditor_ui_fontSize"><button type="button" class="se2_font_size" title="<%= GetGlobalResource("GCTRRESX10002")%>"><span class="husky_se2m_current_fontSize">11pt</span></button>
+					                        <!-- 폰트 사이즈 레이어 -->
+					                        <div class="se2_layer husky_se_fontSize_layer">
+						                        <div class="se2_in_layer">
+							                        <ul class="se2_l_font_size">
+							                            <li><button type="button"><span style="margin-top:4px; margin-bottom:3px; margin-left:5px; font-size:7pt;"><%= GetGlobalResource("GCTRRESX10003")%><span style=" font-size:7pt;">(7pt)</span></span></button></li>
+							                            <li><button type="button"><span style="margin-bottom:2px; font-size:8pt;"><%= GetGlobalResource("GCTRRESX10003")%><span style="font-size:8pt;">(8pt)</span></span></button></li>
+							                            <li><button type="button"><span style="margin-bottom:1px; font-size:9pt;"><%= GetGlobalResource("GCTRRESX10003")%><span style="font-size:9pt;">(9pt)</span></span></button></li>
+							                            <li><button type="button"><span style="margin-bottom:1px; font-size:10pt;"><%= GetGlobalResource("GCTRRESX10003")%><span style="font-size:10pt;">(10pt)</span></span></button></li>
+							                            <li><button type="button"><span style="margin-bottom:2px; font-size:11pt;"><%= GetGlobalResource("GCTRRESX10003")%><span style="font-size:11pt;">(11pt)</span></span></button></li>
+							                            <li><button type="button"><span style="margin-bottom:1px; font-size:12pt;"><%= GetGlobalResource("GCTRRESX10003")%><span style="font-size:12pt;">(12pt)</span></span></button></li>
+							                            <li><button type="button"><span style="margin-bottom:2px; font-size:14pt;"><%= GetGlobalResource("GCTRRESX10003")%><span style="margin-left:6px;font-size:14pt;">(14pt)</span></span></button></li>
+							                            <li><button type="button"><span style="margin-bottom:1px; font-size:18pt;"><%= GetGlobalResource("GCTRRESX10003")%><span style="margin-left:8px;font-size:18pt;">(18pt)</span></span></button></li>
+							                            <li><button type="button"><span style="margin-left:3px; font-size:24pt;"><%= GetGlobalResource("GCTRRESX10004")%><span style="margin-left:11px;font-size:24pt;">(24pt)</span></span></button></li>
+							                            <li><button type="button"><span style="margin-top:-1px; margin-left:3px; font-size:36pt;"><%= GetGlobalResource("GCTRRESX10005")%><span style="font-size:36pt;">(36pt)</span></span></button></li>
+							                        </ul>
+						                        </div>
+					                        </div>
+					                        <!-- //폰트 사이즈 레이어 -->
+				                        </li>
+                                    </ul>
+                                    <ul>
+				                        <li class="husky_seditor_ui_bold first_child"><button type="button" title="<%= GetGlobalResource("GCTRRESX10006")%>" class="se2_bold"><span class="_buttonRound tool_bg"><%= GetGlobalResource("GCTRRESX10006")%></span></button></li>
+				                        <li class="husky_seditor_ui_underline"><button type="button" title="<%= GetGlobalResource("GCTRRESX10007")%>" class="se2_underline"><span class="_buttonRound"><%= GetGlobalResource("GCTRRESX10007")%></span></button></li>
+				                        <li class="husky_seditor_ui_italic"><button type="button" title="<%= GetGlobalResource("GCTRRESX10008")%>" class="se2_italic"><span class="_buttonRound"><%= GetGlobalResource("GCTRRESX10008")%></span></button></li>
+				                        <li class="husky_seditor_ui_lineThrough"><button type="button" title="<%= GetGlobalResource("GCTRRESX10009")%>" class="se2_tdel"><span class="_buttonRound"><%= GetGlobalResource("GCTRRESX10009")%></span></button></li>
+				                        <li class="se2_pair husky_seditor_ui_fontColor"><span class="selected_color husky_se2m_fontColor_lastUsed" style="background-color:#4477f9"></span><span class="husky_seditor_ui_fontColorA"><button type="button" title="<%= GetGlobalResource("GCTRRESX10010")%>" class="se2_fcolor"><span><%= GetGlobalResource("GCTRRESX10010")%></span></button></span><span class="husky_seditor_ui_fontColorB"><button type="button" title="<%= GetGlobalResource("GCTRRESX10011")%>" class="se2_fcolor_more"><span class="_buttonRound"><%= GetGlobalResource("GCTRRESX10011")%></span></button></span>				
+					                        <!-- 글자색 -->
+					                        <div class="se2_layer husky_se2m_fontcolor_layer" style="display:none">
+						                        <div class="se2_in_layer husky_se2m_fontcolor_paletteHolder">
+							                        <div class="se2_palette husky_se2m_color_palette">
+								                        <ul class="se2_pick_color">
+								                            <li><button type="button" title="#ff0000" style="background:#ff0000"><span><span>#ff0000</span></span></button></li>
+								                            <li><button type="button" title="#ff6c00" style="background:#ff6c00"><span><span>#ff6c00</span></span></button></li>
+								                            <li><button type="button" title="#ffaa00" style="background:#ffaa00"><span><span>#ffaa00</span></span></button></li>
+								                            <li><button type="button" title="#ffef00" style="background:#ffef00"><span><span>#ffef00</span></span></button></li>
+								                            <li><button type="button" title="#a6cf00" style="background:#a6cf00"><span><span>#a6cf00</span></span></button></li>
+								                            <li><button type="button" title="#009e25" style="background:#009e25"><span><span>#009e25</span></span></button></li>
+								                            <li><button type="button" title="#00b0a2" style="background:#00b0a2"><span><span>#00b0a2</span></span></button></li>
+								                            <li><button type="button" title="#0075c8" style="background:#0075c8"><span><span>#0075c8</span></span></button></li>
+								                            <li><button type="button" title="#3a32c3" style="background:#3a32c3"><span><span>#3a32c3</span></span></button></li>
+								                            <li><button type="button" title="#7820b9" style="background:#7820b9"><span><span>#7820b9</span></span></button></li>
+								                            <li><button type="button" title="#ef007c" style="background:#ef007c"><span><span>#ef007c</span></span></button></li>
+								                            <li><button type="button" title="#000000" style="background:#000000"><span><span>#000000</span></span></button></li>
+								                            <li><button type="button" title="#252525" style="background:#252525"><span><span>#252525</span></span></button></li>
+								                            <li><button type="button" title="#464646" style="background:#464646"><span><span>#464646</span></span></button></li>
+								                            <li><button type="button" title="#636363" style="background:#636363"><span><span>#636363</span></span></button></li>
+								                            <li><button type="button" title="#7d7d7d" style="background:#7d7d7d"><span><span>#7d7d7d</span></span></button></li>
+								                            <li><button type="button" title="#9a9a9a" style="background:#9a9a9a"><span><span>#9a9a9a</span></span></button></li>
+								                            <li><button type="button" title="#ffe8e8" style="background:#ffe8e8"><span><span>#9a9a9a</span></span></button></li>
+								                            <li><button type="button" title="#f7e2d2" style="background:#f7e2d2"><span><span>#f7e2d2</span></span></button></li>
+								                            <li><button type="button" title="#f5eddc" style="background:#f5eddc"><span><span>#f5eddc</span></span></button></li>
+								                            <li><button type="button" title="#f5f4e0" style="background:#f5f4e0"><span><span>#f5f4e0</span></span></button></li>
+								                            <li><button type="button" title="#edf2c2" style="background:#edf2c2"><span><span>#edf2c2</span></span></button></li>
+								                            <li><button type="button" title="#def7e5" style="background:#def7e5"><span><span>#def7e5</span></span></button></li>
+								                            <li><button type="button" title="#d9eeec" style="background:#d9eeec"><span><span>#d9eeec</span></span></button></li>
+								                            <li><button type="button" title="#c9e0f0" style="background:#c9e0f0"><span><span>#c9e0f0</span></span></button></li>
+								                            <li><button type="button" title="#d6d4eb" style="background:#d6d4eb"><span><span>#d6d4eb</span></span></button></li>
+								                            <li><button type="button" title="#e7dbed" style="background:#e7dbed"><span><span>#e7dbed</span></span></button></li>
+								                            <li><button type="button" title="#f1e2ea" style="background:#f1e2ea"><span><span>#f1e2ea</span></span></button></li>
+								                            <li><button type="button" title="#acacac" style="background:#acacac"><span><span>#acacac</span></span></button></li>
+								                            <li><button type="button" title="#c2c2c2" style="background:#c2c2c2"><span><span>#c2c2c2</span></span></button></li>
+								                            <li><button type="button" title="#cccccc" style="background:#cccccc"><span><span>#cccccc</span></span></button></li>
+								                            <li><button type="button" title="#e1e1e1" style="background:#e1e1e1"><span><span>#e1e1e1</span></span></button></li>
+								                            <li><button type="button" title="#ebebeb" style="background:#ebebeb"><span><span>#ebebeb</span></span></button></li>
+								                            <li><button type="button" title="#ffffff" style="background:#ffffff"><span><span>#ffffff</span></span></button></li>
+								                        </ul>
+								                        <ul class="se2_pick_color" style="width:156px;">
+								                            <li><button type="button" title="#e97d81" style="background:#e97d81"><span><span>#e97d81</span></span></button></li>
+								                            <li><button type="button" title="#e19b73" style="background:#e19b73"><span><span>#e19b73</span></span></button></li>
+								                            <li><button type="button" title="#d1b274" style="background:#d1b274"><span><span>#d1b274</span></span></button></li>
+								                            <li><button type="button" title="#cfcca2" style="background:#cfcca2"><span><span>#cfcca2</span></span></button></li>
+								                            <li><button type="button" title="#cfcca2" style="background:#cfcca2"><span><span>#cfcca2</span></span></button></li>
+								                            <li><button type="button" title="#61b977" style="background:#61b977"><span><span>#61b977</span></span></button></li>
+								                            <li><button type="button" title="#53aea8" style="background:#53aea8"><span><span>#53aea8</span></span></button></li>
+								                            <li><button type="button" title="#518fbb" style="background:#518fbb"><span><span>#518fbb</span></span></button></li>
+								                            <li><button type="button" title="#6a65bb" style="background:#6a65bb"><span><span>#6a65bb</span></span></button></li>
+								                            <li><button type="button" title="#9a54ce" style="background:#9a54ce"><span><span>#9a54ce</span></span></button></li>
+								                            <li><button type="button" title="#e573ae" style="background:#e573ae"><span><span>#e573ae</span></span></button></li>
+								                            <li><button type="button" title="#5a504b" style="background:#5a504b"><span><span>#5a504b</span></span></button></li>
+								                            <li><button type="button" title="#767b86" style="background:#767b86"><span><span>#767b86</span></span></button></li>
+								                            <li><button type="button" title="#951015" style="background:#951015"><span><span>#951015</span></span></button></li>
+								                            <li><button type="button" title="#6e391a" style="background:#6e391a"><span><span>#6e391a</span></span></button></li>
+								                            <li><button type="button" title="#785c25" style="background:#785c25"><span><span>#785c25</span></span></button></li>
+								                            <li><button type="button" title="#5f5b25" style="background:#5f5b25"><span><span>#5f5b25</span></span></button></li>
+								                            <li><button type="button" title="#4c511f" style="background:#4c511f"><span><span>#4c511f</span></span></button></li>
+								                            <li><button type="button" title="#1c4827" style="background:#1c4827"><span><span>#1c4827</span></span></button></li>
+								                            <li><button type="button" title="#0d514c" style="background:#0d514c"><span><span>#0d514c</span></span></button></li>
+								                            <li><button type="button" title="#1b496a" style="background:#1b496a"><span><span>#1b496a</span></span></button></li>
+								                            <li><button type="button" title="#2b285f" style="background:#2b285f"><span><span>#2b285f</span></span></button></li>
+								                            <li><button type="button" title="#45245b" style="background:#45245b"><span><span>#45245b</span></span></button></li>
+								                            <li><button type="button" title="#721947" style="background:#721947"><span><span>#721947</span></span></button></li>
+								                            <li><button type="button" title="#352e2c" style="background:#352e2c"><span><span>#352e2c</span></span></button></li>
+								                            <li><button type="button" title="#3c3f45" style="background:#3c3f45"><span><span>#3c3f45</span></span></button></li>
+								                        </ul>
+								                        <button type="button" title="<%= GetGlobalResource("GCTRRESX10011")%>" class="se2_view_more husky_se2m_color_palette_more_btn"><span><%= GetGlobalResource("GCTRRESX10011")%></span></button>
+								                        <div class="husky_se2m_color_palette_recent" style="display:none">
+									                        <h4><%= GetGlobalResource("GCTRRESX10012")%></h4>
+									                        <ul class="se2_pick_color">
+									                        <li></li>
+									                        <!-- 최근 사용한 색 템플릿 -->
+									                        <!-- <li><button type="button" title="#e97d81" style="background:#e97d81"><span><span>#e97d81</span></span></button></li> -->
+									                        <!-- //최근 사용한 색 템플릿 -->
+									                        </ul>
+								                        </div>								
+								                        <div class="se2_palette2 husky_se2m_color_palette_colorpicker">
+									                        <!--form action="http://test.emoticon.naver.com/colortable/TextAdd.nhn" method="post"-->
+										                        <div class="se2_color_set">
+											                        <span class="se2_selected_color"><span class="husky_se2m_cp_preview" style="background:#e97d81"></span></span><input type="text" name="" class="input_ty1 husky_se2m_cp_colorcode" value="#e97d81"><button type="button" class="se2_btn_insert husky_se2m_color_palette_ok_btn" title="<%= GetGlobalResource("GCTRRESX10013")%>"><span><%= GetGlobalResource("GCTRRESX10013")%></span></button></div>
+										                        <!--input type="hidden" name="callback" value="http://test.emoticon.naver.com/colortable/result.jsp" />
+										                        <input type="hidden" name="callback_func" value="1" />
+										                        <input type="hidden" name="text_key" value="" />
+										                        <input type="hidden" name="text_data" value="" />
+									                        </form-->
+									                        <div class="se2_gradation1 husky_se2m_cp_colpanel"></div>
+									                        <div class="se2_gradation2 husky_se2m_cp_huepanel"></div>
+								                        </div>
+							                        </div>
+                                                </div>
+					                        </div>
+                                            <!-- //글자색 -->
+				                        </li>
+				                        <li class="se2_pair husky_seditor_ui_BGColor"><span class="selected_color husky_se2m_BGColor_lastUsed" style="background-color:#4477f9"></span><span class="husky_seditor_ui_BGColorA"><button type="button" title="<%= GetGlobalResource("GCTRRESX10014")%>" class="se2_bgcolor"><span><%= GetGlobalResource("GCTRRESX10014")%></span></button></span><span class="husky_seditor_ui_BGColorB"><button type="button" title="<%= GetGlobalResource("GCTRRESX10011")%>" class="se2_bgcolor_more"><span class="_buttonRound"><%= GetGlobalResource("GCTRRESX10011")%></span></button></span>
+					                        <!-- 배경색 -->
+					                        <div class="se2_layer se2_layer husky_se2m_BGColor_layer" style="display:none">
+						                        <div class="se2_in_layer">
+							                        <div class="se2_palette_bgcolor">
+								                        <ul class="se2_background husky_se2m_bgcolor_list">
+								                            <li><button type="button" title="<%= GetGlobalResource("GCTRRESX10014")%>#ff0000 <%= GetGlobalResource("GCTRRESX10015")%>#ffffff" style="background:#ff0000; color:#ffffff"><span><span><%= GetGlobalResource("GCTRRESX10005")%></span></span></button></li>								
+								                            <li><button type="button" title="<%= GetGlobalResource("GCTRRESX10014")%>#6d30cf <%= GetGlobalResource("GCTRRESX10015")%>#ffffff" style="background:#6d30cf; color:#ffffff"><span><span><%= GetGlobalResource("GCTRRESX10005")%></span></span></button></li>
+								                            <li><button type="button" title="<%= GetGlobalResource("GCTRRESX10014")%>#000000 <%= GetGlobalResource("GCTRRESX10015")%>#ffffff" style="background:#000000; color:#ffffff"><span><span><%= GetGlobalResource("GCTRRESX10005")%></span></span></button></li>
+								                            <li><button type="button" title="<%= GetGlobalResource("GCTRRESX10014")%>#ff6600 <%= GetGlobalResource("GCTRRESX10015")%>#ffffff" style="background:#ff6600; color:#ffffff"><span><span><%= GetGlobalResource("GCTRRESX10005")%></span></span></button></li>
+								                            <li><button type="button" title="<%= GetGlobalResource("GCTRRESX10014")%>#3333cc <%= GetGlobalResource("GCTRRESX10015")%>#ffffff" style="background:#3333cc; color:#ffffff"><span><span><%= GetGlobalResource("GCTRRESX10005")%></span></span></button></li>
+								                            <li><button type="button" title="<%= GetGlobalResource("GCTRRESX10014")%>#333333 <%= GetGlobalResource("GCTRRESX10015")%>#ffff00" style="background:#333333; color:#ffff00"><span><span><%= GetGlobalResource("GCTRRESX10005")%></span></span></button></li>
+								                            <li><button type="button" title="<%= GetGlobalResource("GCTRRESX10014")%>#ffa700 <%= GetGlobalResource("GCTRRESX10015")%>#ffffff" style="background:#ffa700; color:#ffffff"><span><span><%= GetGlobalResource("GCTRRESX10005")%></span></span></button></li>
+								                            <li><button type="button" title="<%= GetGlobalResource("GCTRRESX10014")%>#009999 <%= GetGlobalResource("GCTRRESX10015")%>#ffffff" style="background:#009999; color:#ffffff"><span><span><%= GetGlobalResource("GCTRRESX10005")%></span></span></button></li>
+								                            <li><button type="button" title="<%= GetGlobalResource("GCTRRESX10014")%>#8e8e8e <%= GetGlobalResource("GCTRRESX10015")%>#ffffff" style="background:#8e8e8e; color:#ffffff"><span><span><%= GetGlobalResource("GCTRRESX10005")%></span></span></button></li>								
+								                            <li><button type="button" title="<%= GetGlobalResource("GCTRRESX10014")%>#cc9900 <%= GetGlobalResource("GCTRRESX10015")%>#ffffff" style="background:#cc9900; color:#ffffff"><span><span><%= GetGlobalResource("GCTRRESX10005")%></span></span></button></li>
+								                            <li><button type="button" title="<%= GetGlobalResource("GCTRRESX10014")%>#77b02b <%= GetGlobalResource("GCTRRESX10015")%>#ffffff" style="background:#77b02b; color:#ffffff"><span><span><%= GetGlobalResource("GCTRRESX10005")%></span></span></button></li>
+								                            <li><button type="button" title="<%= GetGlobalResource("GCTRRESX10014")%>#ffffff <%= GetGlobalResource("GCTRRESX10015")%>#000000" style="background:#ffffff; color:#000000"><span><span><%= GetGlobalResource("GCTRRESX10005")%></span></span></button></li>
+								                        </ul>
+							                        </div>
+							                        <div class="husky_se2m_BGColor_paletteHolder"></div>
+                                                </div>
+					                        </div>
+                                            <!-- //배경색 -->
+				                        </li>
+				                        <li class="husky_seditor_ui_superscript"><button type="button" title="<%= GetGlobalResource("GCTRRESX10016")%>" class="se2_sup"><span class="_buttonRound"><%= GetGlobalResource("GCTRRESX10016")%></span></button></li>
+				                        <li class="husky_seditor_ui_subscript last_child"><button type="button" title="<%= GetGlobalResource("GCTRRESX10017")%>" class="se2_sub"><span class="_buttonRound tool_bg"><%= GetGlobalResource("GCTRRESX10017")%></span></button></li>
+                                    </ul>
+                                    <ul>
+				                        <li class="husky_seditor_ui_justifyleft first_child"><button type="button" title="<%= GetGlobalResource("GCTRRESX10018")%>" class="se2_left"><span class="_buttonRound tool_bg"><%= GetGlobalResource("GCTRRESX10018")%></span></button></li>
+				                        <li class="husky_seditor_ui_justifycenter"><button type="button" title="<%= GetGlobalResource("GCTRRESX10019")%>" class="se2_center"><span class="_buttonRound"><%= GetGlobalResource("GCTRRESX10019")%></span></button></li>
+				                        <li class="husky_seditor_ui_justifyright"><button type="button" title="<%= GetGlobalResource("GCTRRESX10020")%>" class="se2_right"><span class="_buttonRound"><%= GetGlobalResource("GCTRRESX10020")%></span></button></li>
+				                        <li class="husky_seditor_ui_justifyfull"><button type="button" title="<%= GetGlobalResource("GCTRRESX10021")%>" class="se2_justify"><span class="_buttonRound"><%= GetGlobalResource("GCTRRESX10021")%></span></button></li>
+				                        <li class="husky_seditor_ui_orderedlist"><button type="button" title="<%= GetGlobalResource("GCTRRESX10022")%>" class="se2_ol"><span class="_buttonRound"><%= GetGlobalResource("GCTRRESX10022")%></span></button></li>
+				                        <li class="husky_seditor_ui_unorderedlist"><button type="button" title="<%= GetGlobalResource("GCTRRESX10023")%>" class="se2_ul"><span class="_buttonRound"><%= GetGlobalResource("GCTRRESX10023")%></span></button></li>
+				                        <li class="husky_seditor_ui_outdent"><button type="button" title="<%= GetGlobalResource("GCTRRESX10024")%>" class="se2_outdent"><span class="_buttonRound"><%= GetGlobalResource("GCTRRESX10024")%></span></button></li>
+				                        <li class="husky_seditor_ui_indent"><button type="button" title="<%= GetGlobalResource("GCTRRESX10025")%>" class="se2_indent"><span class="_buttonRound"><%= GetGlobalResource("GCTRRESX10025")%></span></button></li>			
+				                        <li class="husky_seditor_ui_lineHeight last_child"><button type="button" title="<%= GetGlobalResource("GCTRRESX10026")%>" class="se2_lineheight" ><span class="_buttonRound tool_bg"><%= GetGlobalResource("GCTRRESX10026")%></span></button>
+					                        <!-- 줄간격 레이어 -->
+					                        <div class="se2_layer husky_se2m_lineHeight_layer">
+						                        <div class="se2_in_layer">
+							                        <ul class="se2_l_line_height">
+							                            <li><button type="button"><span>50%</span></button></li>
+							                            <li><button type="button"><span>80%</span></button></li>
+							                            <li><button type="button"><span>100%</span></button></li>
+							                            <li><button type="button"><span>120%</span></button></li>
+							                            <li><button type="button"><span>150%</span></button></li>
+							                            <li><button type="button"><span>180%</span></button></li>
+							                            <li><button type="button"><span>200%</span></button></li>
+							                        </ul>
+							                        <div class="se2_l_line_height_user husky_se2m_lineHeight_direct_input">
+								                        <h3><%= GetGlobalResource("GCTRRESX10027")%></h3>
+								                        <span class="bx_input">
+								                        <input type="text" class="input_ty1" maxlength="3" style="width:75px">
+								                        <button type="button" title="1% <%= GetGlobalResource("GCTRRESX10028")%>" class="btn_up"><span>1% <%= GetGlobalResource("GCTRRESX10028")%></span></button>
+								                        <button type="button" title="1% <%= GetGlobalResource("GCTRRESX10029")%>" class="btn_down"><span>1% <%= GetGlobalResource("GCTRRESX10029")%></span></button>
+								                        </span>		
+								                        &nbsp;&nbsp;&nbsp;<div class="btn_area">
+									                        <button type="button" class="se2_btn_apply3"><span><%= GetGlobalResource("GCTRRESX10030")%></span></button><button type="button" class="se2_btn_cancel3"><span><%= GetGlobalResource("GCTRRESX10031")%></span></button>
+								                        </div>
+							                        </div>
+						                        </div>
+					                        </div>
+					                        <!-- //줄간격 레이어 -->
+				                        </li>
+                                    </ul>
+                                    <ul>
+				                        <li class="husky_seditor_ui_quote single_child"><button type="button" title="<%= GetGlobalResource("GCTRRESX10032")%>" class="se2_blockquote"><span class="_buttonRound tool_bg"><%= GetGlobalResource("GCTRRESX10032")%></span></button>
+					                        <!-- 인용구 -->
+					                        <div class="se2_layer husky_seditor_blockquote_layer" style="margin-left:-407px; display:none;">
+						                        <div class="se2_in_layer">
+							                        <div class="se2_quote">
+								                        <ul>
+								                            <li class="q1"><button type="button" class="se2_quote1"><span><span><%= GetGlobalResource("GCTRRESX10033")%>1</span></span></button></li>
+								                            <li class="q2"><button type="button" class="se2_quote2"><span><span><%= GetGlobalResource("GCTRRESX10033")%>2</span></span></button></li>
+								                            <li class="q3"><button type="button" class="se2_quote3"><span><span><%= GetGlobalResource("GCTRRESX10033")%>3</span></span></button></li>
+								                            <li class="q4"><button type="button" class="se2_quote4"><span><span><%= GetGlobalResource("GCTRRESX10033")%>4</span></span></button></li>
+								                            <li class="q5"><button type="button" class="se2_quote5"><span><span><%= GetGlobalResource("GCTRRESX10033")%>5</span></span></button></li>
+								                            <li class="q6"><button type="button" class="se2_quote6"><span><span><%= GetGlobalResource("GCTRRESX10033")%>6</span></span></button></li>
+								                            <li class="q7"><button type="button" class="se2_quote7"><span><span><%= GetGlobalResource("GCTRRESX10033")%>7</span></span></button></li>
+								                            <li class="q8"><button type="button" class="se2_quote8"><span><span><%= GetGlobalResource("GCTRRESX10033")%>8</span></span></button></li>
+								                            <li class="q9"><button type="button" class="se2_quote9"><span><span><%= GetGlobalResource("GCTRRESX10033")%>9</span></span></button></li>
+								                            <li class="q10"><button type="button" class="se2_quote10"><span><span><%= GetGlobalResource("GCTRRESX10033")%>10</span></span></button></li>
+								                        </ul>
+								                        <button type="button" class="se2_cancel2"><span><%= GetGlobalResource("GCTRRESX10034")%></span></button>
+							                        </div>
+						                        </div>
+					                        </div>
+					                        <!-- //인용구 -->
+				                        </li>
+                                    </ul>
+                                    <ul>
+				                        <li class="husky_seditor_ui_hyperlink first_child"><button type="button" title="<%= GetGlobalResource("GCTRRESX10035")%>" class="se2_url"><span class="_buttonRound tool_bg"><%= GetGlobalResource("GCTRRESX10035")%></span></button>
+					                        <!-- 링크 -->
+					                        <div class="se2_layer" style="margin-left:-285px">
+						                        <div class="se2_in_layer">
+							                        <div class="se2_url2">
+								                        <input type="text" class="input_ty1" value="http://">
+								                        <button type="button" class="se2_apply"><span><%= GetGlobalResource("GCTRRESX10036")%></span></button><button type="button" class="se2_cancel"><span><%= GetGlobalResource("GCTRRESX10037")%></span></button>
+							                        </div>
+						                        </div>
+					                        </div>
+					                        <!-- //링크 -->
+				                        </li>
+				                        <li class="husky_seditor_ui_sCharacter"><button type="button" title="<%= GetGlobalResource("GCTRRESX10038")%>" class="se2_character"><span class="_buttonRound"><%= GetGlobalResource("GCTRRESX10038")%></span></button>
+					                        <!-- 특수기호 -->
+					                        <div class="se2_layer husky_seditor_sCharacter_layer" style="margin-left:-448px;">
+						                        <div class="se2_in_layer">
+							                        <div class="se2_bx_character">
+								                        <ul class="se2_char_tab">
+								                        <li class="active"><button type="button" title="<%= GetGlobalResource("GCTRRESX10039")%>" class="se2_char1"><span><%= GetGlobalResource("GCTRRESX10039")%></span></button>
+									                        <div class="se2_s_character">
+										                        <ul class="husky_se2m_sCharacter_list">
+											                        <li></li>
+										                        </ul>
+									                        </div>
+								                        </li>
+								                        <li><button type="button" title="<%= GetGlobalResource("GCTRRESX10040")%>" class="se2_char2"><span><%= GetGlobalResource("GCTRRESX10040")%></span></button>
+									                        <div class="se2_s_character">
+										                        <ul class="husky_se2m_sCharacter_list">
+											                        <li></li>
+										                        </ul>
+									                        </div>
+								                        </li>
+								                        <li><button type="button" title="<%= GetGlobalResource("GCTRRESX10041")%>" class="se2_char3"><span><%= GetGlobalResource("GCTRRESX10041")%></span></button>
+									                        <div class="se2_s_character">
+										                        <ul class="husky_se2m_sCharacter_list">
+											                        <li></li>
+										                        </ul>
+									                        </div>
+								                        </li>
+								                        <li><button type="button" title="<%= GetGlobalResource("GCTRRESX10042")%>" class="se2_char4"><span><%= GetGlobalResource("GCTRRESX10042")%></span></button>
+									                        <div class="se2_s_character">
+										                        <ul class="husky_se2m_sCharacter_list">
+											                        <li></li>
+										                        </ul>
+									                        </div>
+								                        </li>
+								                        <li><button type="button" title="<%= GetGlobalResource("GCTRRESX10043")%>" class="se2_char5"><span><%= GetGlobalResource("GCTRRESX10043")%></span></button>
+									                        <div class="se2_s_character">
+										                        <ul class="husky_se2m_sCharacter_list">
+											                        <li></li>
+										                        </ul>
+									                        </div>
+								                        </li>
+								                        <li><button type="button" title="<%= GetGlobalResource("GCTRRESX10044")%>" class="se2_char6"><span><%= GetGlobalResource("GCTRRESX10044")%></span></button>
+									                        <div class="se2_s_character">
+										                        <ul class="husky_se2m_sCharacter_list">
+											                        <li></li>
+										                        </ul>
+									                        </div>
+								                        </li>
+								                        </ul>
+								                        <p class="se2_apply_character">
+									                        <label for="char_preview"><%= GetGlobalResource("GCTRRESX10045")%></label> <input type="text" name="char_preview" id="char_preview" value="®º⊆●○" class="input_ty1"><button type="button" class="se2_confirm"><span><%= GetGlobalResource("GCTRRESX10046")%></span></button><button type="button" class="se2_cancel husky_se2m_sCharacter_close"><span><%= GetGlobalResource("GCTRRESX10047")%></span></button>
+								                        </p>
+							                        </div>
+						                        </div>
+					                        </div>
+					                        <!-- //특수기호 -->
+				                        </li>
+				                        <li class="husky_seditor_ui_table"><button type="button" title="<%= GetGlobalResource("GCTRRESX10048")%>" class="se2_table"><span class="_buttonRound"><%= GetGlobalResource("GCTRRESX10048")%></span></button>
+					                        <!--@lazyload_html create_table-->
+					                        <!-- 표 -->
+					                        <div class="se2_layer husky_se2m_table_layer" style="margin-left:-171px">
+						                        <div class="se2_in_layer">
+							                        <div class="se2_table_set">
+								                        <fieldset>
+								                        <legend><%= GetGlobalResource("GCTRRESX10049")%></legend>
+									                        <dl class="se2_cell_num">
+									                        <dt><label for="row"><%= GetGlobalResource("GCTRRESX10050")%></label></dt>
+									                        <dd><input id="row" name="" type="text" maxlength="2" value="4" class="input_ty2">
+										                        <button type="button" class="se2_add"><span><%= GetGlobalResource("GCTRRESX10051")%></span></button>
+										                        <button type="button" class="se2_del"><span><%= GetGlobalResource("GCTRRESX10052")%></span></button>
+									                        </dd>
+									                        <dt><label for="col"><%= GetGlobalResource("GCTRRESX10053")%></label></dt>
+									                        <dd><input id="col" name="" type="text" maxlength="2" value="4" class="input_ty2">
+										                        <button type="button" class="se2_add"><span><%= GetGlobalResource("GCTRRESX10054")%></span></button>
+										                        <button type="button" class="se2_del"><span><%= GetGlobalResource("GCTRRESX10055")%></span></button>
+									                        </dd>
+									                        </dl>
+									                        <table border="0" cellspacing="1" class="se2_pre_table husky_se2m_table_preview">
+									                        <tr>
+									                        <td>&nbsp;</td>
+									                        <td>&nbsp;</td>
+									                        <td>&nbsp;</td>
+									                        <td>&nbsp;</td>
+									                        </tr>
+									                        <tr>
+									                        <td>&nbsp;</td>
+									                        <td>&nbsp;</td>
+									                        <td>&nbsp;</td>
+									                        <td>&nbsp;</td>
+									                        </tr>
+									                        <tr>
+									                        <td>&nbsp;</td>
+									                        <td>&nbsp;</td>
+									                        <td>&nbsp;</td>
+									                        <td>&nbsp;</td>
+									                        </tr>
+									                        </table>
+								                        </fieldset>
+								                        <fieldset>
+									                        <legend><%= GetGlobalResource("GCTRRESX10056")%></legend>
+									                        <dl class="se2_t_proper1">
+									                        <dt><input type="radio" id="se2_tbp1" name="se2_tbp" checked><label for="se2_tbp1"><%= GetGlobalResource("GCTRRESX10056")%></label></dt>
+									                        <dd>
+										                        <dl class="se2_t_proper1_1">
+										                        <dt><label><%= GetGlobalResource("GCTRRESX10057")%></label></dt>
+										                        <dd><div class="se2_select_ty1"><span class="se2_b_style3 husky_se2m_table_border_style_preview"></span><button type="button" title="<%= GetGlobalResource("GCTRRESX10011")%>" class="se2_view_more"><span><%= GetGlobalResource("GCTRRESX10011")%></span></button></div>
+											                        <!-- 레이어 : 테두리스타일 -->
+											                        <div class="se2_layer_b_style husky_se2m_table_border_style_layer" style="display:none">
+												                        <ul>
+												                            <li><button type="button" class="se2_b_style1"><span class="se2m_no_border"><%= GetGlobalResource("GCTRRESX10058")%></span></button></li>
+												                            <li><button type="button" class="se2_b_style2"><span><span><%= GetGlobalResource("GCTRRESX10059")%>2</span></span></button></li>
+												                            <li><button type="button" class="se2_b_style3"><span><span><%= GetGlobalResource("GCTRRESX10059")%>3</span></span></button></li>
+												                            <li><button type="button" class="se2_b_style4"><span><span><%= GetGlobalResource("GCTRRESX10059")%>4</span></span></button></li>
+												                            <li><button type="button" class="se2_b_style5"><span><span><%= GetGlobalResource("GCTRRESX10059")%>5</span></span></button></li>
+												                            <li><button type="button" class="se2_b_style6"><span><span><%= GetGlobalResource("GCTRRESX10059")%>6</span></span></button></li>
+												                            <li><button type="button" class="se2_b_style7"><span><span><%= GetGlobalResource("GCTRRESX10059")%>7</span></span></button></li>
+												                        </ul>
+											                        </div>
+											                        <!-- //레이어 : 테두리스타일 -->
+										                        </dd>
+										                        </dl>
+										                        <dl class="se2_t_proper1_1 se2_t_proper1_2">
+										                        <dt><label for="se2_b_width"><%= GetGlobalResource("GCTRRESX10060")%></label></dt>
+										                        <dd><input id="se2_b_width" name="" type="text" maxlength="2" value="1" class="input_ty1">
+											                        <button type="button" title="<%= GetGlobalResource("GCTRRESX10061")%>" class="se2_add se2m_incBorder"><span><%= GetGlobalResource("GCTRRESX10061")%></span></button>
+											                        <button type="button" title="<%= GetGlobalResource("GCTRRESX10062")%>" class="se2_del se2m_decBorder"><span><%= GetGlobalResource("GCTRRESX10062")%></span></button>
+										                        </dd>
+										                        </dl>
+										                        <dl class="se2_t_proper1_1 se2_t_proper1_3">
+										                        <dt><label for="se2_b_color"><%= GetGlobalResource("GCTRRESX10063")%></label></dt>
+										                        <dd><input id="se2_b_color" name="" type="text" maxlength="7" value="#cccccc" class="input_ty3"><span class="se2_pre_color"><button type="button" style="background:#cccccc;"><span><%= GetGlobalResource("GCTRRESX10064")%></span></button></span>	
+										                        <!-- 레이어 : 테두리색 -->
+											                        <div class="se2_layer se2_b_t_b1" style="clear:both;display:none;position:absolute;top:20px;left:-147px;">
+												                        <div class="se2_in_layer husky_se2m_table_border_color_pallet"></div>
+											                        </div>
+										                        <!-- //레이어 : 테두리색-->
+										                        </dd>
+										                        </dl>
+										                        <div class="se2_t_dim0"></div><!-- 테두리 없음일때 딤드레이어 -->
+										                        <dl class="se2_t_proper1_1 se2_t_proper1_4">
+										                        <dt><label for="se2_cellbg"><%= GetGlobalResource("GCTRRESX10065")%></label></dt>
+										                        <dd><input id="se2_cellbg" name="" type="text" maxlength="7" value="#ffffff" class="input_ty3"><span class="se2_pre_color"><button type="button" style="background:#ffffff;"><span><%= GetGlobalResource("GCTRRESX10064")%></span></button></span>
+										                        <!-- 레이어 : 셀배경색 -->
+										                        <div class="se2_layer se2_b_t_b1" style="clear:both;display:none;position:absolute;top:20px;left:-147px;">
+											                        <div class="se2_in_layer husky_se2m_table_bgcolor_pallet"></div>
+										                        </div>
+										                        <!-- //레이어 : 셀배경색-->
+										                        </dd>
+										                        </dl>
+									                        </dd>
+									                        </dl>
+								                        </fieldset>
+								                        <fieldset>
+									                        <legend><%= GetGlobalResource("GCTRRESX10066")%></legend>
+									                        <dl class="se2_t_proper2">
+									                        <dt><input type="radio" id="se2_tbp2" name="se2_tbp"><label for="se2_tbp2"><%= GetGlobalResource("GCTRRESX10067")%></label></dt>
+									                        <dd><div class="se2_select_ty2"><span class="se2_t_style1 husky_se2m_table_style_preview"></span><button type="button" title="<%= GetGlobalResource("GCTRRESX10011")%>" class="se2_view_more"><span><%= GetGlobalResource("GCTRRESX10011")%></span></button></div>
+										                        <!-- 레이어 : 표템플릿선택 -->
+										                        <div class="se2_layer_t_style husky_se2m_table_style_layer" style="display:none">
+											                        <ul class="se2_scroll">
+											                            <li><button type="button" class="se2_t_style1"><span><%= GetGlobalResource("GCTRRESX10068")%>1</span></button></li>
+											                            <li><button type="button" class="se2_t_style2"><span><%= GetGlobalResource("GCTRRESX10068")%>2</span></button></li>
+											                            <li><button type="button" class="se2_t_style3"><span><%= GetGlobalResource("GCTRRESX10068")%>3</span></button></li>
+											                            <li><button type="button" class="se2_t_style4"><span><%= GetGlobalResource("GCTRRESX10068")%>4</span></button></li>
+											                            <li><button type="button" class="se2_t_style5"><span><%= GetGlobalResource("GCTRRESX10068")%>5</span></button></li>
+											                            <li><button type="button" class="se2_t_style6"><span><%= GetGlobalResource("GCTRRESX10068")%>6</span></button></li>
+											                            <li><button type="button" class="se2_t_style7"><span><%= GetGlobalResource("GCTRRESX10068")%>7</span></button></li>
+											                            <li><button type="button" class="se2_t_style8"><span><%= GetGlobalResource("GCTRRESX10068")%>8</span></button></li>
+											                            <li><button type="button" class="se2_t_style9"><span><%= GetGlobalResource("GCTRRESX10068")%>9</span></button></li>
+											                            <li><button type="button" class="se2_t_style10"><span><%= GetGlobalResource("GCTRRESX10068")%>10</span></button></li>
+											                            <li><button type="button" class="se2_t_style11"><span><%= GetGlobalResource("GCTRRESX10068")%>11</span></button></li>
+											                            <li><button type="button" class="se2_t_style12"><span><%= GetGlobalResource("GCTRRESX10068")%>12</span></button></li>
+											                            <li><button type="button" class="se2_t_style13"><span><%= GetGlobalResource("GCTRRESX10068")%>13</span></button></li>
+											                            <li><button type="button" class="se2_t_style14"><span><%= GetGlobalResource("GCTRRESX10068")%>14</span></button></li>
+											                            <li><button type="button" class="se2_t_style15"><span><%= GetGlobalResource("GCTRRESX10068")%>15</span></button></li>
+											                            <li><button type="button" class="se2_t_style16"><span><%= GetGlobalResource("GCTRRESX10068")%>16</span></button></li>
+											                        </ul>
+										                        </div>
+										                        <!-- //레이어 : 표템플릿선택 -->
+									                        </dd>
+									                        </dl>
+								                        </fieldset>
+								                        <p class="se2_btn_area">
+									                        <button type="button" class="se2_apply"><span><%= GetGlobalResource("GCTRRESX10069")%></span></button><button type="button" class="se2_cancel"><span><%= GetGlobalResource("GCTRRESX10070")%></span></button>
+								                        </p>
+								                        <!-- 딤드레이어 -->
+								                        <div class="se2_t_dim3"></div>
+								                        <!-- //딤드레이어 -->
+							                        </div>
+						                        </div>
+					                        </div>
+					                        <!-- //표 -->
+					                        <!--//@lazyload_html-->
+				                        </li>
+				                        <li class="husky_seditor_ui_findAndReplace last_child"><button type="button" title="<%= GetGlobalResource("GCTRRESX10071")%>" class="se2_find"><span class="_buttonRound tool_bg"><%= GetGlobalResource("GCTRRESX10071")%></span></button>
+					                        <!--@lazyload_html find_and_replace-->
+					                        <!-- 찾기/바꾸기 -->
+					                        <div class="se2_layer husky_se2m_findAndReplace_layer" style="margin-left:-238px;">
+						                        <div class="se2_in_layer">
+							                        <div class="se2_bx_find_revise">
+								                        <button type="button" title="<%= GetGlobalResource("GCTRRESX10072")%>" class="se2_close husky_se2m_cancel"><span><%= GetGlobalResource("GCTRRESX10072")%></span></button>
+								                        <h3><%= GetGlobalResource("GCTRRESX10071")%></h3>
+								                        <ul>
+								                            <li class="active"><button type="button" class="se2_tabfind"><span><%= GetGlobalResource("GCTRRESX10073")%></span></button></li>
+								                            <li><button type="button" class="se2_tabrevise"><span><%= GetGlobalResource("GCTRRESX10074")%></span></button></li>
+								                        </ul>
+								                        <div class="se2_in_bx_find husky_se2m_find_ui" style="display:block">
+									                        <dl>
+									                        <dt><label for="find_word"><%= GetGlobalResource("GCTRRESX10075")%></label></dt><dd><input type="text" id="find_word" value="<%= GetGlobalResource("GCTRRESX10076")%>" class="input_ty1"></dd>
+									                        </dl>
+									                        <p class="se2_find_btns">
+										                        <button type="button" class="se2_find_next husky_se2m_find_next"><span><%= GetGlobalResource("GCTRRESX10077")%></span></button><button type="button" class="se2_cancel husky_se2m_cancel"><span><%= GetGlobalResource("GCTRRESX10080")%></span></button>
+									                        </p>
+								                        </div>
+								                        <div class="se2_in_bx_revise husky_se2m_replace_ui" style="display:none">
+									                        <dl>
+									                        <dt><label for="find_word2"><%= GetGlobalResource("GCTRRESX10078")%></label></dt><dd><input type="text" id="find_word2" value="<%= GetGlobalResource("GCTRRESX10076")%>" class="input_ty1"></dd>
+									                        <dt><label for="revise_word"><%= GetGlobalResource("GCTRRESX10079")%></label></dt><dd><input type="text" id="revise_word" value="<%= GetGlobalResource("GCTRRESX10076")%>" class="input_ty1"></dd>
+									                        </dl>
+									                        <p class="se2_find_btns">
+										                        <button type="button" class="se2_find_next2 husky_se2m_replace_find_next"><span><%= GetGlobalResource("GCTRRESX10077")%></span></button><button type="button" class="se2_revise1 husky_se2m_replace"><span><%= GetGlobalResource("GCTRRESX10081")%></span></button><button type="button" class="se2_revise2 husky_se2m_replace_all"><span><%= GetGlobalResource("GCTRRESX10082")%></span></button><button type="button" class="se2_cancel husky_se2m_cancel"><span><%= GetGlobalResource("GCTRRESX10080")%></span></button>
+									                        </p>
+								                        </div>
+								                        <button type="button" title="<%= GetGlobalResource("GCTRRESX10083")%>" class="se2_close husky_se2m_cancel"><span><%= GetGlobalResource("GCTRRESX10083")%></span></button>
+							                        </div>
+						                        </div>
+					                        </div>
+					                        <!-- //찾기/바꾸기 -->
+					                        <!--//@lazyload_html-->
+				                        </li>
+                                    </ul>
+			                    </div>
+			                    <!-- //704이상 -->
+		                    </div>
+				            <!-- 접근성 도움말 레이어 -->
+		                    <div class="se2_layer se2_accessibility" style="display:none;">
+			                    <div class="se2_in_layer">
+				                    <button type="button" title="닫기" class="se2_close"><span>닫기</span></button>
+				                    <h3><strong>접근성 도움말</strong></h3>
+				                    <div class="box_help">
+					                    <div>
+						                    <strong>툴바</strong>
+						                    <p>ALT+F10 을 누르면 툴바로 이동합니다. 다음 버튼은 TAB 으로 이전 버튼은 SHIFT+TAB 으로 이동 가능합니다. ENTER 를 누르면 해당 버튼의 기능이 동작하고 글쓰기 영역으로 포커스가 이동합니다. ESC 를 누르면 아무런 기능을 실행하지 않고 글쓰기 영역으로 포커스가 이동합니다.</p>
+						                    <strong>빠져 나가기</strong>
+						                    <p>ALT+. 를 누르면 스마트 에디터 다음 요소로 ALT+, 를 누르면 스마트에디터 이전 요소로 빠져나갈 수 있습니다.</p>
+						                    <strong>명령어 단축키</strong>
+						                    <ul>
+						                    <li>CTRL+B <span>굵게</span></li>
+						                    <li>SHIFT+TAB <span>내어쓰기</span></li>
+						                    <li>CTRL+U <span>밑줄</span></li>
+						                    <li>CTRL+F <span>찾기</span></li>
+						                    <li>CTRL+I <span>기울임 글꼴</span></li>
+						                    <li>CTRL+H <span>바꾸기</span></li>
+						                    <li>CTRL+D <span>취소선</span></li>
+						                    <li>CTRL+K <span>링크걸기</span></li>
+						                    <li>TAB <span>들여쓰기</span></li>
+						                    </ul>
+					                    </div>
+				                    </div>
+				                    <div class="se2_btns">
+					                    <button type="button" class="se2_close2"><span>닫기</span></button>
+				                    </div>
+			                    </div>
+		                    </div>		
+		                    <!-- //접근성 도움말 레이어 -->
+		                    <hr>
+		                    <!-- 입력 -->
+		                    <div class="se2_input_area husky_seditor_editing_area_container">
+			                    <iframe src="about:blank" id="se2_iframe" name="se2_iframe" class="se2_input_wysiwyg" width="400" height="300" title="글쓰기 영역 : 도구 모음은 ALT+F10을, 도움말은 ALT+0을 누르세요." frameborder="0" style="display:block;"></iframe>
+			                    <textarea name="" rows="10" cols="100" title="HTML 편집 모드" class="se2_input_syntax se2_input_htmlsrc" style="display:none;outline-style:none;resize:none"> </textarea>
+			                    <textarea name="" rows="10" cols="100" title="TEXT 편집 모드" class="se2_input_syntax se2_input_text" style="display:none;outline-style:none;resize:none;"> </textarea>
+			
+			                    <!-- 입력창 조절 안내 레이어 -->
+			                    <div class="ly_controller husky_seditor_resize_notice" style="z-index:20;display:none;">
+				                    <p>아래 영역을 드래그하여 입력창 크기를 조절할 수 있습니다.</p>
+				                    <button type="button" title="닫기" class="bt_clse"><span>닫기</span></button>
+				                    <span class="ic_arr"></span>
+			                    </div>
+			                        <!-- //입력창 조절 안내 레이어 -->
+						        <div class="quick_wrap">
+				                    <!-- 표/글양식 간단편집기 -->
+				                    <!--@lazyload_html qe_table-->
+				                    <div class="q_table_wrap" style="z-index: 150;">
+				                    <button class="_fold se2_qmax q_open_table_full" style="position:absolute; display:none;top:340px;left:210px;z-index:30;" title="최대화" type="button"><span>퀵에디터최대화</span></button>
+				                    <div class="_full se2_qeditor se2_table_set" style="position:absolute;display:none;top:135px;left:661px;z-index:30;">
+					                    <div class="se2_qbar q_dragable"><span class="se2_qmini"><button title="최소화" class="q_open_table_fold"><span>퀵에디터최소화</span></button></span></div>
+					                    <div class="se2_qbody0">
+						                    <div class="se2_qbody">
+							                    <dl class="se2_qe1">
+							                    <dt>삽입</dt><dd><button class="se2_addrow" title="행삽입" type="button"><span>행삽입</span></button><button class="se2_addcol" title="열삽입" type="button"><span>열삽입</span></button></dd>
+							                    <dt>분할</dt><dd><button class="se2_seprow" title="행분할" type="button"><span>행분할</span></button><button class="se2_sepcol" title="열분할" type="button"><span>열분할</span></button></dd>
+							                    <dt>삭제</dt><dd><button class="se2_delrow" title="행삭제" type="button"><span>행삭제</span></button><button class="se2_delcol" title="열삭제" type="button"><span>열삭제</span></button></dd>
+							                    <dt>병합</dt><dd><button class="se2_merrow" title="행병합" type="button"><span>행병합</span></button></dd>
+							                    </dl>
+							                    <div class="se2_qe2 se2_qe2_3"> <!-- 테이블 퀵에디터의 경우만,  se2_qe2_3제거 -->
+								                    <!-- 샐배경색 -->
+								                    <dl class="se2_qe2_1">
+								                    <dt><input type="radio" checked="checked" name="se2_tbp3" id="se2_cellbg2" class="husky_se2m_radio_bgc"><label for="se2_cellbg2">셀 배경색</label></dt>
+								                    <dd><span class="se2_pre_color"><button style="background: none repeat scroll 0% 0% rgb(255, 255, 255);" type="button" class="husky_se2m_table_qe_bgcolor_btn"><span>색찾기</span></button></span>		
+									                    <!-- layer:셀배경색 -->
+									                    <div style="display:none;position:absolute;top:20px;left:0px;" class="se2_layer se2_b_t_b1">
+										                    <div class="se2_in_layer husky_se2m_tbl_qe_bg_paletteHolder">
+										                    </div>
+									                    </div>
+									                    <!-- //layer:셀배경색-->
+								                    </dd>
+								                    </dl>
+								                    <!-- //샐배경색 -->
+								                    <!-- 배경이미지선택 -->
+								                    <dl style="display: none;" class="se2_qe2_2 husky_se2m_tbl_qe_review_bg">
+								                    <dt><input type="radio" name="se2_tbp3" id="se2_cellbg3" class="husky_se2m_radio_bgimg"><label for="se2_cellbg3">이미지</label></dt>
+								                    <dd><span class="se2_pre_bgimg"><button class="husky_se2m_table_qe_bgimage_btn se2_cellimg0" type="button"><span>배경이미지선택</span></button></span>
+									                    <!-- layer:배경이미지선택 -->
+									                    <div style="display:none;position:absolute;top:20px;left:-155px;" class="se2_layer se2_b_t_b1">
+										                    <div class="se2_in_layer husky_se2m_tbl_qe_bg_img_paletteHolder">
+											                    <ul class="se2_cellimg_set">
+											                        <li><button class="se2_cellimg0" type="button"><span>배경없음</span></button></li>
+											                        <li><button class="se2_cellimg1" type="button"><span>배경1</span></button></li>
+											                        <li><button class="se2_cellimg2" type="button"><span>배경2</span></button></li>
+											                        <li><button class="se2_cellimg3" type="button"><span>배경3</span></button></li>
+											                        <li><button class="se2_cellimg4" type="button"><span>배경4</span></button></li>
+											                        <li><button class="se2_cellimg5" type="button"><span>배경5</span></button></li>
+											                        <li><button class="se2_cellimg6" type="button"><span>배경6</span></button></li>
+											                        <li><button class="se2_cellimg7" type="button"><span>배경7</span></button></li>
+											                        <li><button class="se2_cellimg8" type="button"><span>배경8</span></button></li>
+											                        <li><button class="se2_cellimg9" type="button"><span>배경9</span></button></li>
+											                        <li><button class="se2_cellimg10" type="button"><span>배경10</span></button></li>
+											                        <li><button class="se2_cellimg11" type="button"><span>배경11</span></button></li>
+											                        <li><button class="se2_cellimg12" type="button"><span>배경12</span></button></li>
+											                        <li><button class="se2_cellimg13" type="button"><span>배경13</span></button></li>
+											                        <li><button class="se2_cellimg14" type="button"><span>배경14</span></button></li>
+											                        <li><button class="se2_cellimg15" type="button"><span>배경15</span></button></li>
+											                        <li><button class="se2_cellimg16" type="button"><span>배경16</span></button></li>
+											                        <li><button class="se2_cellimg17" type="button"><span>배경17</span></button></li>
+											                        <li><button class="se2_cellimg18" type="button"><span>배경18</span></button></li>
+											                        <li><button class="se2_cellimg19" type="button"><span>배경19</span></button></li>
+											                        <li><button class="se2_cellimg20" type="button"><span>배경20</span></button></li>
+											                        <li><button class="se2_cellimg21" type="button"><span>배경21</span></button></li>
+											                        <li><button class="se2_cellimg22" type="button"><span>배경22</span></button></li>
+											                        <li><button class="se2_cellimg23" type="button"><span>배경23</span></button></li>
+											                        <li><button class="se2_cellimg24" type="button"><span>배경24</span></button></li>
+											                        <li><button class="se2_cellimg25" type="button"><span>배경25</span></button></li>
+											                        <li><button class="se2_cellimg26" type="button"><span>배경26</span></button></li>
+											                        <li><button class="se2_cellimg27" type="button"><span>배경27</span></button></li>
+											                        <li><button class="se2_cellimg28" type="button"><span>배경28</span></button></li>
+											                        <li><button class="se2_cellimg29" type="button"><span>배경29</span></button></li>
+											                        <li><button class="se2_cellimg30" type="button"><span>배경30</span></button></li>
+											                        <li><button class="se2_cellimg31" type="button"><span>배경31</span></button></li>
+											                    </ul>
+										                    </div>
+									                    </div>
+									                    <!-- //layer:배경이미지선택-->
+								                    </dd>
+								                    </dl>
+								                    <!-- //배경이미지선택 -->
+							                    </div>
+							                    <dl style="display: block;" class="se2_qe3 se2_t_proper2">
+							                    <dt><input type="radio" name="se2_tbp3" id="se2_tbp4" class="husky_se2m_radio_template"><label for="se2_tbp4">표 스타일</label></dt>
+							                    <dd>
+								                    <div class="se2_qe3_table">
+								                    <div class="se2_select_ty2"><span class="se2_t_style1"></span><button class="se2_view_more husky_se2m_template_more" title="더보기" type="button"><span>더보기</span></button></div>
+								                    <!-- layer:표스타일 -->
+								                    <div style="display:none;top:33px;left:0;margin:0;" class="se2_layer_t_style">
+									                    <ul>
+									                        <li><button class="se2_t_style1" type="button"><span>표 스타일1</span></button></li>
+									                        <li><button class="se2_t_style2" type="button"><span>표 스타일2</span></button></li>
+									                        <li><button class="se2_t_style3" type="button"><span>표 스타일3</span></button></li>
+									                        <li><button class="se2_t_style4" type="button"><span>표 스타일4</span></button></li>
+									                        <li><button class="se2_t_style5" type="button"><span>표 스타일5</span></button></li>
+									                        <li><button class="se2_t_style6" type="button"><span>표 스타일6</span></button></li>
+									                        <li><button class="se2_t_style7" type="button"><span>표 스타일7</span></button></li>
+									                        <li><button class="se2_t_style8" type="button"><span>표 스타일8</span></button></li>
+									                        <li><button class="se2_t_style9" type="button"><span>표 스타일9</span></button></li>
+									                        <li><button class="se2_t_style10" type="button"><span>표 스타일10</span></button></li>
+									                        <li><button class="se2_t_style11" type="button"><span>표 스타일11</span></button></li>
+									                        <li><button class="se2_t_style12" type="button"><span>표 스타일12</span></button></li>
+									                        <li><button class="se2_t_style13" type="button"><span>표 스타일13</span></button></li>
+									                        <li><button class="se2_t_style14" type="button"><span>표 스타일14</span></button></li>
+									                        <li><button class="se2_t_style15" type="button"><span>표 스타일15</span></button></li>
+									                        <li><button class="se2_t_style16" type="button"><span>표 스타일16</span></button></li>
+									                    </ul>
+								                    </div>
+								                    <!-- //layer:표스타일 -->
+								                    </div>
+							                    </dd>
+							                    </dl>
+							                    <div style="display:none" class="se2_btn_area">
+								                    <button class="se2_btn_save" type="button"><span>My 리뷰저장</span></button>
+							                    </div>
+							                    <div class="se2_qdim0 husky_se2m_tbl_qe_dim1"></div>
+							                    <div class="se2_qdim4 husky_se2m_tbl_qe_dim2"></div>
+							                    <div class="se2_qdim6c husky_se2m_tbl_qe_dim_del_col"></div>
+							                    <div class="se2_qdim6r husky_se2m_tbl_qe_dim_del_row"></div>
+						                    </div>
+					                    </div>
+				                    </div>
+				                    </div>
+				                    <!--//@lazyload_html-->
+				                    <!-- //표/글양식 간단편집기 -->
+				                    <!-- 이미지 간단편집기 -->
+				                    <!--@lazyload_html qe_image-->
+				                    <div class="q_img_wrap">
+					                    <button class="_fold se2_qmax q_open_img_full" style="position:absolute;display:none;top:240px;left:210px;z-index:30;" title="최대화" type="button"><span>퀵에디터최대화</span></button>
+					                    <div class="_full se2_qeditor se2_table_set" style="position:absolute;display:none;top:140px;left:450px;z-index:30;">
+						                    <div class="se2_qbar  q_dragable"><span class="se2_qmini"><button title="최소화" class="q_open_img_fold"><span>퀵에디터최소화</span></button></span></div>
+						                    <div class="se2_qbody0">
+							                    <div class="se2_qbody">
+								                    <div class="se2_qe10">
+									                    <label for="se2_swidth">가로</label><input type="text" class="input_ty1 widthimg" name="" id="se2_swidth" value="1024"><label class="se2_sheight" for="se2_sheight">세로</label><input type="text" class="input_ty1 heightimg" name="" id="se2_sheight" value="768"><button class="se2_sreset" type="button"><span>초기화</span></button>
+									                    <div class="se2_qe10_1"><input type="checkbox" name="" class="se2_srate" id="se2_srate"><label for="se2_srate">가로 세로 비율 유지</label></div>
+								                    </div>
+								                    <div class="se2_qe11">
+									                    <dl class="se2_qe11_1">
+									                    <dt><label for="se2_b_width2">테두리두께</label></dt>
+										                    <dd class="se2_numberStepper"><input type="text" class="input_ty1 input bordersize" value="1" maxlength="2" name="" id="se2_b_width2" readonly="readonly">
+										                    <button class="se2_add plus" type="button"><span>1px 더하기</span></button>
+										                    <button class="se2_del minus" type="button"><span>1px 빼기</span></button>
+									                    </dd>
+									                    </dl>
+									                    <dl class="se2_qe11_2">
+									                    <dt>테두리 색</dt>
+									                    <dd><span class="se2_pre_color"><button style="background:#000000;" type="button" class="husky_se2m_img_qe_bgcolor_btn"><span>색찾기</span></button></span>
+										                    <!-- layer:테두리 색 -->
+										                    <div style="display:none;position:absolute;top:20px;left:-209px;" class="se2_layer se2_b_t_b1">
+											                    <div class="se2_in_layer husky_se2m_img_qe_bg_paletteHolder">
+											                    </div>
+										                    </div>
+										                    <!-- //layer:테두리 색 -->
+									                    </dd>
+									                    </dl>
+								                    </div>
+								                    <dl class="se2_qe12">
+								                    <dt>정렬</dt>
+								                    <dd><button title="정렬없음" class="se2_align0" type="button"><span>정렬없음</span></button><button title="좌측정렬" class="se2_align1 left" type="button"><span>좌측정렬</span></button><button title="우측정렬" class="se2_align2 right" type="button"><span>우측정렬</span></button>
+								                    </dd>
+								                    </dl>
+								                    <button class="se2_highedit" type="button"><span>고급편집</span></button>
+								                    <div class="se2_qdim0"></div>
+							                    </div>
+						                    </div>
+					                    </div>
+				                    </div>
+				                    <!--//@lazyload_html-->
+				                    <!-- 이미지 간단편집기 -->
+			                    </div>
+		                    </div>
+		                    <!-- //입력 -->
+		                    <!-- 입력창조절/ 모드전환 -->
+		                    <div class="se2_conversion_mode">
+			                    <button type="button" class="se2_inputarea_controller husky_seditor_editingArea_verticalResizer" title="입력창 크기 조절"><span>입력창 크기 조절</span></button>
+			                    <ul class="se2_converter">
+			                        <li class="active"><button type="button" class="se2_to_editor"><span>Editor</span></button></li>
+			                        <li><button type="button" class="se2_to_html"><span>HTML</span></button></li>
+			                        <li><button type="button" class="se2_to_text"><span>TEXT</span></button></li>
+			                    </ul>
+		                    </div>
+		                    <!-- //입력창조절/ 모드전환 -->
+		                    <hr>
+		                    <!-- 얼럿 메세지 공통 -->
+		                    <div class="se2_alert_wrap" style="display:none">
+			                    <div class="se2_alert_content">
+				                    <div class="se2_alert_txts"></div>
+				                    <p class="se2_alert_btns">
+					                    <button type="button" class="se2_confirm"><span>확인</span></button><button type="button" class="se2_cancel"><span>취소</span></button>
+				                    </p>
+				                    <a href="#" class="btn_close">닫기</a>
+			                    </div>
+			                    <!-- 레이어 중앙정렬 -->
+			                    <span class="va_line"></span>
+			                    <div class="ie_cover"></div>
+		                    </div>
+		                    <!-- //얼럿 메세지 공통 -->
+	                    </div>
+                    </div>
+                    <!-- SE2 Markup End -->
+                    <textarea id="ir1" name="ir1" rows="10" cols="100" style="width:100%; height:400px; display:none;"></textarea>
+                </div>
+                <ul class="con_footer">
+                    <li class="item">
+                        <label class="title"><%= GetResource("CSTRESX00070")%></label>
+                        <div class="field">
+                            <eni:eniTextBox ID="txtTags" ClientInstanceName="txtTags" SkinID="LightDark" runat="server" 
+                                Width="100%" AutoPostBack="false"
+                                NullText="태그와 태그는 쉼표(,)로 구분하며, 최대 10개까지 입력가능합니다."
+                                HelpText="검색에 사용될 단어를 위주로 사용하여 주세요.">
+                            </eni:eniTextBox>   
+                        </div>
+                    </li>
+                    <li class="item">
+                        <label class="title"><%= GetResource("CSTRESX00073")%></label>
+                        <div class="field">
+                            <eni:eniRadioButtonList ID="rdolPublicSetting" ClientInstanceName="rdolPublicSetting" CssClass="DisplayInlineBlock" SkinID="LightDark" runat="server"
+                                RepeatDirection="Horizontal">
+                                <ClientSideEvents SelectedIndexChanged="eni.LocalPage.rdolPublicSetting_SelectedIndexChanged" />
+                                <Items>
+                                    <dx:ListEditItem Value="A" Text="전체공개" />
+                                    <dx:ListEditItem Value="L" Text="내부공개" Selected="true" />
+                                </Items>
+                            </eni:eniRadioButtonList> 
+                            <eni:eniCheckBox ID="chkIsPublicBizArea" ClientInstanceName="chkIsPublicBizArea" CssClass="DisplayInlineBlock" SkinID="LightDark" runat="server"
+                                ValueType="System.Char" ValueChecked="Y" ValueUnchecked="N" Checked="True"
+                                Text="같은사업부만" ToolTip="채크시 나와 같은 사업부 사용자만 열람가능하게 합니다.">
+                                <ClientSideEvents CheckedChanged="eni.LocalPage.chkIsPublicBizArea_CheckedChanged" />
+                            </eni:eniCheckBox>
+                            <eni:eniCheckBox ID="chkIsPublicPlant" ClientInstanceName="chkIsPublicPlant" CssClass="DisplayInlineBlock" SkinID="LightDark" runat="server"
+                                ValueType="System.Char" ValueChecked="Y" ValueUnchecked="N" ValueGrayed="Y"
+                                Text="같은공장만" ToolTip="채크시 나와 같은 공장 사용자만 열람가능하게 합니다.">
+                                <ClientSideEvents CheckedChanged="eni.LocalPage.chkIsPublicPlant_CheckedChanged" />
+                            </eni:eniCheckBox>
+                            <eni:eniCheckBox ID="chkIsPublicDept" ClientInstanceName="chkIsPublicDept" CssClass="DisplayInlineBlock" SkinID="LightDark" runat="server"
+                                ValueType="System.Char" ValueChecked="Y" ValueUnchecked="N" ValueGrayed="Y"
+                                Text="같은부서만" ToolTip="채크시 나와 같은 부서의 사용자만 열람가능하게 합니다.">
+                                <ClientSideEvents CheckedChanged="eni.LocalPage.chkIsPublicDept_CheckedChanged" />
+                            </eni:eniCheckBox>
+                            <eni:eniCheckBox ID="chkIsWorkPlace" ClientInstanceName="chkIsWorkPlace" CssClass="DisplayInlineBlock" SkinID="LightDark" runat="server"
+                                ValueType="System.Char" ValueChecked="Y" ValueUnchecked="N" ValueGrayed="Y"
+                                Text="현장공개" ToolTip="채크시 현장계정그룹의 사용자들은 열람가능하게 합니다.">
+                            </eni:eniCheckBox>
+                            <eni:eniCheckBox ID="chkIsLocalPartner" ClientInstanceName="chkIsLocalPartner" CssClass="DisplayInlineBlock" SkinID="LightDark" runat="server"
+                                ValueType="System.Char" ValueChecked="Y" ValueUnchecked="N" ValueGrayed="Y"
+                                Text="내부협력사공개" ToolTip="채크시 내부협력사 계정그룹의 사용자들은 열람가능하게 합니다.">
+                            </eni:eniCheckBox>
+                            <eni:eniCheckBox ID="chkIsCustomer" ClientInstanceName="chkIsCustomer" CssClass="DisplayInlineBlock" SkinID="LightDark" runat="server"
+                                ValueType="System.Char" ValueChecked="Y" ValueUnchecked="N" ValueGrayed="Y" ClientEnabled="false"
+                                Text="고객사공개" ToolTip="채크시 고객사 계정그룹의 사용자들은 열람가능하게 합니다.">
+                            </eni:eniCheckBox>
+                            <eni:eniCheckBox ID="chkIsExternalPartner" ClientInstanceName="chkIsExternalPartner" CssClass="DisplayInlineBlock" SkinID="LightDark" runat="server"
+                                ValueType="System.Char" ValueChecked="Y" ValueUnchecked="N" ValueGrayed="Y" ClientEnabled="false"
+                                Text="외부협력사공개" ToolTip="채크시 외부협력사 계정그룹의 사용자들은 열람가능하게 합니다.">
+                            </eni:eniCheckBox>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <label class="title"></label>
+                        <div class="field" style="font-size:11px; line-height:0.7px;">
+                            <p><%= GetResource("CSTRESX00090")%></p>
+                            <p><%= GetResource("CSTRESX00091")%></p>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <label class="title"><%= GetResource("CSTRESX00092")%></label>
+                        <div class="field">
+                            <eni:eniCheckBox ID="chkIsSearch" ClientInstanceName="chkIsSearch" SkinID="Advanced-01" runat="server"
+                                ValueType="System.Char" ValueChecked="Y" ValueUnchecked="N" ValueGrayed="Y" CheckState="Checked"
+                                Text="검색허용" ToolTip="그룹웨어에서 검색되는것을 허용합니다.">
+                            </eni:eniCheckBox>
+                        </div>
+                    </li>
+                </ul>
+                <div class="DisplayNone">
+                    덧글허용, 메일로 가져가기, 마우스 오른쪽버튼, 덧글시 푸시 메일링, 확인시 푸시 메일링
+                </div>
+                <%-- 콜백데이터 컨트롤 --%>
+                <eni:eniCallback ID="cbWriteProcess" ClientInstanceName="cbWriteProcess" CreateMode="DefaultMode" runat="server"
+                    OnCallback="cbWriteProcess_Callback">
+                    <ClientSideEvents BeginCallback="eni.LocalPage.cbWriteProcess_BeginCallback"
+                                        CallbackComplete="eni.LocalPage.cbWriteProcess_CallbackComplete"/>
+                </eni:eniCallback>
+            </dx:PopupControlContentControl>
+        </ContentCollection>
+    </eni:eniPopupControl>
+
+    <%-- 콜백데이터 컨트롤 --%>
+    <eni:eniCallback ID="cbProcess" ClientInstanceName="cbProcess" CreateMode="DefaultMode" runat="server"
+        OnCallback="cbProcess_Callback">
+        <ClientSideEvents BeginCallback="eni.LocalPage.cbProcess_BeginCallback"
+                            CallbackComplete="eni.LocalPage.cbProcess_CallbackComplete"/>
+    </eni:eniCallback>
+</asp:Content>

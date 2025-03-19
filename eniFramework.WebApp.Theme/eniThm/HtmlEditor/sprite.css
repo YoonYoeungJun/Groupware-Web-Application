@@ -1,0 +1,232 @@
+.dxHtmlEditor_heConstrainProportionsBottom_eniThm,
+.dxHtmlEditor_heConstrainProportionsBottomRtl_eniThm,
+.dxHtmlEditor_heConstrainProportionsMiddleOff_eniThm,
+.dxHtmlEditor_heConstrainProportionsMiddleOffRtl_eniThm,
+.dxHtmlEditor_heConstrainProportionsMiddleOn_eniThm,
+.dxHtmlEditor_heConstrainProportionsMiddleOnRtl_eniThm,
+.dxHtmlEditor_heConstrainProportionsTop_eniThm,
+.dxHtmlEditor_heConstrainProportionsTopRtl_eniThm,
+.dxHtmlEditor_heEnumIcon_eniThm,
+.dxHtmlEditor_heErrorFrameCloseButton_eniThm,
+.dxHtmlEditor_heEventIcon_eniThm,
+.dxHtmlEditor_heFieldIcon_eniThm,
+.dxHtmlEditor_heReset_eniThm,
+.dxHtmlEditor_heSizeGrip_eniThm,
+.dxHtmlEditor_heSizeGripRtl_eniThm,
+.dxHtmlEditor_heTagInspectorChangeButton_eniThm,
+.dxHtmlEditor_heTagInspectorRemoveButton_eniThm,
+.dxHtmlEditor_heTagInspectorSeparator_eniThm,
+.dxHtmlEditor_heToolbarPopOut_eniThm,
+.dxHtmlEditor_heXmlItemIcon_eniThm,
+.dxHtmlEditor_RoundPanel_herpBottomLeftCorner_eniThm,
+.dxHtmlEditor_RoundPanel_herpBottomRightCorner_eniThm,
+.dxHtmlEditor_RoundPanel_herpGroupBoxBottomLeftCorner_eniThm,
+.dxHtmlEditor_RoundPanel_herpGroupBoxBottomRightCorner_eniThm,
+.dxHtmlEditor_RoundPanel_herpGroupBoxTopLeftCorner_eniThm,
+.dxHtmlEditor_RoundPanel_herpGroupBoxTopRightCorner_eniThm,
+.dxHtmlEditor_RoundPanel_herpHeaderTopLeftCorner_eniThm,
+.dxHtmlEditor_RoundPanel_herpHeaderTopRightCorner_eniThm,
+.dxHtmlEditor_RoundPanel_herpTopLeftCorner_eniThm,
+.dxHtmlEditor_RoundPanel_herpTopRightCorner_eniThm
+{
+    background-image: url('sprite.png');
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+.dxHtmlEditor_heConstrainProportionsBottom_eniThm
+{
+    background-position: -33px -57px;
+    width: 11px;
+    height: 6px;
+}
+.dxHtmlEditor_heConstrainProportionsBottomRtl_eniThm
+{
+    background-position: -45px -57px;
+    width: 11px;
+    height: 6px;
+}
+.dxHtmlEditor_heConstrainProportionsMiddleOff_eniThm
+{
+    background-position: -24px -21px;
+    width: 11px;
+    height: 18px;
+}
+.dxHtmlEditor_heConstrainProportionsMiddleOffRtl_eniThm
+{
+    background-position: 0px -21px;
+    width: 11px;
+    height: 18px;
+}
+.dxHtmlEditor_heConstrainProportionsMiddleOn_eniThm
+{
+    background-position: -12px -21px;
+    width: 11px;
+    height: 18px;
+}
+.dxHtmlEditor_heConstrainProportionsMiddleOnRtl_eniThm
+{
+    background-position: -36px -21px;
+    width: 11px;
+    height: 18px;
+}
+.dxHtmlEditor_heConstrainProportionsTop_eniThm
+{
+    background-position: -53px -65px;
+    width: 11px;
+    height: 5px;
+}
+.dxHtmlEditor_heConstrainProportionsTopRtl_eniThm
+{
+    background-position: -41px -65px;
+    width: 11px;
+    height: 5px;
+}
+.dxHtmlEditor_heEnumIcon_eniThm
+{
+    background-position: -17px -40px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_heErrorFrameCloseButton_eniThm
+{
+    background-position: -14px -57px;
+    width: 13px;
+    height: 9px;
+}
+.dxHtmlEditor_heEventIcon_eniThm
+{
+    background-position: 0px -40px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_heFieldIcon_eniThm
+{
+    background-position: -48px -21px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_heReset_eniThm
+{
+    background-position: 0px 0px;
+    width: 20px;
+    height: 20px;
+}
+.dxHtmlEditor_heSizeGrip_eniThm
+{
+    background-position: 0px -57px;
+    width: 13px;
+    height: 13px;
+}
+.dxHtmlEditor_heSizeGripRtl_eniThm
+{
+    background-position: -51px -40px;
+    width: 13px;
+    height: 13px;
+}
+.dxHtmlEditor_heTagInspectorChangeButton_eniThm
+{
+    background-position: -41px 0px;
+    width: 19px;
+    height: 19px;
+}
+.dxHtmlEditor_heTagInspectorRemoveButton_eniThm
+{
+    background-position: -21px 0px;
+    width: 19px;
+    height: 19px;
+}
+.dxHtmlEditor_heTagInspectorSeparator_eniThm
+{
+    background-position: -28px -57px;
+    width: 4px;
+    height: 7px;
+}
+.dxHtmlEditor_heToolbarPopOut_eniThm
+{
+    background-position: -57px -57px;
+    width: 7px;
+    height: 4px;
+}
+.dxHtmlEditor_heXmlItemIcon_eniThm
+{
+    background-position: -34px -40px;
+    width: 16px;
+    height: 16px;
+}
+.dxHtmlEditor_RoundPanel_herpBottomLeftCorner_eniThm
+{
+    background-position: -25px -67px;
+    width: 3px;
+    height: 3px;
+}
+.dxHtmlEditor_RoundPanel_herpBottomRightCorner_eniThm
+{
+    background-position: -61px -13px;
+    width: 3px;
+    height: 3px;
+}
+.dxHtmlEditor_RoundPanel_herpGroupBoxBottomLeftCorner_eniThm
+{
+    background-position: -21px -67px;
+    width: 3px;
+    height: 3px;
+}
+.dxHtmlEditor_RoundPanel_herpGroupBoxBottomRightCorner_eniThm
+{
+    background-position: -61px 0px;
+    width: 3px;
+    height: 3px;
+}
+.dxHtmlEditor_RoundPanel_herpGroupBoxTopLeftCorner_eniThm
+{
+    background-position: -33px -67px;
+    width: 3px;
+    height: 3px;
+}
+.dxHtmlEditor_RoundPanel_herpGroupBoxTopRightCorner_eniThm
+{
+    background-position: -37px -67px;
+    width: 3px;
+    height: 3px;
+}
+.dxHtmlEditor_RoundPanel_herpHeaderTopLeftCorner_eniThm
+{
+    background-position: -61px -5px;
+    width: 3px;
+    height: 3px;
+}
+.dxHtmlEditor_RoundPanel_herpHeaderTopRightCorner_eniThm
+{
+    background-position: -61px -9px;
+    width: 3px;
+    height: 3px;
+}
+.dxHtmlEditor_RoundPanel_herpTopLeftCorner_eniThm
+{
+    background-position: -29px -67px;
+    width: 3px;
+    height: 3px;
+}
+.dxHtmlEditor_RoundPanel_herpTopRightCorner_eniThm
+{
+    background-position: -61px -17px;
+    width: 3px;
+    height: 3px;
+}
+.dxHtmlEditor_heConstrainProportionsMiddleOn_eniThm,
+.dxHtmlEditor_heConstrainProportionsMiddleOff_eniThm,
+.dxHtmlEditor_heConstrainProportionsBottom_eniThm,
+.dxHtmlEditor_heConstrainProportionsTop_eniThm,
+.dxHtmlEditor_RoundPanel_herpHeaderTopLeftCorner_eniThm,
+.dxHtmlEditor_RoundPanel_herpHeaderTopRightCorner_eniThm,
+.dxHtmlEditor_RoundPanel_herpBottomLeftCorner_eniThm,
+.dxHtmlEditor_RoundPanel_herpBottomRightCorner_eniThm,
+.dxHtmlEditor_RoundPanel_herpTopLeftCorner_eniThm,
+.dxHtmlEditor_RoundPanel_herpTopRightCorner_eniThm,
+.dxHtmlEditor_RoundPanel_herpGroupBoxBottomLeftCorner_eniThm,
+.dxHtmlEditor_RoundPanel_herpGroupBoxBottomRightCorner_eniThm,
+.dxHtmlEditor_RoundPanel_herpGroupBoxTopLeftCorner_eniThm,
+.dxHtmlEditor_RoundPanel_herpGroupBoxTopRightCorner_eniThm
+{
+	display:block;
+}

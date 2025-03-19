@@ -1,0 +1,510 @@
+.dxvgControl_eniThm,
+.dxvgDisabled_eniThm
+{
+    border: 1px solid #868b91;
+    font: 11px Dotum, '돋움', 'Segoe UI', Helvetica, 'Droid Sans', AppleSDGothicNeo, Tahoma, Geneva, sans-serif;
+    background-color: #e7eaee;
+    color: Black;
+    cursor: default;
+}
+.dxvgDisabled_eniThm
+{
+    color: #989898;
+}
+.dxvgControl_eniThm a
+{
+    color: #5a9ddb;
+    text-decoration: none;
+}
+.dxvgControl_eniThm a:hover
+{
+    text-decoration: underline;
+}
+.dxvgControl_eniThm a:hover.dxbDisabled_eniThm
+{
+    color: #989898;
+    text-decoration: none;
+}
+.dxvgDisabled_eniThm a
+{
+    color: #989898;
+}
+.dxvgTable_eniThm
+{
+    background-color: White;
+    border-width: 0;
+    border-collapse: separate !important;
+    overflow: hidden;
+    table-layout: fixed;
+}
+.dxvgTable_eniThm .dxvgHEC
+{
+    background-color: White;
+    border-width: 0;
+    overflow: hidden;
+}
+.dxvgHeader_eniThm
+{
+    cursor: pointer;
+    color: #3c3c3c;
+    font-weight: normal;
+    text-align: left;
+    background-color: #e7ebef;
+    padding: 5px 6px;
+    border: 1px Solid #a5acb5;
+    border-width: 0 1px 1px 0;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.dxvgCategory_eniThm
+{
+    font-weight: bold;
+    background-color: White;
+    padding: 9px 6px;
+    border-bottom: 1px solid #a5acb5;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.dxvgCSD .dxvgCategory_eniThm:not(.dxvg__I)
+{
+    border-right: 1px solid #a5acb5;
+}
+.dxvgCategoryRow_eniThm.dxvgER .dxvgCategory_eniThm,
+.dxvgCategoryRow_eniThm.dxvgCR .dxvgCategory_eniThm
+{
+    cursor: pointer;
+}
+.dxvgCategoryRow_eniThm.dxvgER .dxvgCategory_eniThm.dxvg__I,
+.dxvgCategoryRow_eniThm.dxvgCR .dxvgCategory_eniThm.dxvg__I
+{
+    cursor: default;
+}
+.dxvgRecord_eniThm
+{
+    padding: 4px 6px;
+    border: 1px Solid #dbdee1;
+    border-width: 0 1px 1px 0;
+    background: White;
+    overflow: hidden;
+}
+.dxvgRecord_eniThm:last-child
+{
+    border-right-width: 0;
+}
+.dxvgRPFC .dxvgRecord_eniThm
+{
+    border-bottom: 1px Solid #a5acb5;
+}
+.dxvgRPFC.dxvgER .dxvgRecord_eniThm
+{
+    border-bottom-color: #dbdee1;
+}
+.dxvgGLNV .dxvgRecord_eniThm
+{
+    border-right-width: 0;
+}
+.dxvgGLNH .dxvgRecord_eniThm
+{
+    border-bottom-width: 0;
+}
+.dxvgGLNH .dxvgRPFC .dxvgRecord_eniThm
+{
+    border-bottom-width: 1px;
+}
+.dxvgGLNH .dxvgRPFC.dxvgER .dxvgRecord_eniThm
+{
+    border-bottom-width: 0;
+}
+.dxvgFC .dxvgGLNH tr:last-child .dxvgRecord_eniThm
+{
+    border-bottom-width: 1px;
+}
+.dxvgControl_eniThm .dxvgFCSD
+{
+    border-top: 1px solid #a5acb5;
+}
+.dxvgRecordAlt_eniThm
+{
+    background-color: #f7f7f8;
+}
+/* Select, Hover */
+.dxvgSelectedRecord_eniThm
+{
+    background-color: #fdf7d9;
+    color: Black;
+}
+.dxvgSelectedRecord_eniThm a
+{
+    color: #5a9ddb;
+    text-decoration: none;
+}
+.dxvgSelectedRecord_eniThm a:hover
+{
+    text-decoration: underline;
+}
+.dxvgDataRowHover_eniThm .dxvgRecord_eniThm
+{
+    background: #fbf4d7 url('../GridView/gvHoverBack.png') repeat-x left top;
+    color: Black;
+}
+/* Command Items */
+.dxvgCommandCell_eniThm a,
+.dxvgHeader_eniThm a.dxvgCommandItem_eniThm
+{
+    margin: 0 3px 0 0;
+}
+.dxvgHeader_eniThm a
+{
+    color: #5a9ddb;
+    text-decoration: underline;
+}
+.dxvgHeader_eniThm a.dxvgCommandItem_eniThm:hover
+{
+    text-decoration: underline;
+}
+.dxvgCommandCell_eniThm a
+{
+    color: #5a9ddb;
+    text-decoration: none;
+}
+.dxvgCommandCell_eniThm a:hover
+{
+    text-decoration: underline;
+}
+.dxbButton_eniThm[class~="dxvgCommandItem_eniThm"]
+{
+    margin: 0px 2px 0px 2px;
+}
+.dxbButton_eniThm[class~="dxvgCommandItem_eniThm"] .dxb
+{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+/* Indents */
+.dxvgControl_eniThm .dxvg__I
+{
+    border-style: solid;
+    border-color: #a5acb5;
+    border-width: 0 1px 0 0;
+    cursor: default;
+}
+.dxvgControl_eniThm .dxvg__I.dxvg__BB
+{
+    border-bottom-width: 1px;
+}
+.dxvgControl_eniThm .dxvgER .dxvg__I.dxvg__BB
+{
+    border-bottom-width: 0;
+}
+.dxvgControl_eniThm .dxvgMHI .dxvg__I
+{
+    border-right-width: 0;
+}
+.dxvgControl_eniThm .dxvgMHI .dxvgER .dxvg__I.dxvg__BB
+{
+    border-bottom-width: 1px;
+}
+/* Title Panel, Status bar, Summary Panel */
+.dxvgTitlePanel_eniThm,
+.dxvgTable_eniThm caption
+{
+    font-weight: normal;
+    padding: 3px 3px 5px;
+    text-align: center;
+    background: #e8ebee url('../GridView/gvTitleBack.png') repeat-x left top;
+    color: Black;
+    border-bottom: 1px solid #a5acb5;
+}
+.dxvgStatusBar_eniThm
+{
+    background: #e9edf1 none;
+    border-top: 1px solid #a5acb5;
+}
+.dxvgStatusBar_eniThm tr.dxvg
+{
+    height: 20px;
+}
+.dxvgStatusBar_eniThm tr.dxvg > td
+{
+    padding: 4px;
+}
+.dxvgStatusBar_eniThm tr.dxvg span .dxbButtonSys:first-child
+{
+    margin-left: 2px;
+}
+.dxvgSummaryPanel_eniThm
+{
+    background-color: #f6f7f9;
+    border-top: 1px solid #868B91;
+    padding: 8px 21px;
+}
+.dxvgSummaryItem_eniThm
+{
+    display: inline-block;
+    margin: 5px 8px 5px 0;
+}
+/* Pager */
+.dxvgPagerBottomPanel_eniThm
+{
+    background: #e7eaee url('../GridView/gvPagerPanelBack.png') repeat-x left top;
+}
+.dxvgPagerTopPanel_eniThm
+{
+    border-bottom: 1px solid #a5acb5;
+}
+.dxvgPagerBottomPanel_eniThm
+{
+    border-top: 1px solid #a5acb5;
+}
+.dxvgControl_eniThm .dxpLite_eniThm,
+.dxvgDisabled_eniThm .dxpLite_eniThm
+{
+    padding-top: 4px;
+}
+/* Toolbar */
+.dxvgControl_eniThm .dxctToolbar_eniThm.dxm-main.dxvgCTTop
+{
+    border-bottom: 1px solid #a5acb5;
+}
+.dxvgControl_eniThm .dxctToolbar_eniThm.dxm-main.dxvgCTBottom
+{
+    border-top: 1px solid #a5acb5;
+}
+/* Filter Builder, Filter Bar */
+.dxvgFilterBar_eniThm
+{
+    border-top: 1px solid #a5acb5;
+    background: #e9edf1 none;
+}
+.dxvgFilterBar_eniThm a
+{
+    color: #5a9ddb;
+    text-decoration: underline;
+}
+.dxvgFilterBarCheckBoxCell_eniThm
+{
+    padding: 0 7px 0 3px;
+}
+.dxvgFilterBarImageCell_eniThm
+{
+    padding: 0 1px 0 3px;
+    cursor: pointer;
+}
+.dxvgFilterBarExpressionCell_eniThm
+{
+    padding: 5px 5px 8px 0;
+    white-space: nowrap;
+}
+.dxvgFilterBarClearButtonCell_eniThm
+{
+    padding: 5px 6px 8px;
+}
+.dxvgFilterBuilderMainArea_eniThm
+{
+    background: white none;
+    padding: 6px 2px;
+}
+.dxvgFilterBuilderButtonArea_eniThm
+{
+    background: #e9edf1 none;
+    border-top: 1px solid #c9cdd2;
+    padding: 6px;
+    white-space: nowrap;
+}
+/* Header Filter */
+.dxvgControl_eniThm .dxvgHFSAC
+{
+    padding: 7px 0 0 6px;
+}
+.dxvgControl_eniThm .dxvgHFC
+{
+    padding-left: 6px;
+    padding-bottom: 3px;
+}
+.dxvgControl_eniThm .dxvgHFC .dxeCalendar_eniThm
+{
+    margin-top: 3px;
+    margin-left: 25px;
+}
+.dxvgControl_eniThm .dxvgHFSC
+{
+    padding: 7px 0 5px;
+}
+.dxvgControl_eniThm .dxvgHFSC div
+{
+    height: 1px;
+    background: #868B91;
+}
+.dxvgControl_eniThm div[id$='DXEPLPC']
+{
+    height: 39px;
+}
+.dxvgControl_eniThm .dxvgHFSD
+{
+    height: 1px;
+    margin: 2px 0;
+}
+.dxvgControl_eniThm .dxvgHFDRC
+{
+    margin: 15px 15px 25px;
+}
+.dxvgControl_eniThm .dxvgHFDRP
+{
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: 9px 0 6px;
+}
+.dxvgControl_eniThm .dxvgHFDRP[id*="HFFDE"]
+{
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+.dxvgControl_eniThm .dxvgHFDRP[id*="HFTDE"]
+{
+    margin-bottom: 25px;
+}
+/* Batch Edit */
+.dxvgControl_eniThm td.dxvgBatchEditCell_eniThm
+{
+    padding: 0 2px;
+}
+.dxvgControl_eniThm td.dxvgBatchEditModifiedCell_eniThm
+{
+    background: #d7f9c7;
+}
+.dxvgBatchEditDeletedItem_eniThm,
+.dxvgBatchEditNewItem_eniThm.dxvgBatchEditDeletedItem_eniThm
+{
+    background: #EFEFEF;
+}
+td.dxvgBatchEditDeletedItem_eniThm:not(.dxvgCommandColumn_eniThm)
+{
+    color: rgba(0,0,0,0.5);
+}
+.dxvgBatchEditDeletedItem_eniThm.dxvgBatchEditModifiedCell_eniThm
+{
+    background: #eefbe7 !important;
+}
+.dxvgBatchEditNewItem_eniThm
+{
+    background: #F0FAEA;
+}
+.dxvgControl_eniThm .dxvgErrorCell
+{
+    padding-left: 5px;
+    width: 1px;
+}
+.dxvgControl_eniThm .dxvgErrorCell img
+{
+    margin: -3px 0;
+}
+.dxvgStatusBar_eniThm .dxbButton_eniThm
+{
+    margin-right: 10px;
+}
+.dxvgControl_eniThm td.dxvgBatchEditCell_eniThm .dxichCellSys
+{
+    padding-left: 0;
+}
+.dxvgRecordError_eniThm
+{
+    background-color: #e9edf1;
+    color: #ba1717;
+    padding: 6px 10px;
+    height: 100%;
+}
+.dxvgERV .dxvgRecord_eniThm
+{
+    display: none;
+}
+.dxvgEmptyRecord_eniThm
+{
+    display: none;
+    text-align: center;
+}
+.dxvgERV .dxvgEmptyRecord_eniThm
+{
+    display: table-cell;
+}
+/* LoadingPanel */
+.dxvgLoadingPanel_eniThm
+{
+    font: 11px Dotum, '돋움', 'Segoe UI', Helvetica, 'Droid Sans', AppleSDGothicNeo, Tahoma, Geneva, sans-serif;
+    color: #585e68;
+    background: White none;
+    border: 1px solid #80858d;
+}
+.dxvgLoadingPanel_eniThm td.dx
+{
+    white-space: nowrap;
+    text-align: center;
+    padding: 10px 14px;
+}
+.dxvgLoadingPanel_eniThm .dxlp-loadingImage,
+.dxvgLoadingPanelStatusBar_eniThm .dxlp-loadingImage
+{
+    background-image: url('../Web/Loading.gif');
+    height: 16px;
+    width: 16px;
+}
+.dxvgLoadingPanelStatusBar_eniThm
+{
+    background-color: Transparent;
+}
+.dxvgLoadingPanelStatusBar_eniThm td
+{
+    white-space: nowrap;
+    text-align: center;
+    padding: 0 2px;
+}
+/* Search Panel */
+.dxvgSearchPanel_eniThm
+{
+    padding: 7px 4px 7px 6px;
+    border-bottom: 1px solid #a5acb5;
+}
+.dxvgSearchPanel_eniThm > table
+{
+    width: 70%;
+    max-width: 450px;
+}
+.dxvgControl_eniThm .dxvgSearchPanel_eniThm .dxbButton_eniThm
+{
+    margin-left: 7px;
+    margin-right: 0;
+}
+*[dir="rtl"].dxvgControl_eniThm .dxvgSearchPanel_eniThm .dxbButton_eniThm
+{
+    margin-left: 0;
+    margin-right: 7px;
+}
+.dxvgControl_eniThm .dxvgHL
+{
+    background: #ffd83a;
+    color: Black;
+    font-weight: bold;
+    font-style: normal;
+}
+/* TODO remove (replace to command button style) */
+.dxvgControl_eniThm .dxvgSearchPanel_eniThm .dxbButton_eniThm
+{
+    font-size: 0.9em;
+    margin-top: -2px;
+    margin-bottom: -2px;
+}
+.dxvgControl_eniThm .dxvgSearchPanel_eniThm .dxbButton_eniThm .dxb
+{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+/* Removes flicking in iOS Safari*/
+.dxvgTable_eniThm
+{
+    -webkit-tap-highlight-color: transparent;
+}
+.dxvgFocusedCell_eniThm
+{
+    box-shadow: inset 2px 2px 0 #2292B1, inset -2px -2px 0 #2292B1;
+    -webkit-box-shadow: inset 2px 2px 0 #2292B1, inset -2px -2px 0 #2292B1;
+    -moz-box-shadow: inset 2px 2px 0 #2292B1, inset -2px -2px 0 #2292B1;
+}

@@ -1,0 +1,62 @@
+﻿<%@ Register TagPrefix="dx" Namespace="DevExpress.Data" Assembly="DevExpress.Data.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Web" Assembly="DevExpress.Web.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="eni" Namespace="eniFramework.WebApp.Controls" Assembly="eniFramework.WebApp.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" %>
+
+<%-- eniFramework Default Mode Skin --%>
+<eni:eniFormLayout runat="server" CssFilePath="{0}/styles.css" CssPostfix="eniThm">
+    <Styles>
+        <LayoutGroupBox>
+            <Caption ForeColor="#A5ACB5" Font-Bold="true" />
+        </LayoutGroupBox>
+    </Styles>
+</eni:eniFormLayout>
+
+<%-- eniFramework Standard Mode Skin --%>
+<eni:eniFormLayout runat="server" CssFilePath="{0}/styles.css" CssPostfix="eniThm" CssClass="eniFrmLayout" SkinID="Standard"
+    Width="100%" LeftAndRightCaptionsWidth="100" ShowItemCaptionColon="False">
+    <SettingsItemCaptions HorizontalAlign="Right"/>
+    <Paddings Padding="0px" />
+    <Styles>
+        <LayoutGroupBox BackColor="#F5F5F5">
+            <Caption ForeColor="#A5ACB5" />
+            <Border BorderColor="#A5ACB5" BorderStyle="Solid" BorderWidth="1px" />
+        </LayoutGroupBox>
+    </Styles>
+</eni:eniFormLayout>
+
+<%-- eniFramework BSL Mode Skin --%>
+<eni:eniFormLayout runat="server" CssFilePath="{0}/styles.css" CssPostfix="eniThm" CssClass="frmLayout Margin5T" CreateMode="BSLMode" SkinID="BSL"
+    Width="100%" LeftAndRightCaptionsWidth="100" ShowItemCaptionColon="False">
+    <SettingsItemCaptions HorizontalAlign="Right" />
+    <SettingsItems Width="50%" />
+    <Paddings Padding="0px" />
+    <Styles>
+        <LayoutGroup CssClass="Padding0">
+            <Cell CssClass="Padding0"></Cell>
+        </LayoutGroup>
+        <LayoutGroupBox BackColor="#F5F5F5" CssClass="Margin0 Padding5B">
+            <Caption ForeColor="#A5ACB5" />
+            <Border BorderColor="#A5ACB5" BorderStyle="Solid" BorderWidth="1px" />
+        </LayoutGroupBox>
+        <LayoutItem>
+            <Caption Font-Size="11px"></Caption>
+            <CaptionCell>
+                <Paddings PaddingTop="4px"/>
+            </CaptionCell>
+            <NestedControlCell CssClass="NoWrap"/>
+        </LayoutItem>
+    </Styles>
+</eni:eniFormLayout>
+
+<%-- eniFramework Popup Mode Skin --%>
+<eni:eniFormLayout runat="server" CssFilePath="{0}/styles.css" CssPostfix="eniThm" CssClass="eniFrmPopupLayout"  SkinID="Popup"
+    Width="100%" ShowItemCaptionColon="False">
+    <SettingsItemCaptions HorizontalAlign="Right"/>
+    <Paddings Padding="0px" />
+    <Styles>
+        <LayoutGroupBox BackColor="#F5F5F5">
+            <Caption ForeColor="#A5ACB5" />
+            <Border BorderColor="#A5ACB5" BorderStyle="Solid" BorderWidth="1px" />
+        </LayoutGroupBox>
+    </Styles>
+</eni:eniFormLayout>

@@ -1,0 +1,640 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ApplicationName" xml:space="preserve">
+    <value>::::::: DAE-IL Groupware :::::::</value>
+  </data>
+  <data name="GCSTRESX00000" xml:space="preserve">
+    <value>ユニコード支援</value>
+    <comment>문자열</comment>
+  </data>
+  <data name="GCSTRESX00001" xml:space="preserve">
+    <value>미리보기</value>
+    <comment>미리보기</comment>
+  </data>
+  <data name="GCSTRESX00002" xml:space="preserve">
+    <value>인쇄</value>
+    <comment>인쇄</comment>
+  </data>
+  <data name="GCSTRESX00003" xml:space="preserve">
+    <value>조회</value>
+    <comment>조회</comment>
+  </data>
+  <data name="GCSTRESX00004" xml:space="preserve">
+    <value>확인</value>
+    <comment>확인</comment>
+  </data>
+  <data name="GCSTRESX00005" xml:space="preserve">
+    <value>취소</value>
+    <comment>취소</comment>
+  </data>
+  <data name="GCSTRESX00006" xml:space="preserve">
+    <value>팝업</value>
+    <comment>팝업</comment>
+  </data>
+  <data name="GCSTRESX00007" xml:space="preserve">
+    <value>닫기</value>
+    <comment>닫기</comment>
+  </data>
+  <data name="GCSTRESX00008" xml:space="preserve">
+    <value>삭제</value>
+    <comment>삭제</comment>
+  </data>
+  <data name="GCSTRESX00009" xml:space="preserve">
+    <value>언어선택</value>
+    <comment>언어선택</comment>
+  </data>
+  <data name="GCSTRESX00100" xml:space="preserve">
+    <value>呼んで来る途中です。</value>
+  </data>
+  <data name="GCSTRESX00101" xml:space="preserve">
+    <value>要請の形が間違っています。</value>
+    <comment>시스템 관련</comment>
+  </data>
+  <data name="GCSTRESX00102" xml:space="preserve">
+    <value>誤った要請です。</value>
+  </data>
+  <data name="GCSTRESX00103" xml:space="preserve">
+    <value>페이지 전환중입니다.</value>
+    <comment>페이지 전환중입니다.</comment>
+  </data>
+  <data name="GCSTRESX00104" xml:space="preserve">
+    <value>해당 페이지는 인증된 사용자만 사용하도록 되어있지만 로그인된 객체가 없습니다.</value>
+    <comment>해당 페이지는 인증된 사용자만 사용하도록 되어있지만 로그인된 객체가 없습니다.</comment>
+  </data>
+  <data name="GCSTRESX00105" xml:space="preserve">
+    <value>데이터 셋이 비어있습니다.</value>
+    <comment>데이터 셋이 비어있습니다.</comment>
+  </data>
+  <data name="GCSTRESX00106" xml:space="preserve">
+    <value>로그인 객체가 없습니다.</value>
+    <comment>로그인 객체가 없습니다.</comment>
+  </data>
+  <data name="GCSTRESX00107" xml:space="preserve">
+    <value>사용자 지정 타입 &lt;T&gt;에 대하여 데이터를 파싱하지 못하였습니다.</value>
+    <comment>사용자 지정 타입 &lt;T&gt;에 대하여 데이터를 파싱하지 못하였습니다.</comment>
+  </data>
+  <data name="GCSTRESX00300" xml:space="preserve">
+    <value>データベースに接続できません。</value>
+    <comment>데이터 베이스 관련</comment>
+  </data>
+  <data name="GCSTRESX00301" xml:space="preserve">
+    <value>登録されたメッセージがありません。</value>
+  </data>
+  <data name="GCSTRESX00500" xml:space="preserve">
+    <value>重複されたデータが存在します。</value>
+    <comment>데이터 베이스 메세지 관련</comment>
+  </data>
+  <data name="GCSTRESX20000" xml:space="preserve">
+    <value>요청이 잘못되었습니다.</value>
+    <comment>Request 관련</comment>
+  </data>
+  <data name="GCSTRESX20001" xml:space="preserve">
+    <value>요청한 메일 아이디 형식은 지원하지 않습니다.</value>
+  </data>
+  <data name="GCSTRESX20002" xml:space="preserve">
+    <value>요청한 메일의 첨부파일 번호가 잘못되었습니다.</value>
+  </data>
+  <data name="GCSTRESX20003" xml:space="preserve">
+    <value>요청한 메일을 서버에서 찾을수 없습니다.</value>
+  </data>
+  <data name="GCSTRESX20004" xml:space="preserve">
+    <value>요청한 메일을 형식화된 객체로 변환하던중 오류가 발생하였습니다.</value>
+  </data>
+  <data name="GCSTRESX20005" xml:space="preserve">
+    <value>요청한 메일의 첨부된 파일이 없습니다. 관리자에게 문의 하세요.</value>
+  </data>
+  <data name="GCSTRESX20006" xml:space="preserve">
+    <value>요청한 첨부파일을 찾을수 없습니다.</value>
+  </data>
+  <data name="GCSTRESX20007" xml:space="preserve">
+    <value>요청한 메일의 파서를 찾을수 없습니다. 관리자에게 문의 하세요.</value>
+  </data>
+  <data name="GCSTRESX20008" xml:space="preserve">
+    <value>요청한 대용량 첨부파일이 존재하지 않습니다. 관리자에게 문의 하세요.</value>
+  </data>
+  <data name="GCSTRESX20009" xml:space="preserve">
+    <value>대용량 첨부 자료를 불러오던중 타입 변환 오류가 발생하여 다운로드 할 수 없습니다.</value>
+  </data>
+  <data name="GCSTRESX20010" xml:space="preserve">
+    <value>대용량 첨부 사용자 계정을 찾을수 없습니다. 퇴사등의 이유로 메일 서버에서 삭제 처리되었을수 있습니다.</value>
+  </data>
+  <data name="GCSTRESX20011" xml:space="preserve">
+    <value>요청한 대용량 첨부파일은 기간이 만료되어 서버에서 삭제되었습니다.</value>
+  </data>
+  <data name="GCSTRESX20012" xml:space="preserve">
+    <value>다운로드 기간이 만료되어 다운로드 할수 없습니다.</value>
+  </data>
+  <data name="GCSTRESX20013" xml:space="preserve">
+    <value>요청하신 게시물의 실제 첨부 경로를 추출하던중 경로설정에 문제가 발생하였습니다. 관리자에게 문의하세요.</value>
+  </data>
+  <data name="GCSTRESX20014" xml:space="preserve">
+    <value>요청한 게시물의 첨부파일이 존재하지 않습니다. 관리자에게 문의 하세요.</value>
+  </data>
+  <data name="GCSTRESX20015" xml:space="preserve">
+    <value>{0} 외({1}건).zip</value>
+  </data>
+  <data name="GCSTRESX20016" xml:space="preserve">
+    <value>데이터 형식이 잘못되었습니다.</value>
+    <comment>데이터 형식이 잘못되었습니다.</comment>
+  </data>
+  <data name="GCSTRESX20017" xml:space="preserve">
+    <value>저장에 실패하였습니다.</value>
+    <comment>저장에 실패하였습니다.</comment>
+  </data>
+  <data name="GCTRRESX10000" xml:space="preserve">
+    <value>글꼴</value>
+    <comment>글꼴</comment>
+  </data>
+  <data name="GCTRRESX10001" xml:space="preserve">
+    <value>가나다라</value>
+    <comment>가나다라</comment>
+  </data>
+  <data name="GCTRRESX10002" xml:space="preserve">
+    <value>글자크기</value>
+    <comment>글자크기</comment>
+  </data>
+  <data name="GCTRRESX10003" xml:space="preserve">
+    <value>가나다라마바사</value>
+    <comment>가나다라마바사</comment>
+  </data>
+  <data name="GCTRRESX10004" xml:space="preserve">
+    <value>가나다라마</value>
+    <comment>가나다라마</comment>
+  </data>
+  <data name="GCTRRESX10005" xml:space="preserve">
+    <value>가나다</value>
+    <comment>가나다</comment>
+  </data>
+  <data name="GCTRRESX10006" xml:space="preserve">
+    <value>굵게[Ctrl+B]</value>
+    <comment>굵게[Ctrl+B]</comment>
+  </data>
+  <data name="GCTRRESX10007" xml:space="preserve">
+    <value>밑줄[Ctrl+U]</value>
+    <comment>밑줄[Ctrl+U]</comment>
+  </data>
+  <data name="GCTRRESX10008" xml:space="preserve">
+    <value>기울임꼴[Ctrl+I]</value>
+    <comment>기울임꼴[Ctrl+I]</comment>
+  </data>
+  <data name="GCTRRESX10009" xml:space="preserve">
+    <value>취소선[Ctrl+D]</value>
+    <comment>취소선[Ctrl+D]</comment>
+  </data>
+  <data name="GCTRRESX10010" xml:space="preserve">
+    <value>글자색</value>
+    <comment>글자색</comment>
+  </data>
+  <data name="GCTRRESX10011" xml:space="preserve">
+    <value>더보기</value>
+    <comment>더보기</comment>
+  </data>
+  <data name="GCTRRESX10012" xml:space="preserve">
+    <value>최근 사용한 색</value>
+    <comment>최근 사용한 색</comment>
+  </data>
+  <data name="GCTRRESX10013" xml:space="preserve">
+    <value>입력</value>
+    <comment>입력</comment>
+  </data>
+  <data name="GCTRRESX10014" xml:space="preserve">
+    <value>배경색</value>
+    <comment>배경색</comment>
+  </data>
+  <data name="GCTRRESX10015" xml:space="preserve">
+    <value>글자색</value>
+    <comment>글자색</comment>
+  </data>
+  <data name="GCTRRESX10016" xml:space="preserve">
+    <value>윗첨자</value>
+    <comment>윗첨자</comment>
+  </data>
+  <data name="GCTRRESX10017" xml:space="preserve">
+    <value>아래첨자</value>
+    <comment>아래첨자</comment>
+  </data>
+  <data name="GCTRRESX10018" xml:space="preserve">
+    <value>왼쪽정렬</value>
+    <comment>왼쪽정렬</comment>
+  </data>
+  <data name="GCTRRESX10019" xml:space="preserve">
+    <value>가운대정렬</value>
+    <comment>가운대정렬</comment>
+  </data>
+  <data name="GCTRRESX10020" xml:space="preserve">
+    <value>오른쪽정렬</value>
+    <comment>오른쪽정렬</comment>
+  </data>
+  <data name="GCTRRESX10021" xml:space="preserve">
+    <value>양쪽정렬</value>
+    <comment>양쪽정렬</comment>
+  </data>
+  <data name="GCTRRESX10022" xml:space="preserve">
+    <value>번호매기기</value>
+    <comment>번호매기기</comment>
+  </data>
+  <data name="GCTRRESX10023" xml:space="preserve">
+    <value>글머리기호</value>
+    <comment>글머리기호</comment>
+  </data>
+  <data name="GCTRRESX10024" xml:space="preserve">
+    <value>내어쓰기[Shift+Tab]</value>
+    <comment>내어쓰기[Shift+Tab]</comment>
+  </data>
+  <data name="GCTRRESX10025" xml:space="preserve">
+    <value>들여쓰기[Tab]</value>
+    <comment>들여쓰기[Tab]</comment>
+  </data>
+  <data name="GCTRRESX10026" xml:space="preserve">
+    <value>줄간격</value>
+    <comment>줄간격</comment>
+  </data>
+  <data name="GCTRRESX10027" xml:space="preserve">
+    <value>직접 입력</value>
+    <comment>직접 입력</comment>
+  </data>
+  <data name="GCTRRESX10028" xml:space="preserve">
+    <value>더하기</value>
+    <comment>더하기</comment>
+  </data>
+  <data name="GCTRRESX10029" xml:space="preserve">
+    <value>빼기</value>
+    <comment>빼기</comment>
+  </data>
+  <data name="GCTRRESX10030" xml:space="preserve">
+    <value>적용</value>
+    <comment>적용</comment>
+  </data>
+  <data name="GCTRRESX10031" xml:space="preserve">
+    <value>취소</value>
+    <comment>취소</comment>
+  </data>
+  <data name="GCTRRESX10032" xml:space="preserve">
+    <value>인용구</value>
+    <comment>인용구</comment>
+  </data>
+  <data name="GCTRRESX10033" xml:space="preserve">
+    <value>인용구 스타일</value>
+    <comment>인용구 스타일</comment>
+  </data>
+  <data name="GCTRRESX10034" xml:space="preserve">
+    <value>적용취소</value>
+    <comment>적용취소</comment>
+  </data>
+  <data name="GCTRRESX10035" xml:space="preserve">
+    <value>링크</value>
+    <comment>링크</comment>
+  </data>
+  <data name="GCTRRESX10036" xml:space="preserve">
+    <value>적용</value>
+    <comment>적용</comment>
+  </data>
+  <data name="GCTRRESX10037" xml:space="preserve">
+    <value>취소</value>
+    <comment>취소</comment>
+  </data>
+  <data name="GCTRRESX10038" xml:space="preserve">
+    <value>특수기호</value>
+    <comment>특수기호</comment>
+  </data>
+  <data name="GCTRRESX10039" xml:space="preserve">
+    <value>일반기호</value>
+    <comment>일반기호</comment>
+  </data>
+  <data name="GCTRRESX10040" xml:space="preserve">
+    <value>숫자와 단위</value>
+    <comment>숫자와 단위</comment>
+  </data>
+  <data name="GCTRRESX10041" xml:space="preserve">
+    <value>원,괄호</value>
+    <comment>원,괄호</comment>
+  </data>
+  <data name="GCTRRESX10042" xml:space="preserve">
+    <value>한글</value>
+    <comment>한글</comment>
+  </data>
+  <data name="GCTRRESX10043" xml:space="preserve">
+    <value>그리스,라틴어</value>
+    <comment>그리스,라틴어</comment>
+  </data>
+  <data name="GCTRRESX10044" xml:space="preserve">
+    <value>일본어</value>
+    <comment>일본어</comment>
+  </data>
+  <data name="GCTRRESX10045" xml:space="preserve">
+    <value>선택한 기호</value>
+    <comment>선택한 기호</comment>
+  </data>
+  <data name="GCTRRESX10046" xml:space="preserve">
+    <value>적용</value>
+    <comment>적용</comment>
+  </data>
+  <data name="GCTRRESX10047" xml:space="preserve">
+    <value>취소</value>
+    <comment>취소</comment>
+  </data>
+  <data name="GCTRRESX10048" xml:space="preserve">
+    <value>표</value>
+    <comment>표</comment>
+  </data>
+  <data name="GCTRRESX10049" xml:space="preserve">
+    <value>칸수 지정</value>
+    <comment>칸수 지정</comment>
+  </data>
+  <data name="GCTRRESX10050" xml:space="preserve">
+    <value>행</value>
+    <comment>행</comment>
+  </data>
+  <data name="GCTRRESX10051" xml:space="preserve">
+    <value>1행추가</value>
+    <comment>1행추가</comment>
+  </data>
+  <data name="GCTRRESX10052" xml:space="preserve">
+    <value>1행삭제</value>
+    <comment>1행삭제</comment>
+  </data>
+  <data name="GCTRRESX10053" xml:space="preserve">
+    <value>열</value>
+    <comment>열</comment>
+  </data>
+  <data name="GCTRRESX10054" xml:space="preserve">
+    <value>1열추가</value>
+    <comment>1열추가</comment>
+  </data>
+  <data name="GCTRRESX10055" xml:space="preserve">
+    <value>1열삭제</value>
+    <comment>1열삭제</comment>
+  </data>
+  <data name="GCTRRESX10056" xml:space="preserve">
+    <value>속성직접입력</value>
+    <comment>속성직접입력</comment>
+  </data>
+  <data name="GCTRRESX10057" xml:space="preserve">
+    <value>표스타일</value>
+    <comment>표스타일</comment>
+  </data>
+  <data name="GCTRRESX10058" xml:space="preserve">
+    <value>테두리없음</value>
+    <comment>테두리없음</comment>
+  </data>
+  <data name="GCTRRESX10059" xml:space="preserve">
+    <value>테두리스타일</value>
+    <comment>테두리스타일</comment>
+  </data>
+  <data name="GCTRRESX10060" xml:space="preserve">
+    <value>테두리두께</value>
+    <comment>테두리두께</comment>
+  </data>
+  <data name="GCTRRESX10061" xml:space="preserve">
+    <value>1px 더하기</value>
+    <comment>1px 더하기</comment>
+  </data>
+  <data name="GCTRRESX10062" xml:space="preserve">
+    <value>1px 빼기</value>
+    <comment>1px 빼기</comment>
+  </data>
+  <data name="GCTRRESX10063" xml:space="preserve">
+    <value>테두리색</value>
+    <comment>테두리색</comment>
+  </data>
+  <data name="GCTRRESX10064" xml:space="preserve">
+    <value>색찾기</value>
+    <comment>색찾기</comment>
+  </data>
+  <data name="GCTRRESX10065" xml:space="preserve">
+    <value>셀 배경색</value>
+    <comment>셀 배경색</comment>
+  </data>
+  <data name="GCTRRESX10066" xml:space="preserve">
+    <value>표스타일</value>
+    <comment>표스타일</comment>
+  </data>
+  <data name="GCTRRESX10067" xml:space="preserve">
+    <value>스타일 선택</value>
+    <comment>스타일 선택</comment>
+  </data>
+  <data name="GCTRRESX10068" xml:space="preserve">
+    <value>표스타일</value>
+    <comment>표스타일</comment>
+  </data>
+  <data name="GCTRRESX10069" xml:space="preserve">
+    <value>적용</value>
+    <comment>적용</comment>
+  </data>
+  <data name="GCTRRESX10070" xml:space="preserve">
+    <value>취소</value>
+    <comment>취소</comment>
+  </data>
+  <data name="GCTRRESX10071" xml:space="preserve">
+    <value>찾기/바꾸기</value>
+    <comment>찾기/바꾸기</comment>
+  </data>
+  <data name="GCTRRESX10072" xml:space="preserve">
+    <value>닫기</value>
+    <comment>닫기</comment>
+  </data>
+  <data name="GCTRRESX10073" xml:space="preserve">
+    <value>찾기</value>
+    <comment>찾기</comment>
+  </data>
+  <data name="GCTRRESX10074" xml:space="preserve">
+    <value>바꾸기</value>
+    <comment>바꾸기</comment>
+  </data>
+  <data name="GCTRRESX10075" xml:space="preserve">
+    <value>찾을 단어</value>
+    <comment>찾을 단어</comment>
+  </data>
+  <data name="GCTRRESX10076" xml:space="preserve">
+    <value>스마트에디터</value>
+    <comment>스마트에디터</comment>
+  </data>
+  <data name="GCTRRESX10077" xml:space="preserve">
+    <value>다음 찾기</value>
+    <comment>다음 찾기</comment>
+  </data>
+  <data name="GCTRRESX10078" xml:space="preserve">
+    <value>찾을 단어</value>
+    <comment>찾을 단어</comment>
+  </data>
+  <data name="GCTRRESX10079" xml:space="preserve">
+    <value>바꿀 단어</value>
+    <comment>바꿀 단어</comment>
+  </data>
+  <data name="GCTRRESX10080" xml:space="preserve">
+    <value>취소</value>
+    <comment>취소</comment>
+  </data>
+  <data name="GCTRRESX10081" xml:space="preserve">
+    <value>바꾸기</value>
+    <comment>바꾸기</comment>
+  </data>
+  <data name="GCTRRESX10082" xml:space="preserve">
+    <value>모두 바꾸기</value>
+    <comment>모두 바꾸기</comment>
+  </data>
+  <data name="GCTRRESX10083" xml:space="preserve">
+    <value>닫기</value>
+    <comment>닫기</comment>
+  </data>
+  <data name="GCTRRESXFONT1" xml:space="preserve">
+    <value>나눔고딕</value>
+    <comment>나눔고딕</comment>
+  </data>
+  <data name="GCTRRESXFONT2" xml:space="preserve">
+    <value>나눔명조</value>
+    <comment>나눔명조</comment>
+  </data>
+  <data name="GCTRRESXFONT3" xml:space="preserve">
+    <value>나눔고딕코딩</value>
+    <comment>나눔고딕코딩</comment>
+  </data>
+  <data name="GCTRRESXFONT4" xml:space="preserve">
+    <value>나눔바른고딕</value>
+    <comment>나눔바른고딕</comment>
+  </data>
+  <data name="GCTRRESXFONT5" xml:space="preserve">
+    <value>나눔바른펜</value>
+    <comment>나눔바른펜</comment>
+  </data>
+  <data name="GCTRRESXFONTFM1" xml:space="preserve">
+    <value>'나눔고딕',NanumGothic</value>
+    <comment>'나눔고딕',NanumGothic</comment>
+  </data>
+  <data name="GCTRRESXFONTFM2" xml:space="preserve">
+    <value>'나눔명조',NanumMyeongjo</value>
+    <comment>'나눔명조',NanumMyeongjo</comment>
+  </data>
+  <data name="GCTRRESXFONTFM3" xml:space="preserve">
+    <value>'나눔고딕코딩',NanumGothicCoding</value>
+    <comment>'나눔고딕코딩',NanumGothicCoding</comment>
+  </data>
+  <data name="GCTRRESXFONTFM4" xml:space="preserve">
+    <value>'나눔바른고딕',NanumBarunGothic,NanumBarunGothicOTF</value>
+    <comment>'나눔바른고딕',NanumBarunGothic,NanumBarunGothicOTF</comment>
+  </data>
+  <data name="GCTRRESXFONTFM5" xml:space="preserve">
+    <value>'나눔바른펜',NanumBarunpen</value>
+    <comment>'나눔바른펜',NanumBarunpen</comment>
+  </data>
+  <data name="QuickName" xml:space="preserve">
+    <value>::::::: DAE-IL Groupware :::::::</value>
+  </data>
+</root>

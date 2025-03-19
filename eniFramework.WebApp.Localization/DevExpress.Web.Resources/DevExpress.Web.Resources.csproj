@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E832174E-F5FD-4172-9523-0449E5855322}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DevExpress.Web.Resources</RootNamespace>
+    <AssemblyName>DevExpress.Web.Resources.v17.1</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>"%24/2017.1/Localization"</SccProjectName>
+    <SccLocalPath>..</SccLocalPath>
+    <SccAuxPath />
+    <SccProvider>MSSCCI:DXVCS</SccProvider>
+    <AssemblyOriginatorKeyFile>StrongKey.pfx</AssemblyOriginatorKeyFile>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\DevExpress.DLL\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\DevExpress.DLL\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="StrongKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.ar.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.bg.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.ca.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.cs.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.da.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.de-CH.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.de.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.el.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.es.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.et.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.fa.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.fi.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.fr.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.he.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.hr.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.hu.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.hy.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.is.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.it.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.ja.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.ko.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.lt.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.lv.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.mk.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.nl.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.no.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.pl.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.pt-BR.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.pt.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.ro.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.ru.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.sk.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.sl.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.sr-Cyrl-CS.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.sr-Cyrl-RS.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.sr-Latn-BA.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.sr-Latn-CS.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.sr-Latn-RS.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.sv.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.ta.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.tr.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.uk.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.vi.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.zh.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.zh-CN.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.zh-Hans.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.zh-Hant.resx" />
+    <EmbeddedResource Include="Localization\DataAccess.UI\LocalizationRes.zh-TW.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.zh.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.ar.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.bg.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.ca.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.cs.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.da.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.de-CH.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.de.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.el.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.es.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.et.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.fa.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.fi.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.fr.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.he.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.hr.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.hu.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.hy.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.is.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.it.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.ja.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.ko.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.lt.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.lv.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.mk.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.nl.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.no.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.pl.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.pt-BR.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.pt.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.ar.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.bg.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.ca.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.cs.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.da.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.de-CH.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.de.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.el.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.es.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.et.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.fa.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.fi.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.fr.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.he.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.hi.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.hr.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.hu.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.hy.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.is.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.it.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.ja.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.ko.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.lt.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.lv.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.mk.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.nl.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.no.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.pl.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.pt-BR.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.pt.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.ro.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.ru.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.sk.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.sl.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.sr-Cyrl-CS.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.sr-Cyrl-RS.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.sr-Latn-BA.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.sr-Latn-CS.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.sr-Latn-RS.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.sv.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.ta.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.th.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.tr.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.uk.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.vi.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.zh-CN.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.zh-Hans.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.zh-Hant.resx" />
+    <EmbeddedResource Include="Localization\XtraEditors\ExpressionEditorForm.zh-TW.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.ro.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.ru.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.sk.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.sl.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.sr-Cyrl-CS.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.sr-Cyrl-RS.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.sr-Latn-BA.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.sr-Latn-CS.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.sr-Latn-RS.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.sv.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.ta.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.tr.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.uk.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.vi.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.zh.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.zh-CN.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.zh-Hans.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.zh-Hant.resx" />
+    <EmbeddedResource Include="Localization\XtraReports.Extensions\Wizards\Localization\LocalizationRes.zh-TW.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

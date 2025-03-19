@@ -1,0 +1,174 @@
+.dxVerticalGrid_CategoryCollapsed_eniThm,
+.dxVerticalGrid_CategoryExpanded_eniThm,
+.dxVerticalGrid_CollapsedButton_eniThm,
+.dxVerticalGrid_CTClearFilter_eniThm,
+.dxVerticalGrid_CTClearFilterDisabled_eniThm,
+.dxVerticalGrid_CTDeleteRow_eniThm,
+.dxVerticalGrid_CTDeleteRowDisabled_eniThm,
+.dxVerticalGrid_CTEditRow_eniThm,
+.dxVerticalGrid_CTEditRowDisabled_eniThm,
+.dxVerticalGrid_CTNewRow_eniThm,
+.dxVerticalGrid_CTNewRowDisabled_eniThm,
+.dxVerticalGrid_CTRefresh_eniThm,
+.dxVerticalGrid_CTRefreshDisabled_eniThm,
+.dxVerticalGrid_CTShowFilterEditor_eniThm,
+.dxVerticalGrid_CTShowFilterEditorDisabled_eniThm,
+.dxVerticalGrid_CTShowSearchPanel_eniThm,
+.dxVerticalGrid_CTShowSearchPanelDisabled_eniThm,
+.dxVerticalGrid_ExpandedButton_eniThm,
+.dxVerticalGrid_gvCellError_eniThm,
+.dxVerticalGrid_gvFilterRowButton_eniThm,
+.dxVerticalGrid_gvHeaderFilter_eniThm,
+.dxVerticalGrid_gvHeaderFilterActive_eniThm,
+.dxVerticalGrid_gvHeaderSortDown_eniThm,
+.dxVerticalGrid_gvHeaderSortUp_eniThm
+{
+    background-image: url('sprite.png');
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+.dxVerticalGrid_CategoryCollapsed_eniThm
+{
+    background-position: 0px -270px;
+    width: 13px;
+    height: 15px;
+}
+.dxVerticalGrid_CategoryExpanded_eniThm
+{
+    background-position: 0px -286px;
+    width: 13px;
+    height: 15px;
+}
+.dxVerticalGrid_CollapsedButton_eniThm
+{
+    background-position: 0px -345px;
+    width: 13px;
+    height: 13px;
+}
+.dxVerticalGrid_CTClearFilter_eniThm
+{
+    background-position: 0px -17px;
+    width: 16px;
+    height: 16px;
+}
+.dxVerticalGrid_CTClearFilterDisabled_eniThm
+{
+    background-position: 0px -85px;
+    width: 16px;
+    height: 16px;
+}
+.dxVerticalGrid_CTDeleteRow_eniThm
+{
+    background-position: 0px -102px;
+    width: 16px;
+    height: 16px;
+}
+.dxVerticalGrid_CTDeleteRowDisabled_eniThm
+{
+    background-position: 0px -136px;
+    width: 16px;
+    height: 16px;
+}
+.dxVerticalGrid_CTEditRow_eniThm
+{
+    background-position: 0px -119px;
+    width: 16px;
+    height: 16px;
+}
+.dxVerticalGrid_CTEditRowDisabled_eniThm
+{
+    background-position: 0px -204px;
+    width: 16px;
+    height: 16px;
+}
+.dxVerticalGrid_CTNewRow_eniThm
+{
+    background-position: 0px -68px;
+    width: 16px;
+    height: 16px;
+}
+.dxVerticalGrid_CTNewRowDisabled_eniThm
+{
+    background-position: 0px 0px;
+    width: 16px;
+    height: 16px;
+}
+.dxVerticalGrid_CTRefresh_eniThm
+{
+    background-position: 0px -34px;
+    width: 16px;
+    height: 16px;
+}
+.dxVerticalGrid_CTRefreshDisabled_eniThm
+{
+    background-position: 0px -51px;
+    width: 16px;
+    height: 16px;
+}
+.dxVerticalGrid_CTShowFilterEditor_eniThm
+{
+    background-position: 0px -153px;
+    width: 16px;
+    height: 16px;
+}
+.dxVerticalGrid_CTShowFilterEditorDisabled_eniThm
+{
+    background-position: 0px -170px;
+    width: 16px;
+    height: 16px;
+}
+.dxVerticalGrid_CTShowSearchPanel_eniThm
+{
+    background-position: 0px -221px;
+    width: 16px;
+    height: 16px;
+}
+.dxVerticalGrid_CTShowSearchPanelDisabled_eniThm
+{
+    background-position: 0px -187px;
+    width: 16px;
+    height: 16px;
+}
+.dxVerticalGrid_ExpandedButton_eniThm
+{
+    background-position: 0px -317px;
+    width: 13px;
+    height: 13px;
+}
+.dxVerticalGrid_gvCellError_eniThm
+{
+    background-position: 0px -302px;
+    width: 14px;
+    height: 14px;
+}
+.dxVerticalGrid_gvFilterRowButton_eniThm
+{
+    background-position: 0px -331px;
+    width: 13px;
+    height: 13px;
+}
+.dxVerticalGrid_gvHeaderFilter_eniThm
+{
+    background-position: 0px -254px;
+    width: 15px;
+    height: 15px;
+}
+.dxVerticalGrid_gvHeaderFilterActive_eniThm
+{
+    background-position: 0px -238px;
+    width: 15px;
+    height: 15px;
+}
+.dxVerticalGrid_gvHeaderSortDown_eniThm
+{
+    background-position: -8px -359px;
+    width: 7px;
+    height: 5px;
+}
+.dxVerticalGrid_gvHeaderSortUp_eniThm
+{
+    background-position: 0px -359px;
+    width: 7px;
+    height: 5px;
+}
+

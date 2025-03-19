@@ -1,0 +1,197 @@
+.dx-acc-r .dxVerticalGrid_CategoryCollapsed_eniThm:before,
+.dx-acc-r .dxVerticalGrid_CategoryExpanded_eniThm:before,
+.dx-acc-r .dxVerticalGrid_CollapsedButton_eniThm:before,
+.dx-acc-r .dxVerticalGrid_CTClearFilter_eniThm:before,
+.dx-acc-r .dxVerticalGrid_CTClearFilterDisabled_eniThm:before,
+.dx-acc-r .dxVerticalGrid_CTDeleteRow_eniThm:before,
+.dx-acc-r .dxVerticalGrid_CTDeleteRowDisabled_eniThm:before,
+.dx-acc-r .dxVerticalGrid_CTEditRow_eniThm:before,
+.dx-acc-r .dxVerticalGrid_CTEditRowDisabled_eniThm:before,
+.dx-acc-r .dxVerticalGrid_CTNewRow_eniThm:before,
+.dx-acc-r .dxVerticalGrid_CTNewRowDisabled_eniThm:before,
+.dx-acc-r .dxVerticalGrid_CTRefresh_eniThm:before,
+.dx-acc-r .dxVerticalGrid_CTRefreshDisabled_eniThm:before,
+.dx-acc-r .dxVerticalGrid_CTShowFilterEditor_eniThm:before,
+.dx-acc-r .dxVerticalGrid_CTShowFilterEditorDisabled_eniThm:before,
+.dx-acc-r .dxVerticalGrid_CTShowSearchPanel_eniThm:before,
+.dx-acc-r .dxVerticalGrid_CTShowSearchPanelDisabled_eniThm:before,
+.dx-acc-r .dxVerticalGrid_ExpandedButton_eniThm:before,
+.dx-acc-r .dxVerticalGrid_gvCellError_eniThm:before,
+.dx-acc-r .dxVerticalGrid_gvFilterRowButton_eniThm:before,
+.dx-acc-r .dxVerticalGrid_gvHeaderFilter_eniThm:before,
+.dx-acc-r .dxVerticalGrid_gvHeaderFilterActive_eniThm:before,
+.dx-acc-r .dxVerticalGrid_gvHeaderSortDown_eniThm:before,
+.dx-acc-r .dxVerticalGrid_gvHeaderSortUp_eniThm:before
+
+{
+    content: url('spriteAccessible.png');
+
+}
+.dx-acc-r .dxVerticalGrid_CategoryCollapsed_eniThm:before
+
+{
+    left: 0px;
+    top: -270px;
+
+}
+.dx-acc-r .dxVerticalGrid_CategoryExpanded_eniThm:before
+
+{
+    left: 0px;
+    top: -286px;
+
+}
+.dx-acc-r .dxVerticalGrid_CollapsedButton_eniThm:before
+
+{
+    left: 0px;
+    top: -345px;
+
+}
+.dx-acc-r .dxVerticalGrid_CTClearFilter_eniThm:before
+
+{
+    left: 0px;
+    top: -17px;
+
+}
+.dx-acc-r .dxVerticalGrid_CTClearFilterDisabled_eniThm:before
+
+{
+    left: 0px;
+    top: -85px;
+
+}
+.dx-acc-r .dxVerticalGrid_CTDeleteRow_eniThm:before
+
+{
+    left: 0px;
+    top: -102px;
+
+}
+.dx-acc-r .dxVerticalGrid_CTDeleteRowDisabled_eniThm:before
+
+{
+    left: 0px;
+    top: -136px;
+
+}
+.dx-acc-r .dxVerticalGrid_CTEditRow_eniThm:before
+
+{
+    left: 0px;
+    top: -119px;
+
+}
+.dx-acc-r .dxVerticalGrid_CTEditRowDisabled_eniThm:before
+
+{
+    left: 0px;
+    top: -204px;
+
+}
+.dx-acc-r .dxVerticalGrid_CTNewRow_eniThm:before
+
+{
+    left: 0px;
+    top: -68px;
+
+}
+.dx-acc-r .dxVerticalGrid_CTNewRowDisabled_eniThm:before
+
+{
+    left: 0px;
+    top: 0px;
+
+}
+.dx-acc-r .dxVerticalGrid_CTRefresh_eniThm:before
+
+{
+    left: 0px;
+    top: -34px;
+
+}
+.dx-acc-r .dxVerticalGrid_CTRefreshDisabled_eniThm:before
+
+{
+    left: 0px;
+    top: -51px;
+
+}
+.dx-acc-r .dxVerticalGrid_CTShowFilterEditor_eniThm:before
+
+{
+    left: 0px;
+    top: -153px;
+
+}
+.dx-acc-r .dxVerticalGrid_CTShowFilterEditorDisabled_eniThm:before
+
+{
+    left: 0px;
+    top: -170px;
+
+}
+.dx-acc-r .dxVerticalGrid_CTShowSearchPanel_eniThm:before
+
+{
+    left: 0px;
+    top: -221px;
+
+}
+.dx-acc-r .dxVerticalGrid_CTShowSearchPanelDisabled_eniThm:before
+
+{
+    left: 0px;
+    top: -187px;
+
+}
+.dx-acc-r .dxVerticalGrid_ExpandedButton_eniThm:before
+
+{
+    left: 0px;
+    top: -317px;
+
+}
+.dx-acc-r .dxVerticalGrid_gvCellError_eniThm:before
+
+{
+    left: 0px;
+    top: -302px;
+
+}
+.dx-acc-r .dxVerticalGrid_gvFilterRowButton_eniThm:before
+
+{
+    left: 0px;
+    top: -331px;
+
+}
+.dx-acc-r .dxVerticalGrid_gvHeaderFilter_eniThm:before
+
+{
+    left: 0px;
+    top: -254px;
+
+}
+.dx-acc-r .dxVerticalGrid_gvHeaderFilterActive_eniThm:before
+
+{
+    left: 0px;
+    top: -238px;
+
+}
+.dx-acc-r .dxVerticalGrid_gvHeaderSortDown_eniThm:before
+
+{
+    left: -8px;
+    top: -359px;
+
+}
+.dx-acc-r .dxVerticalGrid_gvHeaderSortUp_eniThm:before
+
+{
+    left: 0px;
+    top: -359px;
+
+}

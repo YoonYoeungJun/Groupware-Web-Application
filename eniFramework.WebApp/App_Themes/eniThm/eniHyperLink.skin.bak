@@ -1,0 +1,17 @@
+﻿<%@ Register TagPrefix="dx" Namespace="DevExpress.Data" Assembly="DevExpress.Data.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Web" Assembly="DevExpress.Web.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="eni" Namespace="eniFramework.WebApp.Controls" Assembly="eniFramework.WebApp.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" %>
+
+<%-- eniFramework Default Mode Skin --%>
+<eni:eniHyperLink runat="server" CssFilePath="{0}/styles.css" CssPostfix="eniThm">
+</eni:eniHyperLink>
+
+<%-- eniFramework Advanced-01 Mode Skin --%>
+<eni:eniHyperLink runat="server" CssFilePath="{0}/styles.css" CssPostfix="eniThm" SkinID="Advanced-01"
+    Cursor="pointer" ForeColor="#000">
+</eni:eniHyperLink>
+
+<%-- eniFramework BSL Mode Skin --%>
+<eni:eniHyperLink runat="server" CssFilePath="{0}/styles.css" CssPostfix="eniThm" CreateMode="BSLMode" SkinID="BSL"
+    Cursor="pointer">
+</eni:eniHyperLink>

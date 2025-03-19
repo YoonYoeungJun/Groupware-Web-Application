@@ -1,0 +1,86 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="CommonPage.master.cs" Inherits="eniFramework.WebApp.Common.CommonPage" %>
+
+<%@ Import Namespace="eniFramework.WebApp" %>
+
+<%--<%@ Register Src="~/WebContent/Common/Popup/LoadingBox.ascx" TagPrefix="eni" TagName="LoadingBox" %>
+<%@ Register Src="~/WebContent/Common/Popup/MessageBox.ascx" TagPrefix="eni" TagName="MessageBox" %>
+<%@ Register Src="~/WebContent/Common/Popup/ConfirmBox.ascx" TagPrefix="eni" TagName="ConfirmBox" %>--%>
+
+<!DOCTYPE html>
+
+<html id="html" xmlns="http://www.w3.org/1999/xhtml" runat="server">
+    <%-- Head Part --%>
+    <head id="head" runat="server">
+        <%-- 페이지에서 해당 모듈 설명글을 작성 --%>
+        <asp:ContentPlaceHolder ID="Sub_Module_Description" runat="server"></asp:ContentPlaceHolder>
+        <title><%: Page.Title %></title>
+        <%--<meta http-equiv="Expires" content="-1"/>--%>
+        <%--<meta http-equiv="Pragma" content="no-cache"/> --%>
+        <%--<meta http-equiv="Cache-Control" content="No-Cache"/>--%>
+        <link type="image/x-icon" rel="shortcut icon" href="../../dic.ico" />
+        <link type="text/css" rel="stylesheet" href="../../Contents/eniWeb.css" />
+        <link type="text/css" rel="stylesheet" href="../../Scripts/ExtJS/ExtJS-3.3.0/resources/css/ext-all.css" />
+        <link type="text/css" rel="stylesheet" href="../../Scripts/ExtJS/ExtJS-3.3.0/resources/css/xtheme-gray.css" />
+        <%-- 해당 페이지 추가 Meta 코드 사용 --%>
+        <asp:ContentPlaceHolder ID="Sub_Meta_Holder" runat="server"></asp:ContentPlaceHolder>
+        <asp:PlaceHolder ID="PlaceHolder" Visible="false" runat="server">
+            <%-- 디자인 모드일때만 ScriptIntellisense 기능 사용 --%>
+            <% if (DesignMode == true){ %>
+                <%-- Intellisense Javascript Framework --%>
+                <%--<script type="text/javascript" src="../../Scripts/PIE/PIE.js"></script>--%>
+                <script type="text/javascript" src="../../Scripts/Json/Json2.js"></script>
+                <script type="text/javascript" src="../../Scripts/jQuery/jQuery-1.9.1.js"></script>
+                <script type="text/javascript" src="../../Scripts/jQuery/jQuery-Migrate-1.2.1.js"></script>
+                <script type="text/javascript" src="../../Scripts/jQuery/jQuery.Cookie.js"></script>
+                <script type="text/javascript" src="../../Scripts/jQuery/jQuery.BlockUI.js"></script>
+                <script type="text/javascript" src="../../Scripts/jQuery/jQuery.History.js"></script>
+                <script type="text/javascript" src="../../Scripts/jQuery/jQuery.Extends.js"></script>
+                <script type="text/javascript" src="../../Scripts/ExtJS/ExtJS-3.3.0/adapter/ext/ext-base-debug.js"></script>
+                <script type="text/javascript" src="../../Scripts/ExtJS/ExtJS-3.3.0/ext-all-debug-w-comments.js"></script>
+                <script type="text/javascript" src="../../Scripts/ExtJS/ExtJS-3.3.0/ext-ux-all.js"></script>
+                <script type="text/javascript" src="../../Scripts/Framework/eniFramework.Extends.js"></script>
+                <script type="text/javascript" src="../../Scripts/Framework/eniFramework.Enum.js"></script>
+                <script type="text/javascript" src="../../Scripts/Framework/eniFramework.Classs.js"></script>
+                <script type="text/javascript" src="../../Scripts/Framework/eniFramework.js"></script>
+                <script type="text/javascript" src="../../Scripts/Framework/eniFramework.Cookie.js"></script>
+                <script type="text/javascript" src="../../Scripts/Framework/eniFramework.ControlBase.js"></script>
+                <script type="text/javascript" src="../../Scripts/Framework/eniFramework.UserAgent.js"></script>
+                <script type="text/javascript" src="../../Scripts/Framework/eniFramework.Log.js"></script>
+                <script type="text/javascript" src="../../Scripts/Framework/eniFramework.Variables.js"></script>
+                <script type="text/javascript" src="../../Scripts/Framework/eniFramework.Report.js"></script>
+                <script type="text/javascript" src="../../Scripts/Framework/eniFramework.Message.js"></script>
+                <script type="text/javascript" src="../../Scripts/Framework/eniFramework.Loading.js"></script>
+                <script type="text/javascript" src="../../Scripts/Framework/eniFramework.Popup.js"></script>
+                <script type="text/javascript" src="../../Scripts/Framework/eniFramework.Ajax.js"></script>
+                <script type="text/javascript" src="../../Scripts/Framework/eniFramework.DbAccess.js"></script>
+                <script type="text/javascript" src="../../Scripts/Framework/eniFramework.Date.js"></script>
+                <script type="text/javascript" src="../../Scripts/Framework/eniFramework.Security.js"></script>
+                <script type="text/javascript" src="../../Scripts/Framework/eniFramework.Utils.js"></script>
+                <script type="text/javascript" src="../../Scripts/Devexpress/ASPxScriptIntellisense.js"></script>
+                <%-- 해당 페이지의 컨트롤 ScriptIntellisense 기능 사용 --%>
+                <script type="text/javascript">
+                    hidFields = ASPxClientHiddenField.Cast();
+                </script>
+                <asp:ContentPlaceHolder ID="Sub_ScriptIntelliSense_Holder" runat="server"></asp:ContentPlaceHolder>
+            <% } %>
+        </asp:PlaceHolder>
+        <%-- 해당 페이지의 특정 Script 사용 --%>
+        <asp:ContentPlaceHolder ID="Sub_Script_Holder" runat="server"></asp:ContentPlaceHolder>
+    </head>
+    <%-- Body Part --%>
+    <body id="body" runat="server" tabindex="-1">
+        <%-- Form Part --%>
+        <form id="frm" tabindex="-1" runat="server">
+            <asp:ContentPlaceHolder ID="Sub_Content_Body_Holder" runat="server"></asp:ContentPlaceHolder>
+
+            <%-- 공용컨트롤 등록 --%>
+            <%--<eni:LoadingBox runat="server" ID="LoadingBox" ClientInstanceName="LoadingBox" />
+            <eni:ConfirmBox runat="server" ID="ConfirmBox" />
+            <eni:MessageBox runat="server" ID="MessageBox" />--%>
+            <eni:eniHiddenField ID="hidFileds" ClientInstanceName="hidFields" runat="server"></eni:eniHiddenField>
+
+            <%-- 컨텐트 부분 --%>
+            <asp:ContentPlaceHolder ID="Sub_Content_Form_Holder" runat="server"></asp:ContentPlaceHolder>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AdminToobalMenus>
+  <Item Name="Menu" Image-IconID="programming_operatingsyste_16x16" Image-ToolTip="메뉴">
+  </Item>
+  <Item Name="Main" ClientEnabled="false">
+    <Image IconID="navigation_home_16x16" ToolTip="처음으로"></Image>
+  </Item>
+  <Item Name="MenuList" ClientEnabled="false">
+    <Image IconID="navigation_navigationbar_16x16" ToolTip="메뉴모음"></Image>
+  </Item>
+  <Item Name="Query" ClientEnabled="false">
+    <Image IconID="zoom_zoom_16x16" ToolTip="조회"></Image>
+  </Item>
+  <Item Name="New" ClientEnabled="false">
+    <Image IconID="content_textbox_16x16" ToolTip="신규"></Image>
+  </Item>
+  <Item Name="Delete" ClientEnabled="false">
+    <Image IconID="edit_delete_16x16" ToolTip="삭제"></Image>
+  </Item>
+  <Item Name="Save" ClientEnabled="false">
+    <Image IconID="save_save_16x16" ToolTip="저장"></Image>
+  </Item>
+  <Item Name="Refresh" ClientEnabled="false">
+    <Image IconID="actions_refresh2_16x16" ToolTip="새로고침"></Image>
+  </Item>
+  <Item Name="Cancel" ClientEnabled="false">
+    <Image IconID="history_undo_16x16" ToolTip="취소"></Image>
+  </Item>
+  <Item Name="Prev" ClientEnabled="false">
+    <Image IconID="navigation_backward_16x16" ToolTip="이전"></Image>
+  </Item>
+  <Item Name="Next" ClientEnabled="false">
+    <Image IconID="navigation_forward_16x16" ToolTip="이후"></Image>
+  </Item>
+  <Item Name="InsertRow" ClientEnabled="false">
+    <Image IconID="reports_separator_16x16" ToolTip="행추가"></Image>
+  </Item>
+  <Item Name="DeleteRow" ClientEnabled="false">
+    <Image IconID="reports_none_16x16" ToolTip="행삭제"></Image>
+  </Item>
+  <Item Name="CopyRow" ClientEnabled="false">
+    <Image IconID="reports_emptytablerowseparator_16x16" ToolTip="행복사"></Image>
+  </Item>
+  <Item Name="Export" ClientEnabled="false">
+    <Image IconID="export_export_16x16" ToolTip="내보내기"></Image>
+    <Items>
+      <Item Text="Zoom in">
+        <Image IconID="zoom_zoomin_16x16"></Image>
+      </Item>
+      <Item Text="Zoom out">
+        <Image IconID="zoom_zoomout_16x16"></Image>
+      </Item>
+      <Item Text="100% zoom">
+        <Image IconID="zoom_zoom100_16x16"></Image>
+      </Item>
+    </Items>
+  </Item>
+  <Item Name="Print" ClientEnabled="false">
+    <Image IconID="print_print_16x16" ToolTip="프린트"></Image>
+  </Item>
+  <Item Name="Help" ClientEnabled="false">
+    <Image IconID="support_suggestion_16x16" ToolTip="도움말"></Image>
+  </Item>
+  <Item Name="Settings" ClientEnabled="false">
+    <Image IconID="programming_ide_16x16" ToolTip="설정"></Image>
+  </Item>
+</AdminToobalMenus>

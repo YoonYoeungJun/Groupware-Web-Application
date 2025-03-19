@@ -1,0 +1,484 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DataAccessUIStringId.ConnectionProperties_AdvantageServerType" xml:space="preserve">
+    <value>Tipo de servidor:</value>
+  </data>
+  <data name="DataAccessUIStringId.ConnectionProperties_AdvantageServerTypeInternet" xml:space="preserve">
+    <value>Internet</value>
+  </data>
+  <data name="DataAccessUIStringId.ConnectionProperties_AdvantageServerTypeLocal" xml:space="preserve">
+    <value>Local</value>
+  </data>
+  <data name="DataAccessUIStringId.ConnectionProperties_AdvantageServerTypeRemote" xml:space="preserve">
+    <value>Remoto</value>
+  </data>
+  <data name="DataAccessUIStringId.ConnectionProperties_AuthenticationType" xml:space="preserve">
+    <value>Tipo de autenticação:</value>
+  </data>
+  <data name="DataAccessUIStringId.ConnectionProperties_AuthenticationType_MSSqlServer" xml:space="preserve">
+    <value>Autenticação de servidor</value>
+  </data>
+  <data name="DataAccessUIStringId.ConnectionProperties_AuthenticationType_MSSqlWindows" xml:space="preserve">
+    <value>Autenticação do Windows</value>
+  </data>
+  <data name="DataAccessUIStringId.ConnectionProperties_ClientID" xml:space="preserve">
+    <value>Cliente ID:</value>
+  </data>
+  <data name="DataAccessUIStringId.ConnectionProperties_ClientSecret" xml:space="preserve">
+    <value>Segredo de cliente:</value>
+  </data>
+  <data name="DataAccessUIStringId.ConnectionProperties_Database" xml:space="preserve">
+    <value>Banco de dados:</value>
+  </data>
+  <data name="DataAccessUIStringId.ConnectionProperties_DataSetID" xml:space="preserve">
+    <value>DataSet ID:</value>
+  </data>
+  <data name="DataAccessUIStringId.ConnectionProperties_Hostname" xml:space="preserve">
+    <value>Hostname:</value>
+  </data>
+  <data name="DataAccessUIStringId.ConnectionProperties_Provider" xml:space="preserve">
+    <value>Provedor:</value>
+  </data>
+  <data name="DataAccessUIStringId.ConnectionProperties_ServerName" xml:space="preserve">
+    <value>Nome do servidor:</value>
+  </data>
+  <data name="DataAccessUIStringId.ConnectionProperties_ServerType" xml:space="preserve">
+    <value>Tipo de servidor:</value>
+  </data>
+  <data name="DataAccessUIStringId.ConnectionProperties_ServerTypeEmbedded" xml:space="preserve">
+    <value>Incorporado</value>
+  </data>
+  <data name="DataAccessUIStringId.ConnectionProperties_ServerTypeServer" xml:space="preserve">
+    <value>Servidor</value>
+  </data>
+  <data name="DataAccessUIStringId.ConnectionProperties_ServiceAccountEmail" xml:space="preserve">
+    <value>Serviço de conta de e-mail:</value>
+  </data>
+  <data name="DataAccessUIStringId.ConnectionProperties_UserName" xml:space="preserve">
+    <value>Nome de usuário:</value>
+  </data>
+  <data name="DataAccessUIStringId.DataPreviewForm_Title" xml:space="preserve">
+    <value>Visualização de dados</value>
+  </data>
+  <data name="DataAccessUIStringId.DSTypeSql" xml:space="preserve">
+    <value>Banco de dados</value>
+  </data>
+  <data name="DataAccessUIStringId.DataConnectionParametersDialog" xml:space="preserve">
+    <value>Erro de conexão</value>
+  </data>
+  <data name="DataAccessUIStringId.ExcelDataSourceWizard_WorksheetItem" xml:space="preserve">
+    <value>Planilha</value>
+  </data>
+  <data name="DataAccessUIStringId.JoinEditorLessOrEqualOperator" xml:space="preserve">
+    <value>É menor ou igual a</value>
+  </data>
+  <data name="DataAccessUIStringId.JoinEditorNotEqualOperator" xml:space="preserve">
+    <value>Não é igual a</value>
+  </data>
+  <data name="DataAccessUIStringId.JoinEditorEqualOperator" xml:space="preserve">
+    <value>É igual a</value>
+  </data>
+  <data name="DataAccessUIStringId.MasterDetailEditorAddConditionMessage" xml:space="preserve">
+    <value>Criar uma nova condição</value>
+  </data>
+  <data name="DataAccessUIStringId.MasterDetailEditorEditRelation" xml:space="preserve">
+    <value>Editar relação</value>
+  </data>
+  <data name="DataAccessUIStringId.MasterDetailEditorInvalidRelationNameMessage" xml:space="preserve">
+    <value>Uma relação com o nome especificado já existe.</value>
+  </data>
+  <data name="DataAccessUIStringId.MasterDetailEditorRemoveConditionMessage" xml:space="preserve">
+    <value>Remover a condição</value>
+  </data>
+  <data name="DataAccessUIStringId.MasterDetailEditorRemoveRelationMessage" xml:space="preserve">
+    <value>Remova a relação</value>
+  </data>
+  <data name="DataAccessUIStringId.ODSEditorsStaticMemberMessage" xml:space="preserve">
+    <value>{0} é um membro estático. Não é apropriado usar um construtor para criar uma instância da classe {1}.</value>
+  </data>
+  <data name="DataAccessUIStringId.ODSParametersEditorTitle" xml:space="preserve">
+    <value>Configurar parâmetros</value>
+  </data>
+  <data name="DataAccessUIStringId.QueryBuilder_AddToSelect" xml:space="preserve">
+    <value>Adicionar a consulta</value>
+  </data>
+  <data name="DataAccessUIStringId.QueryBuilder_DeleteCondition" xml:space="preserve">
+    <value>Excluir a condição</value>
+  </data>
+  <data name="DataAccessUIStringId.QueryBuilder_DeleteRelation" xml:space="preserve">
+    <value>Excluir a relação</value>
+  </data>
+  <data name="DataAccessUIStringId.QueryBuilder_EditRelation" xml:space="preserve">
+    <value>Editar relação</value>
+  </data>
+  <data name="DataAccessUIStringId.QueryBuilder_RemoveFromSelect" xml:space="preserve">
+    <value>Remover da consulta</value>
+  </data>
+  <data name="DataAccessUIStringId.QueryBuilderColumns_Output" xml:space="preserve">
+    <value>Saída</value>
+  </data>
+  <data name="DataAccessUIStringId.QueryBuilderColumns_SortingType" xml:space="preserve">
+    <value>Tipo de classificação</value>
+  </data>
+  <data name="DataAccessUIStringId.QueryBuilderColumns_SortOrder" xml:space="preserve">
+    <value>Ordem de classificação</value>
+  </data>
+  <data name="DataAccessUIStringId.QueryBuilderColumnsOf" xml:space="preserve">
+    <value>Colunas de {0}</value>
+  </data>
+  <data name="DataAccessUIStringId.ParametersColumn_QueryName" xml:space="preserve">
+    <value>Consulta</value>
+  </data>
+  <data name="DataAccessUIStringId.ParametersColumn_Selected" xml:space="preserve">
+    <value>Selecionado</value>
+  </data>
+  <data name="DataAccessUIStringId.ParametersGridForm_Title" xml:space="preserve">
+    <value>Parâmetros de consulta</value>
+  </data>
+  <data name="DataAccessUIStringId.PasswordRequest" xml:space="preserve">
+    <value>Senha</value>
+  </data>
+  <data name="DataAccessUIStringId.QueryBuilderColumns_Alias" xml:space="preserve">
+    <value>Alias</value>
+  </data>
+  <data name="DataAccessUIStringId.QueryBuilderRelationBetweenTwoColumnsOfTheSameTable" xml:space="preserve">
+    <value>Não é possível criar uma relação entre duas colunas que pertencem à mesma tabela {0}.</value>
+  </data>
+  <data name="DataAccessUIStringId.QueryDesignControlDataPreviewCaption" xml:space="preserve">
+    <value>Visualização de dados (primeiras 1000 linhas exibidas)</value>
+  </data>
+  <data name="DataAccessUIStringId.QueryDesignControlDataPreviewCaption_All" xml:space="preserve">
+    <value>Visualização de dados</value>
+  </data>
+  <data name="DataAccessUIStringId.QueryDesignControlJoinCommandPattern" xml:space="preserve">
+    <value>Junte-se a {0}</value>
+  </data>
+  <data name="DataAccessUIStringId.QueryDesignControlRemoveTables" xml:space="preserve">
+    <value>As seguintes tabelas serão removidas da consulta.
+
+{0}
+Você quer continuar?</value>
+  </data>
+  <data name="DataAccessUIStringId.QueryFilter_AddQueryParameter" xml:space="preserve">
+    <value>Adicionar o parâmetro de consulta</value>
+  </data>
+  <data name="DataAccessUIStringId.QueryFilter_BindTo" xml:space="preserve">
+    <value>Vincular a</value>
+  </data>
+  <data name="DataAccessUIStringId.QueryFilter_BoundTo" xml:space="preserve">
+    <value>Vinculado a {0}</value>
+  </data>
+  <data name="DataAccessUIStringId.SqlDataSourceDesignerVerbManageRelations" xml:space="preserve">
+    <value>Gerenciar relações...</value>
+  </data>
+  <data name="DataAccessUIStringId.QueryEditorTitle" xml:space="preserve">
+    <value>Editor de consultas</value>
+  </data>
+  <data name="DataAccessUIStringId.RebuildResultSchemaConfirmationText" xml:space="preserve">
+    <value>Você quer executar as consultas a seguir no servidor e obter o esquema resultante?</value>
+  </data>
+  <data name="DataAccessUIStringId.SqlDataSourceDesignerVerbEditConnection" xml:space="preserve">
+    <value>Configurar conexão...</value>
+  </data>
+  <data name="DataAccessUIStringId.WaitFormWithCancel_Loading" xml:space="preserve">
+    <value>Carregando dados...</value>
+  </data>
+  <data name="DataAccessUIStringId.FiltersView_TopAndSkipText" xml:space="preserve">
+    <value>registros começando com o índice</value>
+  </data>
+  <data name="DataAccessUIStringId.FiltersView_Distinct" xml:space="preserve">
+    <value>Selecione apenas os valores distintos</value>
+  </data>
+  <data name="DataAccessUIStringId.DSTypeEF" xml:space="preserve">
+    <value>Entity Framework</value>
+  </data>
+  <data name="DataAccessUIStringId.ConnectionProperties_AuthenticationType_BigQueryOAuth" xml:space="preserve">
+    <value>OAuth</value>
+  </data>
+  <data name="DataAccessUIStringId.WizardDataSourceCreatedMessage" xml:space="preserve">
+    <value>A fonte de dados foi criada com sucesso</value>
+  </data>
+  <data name="DataAccessUIStringId.WizardFinishPageText" xml:space="preserve">
+    <value>Selecione um objeto para incluir em sua fonte de dados</value>
+  </data>
+  <data name="DataAccessUIStringId.WizardPageChooseConnection" xml:space="preserve">
+    <value>Você quer usar uma conexão de dados existente?</value>
+  </data>
+  <data name="DataAccessUIStringId.WizardPageChooseConnection_ChooseExistingConnection" xml:space="preserve">
+    <value>Sim, deixe-me escolher uma conexão existente na lista</value>
+  </data>
+  <data name="DataAccessUIStringId.WizardPageChooseConnectionNoChoice" xml:space="preserve">
+    <value>Selecione uma conexão de dados.</value>
+  </data>
+  <data name="DataAccessUIStringId.WizardPageChooseEFConnectionString_ChooseConnection" xml:space="preserve">
+    <value>Sim, deixe-me escolher da lista</value>
+  </data>
+  <data name="DataAccessUIStringId.WizardPageChooseFileOptions_DetectAutomatically" xml:space="preserve">
+    <value>Detectar automaticamente</value>
+  </data>
+  <data name="DataAccessUIStringId.WizardPageChooseDSType" xml:space="preserve">
+    <value>Selecione o tipo de fonte de dados.</value>
+  </data>
+  <data name="DataAccessUIStringId.WizardPageChooseFileOptions" xml:space="preserve">
+    <value>Especificar configurações de importação.</value>
+  </data>
+  <data name="DataAccessUIStringId.WizardPageChooseObjectAssembly" xml:space="preserve">
+    <value>Selecione um assembly que contém a definição de tipo de classe de uma fonte de dados.</value>
+  </data>
+  <data name="DataAccessUIStringId.WizardPageChooseObjectConstructor" xml:space="preserve">
+    <value>Selecione um construtor de fonte de dados.</value>
+  </data>
+  <data name="DataAccessUIStringId.WizardPageChooseObjectType" xml:space="preserve">
+    <value>Selecione um tipo de fonte de dados.</value>
+  </data>
+  <data name="DataAccessUIStringId.WizardPageChooseObjectBindingMode_RetrieveSchema" xml:space="preserve">
+    <value>Recuperar o esquema de fonte de dados</value>
+  </data>
+  <data name="DataAccessUIStringId.WizardPageConfigureParameters" xml:space="preserve">
+    <value>Configurar parâmetros de consulta e visualizar o resultado.</value>
+  </data>
+  <data name="DataAccessUIStringId.WizardPageConnectionProperties" xml:space="preserve">
+    <value>Selecione o provedor de dados e especificar as propriedades de conexão.</value>
+  </data>
+  <data name="DataAccessUIStringId.WizardPageObjectConstructorParameters" xml:space="preserve">
+    <value>Especificar os parâmetros do construtor.</value>
+  </data>
+  <data name="DataAccessUIStringId.WizardPageSaveConnection_SaveCredentials" xml:space="preserve">
+    <value>Sim, salvar todos os parâmetros necessários</value>
+  </data>
+  <data name="DataAccessUIStringId.WizardPageObjectMemberParameters" xml:space="preserve">
+    <value>Especificar os parâmetros do método.</value>
+  </data>
+  <data name="DataAccessUIStringId.WizardPageSaveConnection_ConfirmSaving" xml:space="preserve">
+    <value>Sim, salvar a conexão como:</value>
+  </data>
+  <data name="DataAccessUIStringId.WizardPageSaveConnection_SkipSaveCredentials" xml:space="preserve">
+    <value>Não, ignorar as credenciais por razões de segurança</value>
+  </data>
+  <data name="DataAccessUIStringId.WizardTitleODS" xml:space="preserve">
+    <value>Assistente ObjectDataSource</value>
+  </data>
+  <data name="DataAccessUIStringId.FiltersView" xml:space="preserve">
+    <value>Editor de filtro</value>
+  </data>
+  <data name="DataAccessUIStringId.ConnectionProperties_Password" xml:space="preserve">
+    <value>Senha:</value>
+  </data>
+  <data name="DataAccessUIStringId.QueryBuilderTable" xml:space="preserve">
+    <value>Tabela</value>
+  </data>
+  <data name="DataAccessUIStringId.ExpressionEditorViewTitle" xml:space="preserve">
+    <value>Editor de Expressões</value>
+  </data>
+  <data name="DataAccessUIStringId.Button_OK" xml:space="preserve">
+    <value>&amp;OK</value>
+  </data>
+  <data name="DataAccessUIStringId.ParametersColumn_Expression" xml:space="preserve">
+    <value>Expressão</value>
+  </data>
+  <data name="DataAccessUIStringId.JoinEditorGreaterOrEqualOperator" xml:space="preserve">
+    <value>É maior que ou igual a</value>
+  </data>
+  <data name="DataAccessUIStringId.JoinEditorGreaterOperator" xml:space="preserve">
+    <value>É maior que</value>
+  </data>
+  <data name="DataAccessUIStringId.QueryBuilder_Rename" xml:space="preserve">
+    <value>Renomear</value>
+  </data>
+  <data name="DataAccessUIStringId.ParametersColumn_Type" xml:space="preserve">
+    <value>Tipo</value>
+  </data>
+  <data name="DataAccessUIStringId.Button_Remove" xml:space="preserve">
+    <value>&amp;Remover</value>
+  </data>
+  <data name="DataAccessUIStringId.MessageBoxErrorTitle" xml:space="preserve">
+    <value>Erro</value>
+  </data>
+  <data name="DataAccessUIStringId.MessageBoxConfirmationTitle" xml:space="preserve">
+    <value>Confirmação</value>
+  </data>
+  <data name="DataAccessUIStringId.QueryBuilderColumn" xml:space="preserve">
+    <value>Coluna</value>
+  </data>
+  <data name="DataAccessUIStringId.ExcelDataSourceDesignerVerbEdit" xml:space="preserve">
+    <value>Editar...</value>
+  </data>
+  <data name="DataAccessUIStringId.ParametersColumn_Version" xml:space="preserve">
+    <value>Versão</value>
+  </data>
+  <data name="DataAccessUIStringId.QueryBuilder_Delete" xml:space="preserve">
+    <value>Apagar</value>
+  </data>
+  <data name="DataAccessUIStringId.QueryBuilderColumns_Aggregate" xml:space="preserve">
+    <value>Agregado</value>
+  </data>
+  <data name="DataAccessUIStringId.Button_Add" xml:space="preserve">
+    <value>&amp;Adicionar</value>
+  </data>
+  <data name="DataAccessUIStringId.Button_Cancel" xml:space="preserve">
+    <value>&amp;Cancelar</value>
+  </data>
+  <data name="DataAccessUIStringId.ExcelDataSourceWizard_Title" xml:space="preserve">
+    <value>Tabela</value>
+  </data>
+  <data name="DataAccessUIStringId.WizardTitleDatasource" xml:space="preserve">
+    <value>Assistente de fonte de dados</value>
+  </data>
+  <data name="DataAccessUIStringId.EFDataSourceDesignerVerbEdit" xml:space="preserve">
+    <value>Editar...</value>
+  </data>
+  <data name="DataAccessUIStringId.WizardPageChooseFileOptions_Options" xml:space="preserve">
+    <value>Opções</value>
+  </data>
+  <data name="DataAccessUIStringId.ParametersColumn_Name" xml:space="preserve">
+    <value>Nome</value>
+  </data>
+  <data name="DataAccessUIStringId.ParametersColumn_Value" xml:space="preserve">
+    <value>Valor</value>
+  </data>
+  <data name="DataAccessUIStringId.ExcelDataSourceWizard_TableItem" xml:space="preserve">
+    <value>Tabela</value>
+  </data>
+  <data name="DataAccessUIStringId.Button_Close" xml:space="preserve">
+    <value>&amp;Fechar</value>
+  </data>
+  <data name="DataAccessUIStringId.SortingTypeAscending" xml:space="preserve">
+    <value>Crescente</value>
+  </data>
+  <data name="DataAccessUIStringId.WizardPageConfigureQuery_Query" xml:space="preserve">
+    <value>Consulta</value>
+  </data>
+  <data name="DataAccessUIStringId.QueryBuilder_SortAscending" xml:space="preserve">
+    <value>Classificação crescente</value>
+  </data>
+  <data name="DataAccessUIStringId.QueryBuilder_SortDescending" xml:space="preserve">
+    <value>Classificação decrescente</value>
+  </data>
+  <data name="DataAccessUIStringId.ConnectionErrorFormDetailPattern" xml:space="preserve">
+    <value>Conexão nome: {0}
+Mensagem de erro: {1}</value>
+  </data>
+  <data name="DataAccessUIStringId.MessageBoxWarningTitle" xml:space="preserve">
+    <value>Aviso</value>
+  </data>
+  <data name="DataAccessUIStringId.SortingTypeDescending" xml:space="preserve">
+    <value>Descendente</value>
+  </data>
+</root>

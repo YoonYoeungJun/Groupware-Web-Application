@@ -1,0 +1,2303 @@
+﻿
+/*************************************************************************************************
+* [STA] *****************************************************************************************
+* Name : eniFramework
+* Remark : eniFramework Design Part
+*************************************************************************************************/
+
+/*
+    // Page Css Framework Type 1
+    area_header             (■ 접두어 : area_)
+        wrap_left           (◆ 접두어 : wrap_)
+            con_menu        (★ 접두어 : con_)
+                ●...       (이하 클래스)
+            con_menu_footer (★ 접두어 : con_)
+                ●...       (이하 클래스)
+            ★...           (이하 동일)
+        wrap_rigth          (◆ 접두어 : wrap_)
+            con_quick_menu  (★ 접두어 : con_)
+                ●...       (이하 클래스)
+            ★...           (이하 동일)
+        ◆...               (이하 동일)
+    area_content            (■ 접두어 : area_)
+        wrap_left           (◆ 접두어 : wrap_)
+            con_list        (★ 접두어 : con_)
+                ●...       (이하 클래스)
+            ★...           (이하 동일)
+        wrap_right          (◆ 접두어 : wrap_)
+            con_list        (★ 접두어 : con_)
+                ●...       (이하 클래스)
+            ★...           (이하 동일)
+        ◆...               (이하 동일)
+    area_footer             (■ 접두어 : area_)
+        wrap_state          (◆ 접두어 : wrap_)
+            con_title       (★ 접두어 : con_)
+                ●...       (이하 클래스)
+            con_state_nm    (★ 접두어 : con_)
+                ●...       (이하 클래스)
+            ★...           (이하 동일)
+        wrap_copylight      (◆ 접두어 : wrap_)
+            con_name        (★ 접두어 : con_)
+                ●...       (이하 클래스)
+            con_mark        (★ 접두어 : con_)
+                ●...       (이하 클래스)
+            ★...           (이하 동일)
+        ◆...               (이하 동일)
+    ■...                   (이하 동일)
+
+    // Page Css Framework Type 2
+    area_header             (■ 접두어 : area_)
+        con_menu            (★ 접두어 : con_)
+            ●...           (이하 클래스)
+        con_menu_footer     (★ 접두어 : con_)
+            ●...           (이하 클래스)
+        ★...               (이하 동일)
+        con_quick_menu      (★ 접두어 : con_)
+            ●...           (이하 클래스)
+        ★...               (이하 동일)
+    area_content            (■ 접두어 : area_)
+        con_list            (★ 접두어 : con_)
+            ●...           (이하 클래스)
+        ★...               (이하 동일)
+        con_list            (★ 접두어 : con_)
+            ●...           (이하 클래스)
+        ★...               (이하 동일)
+    area_footer             (■ 접두어 : area_)
+        con_title           (★ 접두어 : con_)
+            ●...           (이하 클래스)
+        con_state_nm        (★ 접두어 : con_)
+            ●...           (이하 클래스)
+        ★...               (이하 동일)
+        con_name            (★ 접두어 : con_)
+            ●...           (이하 클래스)
+        con_mark            (★ 접두어 : con_)
+            ●...           (이하 클래스)
+        ★...               (이하 동일)
+    ■...                   (이하 동일)
+
+*/
+
+/* 공통부분 기제 */
+.eni_Web,    /* html */
+.eni_Head,   /* header */ 
+.eni_Body,   /* body */
+.eni_Form,   /* form */
+.eni_Frame,  /* iframe */
+html, body, form, iframe {
+    width:100%;
+    height:100%;
+    padding: 0px 0px 0px 0px;
+    margin:0px 0px 0px 0px;
+    border:0px;
+    overflow:hidden;
+    font: 12px Dotum, '돋움', 'Segoe UI', Helvetica, 'Droid Sans', AppleSDGothicNeo, Tahoma, Geneva, sans-serif;
+    /*background: #FFFFFF;*/
+    scrollbar-face-color:#fff;
+    scrollbar-shadow-color:#d5d5d5;
+    scrollbar-highlight-color:#fff;
+    scrollbar-darkshadow-color:#d5d5d5;
+    scrollbar-arrow-color:#939393;
+    scrollbar-track-color:#f3f3f3;
+    scrollbar-3dlight-color:#d5d5d5;
+    scrollbar-highlight-color:#fff;
+}
+
+
+:lang(zh) .eni_Web,    /* html */
+:lang(zh) .eni_Head,   /* header */ 
+:lang(zh) .eni_Body,   /* body */
+:lang(zh) .eni_Form,   /* form */
+:lang(zh) .eni_Frame,  /* iframe */
+:lang(zh) .dxsplControl_eniThm,
+:lang(zh) .dxtvControl_eniThm,
+:lang(zh) .dxeTextBox_eniThm,
+:lang(zh) html, 
+:lang(zh) body, 
+:lang(zh) form, 
+:lang(zh) iframe {
+    font-family: Tahoma;
+}
+
+/*html, body {
+    scrollbar-face-color:#fff;
+    scrollbar-shadow-color:#d5d5d5;
+    scrollbar-highlight-color:#fff;
+    scrollbar-darkshadow-color:#d5d5d5;
+    scrollbar-arrow-color:#939393;
+    scrollbar-track-color:#f3f3f3;
+    scrollbar-3dlight-color:#d5d5d5;
+    scrollbar-highlight-color:#fff;
+    scrollbar-face-color: #808080;
+    scrollbar-arrow-color: #FFFFFF; 
+    scrollbar-highlight-color: #FFFBF0; 
+    scrollbar-3dlight-color: #808080; 
+    scrollbar-shadow-color: #FFFBF0; 
+    scrollbar-darkshadow-color: #808080; 
+    scrollbar-track-color: #CCCCCC;
+}*/
+
+
+body, p, h1, h2, h3, h4, h5, h6, menu, ul, ol, li, dl, dt, dd, table, th, td, form, fieldset, legend, input, textarea, button, select {
+    margin: 0;
+    padding: 0;
+}
+fieldset, img {
+    border: 0;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+object {
+    z-index:1;
+}
+menu, ul, ol {
+    list-style:none;
+}
+
+
+/* eniThem Layout Framework[01,02,03] */
+/* 
+    name : eniThem Layout 01 
+    desc : 컨텐트
+*/
+.eni_Web .eniThm_layout_01,
+.eni_Web .eniThm_layout_02,
+.eni_Web .eniThm_layout_03 {
+    width:auto;
+    height:100%;
+    padding: 0px 0px 0px 0px;
+    margin:0px 0px 0px 0px;
+    border:0px;
+    overflow:hidden;
+}
+.eni_Web .eniThm_layout_01 {
+    width:100%;
+}
+.eni_Web .eniThm_layout_01 .area_hearder_option.ko {
+    position:absolute; 
+    left:100%;
+    margin:5px 5px 0 -105px;
+}
+.eni_Web .eniThm_layout_01 .area_hearder_option.en {
+    position:absolute; 
+    left:100%;
+    margin:5px 5px 0 -120px;
+}
+
+/* 
+    name : eniThem Layout 02 
+    desc : 상단 툴바, 컨텐트
+*/
+.eni_Web .eniThm_layout_02 .area_header {
+    position: relative;
+    height: 35px;
+    background-color:#F6F6F6;
+    border-bottom:1px solid #C0C0C0;
+}
+       
+.eni_Web .eniThm_layout_02 .area_content {
+    position: absolute;
+    left: 0px; 
+    top: 36px; 
+    right: 0px; 
+    bottom: 0px; 
+    overflow:hidden;
+}
+/* 
+    name : eniThem Layout 03 
+    desc : 상단 툴바, 컨텐트, 하단 상태바
+*/
+.eni_Web .eniThm_layout_03 .area_header {
+    position:relative;
+    min-width:800px;
+    height:45px;
+    border:0px;
+    overflow:hidden;
+    margin:0px;
+    padding:0px;
+    z-index:30;
+}
+.eni_Web .eniThm_layout_03 .area_content {
+    position:absolute;
+    top:45px;
+    bottom:25px;
+    left:0;
+    right:0;
+    margin:0;
+    padding:0;
+    border:0px;
+    overflow:hidden;
+    min-height:0px;
+    z-index:20;
+    zoom:1;
+}
+
+.eni_Web .eniThm_layout_03 .area_footer {
+    position:absolute;
+    overflow:hidden;
+    bottom:0px;
+    width:100%;
+    height:24px;
+    border-top:1px solid #B5B5B5;
+    border-bottom:0px;
+    border-left:0px;
+    border-right:0px;
+}
+
+.eni_Web .commonwinpopup {
+    background-color:#F5F5F5 !important;
+}
+/*.commonwinpopup .PopupViewForm .tabMain .dxtc-leftIndent,
+.commonwinpopup .PopupViewForm .tabMain .dxtc-rightIndent {
+    border-bottom:1px Solid #C2C2C2 !important;
+    background-color:#F5F5F5 !important;
+}
+.commonwinpopup .PopupViewForm .tabMain .dxtc-activeTab .dx-vam {
+    line-height:12px !important;
+}
+.commonwinpopup .PopupViewForm .tabMain .dxtc-activeTab {
+    border-top:1px Solid #C2C2C2 !important;
+    border-right:1px Solid #C2C2C2 !important;CommonWinPopupViewContainer
+    border-left:1px Solid #C2C2C2 !important;
+}
+.commonwinpopup .PopupViewForm .tabMain .dxtc-content {
+    border-left: 0px !important;
+    border-right: 0px !important;
+    border-bottom: 0px !important;
+}*/
+
+.eni_Web.commonwinpopup #area_commonpop {
+    width:100%;
+    height:100%;
+    /*overflow:auto;*/
+    /*display:inline-block;*/
+}
+.eni_Web.commonwinpopup #wrap_top {
+    height:20px;
+    padding: 0px 5px 0px;
+    vertical-align:bottom;
+}
+.eni_Web.commonwinpopup #wrap_condition {
+    
+}
+.eni_Web.commonwinpopup #wrap_data {
+    
+    vertical-align:top;
+    padding:0px 5px 0px;
+}
+.eni_Web.commonwinpopup #wrap_bottom {
+    height:20px;
+    padding: 0px 5px 0px;
+}
+
+/* 세부선 없는 레이아웃 */
+.BSL01TB {
+    width:100%;
+    height:100%;
+    background-color:white;
+    border: 1px solid #A5ACB5;
+    clear:both;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor:default;
+    /*min-width:900px;*/
+}
+/* 캡션/필드 1단 */
+.BSL01TB .TH2C {
+    width:12%;
+    height:25px;
+    text-align:right;
+    padding-right:5px;
+    background-color:whitesmoke;
+}
+.BSL01TB .TD2C {
+    width:12%;
+    height:25px;
+    text-align:right;
+    padding-right:5px;
+    background-color:whitesmoke;
+}
+.BSL01TB .TD2F {
+    width:88%;
+    height:25px;
+    padding-left:5px;
+    padding-right:5px;
+    background-color:ghostwhite;
+}
+/* 캡션/필드 2단 */
+.BSL01TB .TH4C {
+    width:12%;
+    height:25px;
+    text-align:right;
+    padding-right:5px;
+    background-color:whitesmoke;
+}
+.BSL01TB .TD4C {
+    width:12%;
+    height:25px;
+    text-align:right;
+    padding-right:5px;
+    background-color:whitesmoke;
+}
+.BSL01TB .TD4F {
+    width:38%;
+    height:25px;
+    padding-left:5px;
+    padding-right:5px;
+    background-color:ghostwhite;
+}
+.BSL01TB .CAP {
+    display:block;
+    padding-top:5px;
+}
+:lang(zh) .BSL01TB .CAP {
+    display:block;
+    padding-top:3px;
+}
+.BSL01TB th {
+    font-weight: bold;
+}
+
+/* 캡션/필드 1단 */
+.BSL01TB .TH2CB {
+    width:12%;
+    background-color:whitesmoke;
+}
+.BSL01TB .TD2CB {
+    width:12%;
+    background-color:whitesmoke;
+}
+.BSL01TB .TD2CB {
+    width:88%;
+    padding-left:3px;
+    background-color:ghostwhite;
+}
+/* 캡션/필드 2단 */
+.BSL01TB .TH4CB {
+    width:12%;
+    background-color:whitesmoke;
+}
+.BSL01TB .TD4CB {
+    width:12%;
+    background-color:whitesmoke;
+}
+.BSL01TB .TD4CB {
+    width:38%;
+    padding-left:3px;
+}
+
+.BSLSpread {
+
+}
+
+.UnSelectTable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* IE9 적용안됨
+.btnRadiusAll {
+    border-radius:0.5em;
+    border:1px solid #C0C0C0;
+    behavior:url(/Scripts/PIE/PIE.htc);
+}
+.btnRadiusLeft {
+    border:1px;
+    border-top-left-radius :0.5em;
+    border-bottom-left-radius:0.5em;
+    border-style:solid;
+    border-color:#C0C0C0;
+    behavior:url(/Scripts/PIE/PIE.htc);
+}
+.btnRadiusRight {
+    border:1px;
+    border-top-right-radius :0.5em;
+    border-bottom-right-radius:0.5em;
+    border-style:solid;
+    border-color:#C0C0C0;
+    behavior:url(/Scripts/PIE/PIE.htc);
+}
+.btnRadiusNon {
+    border:1px;
+    border-style:solid;
+    border-color:#C0C0C0;
+}*/
+
+/*.btn_MailReply, .btn_MailAllReply, .btn_MailDelivery{
+    position:relative;
+}
+.btn_MailAllReply {
+    left:-5px;
+}
+.btn_MailDelivery {
+    left:-10px;
+}*/
+
+
+.Clear { display: block; clear: both; overflow: hidden; width: 1px; height: 0; }
+.ClearB { clear: both; }
+/*.Clear { clear: both; display: block; float: none; height: 0; line-height: 0 !important; margin: 0 !important; overflow: hidden; padding: 0 !important; width: 100%; }*/
+.Separator { height: 2px; background: #e0e0e0; }
+.Separator.Orange { background: #f17f21; }
+.Separator.Vertical { width: 1px; display:inline-block; }
+
+.BorderClear { border:0px !important; }
+.BorderTBClear{ border-top:0px !important; border-bottom:0px !important; }
+.BorderTopClear{ border-top:0px !important; }
+.BorderBottomClear{ border-bottom:0px !important; }
+.BorderLeftClear{ border-left:0px !important; }
+.BorderRightClear{ border-right:0px !important; }
+.BorderLRClear{ border-left:0px !important; border-right:0px !important; }
+.OverHidden { overflow:hidden !important; }
+.Blind, .DisplayNone { display:none !important; }
+.DisplayBlock { display: block !important; }
+.DisplayInlineBlock { display: inline-block !important; }
+.PositionRelative { position:relative !important; }
+.FullScreen { width:100% !important; height:100% !important; }
+.NoScroll { overflow:hidden !important; }
+.AutoScroll { overflow:auto !important; -ms-overflow-x:auto; -ms-overflow-y:auto; }
+.HorizontalAutoScroll { overflow-x:auto !important; }
+.VerticalAutoScroll { overflow-y:auto !important; }
+.FloatL{ float:left !important; }
+.FloatR{ float:right !important; }
+.FloatN{ float:none !important; }
+.CursorPoint { cursor:pointer !important; }
+.ClearBoth { clear:both !important; }
+.Wrap { /*text-overflow:ellipsis;*/ overflow:hidden !important; white-space:normal !important; }
+.NoWrap { /*text-overflow:ellipsis;*/ overflow:hidden !important; white-space:nowrap !important; }
+.UpperCase { text-transform:uppercase !important; }
+
+.Width100f { width:100% !important; }
+.WidthAuto { width:auto !important; }
+.Width50px { width:50px !important; }
+.Width100px { width:100px !important; }
+.Width150px { width:150px !important; }
+.Width200px { width:200px !important; }
+.Width250px { width:250px !important; }
+.Width300px { width:300px !important; }
+.Width350px { width:350px !important; }
+.Width400px { width:400px !important; }
+.Width450px { width:450px !important; }
+.Width500px { width:500px !important; }
+.Height100f { height:100% !important; }
+.HeightAuto { height:auto !important; }
+.Height50px { height:50px !important; }
+.Height100px { height:100px !important; }
+.Height150px { height:150px !important; }
+.Height200px { height:200px !important; }
+.Height250px { height:250px !important; }
+.Height300px { height:300px !important; }
+.Height350px { height:350px !important; }
+.Height400px { height:400px !important; }
+.Height450px { height:450px !important; }
+.Height500px { height:500px !important; }
+
+
+.VerticalAlignT { vertical-align:top !important; }
+.VerticalAlignM { vertical-align:middle !important; }
+.VerticalAlignB { vertical-align:bottom !important; }
+.VerticalAlignL { text-align:left !important; }
+.VerticalAlignC { text-align:center !important; }
+.VerticalAlignR { text-align:right !important; }
+.VerticalAlignLT {text-align:left !important; vertical-align:top !important;} 
+.VerticalAlignLM {text-align:left !important; vertical-align:middle !important;} 
+.VerticalAlignLB {text-align:left !important; vertical-align:bottom !important;} 
+.VerticalAlignCT {text-align:center !important; vertical-align:top !important;} 
+.VerticalAlignCM {text-align:center !important; vertical-align:middle !important;} 
+.VerticalAlignCB {text-align:center !important; vertical-align:bottom !important;} 
+.VerticalAlignRT {text-align:right !important; vertical-align:top !important;} 
+.VerticalAlignRM {text-align:right !important; vertical-align:middle !important;} 
+.VerticalAlignRB {text-align:right !important; vertical-align:bottom !important;} 
+
+.BgColorRed { background-image:none !important; background-color:red !important; }
+.BgColorGray { background-image:none !important; background-color:gray !important; }
+.BgColorRed { background-image:none !important; background-color:red !important;}
+.BgColorBrown { background-image:none !important; background-color:brown !important;}
+.BgColorGray { background-image:none !important; background-color:gray !important;}
+.BgColorDarkGray { background-image:none !important; background-color:darkgray !important;}
+.BgColorBlack { background-image:none !important; background-color:black !important;}
+.BgColorWhite { background-image:none !important; background-color:white !important; }
+.BgColorBlue { background-image:none !important; background-color:blue !important;}
+.BgColorDarkBlue { background-image:none !important; background-color:darkblue !important;}
+.BgColorGreen { background-image:none !important; background-color:green !important;}
+.BgColorDarkGreen { background-image:none !important; background-color:darkgreen !important;}
+.BgColorGold { background-image:none !important; background-color:gold !important;}
+.BgColorGoldEnrod { background-image:none !important; background-color:goldenrod !important;}
+.BgColorYellow { background-image:none !important; background-color:yellow !important;}
+.BgColorYellowGreen { background-image:none !important; background-color:yellowgreen !important;}
+
+.Text-Ellipsis {
+    min-width: 10px;
+    white-space:nowrap;
+    text-overflow:ellipsis;     /* IE, Safari */
+    overflow:hidden;            /* "overflow" value must be different from "visible" */ 
+    -o-text-overflow:ellipsis;  /* Opera under 10.7 */
+    -moz-binding: url('ellipsis.xml#ellipsis');
+}
+
+.Font { font-family: Dotum, '돋움', 'Segoe UI', Helvetica, 'Droid Sans', AppleSDGothicNeo, Tahoma, Geneva, sans-serif !important; }
+.Font-Small { font-size:10px; }
+.Font-Medium { font-size:12px; }
+.Font-Large { font-size:14px ; }
+.Font-Bold { font-weight:bold; }
+.Font-Align-Left { text-align:left; }
+.Font-Align-Right { text-align:right; }
+.Font-Align-Center { text-align:center; }
+
+.ForeColorRed { color:red !important;}
+.ForeColorBrown { color:brown !important;}
+.ForeColorGray { color:gray !important;}
+.ForeColorDarkGray { color:darkgray !important;}
+.ForeColorBlack { color:black !important;}
+.ForeColorBlue { color:blue !important;}
+.ForeColorDarkBlue { color:darkblue !important;}
+.ForeColorGreen { color:green !important;}
+.ForeColorDarkGreen { color:darkgreen !important;}
+.ForeColorGold { color:gold !important;}
+.ForeColorGoldEnrod { color:goldenrod !important;}
+.ForeColorYellow { color:yellow !important;}
+.ForeColorYellowGreen { color:yellowgreen !important;}
+
+.Padding0 { padding:0px !important; }
+.Padding0LR { padding-left:0px !important; padding-right:0px !important; }
+.Padding0L { padding-left:0px !important; }
+.Padding0R { padding-right:0px !important; }
+.Padding0TB { padding-top:0px !important; padding-bottom:0px !important; }
+.Padding0T { padding-top:0px !important; }
+.Padding0B { padding-bottom:0px !important; }
+.Padding5 { padding:5px !important; }
+.Padding5LR { padding-left: 5px !important; padding-right: 5px !important; }
+.Padding5L { padding-left: 5px !important; }
+.Padding5R { padding-right: 5px !important; }
+.Padding5TB { padding-top: 5px !important; padding-bottom: 5px !important; }
+.Padding5T { padding-top: 5px !important; }
+.Padding5B { padding-bottom: 5px !important; }
+.Padding10 { padding:10px !important; }
+.Padding10LR { padding-left: 10px !important; padding-right: 10px !important; }
+.Padding10L { padding-left: 10px !important; }
+.Padding10R { padding-right: 10px !important; }
+.Padding10TB { padding-top: 10px !important; padding-bottom: 10px !important; }
+.Padding10T { padding-top: 10px !important; }
+.Padding10B { padding-bottom: 10px !important; }
+.Padding15 { padding:15px !important; }
+.Padding15LR { padding-left: 15px !important; padding-right: 15px !important; }
+.Padding15L { padding-left: 15px !important; }
+.Padding15R { padding-right: 15px !important; }
+.Padding15TB { padding-top: 15px !important; padding-bottom: 15px !important; }
+.Padding15T { padding-top: 15px !important; }
+.Padding15B { padding-bottom: 15px !important; }
+.Padding20 { padding:20px !important; }
+.Padding20LR { padding-left: 20px !important; padding-right: 20px !important; }
+.Padding20TB { padding-top: 20px !important; padding-bottom: 20px !important; }
+.Padding20L { padding-left: 20px !important; }
+.Padding20R { padding-right: 20px !important; }
+.Padding25 { padding:25px !important; }
+.Padding25LR { padding-left: 25px !important; padding-right: 25px !important; }
+.Padding25TB { padding-top: 25px !important; padding-bottom: 25px !important; }
+.Padding30 { padding:30px !important; }
+.Padding30L { padding-left:30px !important; }
+.Padding30R { padding-right:30px !important; }
+.Padding30LR { padding-left: 30px !important; padding-right: 30px !important; }
+.Padding30T { padding-top:30px !important; }
+.Padding30B { padding-bottom:30px !important; }
+.Padding30TB { padding-top: 30px !important; padding-bottom: 30px !important; }
+
+.MarginAuto { margin:auto !important; }
+.Margin0 { margin:0px !important; }
+.-Margin1T { margin-top:-1px !important; }
+.Margin5 { margin:5px !important; }
+.-Margin5 { margin:-1px !important; }
+.Margin5LR { margin-left: 5px !important; margin-right: 5px !important; }
+.Margin5L { margin-left: 5px !important; }
+.Margin5R { margin-right: 5px !important; }
+.Margin5TB { margin-top: 5px !important; margin-bottom: 5px !important; }
+.Margin5T { margin-top: 5px !important; }
+.Margin5B { margin-bottom: 5px !important; }
+.Margin10 { margin:10px !important; }
+.Margin10LR { margin-left: 10px !important; margin-right: 10px !important; }
+.Margin10L { margin-left: 10px !important; }
+.Margin10R { margin-right: 10px !important; }
+.Margin10TB { margin-top: 10px !important; margin-bottom: 10px !important; }
+.Margin10T { margin-top: 10px !important; }
+.Margin10B { margin-bottom: 10px !important; }
+.Margin15 { margin:15px !important; }
+.Margin15LR { margin-left: 15px !important; margin-right: 15px !important; }
+.Margin15L { margin-left: 15px !important; }
+.Margin15R { margin-right: 15px !important; }
+.Margin15TB { margin-top: 15px !important; margin-bottom: 15px !important; }
+.Margin15T { margin-top: 15px !important; }
+.Margin15B { margin-bottom: 15px !important; }
+.Margin20 { margin:20px !important; }
+.Margin20LR { margin-left: 20px !important; margin-right: 20px !important; }
+.Margin20L { margin-left:20px !important; }
+.Margin20R { margin-right:20px !important; }
+.Margin20TB { margin-top: 20px !important; margin-bottom: 20px !important; }
+.Margin20T { margin-top: 20px !important; }
+.Margin20B { margin-bottom: 20px !important; }
+.Margin25 { margin:25px !important; }
+.Margin25LR { margin-left: 25px !important; margin-right: 25px !important; }
+.Margin25TB { margin-top: 25px !important; margin-bottom: 25px !important; }
+.Margin30 { margin:30px !important; }
+.Margin30LR { margin-left: 30px !important; margin-right: 30px !important; }
+.Margin30L { margin-left: 30px !important; }
+.Margin30R { margin-right: 30px !important; }
+.Margin30TB { margin-top: 30px !important; margin-bottom: 30px !important; }
+.Margin30T { margin-top: 30px !important; }
+.Margin30B { margin-bottom: 30px !important; }
+.MarginLAuto { margin-left:auto;}
+
+.Radius0 { border-radius:0px; }
+
+/*************************************************************************************************
+* [END] eniFramework
+*************************************************************************************************/
+
+/*************************************************************************************************
+* [STA] *****************************************************************************************
+* Name : Common Icons
+* Remark : 공통 아이콘 디자인
+*************************************************************************************************/
+
+.Icon {
+    background: url("./images/ico-set.png") no-repeat;
+}
+    .Icon.Flagged {
+        width:13px;
+        height:13px;
+        background-position: -76px -21px; 
+    }
+    .Icon.UnFlagged {
+        width:13px;
+        height:13px;
+        background-position: -95px -21px; 
+    }
+    .Icon.Seen {
+        width:21px;
+        height:20px;
+        background-position: -18px -36px; 
+    }
+    .Icon.UnSeen {
+        width:21px;
+        height:20px;
+        background-position: 3px -35px; 
+    }
+    .Icon.Seen.Answered {
+        width:21px;
+        height:20px;
+        background-position: -84px -37px;
+    }
+    .Icon.UnSeen.Answered {
+        width:21px;
+        height:20px;
+        background-position: -60px -36px;
+    }
+    .Icon.Seen.Fwd {
+        width:21px;
+        height:20px;
+        background-position: -131px -37px;
+    }
+    .Icon.UnSeen.Fwd {
+        width:21px;
+        height:20px;
+        background-position: -109px -36px;
+    }
+    .Icon.Attachments {
+        width:8px;
+        height:13px;
+        background-position: -66px -19px; 
+    }
+    .Icon.Importance {
+        background-position: -117px -1px; 
+    }
+    .Icon.FlagQuestion {
+        background-position: -283px -88px;
+    }
+    .Icon.TriangleArrowDown {
+        background-position: -17px 0px;
+    }
+    .Icon.SilverArrowRight {
+        width:8px;
+        height:10px;
+        background-position: -47px 1px;
+    }
+    .Icon.SilverArrowDown {
+        width:8px;
+        height:10px;
+        background-position: -19px 3px;
+    }
+    
+
+.Icon1 {
+    background: url("./images/ico-set1.png") no-repeat;
+}
+    .Icon1.ContactRoot {
+        background-position: -18px -92px; 
+    }
+    .Icon1.ContactFolder {
+        background-position: -84px -108px; 
+    }
+    .Icon1.ArrowRight {
+        background-position: 0px 0px; 
+    }
+    .Icon1.ArrowLeft {
+        background-position: -29px 0px; 
+    }
+
+.Icon2 {
+    background: url("./images/ico-set2.png") no-repeat;
+}
+    .Icon2.BoxAll {
+        background-position:-160px -169px;
+    }
+    .Icon2.InBox {
+        background-position:-160px -195px;
+    }
+    .Icon2.MyBox {
+        background-position:-160px -328px;
+    }
+    .Icon2.ExternalBox {
+        background-position:-160px -434px;
+    }
+    .Icon2.SendBox {
+        background-position:-160px -353px;
+    }
+    .Icon2.TempBox {
+        background-position:-160px -221px;
+    }
+    .Icon2.KeepBox {
+        background-position:-160px -221px;
+    }
+    .Icon2.DeletedBox {
+        background-position:-160px -406px;
+    }
+    .Icon2.SendReserveBox {
+        background-position:-160px -610px;
+    }
+    .Icon2.SpamBox {
+        background-position:-160px -381px;
+    }
+    .Icon2.JunkBox {
+        background-position:-160px -221px;
+    }
+    .Icon2.BtnBackL {
+        background-position: 100% -96px;
+    }
+    .Icon2.BtnBackR {
+        background-position:0px -96px;
+    }
+    .Icon2.BoardAll {
+        background-position:-160px -221px;
+    }
+    .Icon2.Board {
+        background-position:-160px -221px;
+    }
+
+.Icon5 {
+    background:url("./images/ico-set5.png") no-repeat;
+}
+
+.Icon6 {
+    background: url("./images/ico-set6.png") no-repeat;
+}
+    .Icon6.Expand {
+        width:14px;
+        height:14px;
+        background-position: -108px -183px;
+    }
+    .Icon6.UnExpand {
+        width:14px;
+        height:14px;
+        background-position: -122px -183px;
+    }
+
+.Icon7 {
+    background: url("./images/ico-set7.png") no-repeat !important;
+}
+    .Icon7.DefaultButton {
+        overflow:hidden;
+        background-repeat:no-repeat;
+        background-position-x:100%;
+        background-position-y:0px;
+        background-color:transparent;
+        cursor:pointer;
+    }
+    .Icon7.DefaultButton.Text {
+        background-repeat:no-repeat;
+        background-position-x:0px;
+        background-position-y:0px;
+        background-color:transparent;
+        display:inline-block;
+        height:22px;
+        line-height:24px;
+        width:95%;
+        text-align:center !important;
+        margin:0 0 0 1px;
+        cursor:pointer;
+    }
+
+.Icon12 {
+    background: url("./images/ico-set12.png") no-repeat;
+}
+
+.Icon16 {
+    background: url("./images/ico-set16.png") no-repeat;
+}
+.Icon20 {
+    background: url("./images/ico-set20.png") no-repeat;
+}
+.Icon20.Add {
+    background-position:-55px -320px;
+}
+.Icon20.MoreMenu {
+    background-position:-160px -360px;
+}
+.Icon20.MoreMenuHover {
+    background-position:-180px -360px;
+}
+.Icon20.Empty {
+    background-position:-135px 0;
+}
+.Icon20.EmptyHover {
+    background-position:-150px 0;
+}
+.Icon20.BgButton {
+    background-position:0 -220px;
+}
+.Icon20.BgButtonHover {
+    background-position:0 -245px;
+}
+
+/* 게시판 공지사항 마이크 표시 아이콘 */
+.Icon16.Notice {
+    width:20px;
+    height:20px;
+    background-position: -137px 3px;
+}
+.Icon16.New {
+    width:20px;
+    height:20px;
+    background-position: -119px -15px;
+}
+.Icon16.Comment {
+    width:18px;
+    height:18px;
+    background-position: -77px 4px;
+}
+
+/*************************************************************************************************
+* [END] Common Icons
+*************************************************************************************************/
+
+/*************************************************************************************************
+* [STA] *****************************************************************************************
+* Name : Control Design
+* Remark : 컨트롤 디자인
+*************************************************************************************************/
+/* Button Control CSS */
+.CButtonDX,
+.dxbButton div.dxb {
+    background:none;
+    padding:0px;
+    margin:0px;
+    border:0px;
+}
+
+.CSmallRadiusRed {
+    width:25px;
+    height:14px !important;
+    color:#575757;
+    letter-spacing:-1px;
+    background: transparent url("./images/ico-set5.png") no-repeat -139px -299px !important;
+    display:inline-block;
+    white-space:nowrap;
+    cursor:pointer;
+    border: 0 !important;
+    vertical-align:middle;
+    float:left;
+    margin-right:17px;
+}
+.CSmallRadiusRed > div,
+.CSmallRadiusRed > a,
+.CSmallRadiusRed > span {
+    width:27px;
+    font-size:11px;
+    font-weight:bold;
+    height:18px !important;
+    color:white;
+    letter-spacing:-1px;
+    overflow:hidden;
+    background: transparent url("./images/ico-set5.png") no-repeat 100% -299px !important;
+    display:inline-block !important;
+    cursor:pointer;
+    margin:0 0 0 10px !important;
+    padding:0 5px 0 0 !important;
+    line-height:16px;
+    /*line-height:18px \0/IE8+9; //공통으로 16px 하면 됨*/
+    vertical-align:top;
+}
+
+.CButtonSWhite {
+    width:auto;
+    height:18px !important;
+    color:#575757;
+    letter-spacing:-1px;
+    overflow:hidden;
+    background: transparent url("./images/ico-set2.png") no-repeat 100% -96px !important;
+    display:inline-block;
+    white-space:nowrap;
+    cursor:pointer;
+    border: 0 !important;
+    padding: 0 !important;
+    vertical-align:middle;
+}
+.CButtonSWhite > div,
+.CButtonSWhite > a,
+.CButtonSWhite > span {
+    width:auto;
+    height:18px !important;
+    color:#575757;
+    letter-spacing:-1px;
+    overflow:hidden;
+    background: transparent url("./images/ico-set2.png") no-repeat 0% -96px !important;
+    display:inline-block !important;
+    cursor:pointer;
+    margin:0 4px 0 0 !important;
+    padding:0 0 0 4px !important;
+    line-height:20px;
+    line-height:22px \0/IE8+9;
+    vertical-align:top;
+}
+
+.CButtonMSilver {
+    width:auto;
+    height:22px !important;
+    color:#575757;
+    letter-spacing:-1px;
+    overflow:hidden;
+    background: transparent url("./images/ico-set7.png") no-repeat 100% 0% !important;
+    display:inline-block;
+    white-space:nowrap;
+    cursor:pointer;
+    border: 0 !important;
+    padding: 0 !important;
+    vertical-align:middle;
+}
+.CButtonMSilver > div,
+.CButtonMSilver > a {
+    width:auto;
+    height:22px;
+    color:#575757;
+    letter-spacing:-1px;
+    overflow:hidden;
+    background: transparent url("./images/ico-set7.png") no-repeat 0% 0% !important;
+    display:inline-block !important;
+    cursor:pointer;
+    margin:0 6px 0 0 !important;
+    padding:0 0 0 6px !important;
+    line-height:25px !important;
+    line-height:24px \0/IE8+9;
+    vertical-align:top;
+}
+.CButtonMSilver > div img,
+.CButtonMSilver > a img {
+    color:#575757;
+    letter-spacing:-1px;
+    display:inline-block;
+    line-height:24px;
+    margin-right:3px;
+    background-attachment:scroll;
+    background-repeat:no-repeat;
+    background-size:auto;
+    background-origin:padding-box;
+    background-clip:border-box;
+    background-color:transparent;
+    vertical-align:-3px;
+    vertical-align:-4px \0/IE8+9;
+}
+.CButtonMSilverHover,
+.CButtonMSilverHover > div,
+.CButtonMSilverHover > a {
+    background-position-y: -34px !important;
+}
+.CButtonMSilverPress,
+.CButtonMSilverPress > div,
+.CButtonMSilverPress > a {
+    background-position-y: -68px !important;
+}
+.CButtonMSilverDisable,
+.CButtonMSilverDisable > div,
+.CButtonMSilverDisable > a {
+    color:#B1B1B1;
+    cursor:default;
+    background-position-y: 0px !important;
+}
+
+.CButtonLWhite {
+    width:auto;
+    height:26px !important;
+    color:#575757;
+    letter-spacing:-1px;
+    overflow:hidden;
+    background: transparent url("./images/ico-set8.png") no-repeat 100% 0% !important;
+    display:inline-block;
+    white-space:nowrap;
+    cursor:pointer;
+    border: 0 !important;
+    padding: 0 !important;
+    vertical-align:middle;
+}
+.CButtonLWhite > div,
+.CButtonLWhite > a {
+    width:auto;
+    height:26px;
+    color:#575757;
+    letter-spacing:-1px;
+    overflow:hidden;
+    background: transparent url("./images/ico-set8.png") no-repeat 0% 0% !important;
+    display:inline-block !important;
+    cursor:pointer;
+    margin:0 8px 0 0 !important;
+    padding:0 0 0 6px !important;
+    line-height:29px;
+    line-height:28px \0/IE8+9;
+    vertical-align:top;
+}
+.CButtonLWhite > div img,
+.CButtonLWhite > a img {
+    color:#575757;
+    letter-spacing:-1px;
+    display:inline-block;
+    line-height:28px;
+    margin-right:3px;
+    background-attachment:scroll;
+    background-repeat:no-repeat;
+    background-size:auto;
+    background-origin:padding-box;
+    background-clip:border-box;
+    background-color:transparent;
+    vertical-align:-3px;
+    vertical-align:-4px \0/IE8+9;
+}
+.CButtonLWhiteHover {
+    background-position-y: -100px !important;
+}
+.CButtonLWhiteHover > div,
+.CButtonLWhiteHover > a {
+    background-position-y: -100px !important;
+}
+
+.CButtonXLWhite {
+    font-size:16px;
+    width:auto;
+    height:35px !important;
+    color:#575757;
+    letter-spacing:-1px;
+    overflow:hidden;
+    background: transparent url("./images/ico-set9.png") no-repeat 100% -120px !important;
+    display:inline-block;
+    white-space:nowrap;
+    cursor:pointer;
+    border: 0 !important;
+    padding: 0 !important;
+    vertical-align:middle;
+}
+.CButtonXLWhite > div,
+.CButtonXLWhite > a {
+    width:auto;
+    height:35px;
+    color:#575757;
+    letter-spacing:-1px;
+    overflow:hidden;
+    background: transparent url("./images/ico-set9.png") no-repeat 0% -120px !important;
+    display:inline-block !important;
+    cursor:pointer;
+    margin:0 14px 0 0 !important;
+    padding:0 0 0 12px !important;
+    line-height:35px;
+    line-height:34px \0/IE8+9;
+    vertical-align:top;
+}
+.CButtonXLWhite > div img,
+.CButtonXLWhite > a img {
+    color:#575757;
+    letter-spacing:-1px;
+    display:inline-block;
+    line-height:28px;
+    margin-right:3px;
+    background-attachment:scroll;
+    background-repeat:no-repeat;
+    background-size:auto;
+    background-origin:padding-box;
+    background-clip:border-box;
+    background-color:transparent;
+    vertical-align:-3px;
+    vertical-align:-4px \0/IE8+9;
+}
+.CButtonXLWhiteHover {
+    background-position-y: -160px !important;
+}
+.CButtonXLWhiteHover > div,
+.CButtonXLWhiteHover > a {
+    background-position-y: -160px !important;
+}
+.CButtonXLWhitePress {
+    background-position-y: -200px !important;
+}
+.CButtonXLWhitePress > div,
+.CButtonXLWhitePress > a {
+    background-position-y: -200px !important;
+}
+
+.CButtonLBlue {
+    width:auto;
+    height:26px !important;
+    color:#575757;
+    letter-spacing:-1px;
+    overflow:hidden;
+    background: transparent url("./images/ico-set8.png") no-repeat 100% -50px !important;
+    display:inline-block;
+    white-space:nowrap;
+    cursor:pointer;
+    border: 0 !important;
+    padding: 0 !important;
+    vertical-align:middle;
+}
+.CButtonLBlue > div,
+.CButtonLBlue > a {
+    width:auto;
+    height:26px;
+    color:#EEEEEE;
+    font-weight:bold;
+    letter-spacing:-1px;
+    overflow:hidden;
+    background: transparent url("./images/ico-set8.png") no-repeat 0% -50px !important;
+    display:inline-block !important;
+    cursor:pointer;
+    margin:0 8px 0 0 !important;
+    padding:0 0 0 6px !important;
+    line-height:29px;
+    line-height:28px \0/IE8+9;
+    vertical-align:top;
+}
+.CButtonLBlue > div img,
+.CButtonLBlue > a img {
+    color:#EEEEEE;
+    font-weight:bold;
+    letter-spacing:-1px;
+    display:inline-block;
+    line-height:28px;
+    margin-right:3px;
+    background-attachment:scroll;
+    background-repeat:no-repeat;
+    background-size:auto;
+    background-origin:padding-box;
+    background-clip:border-box;
+    background-color:transparent;
+    vertical-align:-3px;
+    vertical-align:-4px \0/IE8+9;
+}
+
+
+/* Menu Control Button CSS */
+.CMenuButtonLWhite {
+    width:auto;
+    height:26px !important;
+    color:#575757;
+    letter-spacing:-1px;
+    overflow:hidden;
+    background: transparent url("./images/ico-set8.png") no-repeat 100% 0% !important;
+    display:inline-block;
+    white-space:nowrap;
+    cursor:pointer;
+    border: 0 !important;
+    padding: 0 !important;
+    vertical-align:middle;
+}
+.CMenuButtonLWhite > div {
+    width:auto;
+    height:26px;
+    color:#575757;
+    letter-spacing:-1px;
+    overflow:hidden;
+    background: transparent url("./images/ico-set8.png") no-repeat 0% 0% !important;
+    display:inline-block !important;
+    cursor:pointer;
+    margin:0 8px 0 0 !important;
+    padding:0 0 0 6px !important;
+    line-height:29px;
+    line-height:28px \0/IE8+9;
+    vertical-align:top;
+}
+.CMenuButtonLWhite > div img {
+    color:#575757;
+    letter-spacing:-1px;
+    display:inline-block;
+    line-height:28px;
+    margin-right:3px;
+    background-attachment:scroll;
+    background-repeat:no-repeat;
+    background-size:auto;
+    background-origin:padding-box;
+    background-clip:border-box;
+    background-color:transparent;
+    vertical-align:-3px;
+    vertical-align:-4px \0/IE8+9;
+}
+.CMenuButtonLWhite > div.dxm-popOut {
+    width:auto;
+    height:26px;
+    color:#575757;
+    letter-spacing:-1px;
+    overflow:hidden;
+    background: transparent url("./images/ico-set8.png") no-repeat -13% 0% !important;
+    display:inline-block !important;
+    cursor:pointer;
+    margin:0 4px 0 -5px !important;
+    padding:0px !important;
+    line-height:29px;
+    line-height:28px \0/IE8+9;
+    vertical-align:top;
+}
+.CMenuButtonLWhite > div.dxm-popOut img {
+    color:#575757;
+    letter-spacing:-1px;
+    display:inline-block;
+    line-height:28px;
+    margin-right:3px;
+    background-attachment:scroll;
+    background-repeat:no-repeat;
+    background-size:auto;
+    background-origin:padding-box;
+    background-clip:border-box;
+    background-color:transparent;
+    vertical-align:0px;
+}
+.CMenuButtonLWhiteHover,
+.CMenuButtonLWhiteHover > div {
+    background-position-y: -100px !important;
+}
+.CMenuButtonLWhiteHover > div.dxm-popOut {
+    background-position-y: -100px !important;
+    border-color:transparent !important;
+}
+.CMenuButtonLWhiteDisable,
+.CMenuButtonLWhiteDisable > div {
+    cursor:default;
+    color:silver;
+}
+.CMenuButtonLWhiteDisable > div.dxm-popOut {
+    cursor:default;
+    color:silver;
+}
+
+
+
+.TextBoxStyle1 {
+    border:1px solid #CACACA;
+    border-top-color:#BCBCBC;
+    border-bottom-color:#D9D9D9;
+    box-shadow:inset 1px 1px 1px rgba(150,150,150,0.1);
+    border-radius:2px;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    position: relative;
+}
+.TextBoxStyle1:hover {
+    border-color:#9C9C9C;
+}
+.TextBoxStyle1_Focus {
+    border-color:#9C9C9C;
+    background-color:#EEF4FF;
+    box-shadow: 0 0 1em gold;
+}
+.TextBoxStyle1_Focus input[type='text'] {
+    background-color:transparent;
+}
+
+/*
+--테그로 작성하는경우
+<div class="CButtonMSilver">
+    <div>
+        <img style="background-color:black; width:16px; height:16px;" />
+        <span>한글zzzzzzzz</span>
+    </div>
+</div>
+--컴퍼넌트 이용시
+<dx:ASPxButton runat="server" EnableTheming="false" Text="한글" AutoPostBack="false" 
+    CssClass="CButtonMSilver Font" 
+    HoverStyle-CssClass="CButtonMSilverHover" 
+    PressedStyle-CssClass="CButtonMSilverPress">
+    <Image IconID="actions_add_16x16"></Image>
+</dx:ASPxButton>
+*/
+
+/*************************************************************************************************
+* [END] OSModeuleView
+*************************************************************************************************/
+
+
+/*************************************************************************************************
+* [STA] *****************************************************************************************
+* Name : eniFramework HTML5 Control Design
+* Remark : eniFramework Design Part
+*************************************************************************************************/
+
+/* Common Style */
+input[type='text'].dxeEditArea_eniThm,
+input[type='password'].dxeEditArea_eniThm {
+    /*line-height:17px; //한국어 사용하면서 중국어 나오면 아래로 내려감*/
+    /*line-height:14px;
+    margin:0px;*/
+    padding: 2px 0 0 0;
+}
+:lang(zh) input[type='text'].dxeEditArea_eniThm,
+:lang(zh) input[type='password'].dxeEditArea_eniThm {
+    /*line-height:14px;*/
+    padding: 2px 0 0 0;
+}
+
+/* eniButton */
+.eni_Web .eniButton-Advanced-M-01 {
+    width:auto;
+    height:22px !important;
+    border:0px;
+    color:#575757;
+    letter-spacing:-1px;
+    overflow:hidden;
+    background: transparent url("./images/ico-set7.png") no-repeat 100% 0% !important;
+    display:inline-block;
+    white-space:nowrap;
+    cursor:pointer;
+    border: 0 !important;
+    padding: 0 !important;
+    vertical-align:middle;
+}
+.eni_Web .eniButton-Advanced-M-01 > div,
+.eni_Web .eniButton-Advanced-M-01 > a {
+    width:auto;
+    height:22px;
+    border:0px !important;
+    color:#575757;
+    letter-spacing:-1px;
+    overflow:hidden;
+    background: transparent url("./images/ico-set7.png") no-repeat 0% 0% !important;
+    display:inline-block !important;
+    cursor:pointer;
+    margin:0 6px 0 0 !important;
+    padding:0 0 0 6px !important;
+    line-height:25px !important;
+    line-height:24px \0/IE8+9;
+    vertical-align:top;
+}
+.eni_Web .eniButton-Advanced-M-01 > div img,
+.eni_Web .eniButton-Advanced-M-01 > a img {
+    color:#575757;
+    letter-spacing:-1px;
+    display:inline-block;
+    line-height:24px;
+    margin-right:3px;
+    background-attachment:scroll;
+    background-repeat:no-repeat;
+    background-size:auto;
+    background-origin:padding-box;
+    background-clip:border-box;
+    background-color:transparent;
+    vertical-align:-4px;
+    vertical-align:-4px \0/IE8+9;
+}
+.eni_Web .eniButton-Advanced-M-01.Advanced-M-01_ButtonMSilverHover,
+.eni_Web .eniButton-Advanced-M-01.Advanced-M-01_ButtonMSilverHover > div,
+.eni_Web .eniButton-Advanced-M-01.Advanced-M-01_ButtonMSilverHover > a {
+    background-position-y: -34px !important;
+}
+.eni_Web .eniButton-Advanced-M-01.Advanced-M-01_ButtonMSilverPress,
+.eni_Web .eniButton-Advanced-M-01.Advanced-M-01_ButtonMSilverPress > div,
+.eni_Web .eniButton-Advanced-M-01.Advanced-M-01_ButtonMSilverPress > a {
+    background-position-y: -68px !important;
+}
+.eni_Web .eniButton-Advanced-M-01.Advanced-M-01_ButtonMSilverDisable,
+.eni_Web .eniButton-Advanced-M-01.Advanced-M-01_ButtonMSilverDisable > div,
+.eni_Web .eniButton-Advanced-M-01.Advanced-M-01_ButtonMSilverDisable > a {
+    color:#B1B1B1;
+    cursor:default;
+    background-position-y: 0px !important;
+}
+
+.eni_Web .eniButton-Advanced-XL-01 {
+    font-size:16px;
+    height:35px !important;
+    color:#575757;
+    letter-spacing:-1px;
+    overflow:hidden;
+    background: transparent url("./images/ico-set9.png") no-repeat 100% -120px !important;
+    display:inline-table; /* 바깥쪽 레이아웃은 무조껀 */
+    white-space:nowrap;
+    cursor:pointer;
+    border: 0 !important;
+    padding: 0 !important;
+    vertical-align:middle;
+}
+.eni_Web .eniButton-Advanced-XL-01 > div,
+.eni_Web .eniButton-Advanced-XL-01 > a {
+    height:35px;
+    color:#575757;
+    border:0px;
+    letter-spacing:-1px;
+    overflow:hidden;
+    background: transparent url("./images/ico-set9.png") no-repeat 0% -120px !important;
+    display:block !important;/* 안쪽 레이아웃은 무조껀 */ 
+    cursor:pointer;
+    margin:0 14px 0 0 !important;
+    padding:0 0 0 12px !important;
+    line-height:35px;
+    line-height:34px \0/IE8+9;
+    vertical-align:top;
+}
+.eni_Web .eniButton-Advanced-XL-01 > div img,
+.eni_Web .eniButton-Advanced-XL-01 > a img {
+    color:#575757;
+    border:0px;
+    letter-spacing:-1px;
+    display:inline-block;
+    line-height:28px;
+    margin-right:3px;
+    background-attachment:scroll;
+    background-repeat:no-repeat;
+    background-size:auto;
+    background-origin:padding-box;
+    background-clip:border-box;
+    background-color:transparent;
+    vertical-align:-3px;
+    vertical-align:-4px \0/IE8+9;
+}
+.eni_Web .eniButton-Advanced-XL-01.Advanced-XL-01_ButtonXLSilverHover,
+.eni_Web .eniButton-Advanced-XL-01.Advanced-XL-01_ButtonXLSilverHover > div,
+.eni_Web .eniButton-Advanced-XL-01.Advanced-XL-01_ButtonXLSilverHover > a {
+    background-position-y: -160px !important;
+}
+.eni_Web .eniButton-Advanced-XL-01.Advanced-XL-01_ButtonMSilverPress,
+.eni_Web .eniButton-Advanced-XL-01.Advanced-XL-01_ButtonMSilverPress > div,
+.eni_Web .eniButton-Advanced-XL-01.Advanced-XL-01_ButtonMSilverPress > a {
+    background-position-y: -200px !important;
+}
+.eni_Web .eniButton-Advanced-XL-01.Advanced-XL-01_ButtonXLSilverDisable,
+.eni_Web .eniButton-Advanced-XL-01.Advanced-XL-01_ButtonXLSilverDisable > div,
+.eni_Web .eniButton-Advanced-XL-01.Advanced-XL-01_ButtonXLSilverDisable > a {
+    color:#B1B1B1;
+    cursor:default;
+    background-position-y: 0px !important;
+}
+
+/* eniCheckBox */
+.eni_Web .eniCheckBox-Advanced-01 {
+    margin:1px 0 0;
+}
+.eni_Web .eniCheckBox-Advanced-01 .dxichCellSys {
+    padding:0px 3px 1px;
+}
+.eni_Web .eniCheckBox-Advanced-01 .dxichCellSys span {
+    cursor:pointer;
+}
+.eni_Web .eniCheckBox-Advanced-01 .dxichTextCellSys {
+    cursor:pointer;
+    padding:3px 0 1px;
+}
+.eni_Web .eniCheckBox-Advanced-01.Advanced-01_DisabledStyleStyle {
+}
+.eni_Web .eniCheckBox-Advanced-01.Advanced-01_DisabledStyleStyle .dxichCellSys {
+    cursor:default;
+}
+.eni_Web .eniCheckBox-Advanced-01.Advanced-01_DisabledStyleStyle .dxichCellSys span {
+    cursor:default;
+}
+.eni_Web .eniCheckBox-Advanced-01.Advanced-01_DisabledStyleStyle .dxichTextCellSys {
+    cursor:default;
+}
+
+/* eniComboBox */
+.eni_Web .eniComboBox-Advanced-01 {
+}
+.eni_Web .eniComboBox-Advanced-01 .Advanced-01_RootStyleStyle {
+}
+
+/* eniButtonEdit */
+.eni_Web .dxFirefox .dxeButtonEdit_eniThm td.dxic,
+.eni_Web .dxeButtonEdit_eniThm td.dxic,
+.eni_Web .dxeButtonEditButton_eniThm {
+    padding:2px 3px 1px 3px;
+}
+.eni_Web .eniButtonEdit-Advanced-01 {
+}
+.eni_Web .eniButtonEdit-Advanced-01 .Advanced-01_RootStyleStyle {
+}
+
+
+/* eniDateEdit */
+.eni_Web .eniDateEdit-Advanced-01 {
+}
+/*.eni_Web .eniDateEdit-Advanced-01 input[type='text'].dxeEditArea_eniThm,
+.eni_Web .eniDateEdit-Advanced-01 input[type='password'].dxeEditArea_eniThm {
+    line-height:17px !important;
+}*/
+
+/* eniFileUpload */
+.eni_Web .eniFileUpload-Advanced-01 .Advanced-01_TextBoxStyle {
+    background-color: white;
+	border: 0px;
+	padding: 0px;
+    margin: 0px;
+    width: 0px !important;
+    height: 0px;
+}
+.eni_Web .eniFileUpload-Advanced-01 .Advanced-01_TextBoxStyle .dxucEditArea_eniThm {
+    width:0px;
+}
+.eni_Web .eniFileUpload-Advanced-01 .Advanced-01_TextBoxStyle .dxucTextBox_eniThm {
+    width:0px;
+}
+.eni_Web .eniFileUpload-Advanced-01 .Advanced-01_TextBoxStyle .dxWeb_ucClearButton_eniThm {
+    width:0px;
+}
+.eni_Web .eniFileUpload-Advanced-01 .Advanced-01_ButtonMSilver {
+    width:auto;
+    height:22px !important;
+    color:#575757;
+    letter-spacing:-1px;
+    overflow:hidden;
+    background: transparent url("./images/ico-set7.png") no-repeat 100% 0% !important;
+    display:inline-block;
+    white-space:nowrap;
+    cursor:pointer;
+    border: 0 !important;
+    padding: 0 !important;
+    vertical-align:middle;
+}
+.eni_Web .eniFileUpload-Advanced-01 .Advanced-01_ButtonMSilver > div,
+.eni_Web .eniFileUpload-Advanced-01 .Advanced-01_ButtonMSilver > a {
+    width:auto;
+    height:22px;
+    color:#575757;
+    letter-spacing:-1px;
+    overflow:hidden;
+    background: transparent url("./images/ico-set7.png") no-repeat 0% 0% !important;
+    display:inline-block !important;
+    cursor:pointer;
+    margin:0 6px 0 0 !important;
+    padding:0 0 0 6px !important;
+    line-height:25px !important;
+    line-height:24px \0/IE8+9;
+    vertical-align:top;
+}
+.eni_Web .eniFileUpload-Advanced-01 .Advanced-01_ButtonMSilver > div img,
+.eni_Web .eniFileUpload-Advanced-01 .Advanced-01_ButtonMSilver > a img {
+    color:#575757;
+    letter-spacing:-1px;
+    display:inline-block;
+    line-height:24px;
+    margin-right:3px;
+    background-attachment:scroll;
+    background-repeat:no-repeat;
+    background-size:auto;
+    background-origin:padding-box;
+    background-clip:border-box;
+    background-color:transparent;
+    vertical-align:-3px;
+    vertical-align:-4px \0/IE8+9;
+}
+.eni_Web .eniFileUpload-Advanced-01 .Advanced-01_ButtonMSilverHover,
+.eni_Web .eniFileUpload-Advanced-01 .Advanced-01_ButtonMSilverHover > div,
+.eni_Web .eniFileUpload-Advanced-01 .Advanced-01_ButtonMSilverHover > a {
+    background-position-y: -34px !important;
+}
+.eni_Web .eniFileUpload-Advanced-01 .Advanced-01_ButtonMSilverDisable,
+.eni_Web .eniFileUpload-Advanced-01 .Advanced-01_ButtonMSilverDisable > div,
+.eni_Web .eniFileUpload-Advanced-01 .Advanced-01_ButtonMSilverDisable > a {
+    color:#B1B1B1;
+    cursor:default;
+    background-position-y: 0px !important;
+}
+.eni_Web .eniFileUpload-Advanced-01 .Advanced-01_ButtonMSilver.dxucBrowseButtonPressed_eniThm {
+    color:#575757;
+    border:0px;
+    background-position-y: -68px !important;
+}
+.eni_Web .eniFileUpload-Advanced-01 .Advanced-01_ButtonMSilver.dxbf > a {
+    border:0px !important;
+}
+.eni_Web .eniFileUpload-Advanced-01 .Advanced-01_ButtonMSilver.dxucBrowseButtonPressed_eniThm > a {
+    color:#575757;
+    border:0px;
+    background-position-y: -68px !important;
+}
+
+.eni_Web .eniFileUpload-Advanced-01 .dxucErrorCell_eniThm {
+    padding-top:0px !important;
+    position:absolute;
+    margin-top:-22px;
+    height:22px;
+    background-color:white;
+    width:94%;
+    line-height:24px;
+}
+
+.eni_Web .eniFileUpload-Advanced-01 .dxucSilverlightPluginLinkPanel_eniThm {
+    padding-top:0px !important;
+    position:absolute;
+    margin-top:-22px;
+    height:22px;
+    background-color:white;
+    width:94%;
+}
+/* 파일업로드 버튼 스타일 (부스트 스트렙 스타일 때문에 강제 적용) 위에것은 예전버전것*/
+.eni_Web .dxuc-root.dxucControl_eniThm .dxucInputs_eniThm .dxTB.dxucTextBox_eniThm.dx-al,
+.eni_Web .dxuc-root.dxucControl_eniThm .dxucInputs_eniThm .dxCB.dxucTextBox_eniThm {
+    width:0.1px !important;
+    position:absolute;
+    padding:0px;
+    margin:0px;
+}
+.eni_Web .dxuc-root.dxucControl_eniThm .dxucInputs_eniThm .dxTB.dxucTextBox_eniThm.dx-al .dxTF.dxucEditArea_eniThm {
+    width:0px;
+    padding:0px;
+}
+.eni_Web .dxuc-root.dxucControl_eniThm .dxBB.dxucBrowseButton_eniThm a {
+    text-decoration:none !important;
+    border:0px;
+}
+.eni_Web .dxuc-root.dxucControl_eniThm .dxucErrorCell_eniThm {
+    padding-top:0px !important;
+    position:absolute;
+    margin-top:-22px;
+    height:22px;
+    background-color:white;
+    width:94%;
+    line-height:24px;
+}
+.eni_Web .dxuc-root.dxucControl_eniThm .dxucSilverlightPluginLinkPanel_eniThm {
+    padding-top:0px !important;
+    position:absolute;
+    margin-top:-22px;
+    height:22px;
+    background-color:white;
+    width:94%;
+}
+
+/* eniGridView */
+.eni_Web .eniGridView-Advanced-01 {
+    background-color:white;
+}
+.eni_Web .eniGridView-Advanced-01 .Advanced-01_hRow {
+    height: 22px;
+}
+.eni_Web .eniGridView-Advanced-01 .Advanced-01_hRow.dxgvHeader_eniThm {
+    padding: 0px 0px 0px 8px;
+    border:1px solid #C0C0C0;
+}
+.eni_Web .eniGridView-Advanced-01 .Advanced-01_hRow.dxgvHeader_eniThm td {
+    vertical-align:bottom;
+    line-height:13px;
+}
+.eni_Web .eniGridView-Advanced-01 .Advanced-01_gRow {
+    height: 22px;
+}
+.eni_Web .eniGridView-Advanced-01 .Advanced-01_gRow td.dxgv {
+    padding: 3px 0px 1px 8px;
+    position:static !important;
+}
+.eni_Web .eniGridView-Advanced-01 .Advanced-01_dRow {
+    height: 22px;
+}
+/*.eni_Web .eniGridView-Advanced-01 .Advanced-01_dRow:hover {
+    background-color:#C8D7FF;
+}*/
+.eni_Web .eniGridView-Advanced-01 .Advanced-01_dRow td.dxgv {
+    padding: 3px 0px 1px 0px;
+}
+.eni_Web .eniGridView-Advanced-01 .Advanced-01_sdRow,
+.eni_Web .eniGridView-Advanced-01 .Advanced-01_fdRow {
+    background-color: #A2BBFF;
+}
+.eni_Web .eniGridView-Advanced-01 .Advanced-01_edRow {
+    border-bottom:0px;
+}
+
+.eni_Web .eniGridView-Advanced-01 .dxgvFSDC {
+    border-top:1px solid #C0C0C0;
+}
+.eni_Web .eniGridView-Advanced-01 .dxpLite_eniThm {
+    margin-left: auto;
+    margin-right: auto;
+    float:none;
+    width:10% !important;
+    height:33px;
+    overflow:hidden;
+}
+.eni_Web .eniGridView-Advanced-01 .dxpLite_eniThm .dxp-pageSizeItem.dxp-right {
+    position:absolute;
+    right:0px;
+}
+/* 그리드 로딩 스타일 미적용합니다. */
+/*.eni_Web .eniGridView-Advanced-01 .Advanced-01_LoadingDiv {
+    background: #E9E9E9 none;
+    filter:Alpha(Opacity=30);
+    opacity:0.3;
+}
+.eni_Web .eniGridView-Advanced-01 .dxgvLoadingPanel_eniThm {
+	background: #FFFFFF none;
+    border-collapse: separate;
+	border: 1px solid #80858d;
+    border-radius: 7px;
+    -ms-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -o-border-radius: 7px;
+	-webkit-border-radius: 7px;
+}
+.eni_Web .eniGridView-Advanced-01 .dxgvLoadingPanel_eniThm .dxlp-loadingImage {
+	background-image: url("./images/Loading/Loading_16x16.gif");
+	height: 16px;
+	width: 16px;
+}
+.eni_Web .eniGridView-Advanced-01 .dxlpLoadingPanel_eniThm td.dx {
+    padding:15px !important;
+}
+.eni_Web .eniGridView-Advanced-01 .dxgvLoadingPanel_eniThm td.dx .dxlp-loadingImage.dxlp-imgPosLeft {
+    margin-right:14px !important;
+}
+.eni_Web .eniGridView-Advanced-01 .dxgvLoadingPanel_eniThm td.dx:last-child {
+    display:none;
+}*/
+
+/* eniListBox */
+.eni_Web .eniListBox-Advanced-01 {
+}
+.eni_Web .eniListBox-Advanced-01 .Advanced-01_ItemStyle {
+}
+.eni_Web .eniListBox-Advanced-01 .Advanced-01_ItemStyle.dxeC {
+    padding-top:0px;
+}
+.eni_Web .eniListBox-Advanced-01 .Advanced-01_ItemStyle.dxeT {
+    padding-bottom:0px;
+}
+
+/* eniMenu */
+.eni_Web .eniMenu-Advanced-01 .dx.dxm-image-l {
+    width:100%;
+}
+.eni_Web .eniMenu-Advanced-01 span.dx-vam,
+.eni_Web .eniMenu-Advanced-01 span.dx-vat,
+.eni_Web .eniMenu-Advanced-01 span.dx-vab {
+    line-height:23px;
+    height:18px;
+    display:block !important;
+}
+
+.eni_Web .eniMenu-Advanced-01 .Advanced-01_ButtonLWhite {
+    width:auto;
+    height:26px !important;
+    color:#575757;
+    letter-spacing:-1px;
+    overflow:hidden;
+    background: transparent url("./images/ico-set8.png") no-repeat 100% 0% !important;
+    display:inline-block;
+    white-space:nowrap;
+    cursor:pointer;
+    border: 0 !important;
+    padding: 0 !important;
+    vertical-align:middle;
+}
+.eni_Web .eniMenu-Advanced-01 .Advanced-01_ButtonLWhite > div {
+    width:auto;
+    height:26px;
+    color:#575757;
+    letter-spacing:-1px;
+    overflow:hidden;
+    background: transparent url("./images/ico-set8.png") no-repeat 0% 0% !important;
+    display:inline-block !important;
+    cursor:pointer;
+    margin:0 8px 0 0 !important;
+    padding:0 0 0 6px !important;
+    line-height:29px;
+    line-height:28px \0/IE8+9;
+    vertical-align:top;
+}
+.eni_Web .eniMenu-Advanced-01 .Advanced-01_ButtonLWhite > div img {
+    color:#575757;
+    letter-spacing:-1px;
+    display:inline-block;
+    line-height:28px;
+    margin-right:3px;
+    background-attachment:scroll;
+    background-repeat:no-repeat;
+    background-size:auto;
+    background-origin:padding-box;
+    background-clip:border-box;
+    background-color:transparent;
+    vertical-align:-3px;
+    vertical-align:-4px \0/IE8+9;
+}
+.eni_Web .eniMenu-Advanced-01 .Advanced-01_ButtonLWhite > div.dxm-popOut {
+    width:auto;
+    height:26px;
+    color:#575757;
+    letter-spacing:-1px;
+    overflow:hidden;
+    background: transparent url("./images/ico-set8.png") no-repeat -13% 0% !important;
+    display:inline-block !important;
+    cursor:pointer;
+    margin:0 4px 0 -5px !important;
+    padding:0px !important;
+    line-height:29px;
+    line-height:28px \0/IE8+9;
+    vertical-align:top;
+}
+.eni_Web .eniMenu-Advanced-01 .Advanced-01_ButtonLWhite > div.dxm-popOut img {
+    color:#575757;
+    letter-spacing:-1px;
+    display:inline-block;
+    line-height:28px;
+    margin-right:3px;
+    background-attachment:scroll;
+    background-repeat:no-repeat;
+    background-size:auto;
+    background-origin:padding-box;
+    background-clip:border-box;
+    background-color:transparent;
+    vertical-align:0px;
+}
+.eni_Web .eniMenu-Advanced-01 .Advanced-01_ButtonLWhiteHover,
+.eni_Web .eniMenu-Advanced-01 .Advanced-01_ButtonLWhiteHover > div {
+    background-position-y: -100px !important;
+}
+.eni_Web .eniMenu-Advanced-01 .Advanced-01_ButtonLWhiteHover > div.dxm-popOut {
+    background-position-y: -100px !important;
+    border-color:transparent !important;
+}
+.eni_Web .eniMenu-Advanced-01 .Advanced-01_ButtonLWhiteDisable,
+.eni_Web .eniMenu-Advanced-01 .Advanced-01_ButtonLWhiteDisable > div {
+    cursor:default;
+    color:silver;
+}
+.eni_Web .eniMenu-Advanced-01 .Advanced-01_ButtonLWhiteDisable > div.dxm-popOut {
+    cursor:default;
+    color:silver;
+}
+
+/* eniPopupControl */
+.eni_Web .eniPopup-Advanced-01 .Advanced-01_HaederStyle {
+    padding-top: 3px !important;
+    padding-bottom:3px !important;
+}
+.eni_Web .eniPopup-Advanced-01 .Advanced-01_HaederStyle .dxpc-headerContent {
+    height:17px !important;
+    line-height:20px !important;
+    padding:0px;
+}
+.eni_Web .eniPopup-Advanced-01 .Advanced-01_HaederStyle .dxpc-closeBtn {
+    margin-top:0px !important;
+}
+.eni_Web .eniPopup-Advanced-01 .Advanced-01_ContentStyle {
+    position:absolute;
+    display:inline-block !important;
+    top:24px;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    height:auto;
+}
+.eni_Web .Advanced-01_ModalBackgroundStyle {
+    opacity:0.3;
+    filter:alpha(opacity='30') !important;
+}
+
+/* eniRadioButtonList */
+.eni_Web .dxichCellSys {
+    padding:0px 3px 0px;
+}
+.eni_Web .dxichCellSys span {
+    cursor:pointer;
+    margin-bottom:3px;
+}
+.eni_Web .dxichTextCellSys {
+    padding:2px 0 1px;
+    cursor:pointer;
+}
+.eni_Web .dxICBFocused_eniThm {
+    outline-color:#C7C7C7;
+}
+
+.eni_Web .eniRadioButtonList-Advanced-01 {
+}
+.eni_Web .eniRadioButtonList-Advanced-01 .dxichCellSys {
+    padding:0px 3px 1px;
+}
+.eni_Web .eniRadioButtonList-Advanced-01 .dxichCellSys span {
+    cursor:pointer;
+}
+.eni_Web .eniRadioButtonList-Advanced-01 .dxichTextCellSys {
+    padding:2px 0 1px;
+    cursor:pointer;
+}
+
+/* eniTextBox */
+.eni_Web .dxeTextBoxSys td.dxic {
+    padding:2px 3px 1px 3px;
+}
+.eni_Web .eniTextBox-Advanced-01 {
+    border:1px solid #CFCFCF;
+    border-top-color:#BCBCBC;
+    border-bottom-color:#D9D9D9;
+    box-shadow:inset 1px 1px 1px rgba(150,150,150,0.1);
+    border-radius:2px;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+}
+/*.eni_Web .eniTextBox-Advanced-01 input[type='text'] {
+    line-height:17px;
+}*/
+.eni_Web .eniTextBox-Advanced-01:hover {
+    border-color:#60A9F1;
+}
+.eni_Web .eniTextBox-Advanced-01.Advanced-01_FocusedStyle {
+    border-color:#60A9F1;
+    background-color:#EEF4FF;
+}
+.eni_Web .eniTextBox-Advanced-01.Advanced-01_DisableStyle {
+    border-color:#D2DCE7;
+}
+.eni_Web .eniTextBox-Advanced-01.Advanced-01_FocusedStyle input[type='text'] {
+    background-color:transparent;
+}
+
+/* eniTokenBox */
+.eni_Web .eniTokenBox-Advanced-01 {
+    border:1px solid #CFCFCF;
+    border-top-color:#BCBCBC;
+    border-bottom-color:#D9D9D9;
+    box-shadow:inset 1px 1px 1px rgba(150,150,150,0.1);
+    border-radius:2px;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+}
+.eni_Web .eniTokenBox-Advanced-01:hover {
+    border-color:#60A9F1;
+}
+.eni_Web .eniTokenBox-Advanced-01 input[type='text'] {
+    line-height:17px;
+}
+.eni_Web .eniTokenBox-Advanced-01 input[type='text'].dxeTokenBoxInput_eniThm {
+    width:99.8%;
+}
+.eni_Web .eniTokenBox-Advanced-01 .dxichTextCellSys {
+    padding:6px 0 1px;
+}
+.eni_Web .eniTokenBox-Advanced-01 .Advanced-01_TextStyle {
+    padding:2px 0px 0px 0px;
+    line-height:14px;
+    max-width:1530px !important;
+}
+.eni_Web .eniTokenBox-Advanced-01 .Advanced-01_TokenStyle {
+    background:none;
+    border:1px solid #CBE6FF;
+    background-color:#E5F3FF;
+}
+.eni_Web .eniTokenBox-Advanced-01 .Advanced-01_RemoveStyle {
+    margin-top:0px;
+}
+.eni_Web .eniTokenBox-Advanced-01.Advanced-01_FocusedStyle {
+    border-color:#60A9F1;
+    background-color:#EEF4FF;
+}
+.eni_Web .eniTokenBox-Advanced-01.Advanced-01_FocusedStyle input[type='text'] {
+    background-color:transparent;
+}
+
+.eni_Web .eniTreeView-Advanced-01 {
+    padding-top:5px;
+}
+
+/* eniTreeList */
+.eni_Web .eniTreeList-Advanced-01 .Advanced-01_Indent {
+    /*width:0px !important;*/
+    background:none;
+    background-color:none;
+    border-bottom:1px solid #C0C0C0;
+}
+.eni_Web .eniTreeList-Advanced-01 .Advanced-01_IndentWithButton {
+    /*width:0px !important;*/
+    background:none;
+    background-color:none;
+    border-bottom:1px solid #C0C0C0;
+}
+.eni_Web .eniTreeList-Advanced-01 .Advanced-01_Header {
+    line-height:19px;
+    height:18px;
+}
+.eni_Web .eniTreeList-Advanced-01 .Advanced-01_Node,
+.eni_Web .eniTreeList-Advanced-01 .Advanced-01_AlternatingNode {
+    height:18px;
+}
+.eni_Web .eniTreeList-Advanced-01 .Advanced-01_Node:hover,
+.eni_Web .eniTreeList-Advanced-01 .Advanced-01_AlternatingNode:hover {
+    background-color:#C8D7FF;
+}
+.eni_Web .eniTreeList-Advanced-01 .Advanced-01_Cell {
+    border-bottom:1px solid #C0C0C0 !important;
+}
+/* TreeList 하단 페이지 네이션 디자인 */
+.eni_Web .eniTreeList-Advanced-01 .dxgvFSDC {
+    border-top:1px solid #C0C0C0;
+}
+.eni_Web .eniTreeList-Advanced-01 .dxpLite_eniThm {
+    margin-left: auto;
+    margin-right: auto;
+    float:none;
+    width:1% !important;
+    height:33px;
+    max-height:33px;
+    overflow:hidden;
+    display:block !important;
+}
+.eni_Web .eniTreeList-Advanced-01 .dxpLite_eniThm .dxp-pageSizeItem.dxp-right {
+    position:absolute;
+    right:0px;
+}
+/* TreeList 로딩 패널 디자인 */
+/*.eni_Web .dxtlLoadingPanel_eniThm {
+	color: #585e68;
+	background: #C5C5C5 none;
+	border: 2px solid #80858d;
+    border-radius:50%;
+    border-collapse:separate;
+    box-shadow:0 0 1em black;
+}
+.eni_Web .dxtlLoadingPanel_eniThm .dxlp-loadingImage {
+	background-image: url("./images/Loading/Loading_32x32.gif");
+	height: 32px;
+	width: 32px;
+}
+.eni_Web .dxtlLoadingPanel_eniThm td.dx {
+    padding:15px !important;
+}
+.eni_Web .dxtlLoadingPanel_eniThm td.dx .dxlp-loadingImage.dxlp-imgPosLeft {
+    margin-right:0px !important;
+}
+.eni_Web .dxtlLoadingPanel_eniThm td.dx:last-child {
+    display:none;
+}*/
+/* Empty Data 디자인 */
+.eni_Web .eniTreeList-Advanced-01 .nodeEmptyContainer {
+    position: absolute;
+    left: 0px; 
+    top: 22px; 
+    height: 180px; 
+    right: 0px; 
+    border-bottom:1px solid #C0C0C0;
+    background-color:white;
+}
+.eni_Web .eniTreeList-Advanced-01 .nodeEmptyContainer:hover {
+    background-color:#C8D7FF;
+}
+.eni_Web .eniTreeList-Advanced-01 .nodeEmptyContainer .nodeEmpty {
+    position:relative; 
+    padding-top:50px; 
+    padding-bottom:50px;
+    text-align:center;
+    color:#505050;
+    font-weight:bold;
+}
+.eni_Web .eniTreeList-Advanced-01 .nodeEmptyContainer .nodeEmpty .Icon.NodeEmpty {
+}
+
+/*************************************************************************************************
+* Name : eniFramework HTML5 EXT Control Default Design
+* Remark : eniFramework Design Part
+*************************************************************************************************/
+
+/* 버튼 컨트롤 */
+.eni_Web .x-btn-text {
+    padding-top:3px;
+}
+
+.eni_Web.ext-strict .x-form-text {
+    line-height:normal;
+}
+
+/*************************************************************************************************
+* Name : eniFramework HTML5 EXT Control Chrome Design
+* Remark : eniFramework Design Part
+*************************************************************************************************/
+
+.eni_Web .ext-chrome .x-btn-text {
+    padding-top:1px;
+}
+
+
+/*************************************************************************************************
+* [STA] *****************************************************************************************
+* Name : OSModeuleView
+* Remark : OSModeuleView Design Part
+*************************************************************************************************/
+.BSLBody {
+    background-color:#F5F5F5 !important;
+}
+/*.BSLBody .BSLForm .tabMain .dxtc-leftIndent,
+.BSLBody .BSLForm .tabMain .dxtc-rightIndent {
+    border-bottom:1px Solid #C2C2C2 !important;
+    background-color:#F5F5F5 !important;
+}
+.BSLBody .BSLForm .tabMain .dxtc-activeTab .dx-vam {
+    line-height:12px !important;
+}
+.BSLBody .BSLForm .tabMain .dxtc-activeTab {
+    border-top:1px Solid #C2C2C2 !important;
+    border-right:1px Solid #C2C2C2 !important;
+    border-left:1px Solid #C2C2C2 !important;
+}
+.BSLBody .BSLForm .tabMain .dxtc-content {
+    border-left: 0px !important;
+    border-right: 0px !important;
+    border-bottom: 0px !important;
+}*/
+.BSLBody .BSLForm .tabMain #BSLContainer {
+    width:100%;
+    height:100%;
+}
+/* 상단 버튼 컨테이너 */
+.BSLBody .BSLForm .tabMain #BSLContainer #BSLTopButtonCon {
+    height:20px;
+    padding: 0px 5px 0px;
+    vertical-align:bottom;
+}
+/* 조회부 컨테이너 */
+.BSLBody .BSLForm .tabMain #BSLContainer #BSLConditionCon {
+    
+}
+/* 조회부 폼 레이아웃 */
+.BSLBody .BSLForm .tabMain #BSLContainer #BSLConditionCon .frmLayout {
+    
+}
+
+
+.BSLBody .BSLForm .tabMain #BSLContainer #BSLDataCon {
+    height:100%;
+    vertical-align:top;
+    padding:0px 5px 5px;
+}
+.BSLBody .BSLForm .tabMain #BSLContainer #BSLFooterButtonCon {
+    height:20px;
+    padding: 0px 5px 0px;
+}
+/*.BSLBody .BSLForm .tabMain .dxflGroup_eniThm tr:first-child > .dxflGroupCell_eniThm > .dxflGroupBox_eniThm {
+    margin:0px !important;
+}
+.BSLBody .BSLForm .tabMain .dxflGroupBox_eniThm {
+    padding-bottom:10px !important;
+}
+.BSLBody .BSLForm .tabMain .dxflGroupBox_eniThm > .dxflGroup_eniThm tr:first-child > .dxflGroupCell_eniThm > .dxflItem_eniThm {
+    /*padding-top:3px !important;
+}*/
+.BSLBody .BSLForm .tabMain .ItemCaptionCell {
+    padding-top:4px;
+}
+.BSLBody .BSLForm .tabMain .ItemCaption {
+    line-height:14px !important;
+    vertical-align:bottom;
+}
+
+/*이하 Farpoint로 바꾸면서 사용하지 않음*/
+/* Grid Header CSS */
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvHeader_eniThm {
+    padding:2px 3px !important;
+}
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvHeader_eniThm table td:first-child {
+    padding-top:3px !important;
+}
+/* Grid Forcus & Select CSS */
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvEditFormDisplayRow_eniThm td.dxgv,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRow_eniThm td.dxgv,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRowAlt_eniThm td.dxgv,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvSelectedRow_eniThm td.dxgv,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvFocusedRow_eniThm td.dxgv {
+    padding: 2.5px 0px 1.5px 0px !important;
+}
+/* Grid Edit */
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvEditFormDisplayRow_eniThm td.dxic,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRow_eniThm td.dxic,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRowAlt_eniThm td.dxic,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvSelectedRow_eniThm td.dxic,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvFocusedRow_eniThm td.dxic,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvEditFormDisplayRow_eniThm td.dxic,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRow_eniThm td.dxic,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRowAlt_eniThm td.dxic,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvSelectedRow_eniThm td.dxic,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvFocusedRow_eniThm td.dxic {
+    padding:0px !important;
+}
+/* Grid Edit CSS */
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvEditFormDisplayRow_eniThm td.dxgv.dxgvBatchEditCell_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRow_eniThm td.dxgv.dxgvBatchEditCell_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRowAlt_eniThm td.dxgv.dxgvBatchEditCell_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvSelectedRow_eniThm td.dxgv.dxgvBatchEditCell_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvFocusedRow_eniThm td.dxgv.dxgvBatchEditCell_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvEditFormDisplayRow_eniThm td.dxgv.dxgvBatchEditModifiedCell_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRow_eniThm td.dxgv.dxgvBatchEditModifiedCell_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRowAlt_eniThm td.dxgv.dxgvBatchEditModifiedCell_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvSelectedRow_eniThm td.dxgv.dxgvBatchEditModifiedCell_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvFocusedRow_eniThm td.dxgv.dxgvBatchEditModifiedCell_eniThm {
+    padding: 0px !important;
+}
+/* Grid Button */
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvEditFormDisplayRow_eniThm .dxeButton,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRow_eniThm .dxeButton,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRowAlt_eniThm .dxeButton,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvSelectedRow_eniThm .dxeButton,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvFocusedRow_eniThm .dxeButton,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvEditFormDisplayRow_eniThm .dxeButton,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRow_eniThm .dxeButton,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRowAlt_eniThm .dxeButton,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvSelectedRow_eniThm .dxeButton,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvFocusedRow_eniThm .dxeButton {
+    padding:0px 2px !important;
+}
+/* Grid Spin Edit Up Button */
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvEditFormDisplayRow_eniThm .dxeButton.dxeSpinIncButton_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRow_eniThm .dxeButton.dxeSpinIncButton_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRowAlt_eniThm .dxeButton.dxeSpinIncButton_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvSelectedRow_eniThm .dxeButton.dxeSpinIncButton_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvFocusedRow_eniThm .dxeButton.dxeSpinIncButton_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvEditFormDisplayRow_eniThm .dxeButton.dxeSpinIncButton_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRow_eniThm .dxeButton.dxeSpinIncButton_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRowAlt_eniThm .dxeButton.dxeSpinIncButton_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvSelectedRow_eniThm .dxeButton.dxeSpinIncButton_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvFocusedRow_eniThm .dxeButton.dxeSpinIncButton_eniThm {
+    padding: 1px 3px 1px !important;
+}
+/* Grid Spin Edit Down Button */
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvEditFormDisplayRow_eniThm .dxeButton.dxeSpinDecButton_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRow_eniThm .dxeButton.dxeSpinDecButton_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRowAlt_eniThm .dxeButton.dxeSpinDecButton_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvSelectedRow_eniThm .dxeButton.dxeSpinDecButton_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvFocusedRow_eniThm .dxeButton.dxeSpinDecButton_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvEditFormDisplayRow_eniThm .dxeButton.dxeSpinDecButton_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRow_eniThm .dxeButton.dxeSpinDecButton_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRowAlt_eniThm .dxeButton.dxeSpinDecButton_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvSelectedRow_eniThm .dxeButton.dxeSpinDecButton_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvFocusedRow_eniThm .dxeButton.dxeSpinDecButton_eniThm {
+    padding:2px 3px 1px !important;
+}
+
+/*.BSLBody .BSLForm .tabMain #BSLDataCon .dxgvControl_eniThm .dxgvBatchEditCell_eniThm td.dxgv,
+.BSLBody .BSLForm .tabMain #BSLDataCon .dxgvControl_eniThm .dxgvBatchEditModifiedCell_eniThm td.dxgv,
+.BSLBody .BSLForm .tabMain #BSLDataCon .dxgvControl_eniThm .dxeTextBoxSys td.dxic {
+    padding:0px !important;
+}*/

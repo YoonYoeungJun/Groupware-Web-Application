@@ -1,0 +1,40 @@
+﻿<%@ Register TagPrefix="dx" Namespace="DevExpress.Data" Assembly="DevExpress.Data.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Web" Assembly="DevExpress.Web.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="eni" Namespace="eniFramework.WebApp.Controls" Assembly="eniFramework.WebApp.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" %>
+
+<%-- eniFramework Default Mode Skin --%>
+<eni:eniComboBox runat="server" CssFilePath="{0}/styles.css" CssPostfix="eniThm"
+	SpriteCssFilePath="{0}/sprite.css">
+    <LoadingPanelStyle ImageSpacing="5" />
+</eni:eniComboBox>
+
+<%-- eniFramework Standard Mode Skin(사용안함) --%>
+<eni:eniComboBox runat="server" CssFilePath="{0}/styles.css" CssPostfix="eniThm" CreateMode="StandardMode" SkinID="Standard"
+	SpriteCssFilePath="{0}/sprite.css">
+    <LoadingPanelStyle ImageSpacing="5" />
+</eni:eniComboBox>
+
+<%-- eniFramework BSL Mode Skin(사용안함) --%>
+<eni:eniComboBox runat="server" CssFilePath="{0}/styles.css" CssPostfix="eniThm" CreateMode="BSLMode" SkinID="BSL" RenderIFrameForPopupElements="True"
+	SpriteCssFilePath="{0}/sprite.css">
+    <LoadingPanelStyle ImageSpacing="5" />
+</eni:eniComboBox>
+
+<%-- eniFramework Advanced-01 Mode Skin --%>
+<eni:eniComboBox runat="server" CssFilePath="{0}/styles.css" CssPostfix="eniThm" SpriteCssFilePath="{0}/sprite.css" SkinID="Advanced-01">
+    <RootStyle CssClass="Advanced-01_RootStyleStyle" />
+</eni:eniComboBox>
+
+<%-- eniFramework LightDark Skin --%>
+<eni:eniComboBox runat="server" CssFilePath="{0}/styles.css" CssPostfix="eniThm" SkinID="LightDark" 
+    SpriteCssFilePath="{0}/sprite.css">
+    <LoadingPanelStyle ImageSpacing="5" />
+    <Border BorderColor="#C7C7C7" />
+    <FocusedStyle Border-BorderColor="#60A9F1"></FocusedStyle>
+    <ButtonStyle BackColor="#FFFFFF" Border-BorderColor="#C7C7C7">
+        <BackgroundImage ImageUrl="none" />
+        <HoverStyle Border-BorderColor="#C7C7C7">
+            <BackgroundImage ImageUrl="none" />
+        </HoverStyle>
+    </ButtonStyle>
+</eni:eniComboBox>

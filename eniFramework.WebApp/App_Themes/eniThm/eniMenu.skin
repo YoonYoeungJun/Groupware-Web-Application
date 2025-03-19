@@ -1,0 +1,195 @@
+﻿<%@ Register TagPrefix="dx" Namespace="DevExpress.Data" Assembly="DevExpress.Data.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Web" Assembly="DevExpress.Web.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="eni" Namespace="eniFramework.WebApp.Controls" Assembly="eniFramework.WebApp.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" %>
+
+<%-- eniFramework Default Mode Skin --%>
+<eni:eniMenu runat="server" CssFilePath="{0}/styles.css" SpriteCssFilePath="{0}/sprite.css" CssPostfix="eniThm"
+	ShowPopOutImages="True" AutoSeparators="RootOnly">
+	<ItemStyle PopOutImageSpacing="10" DropDownButtonSpacing="10" />
+	<ItemSubMenuOffset FirstItemX="2" LastItemX="2" X="2" />
+	<LoadingPanelStyle ImageSpacing="5" />
+</eni:eniMenu>
+
+<eni:eniMenu runat="server" SkinID="MenuToolBar" CssFilePath="{0}/styles.css"  ShowPopOutImages="True"
+    CssPostfix="eniThm" SpriteCssFilePath="{0}/sprite.css" SeparatorHeight="100%"
+    AutoSeparators="None" Width="100%" ItemAutoWidth="False">
+    <SubMenuStyle GutterWidth="0px" />
+    <RootItemSubMenuOffset FirstItemX="-1" X="-1" FirstItemY="-1" Y="-1"/>
+    <LoadingPanelStyle ImageSpacing="5" />
+</eni:eniMenu>
+
+<eni:eniMenu runat="server" SkinID="MenuButtons" SpriteCssFilePath="{0}/sprite.css" CssFilePath="{0}/styles.css"
+		 AutoSeparators="None" ItemSpacing="5px" ShowPopOutImages="True" CssPostfix="eniThm" CssClass="menuButtons menuButtons_eniThm" SeparatorHeight="0px">
+    <Border BorderWidth="0px"/>
+    <RootItemSubMenuOffset X="-1" LastItemX="-1" FirstItemX="-1"></RootItemSubMenuOffset>
+    <SubMenuItemStyle Wrap="False" />
+    <LoadingPanelStyle ImageSpacing="5" />
+</eni:eniMenu>
+
+<eni:eniMenu runat="server" SkinID="MenuLinks" CssFilePath="{0}/styles.css" ShowPopOutImages="True" 
+    CssPostfix="eniThm" SpriteCssFilePath="{0}/sprite.css" 
+    CssClass="menuLinks_eniThm">
+    <LoadingPanelStyle ImageSpacing="5" />
+</eni:eniMenu>
+
+<%-- eniFramework Index Menu Skin --%>
+<eni:eniMenu runat="server" CssFilePath="{0}/styles.css" SpriteCssFilePath="{0}/sprite.css" CssPostfix="eniThm" SkinID="MainMenu"
+	Width="100%" Height="30px" 
+    BackColor="Transparent"
+    ShowAsToolbar="true" 
+    AllowSelectItem="false" 
+    ItemAutoWidth="False"
+    ShowPopOutImages="true">
+    <Border BorderWidth="0" />
+    <BackgroundImage ImageUrl="none" />
+    <ItemStyle CssClass="CMenuButtonLWhite" PopOutImageSpacing="10" DropDownButtonSpacing="10">
+        <HoverStyle CssClass="CMenuButtonLWhiteHover"></HoverStyle>
+    </ItemStyle>
+    <DisabledStyle Cursor="default"></DisabledStyle>
+	<ItemSubMenuOffset FirstItemX="2" LastItemX="2" X="2" />
+	<LoadingPanelStyle ImageSpacing="5" />
+</eni:eniMenu>
+
+<%-- eniFramework Admin Menu Skin --%>
+<eni:eniMenu runat="server" CssFilePath="{0}/styles.css" SpriteCssFilePath="{0}/sprite.css" CssPostfix="eniThm" CssClass="eniToolbal" SkinID="BSL"
+	ShowPopOutImages="True" 
+    AutoSeparators="RootOnly"
+    ShowAsToolbar="true" 
+    SeparatorHeight="0"
+    BackgroundImage-ImageUrl="none" 
+    BackColor="Transparent">
+    <Border BorderWidth="0" />
+	<ItemStyle PopOutImageSpacing="10" DropDownButtonSpacing="10" />
+    <DisabledStyle Cursor="default"></DisabledStyle>
+	<ItemSubMenuOffset FirstItemX="2" LastItemX="2" X="2" />
+	<LoadingPanelStyle ImageSpacing="5" />
+</eni:eniMenu>
+
+<%-- eniFramework CommandToolbar Skin --%>
+<eni:eniMenu runat="server" CssFilePath="{0}/styles.css" SpriteCssFilePath="{0}/sprite.css" CssPostfix="eniThm" SkinID="CommandToolbar"
+	BackColor="#F6F6F6" 
+    ShowAsToolbar="true" 
+    AllowSelectItem="false" 
+    ItemAutoWidth="False" 
+    ShowPopOutImages="true">
+    <Border BorderWidth="0" />
+    <BackgroundImage ImageUrl="none" />
+    <ItemStyle CssClass="CButtonLWhite" PopOutImageSpacing="10" DropDownButtonSpacing="10">
+        <HoverStyle CssClass="CButtonLWhiteHover"></HoverStyle>
+    </ItemStyle>
+    <DisabledStyle Cursor="default"></DisabledStyle>
+	<ItemSubMenuOffset FirstItemX="2" LastItemX="2" X="2" />
+	<LoadingPanelStyle ImageSpacing="5" />
+</eni:eniMenu>
+
+<%-- eniFramework MailToolbar(사용안함) Skin --%>
+<eni:eniMenu runat="server" CssFilePath="{0}/styles.css" SpriteCssFilePath="{0}/sprite.css" CssPostfix="eniThm" SkinID="MailToolbar"
+	Width="100%" Height="30px" 
+    BackColor="#F6F6F6"
+    ShowAsToolbar="true" 
+    AllowSelectItem="false" 
+    ItemAutoWidth="False"
+    ShowPopOutImages="true">
+    <Border BorderWidth="0" />
+    <BackgroundImage ImageUrl="none" />
+    <ItemStyle CssClass="CMenuButtonLWhite" PopOutImageSpacing="10" DropDownButtonSpacing="10">
+        <HoverStyle CssClass="CMenuButtonLWhiteHover"></HoverStyle>
+    </ItemStyle>
+    <DisabledStyle CssClass="CMenuButtonLWhiteDisable"></DisabledStyle>
+	<ItemSubMenuOffset FirstItemX="2" LastItemX="2" X="2" />
+	<LoadingPanelStyle ImageSpacing="5" />
+</eni:eniMenu>
+
+<%-- eniFramework BoardToolbar Skin --%>
+<eni:eniMenu runat="server" CssFilePath="{0}/styles.css" SpriteCssFilePath="{0}/sprite.css" CssPostfix="eniThm" SkinID="BoardToolbar"
+	Width="100%" Height="30px" 
+    BackColor="#F6F6F6"
+    ShowAsToolbar="true" 
+    AllowSelectItem="false" 
+    ItemAutoWidth="False"
+    ShowPopOutImages="true">
+    <Border BorderWidth="0" />
+    <BackgroundImage ImageUrl="none" />
+    <ItemStyle CssClass="CButtonLWhite" PopOutImageSpacing="10" DropDownButtonSpacing="10">
+        <HoverStyle CssClass="CButtonLWhiteHover"></HoverStyle>
+    </ItemStyle>
+    <DisabledStyle Cursor="default"></DisabledStyle>
+	<ItemSubMenuOffset FirstItemX="2" LastItemX="2" X="2" />
+	<LoadingPanelStyle ImageSpacing="5" />
+</eni:eniMenu>
+
+<%-- eniFramework Popup Button Skin --%>
+<eni:eniMenu runat="server" CssFilePath="{0}/styles.css" SpriteCssFilePath="{0}/sprite.css" CssPostfix="eniThm" SkinID="Popup"
+	Width="100%" Height="31px" 
+    BackColor="#F6F6F6"
+    ShowAsToolbar="true" 
+    AllowSelectItem="false" 
+    ItemAutoWidth="False"
+    ShowPopOutImages="true">
+    <Border BorderWidth="0" />
+    <Paddings Padding="0px" PaddingTop="3px" PaddingLeft="5px" PaddingRight="5px"/>
+    <BackgroundImage ImageUrl="none" />
+    <ItemStyle CssClass="CButtonLWhite" PopOutImageSpacing="10" DropDownButtonSpacing="10">
+        <HoverStyle CssClass="CButtonLWhiteHover"></HoverStyle>
+    </ItemStyle>
+    <DisabledStyle Cursor="default"></DisabledStyle>
+	<ItemSubMenuOffset FirstItemX="2" LastItemX="2" X="2" />
+	<LoadingPanelStyle ImageSpacing="5" />
+</eni:eniMenu>
+
+<%-- eniFramework Advanced-01 Skin --%>
+<eni:eniMenu runat="server" CssFilePath="{0}/styles.css" SpriteCssFilePath="{0}/sprite.css" CssPostfix="eniThm" CssClass="eniMenu-Advanced-01" SkinID="Advanced-01"
+	Width="100%" Height="30px" 
+    BackColor="White"
+    ShowAsToolbar="true" 
+    AllowSelectItem="false" 
+    ItemAutoWidth="False"
+    ShowPopOutImages="true">
+    <Border BorderWidth="0" />
+    <Paddings PaddingLeft="10px" PaddingRight="10px" PaddingTop="5px" />
+    <BackgroundImage ImageUrl="none" />
+    <ItemStyle CssClass="Advanced-01_ButtonLWhite" PopOutImageSpacing="10" DropDownButtonSpacing="10">
+        <HoverStyle CssClass="Advanced-01_ButtonLWhiteHover"></HoverStyle>
+    </ItemStyle>
+    <DisabledStyle ForeColor="Silver" CssClass="Advanced-01_ButtonLWhiteDisable"></DisabledStyle>
+    <SubMenuStyle GutterWidth="0px" />
+    <SubMenuItemStyle BackColor="White">
+        <BackgroundImage ImageUrl="none" />
+        <HoverStyle BackColor="#BECCD3">
+            <Border BorderColor="#B2B2B2"/>
+        </HoverStyle>
+    </SubMenuItemStyle>
+    <SubMenuItemImage Width="20px" Height="18px">
+        <SpriteProperties CssClass="Margin0"/>
+    </SubMenuItemImage>
+	<ItemSubMenuOffset FirstItemX="2" LastItemX="2" X="2" />
+	<LoadingPanelStyle ImageSpacing="5" />
+</eni:eniMenu>
+
+<%-- eniFramework LightDark Skin --%>
+<eni:eniMenu runat="server" CssFilePath="{0}/styles.css" SpriteCssFilePath="{0}/sprite.css" CssPostfix="eniThm" SkinID="LightDark"
+	Width="100%" Height="30px" 
+    BackColor="White"
+    ShowAsToolbar="true" 
+    AllowSelectItem="false" 
+    ItemAutoWidth="False"
+    ShowPopOutImages="true">
+    <Border BorderWidth="0" />
+    <Paddings PaddingLeft="10px" PaddingRight="10px" PaddingTop="5px" />
+    <BackgroundImage ImageUrl="none" />
+    <ItemStyle Paddings-PaddingTop="6px" PopOutImageSpacing="10" DropDownButtonSpacing="10" Border-BorderWidth="1px" Border-BorderStyle="Solid" Border-BorderColor="#DCDBDB" BackgroundImage-ImageUrl="none">
+        <HoverStyle  BackgroundImage-ImageUrl="none" Border-BorderWidth="1px" Border-BorderStyle="Solid" Border-BorderColor="#B3B3B3" BackColor="White">
+        </HoverStyle>
+    </ItemStyle>
+    <DisabledStyle ForeColor="Silver"></DisabledStyle>
+    <SubMenuStyle GutterWidth="0px" />
+    <SubMenuItemStyle BackColor="White">
+        <BackgroundImage ImageUrl="none" />
+        <HoverStyle BackColor="#BECCD3"></HoverStyle>
+    </SubMenuItemStyle>
+    <SubMenuItemImage Width="20px" Height="18px">
+        <SpriteProperties CssClass="Margin0"/>
+    </SubMenuItemImage>
+	<ItemSubMenuOffset FirstItemX="2" LastItemX="2" X="2" />
+	<LoadingPanelStyle ImageSpacing="5" />
+</eni:eniMenu>

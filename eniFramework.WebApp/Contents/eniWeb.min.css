@@ -1,0 +1,1152 @@
+﻿
+/*************************************************************************************************
+* [STA] *****************************************************************************************
+* Name : eniFramework
+* Remark : eniFramework Design Part
+*************************************************************************************************/
+
+/* 공통부분 기제 */
+.Web,    /* html */
+.eni_Head,   /* header */ 
+.eni_Body,   /* body */
+.eni_Form,   /* form */
+.eni_Frame,  /* iframe */
+html, body, form, iframe {
+    width:100%;
+    height:100%;
+    padding: 0px 0px 0px 0px;
+    margin:0px 0px 0px 0px;
+    border:0px;
+    overflow:hidden;
+    font: 12px Dotum, '돋움', 'Segoe UI', Helvetica, 'Droid Sans', AppleSDGothicNeo, Tahoma, Geneva, sans-serif;
+    /*background: #FFFFFF;*/
+    scrollbar-face-color:#fff;
+    scrollbar-shadow-color:#d5d5d5;
+    scrollbar-highlight-color:#fff;
+    scrollbar-darkshadow-color:#d5d5d5;
+    scrollbar-arrow-color:#939393;
+    scrollbar-track-color:#f3f3f3;
+    scrollbar-3dlight-color:#d5d5d5;
+    scrollbar-highlight-color:#fff;
+    
+}
+
+/*html, body {
+    scrollbar-face-color:#fff;
+    scrollbar-shadow-color:#d5d5d5;
+    scrollbar-highlight-color:#fff;
+    scrollbar-darkshadow-color:#d5d5d5;
+    scrollbar-arrow-color:#939393;
+    scrollbar-track-color:#f3f3f3;
+    scrollbar-3dlight-color:#d5d5d5;
+    scrollbar-highlight-color:#fff;
+    scrollbar-face-color: #808080;
+    scrollbar-arrow-color: #FFFFFF; 
+    scrollbar-highlight-color: #FFFBF0; 
+    scrollbar-3dlight-color: #808080; 
+    scrollbar-shadow-color: #FFFBF0; 
+    scrollbar-darkshadow-color: #808080; 
+    scrollbar-track-color: #CCCCCC;
+}*/
+
+
+
+
+/*body, form, div, li,
+h1, h2, h3, h4, h5, h6,
+pre, form, fieldset,
+p, blockquote {
+    margin: 0;
+    padding: 0;
+}
+
+fieldset, img {
+    border: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+object {
+    z-index:1;
+}
+
+a {
+    color: #000000;
+}*/
+
+
+
+
+
+.UnSelectTable {
+    -moz-user-focus:ignore;
+    -moz-user-select:none;
+    -webkit-user-select:none;
+    user-select:none;
+}
+
+/* IE9 적용안됨
+.btnRadiusAll {
+    border-radius:0.5em;
+    border:1px solid #C0C0C0;
+    behavior:url(/Scripts/PIE/PIE.htc);
+}
+.btnRadiusLeft {
+    border:1px;
+    border-top-left-radius :0.5em;
+    border-bottom-left-radius:0.5em;
+    border-style:solid;
+    border-color:#C0C0C0;
+    behavior:url(/Scripts/PIE/PIE.htc);
+}
+.btnRadiusRight {
+    border:1px;
+    border-top-right-radius :0.5em;
+    border-bottom-right-radius:0.5em;
+    border-style:solid;
+    border-color:#C0C0C0;
+    behavior:url(/Scripts/PIE/PIE.htc);
+}
+.btnRadiusNon {
+    border:1px;
+    border-style:solid;
+    border-color:#C0C0C0;
+}*/
+
+/*.btn_MailReply, .btn_MailAllReply, .btn_MailDelivery{
+    position:relative;
+}
+.btn_MailAllReply {
+    left:-5px;
+}
+.btn_MailDelivery {
+    left:-10px;
+}*/
+
+.Clear { display: block; clear: both; overflow: hidden; width: 1px; height: 0; }
+/*.Clear { clear: both; display: block; float: none; height: 0; line-height: 0 !important; margin: 0 !important; overflow: hidden; padding: 0 !important; width: 100%; }*/
+.Separator { height: 2px; background: #e0e0e0; }
+.Separator.Orange { background: #f17f21; }
+.Separator.Vertical { width: 1px; }
+
+.BorderClear { border:0px !important; }
+.BorderTBClear{ border-top:0px !important; border-bottom:0px !important; }
+.BorderTopClear{ border-top:0px !important; }
+.BorderBottomClear{ border-bottom:0px !important; }
+.BorderLeftClear{ border-left:0px !important; }
+.BorderRightClear{ border-right:0px !important; }
+.BorderLRClear{ border-left:0px !important; border-right:0px !important; }
+.OverHidden { overflow:hidden !important; }
+.DisplayNone { display:none !important; }
+.DisplayBlock { display: block !important; }
+.DisplayInlineBlock { display: inline-block !important; }
+.PositionRelative { position:relative !important; }
+.FullScreen { width:100% !important; height:100% !important; }
+.NoScroll { overflow:hidden !important; }
+.AutoScroll { overflow:auto !important; -ms-overflow-x:auto; -ms-overflow-y:auto; }
+.HorizontalAutoScroll { overflow-x:auto !important; }
+.VerticalAutoScroll { overflow-y:auto !important; }
+.FloatL{ float:left !important; }
+.FloatR{ float:right !important; }
+.FloatN{ float:none !important; }
+.CursorPoint { cursor:pointer !important; }
+.ClearBoth { clear:both !important; }
+.Wrap { /*text-overflow:ellipsis;*/ overflow:hidden !important; white-space:normal !important; }
+.NoWrap { /*text-overflow:ellipsis;*/ overflow:hidden !important; white-space:nowrap !important; }
+.UpperCase { text-transform:uppercase !important; }
+
+.Width100f { width:100% !important; }
+.WidthAuto { width:auto !important; }
+.Width50px { width:50px !important; }
+.Width100px { width:100px !important; }
+.Width150px { width:150px !important; }
+.Width200px { width:200px !important; }
+.Width250px { width:250px !important; }
+.Width300px { width:300px !important; }
+.Width350px { width:350px !important; }
+.Width400px { width:400px !important; }
+.Width450px { width:450px !important; }
+.Width500px { width:500px !important; }
+.Height100f { height:100% !important; }
+.HeightAuto { height:auto !important; }
+.Height50px { height:50px !important; }
+.Height100px { height:100px !important; }
+.Height150px { height:150px !important; }
+.Height200px { height:200px !important; }
+.Height250px { height:250px !important; }
+.Height300px { height:300px !important; }
+.Height350px { height:350px !important; }
+.Height400px { height:400px !important; }
+.Height450px { height:450px !important; }
+.Height500px { height:500px !important; }
+
+
+.VerticalAlignT { vertical-align:top !important; }
+.VerticalAlignM { vertical-align:middle !important; }
+.VerticalAlignB { vertical-align:bottom !important; }
+.VerticalAlignL { text-align:left !important; }
+.VerticalAlignC { text-align:center !important; }
+.VerticalAlignR { text-align:right !important; }
+.VerticalAlignLT {text-align:left !important; vertical-align:top !important;} 
+.VerticalAlignLM {text-align:left !important; vertical-align:middle !important;} 
+.VerticalAlignLB {text-align:left !important; vertical-align:bottom !important;} 
+.VerticalAlignCT {text-align:center !important; vertical-align:top !important;} 
+.VerticalAlignCM {text-align:center !important; vertical-align:middle !important;} 
+.VerticalAlignCB {text-align:center !important; vertical-align:bottom !important;} 
+.VerticalAlignRT {text-align:right !important; vertical-align:top !important;} 
+.VerticalAlignRM {text-align:right !important; vertical-align:middle !important;} 
+.VerticalAlignRB {text-align:right !important; vertical-align:bottom !important;} 
+
+.BgColorRed { background-image:none !important; background-color:red !important; }
+.BgColorGray { background-image:none !important; background-color:gray !important; }
+.BgColorRed { background-image:none !important; background-color:red !important;}
+.BgColorBrown { background-image:none !important; background-color:brown !important;}
+.BgColorGray { background-image:none !important; background-color:gray !important;}
+.BgColorDarkGray { background-image:none !important; background-color:darkgray !important;}
+.BgColorBlack { background-image:none !important; background-color:black !important;}
+.BgColorWhite { background-image:none !important; background-color:white !important; }
+.BgColorBlue { background-image:none !important; background-color:blue !important;}
+.BgColorDarkBlue { background-image:none !important; background-color:darkblue !important;}
+.BgColorGreen { background-image:none !important; background-color:green !important;}
+.BgColorDarkGreen { background-image:none !important; background-color:darkgreen !important;}
+.BgColorGold { background-image:none !important; background-color:gold !important;}
+.BgColorGoldEnrod { background-image:none !important; background-color:goldenrod !important;}
+.BgColorYellow { background-image:none !important; background-color:yellow !important;}
+.BgColorYellowGreen { background-image:none !important; background-color:yellowgreen !important;}
+
+.Text-Ellipsis {
+    min-width: 10px;
+    white-space:nowrap;
+    text-overflow:ellipsis;     /* IE, Safari */
+    overflow:hidden;            /* "overflow" value must be different from "visible" */ 
+    -o-text-overflow:ellipsis;  /* Opera under 10.7 */
+    -moz-binding: url('ellipsis.xml#ellipsis');
+}
+.Font { font-family: Dotum, '돋움', 'Segoe UI', Helvetica, 'Droid Sans', AppleSDGothicNeo, Tahoma, Geneva, sans-serif !important; }
+.Font-Small { font-size:10px; }
+.Font-Medium { font-size:12px; }
+.Font-Large { font-size:14px ; }
+.Font-Bold { font-weight:bold; }
+.Font-Align-Left { text-align:left; }
+.Font-Align-Right { text-align:right; }
+.Font-Align-Center { text-align:center; }
+
+.ForeColorRed { color:red !important;}
+.ForeColorBrown { color:brown !important;}
+.ForeColorGray { color:gray !important;}
+.ForeColorDarkGray { color:darkgray !important;}
+.ForeColorBlack { color:black !important;}
+.ForeColorBlue { color:blue !important;}
+.ForeColorDarkBlue { color:darkblue !important;}
+.ForeColorGreen { color:green !important;}
+.ForeColorDarkGreen { color:darkgreen !important;}
+.ForeColorGold { color:gold !important;}
+.ForeColorGoldEnrod { color:goldenrod !important;}
+.ForeColorYellow { color:yellow !important;}
+.ForeColorYellowGreen { color:yellowgreen !important;}
+
+.Padding0 { padding:0px !important; }
+.Padding0LR { padding-left:0px !important; padding-right:0px !important; }
+.Padding0L { padding-left:0px !important; }
+.Padding0R { padding-right:0px !important; }
+.Padding0TB { padding-top:0px !important; padding-bottom:0px !important; }
+.Padding0T { padding-top:0px !important; }
+.Padding0B { padding-bottom:0px !important; }
+.Padding5 { padding:5px !important; }
+.Padding5LR { padding-left: 5px !important; padding-right: 5px !important; }
+.Padding5L { padding-left: 5px !important; }
+.Padding5R { padding-right: 5px !important; }
+.Padding5TB { padding-top: 5px !important; padding-bottom: 5px !important; }
+.Padding5T { padding-top: 5px !important; }
+.Padding5B { padding-bottom: 5px !important; }
+.Padding10 { padding:10px !important; }
+.Padding10LR { padding-left: 10px !important; padding-right: 10px !important; }
+.Padding10L { padding-left: 10px !important; }
+.Padding10R { padding-right: 10px !important; }
+.Padding10TB { padding-top: 10px !important; padding-bottom: 10px !important; }
+.Padding10T { padding-top: 10px !important; }
+.Padding10B { padding-bottom: 10px !important; }
+.Padding15 { padding:15px !important; }
+.Padding15LR { padding-left: 15px !important; padding-right: 15px !important; }
+.Padding15L { padding-left: 15px !important; }
+.Padding15R { padding-right: 15px !important; }
+.Padding15TB { padding-top: 15px !important; padding-bottom: 15px !important; }
+.Padding15T { padding-top: 15px !important; }
+.Padding15B { padding-bottom: 15px !important; }
+.Padding20 { padding:20px !important; }
+.Padding20LR { padding-left: 20px !important; padding-right: 20px !important; }
+.Padding20TB { padding-top: 20px !important; padding-bottom: 20px !important; }
+.Padding20L { padding-left: 20px !important; }
+.Padding20R { padding-right: 20px !important; }
+.Padding25 { padding:25px !important; }
+.Padding25LR { padding-left: 25px !important; padding-right: 25px !important; }
+.Padding25TB { padding-top: 25px !important; padding-bottom: 25px !important; }
+.Padding30 { padding:30px !important; }
+.Padding30L { padding-left:30px !important; }
+.Padding30R { padding-right:30px !important; }
+.Padding30LR { padding-left: 30px !important; padding-right: 30px !important; }
+.Padding30T { padding-top:30px !important; }
+.Padding30B { padding-bottom:30px !important; }
+.Padding30TB { padding-top: 30px !important; padding-bottom: 30px !important; }
+
+.MarginAuto { margin:auto !important; }
+.Margin0 { margin:0px !important; }
+.Margin5 { margin:5px !important; }
+.Margin5LR { margin-left: 5px !important; margin-right: 5px !important; }
+.Margin5L { margin-left: 5px !important; }
+.Margin5R { margin-right: 5px !important; }
+.Margin5TB { margin-top: 5px !important; margin-bottom: 5px !important; }
+.Margin5T { margin-top: 5px !important; }
+.Margin5B { margin-bottom: 5px !important; }
+.Margin10 { margin:10px !important; }
+.Margin10LR { margin-left: 10px !important; margin-right: 10px !important; }
+.Margin10L { margin-left: 10px !important; }
+.Margin10R { margin-right: 10px !important; }
+.Margin10TB { margin-top: 10px !important; margin-bottom: 10px !important; }
+.Margin10T { margin-top: 10px !important; }
+.Margin10B { margin-bottom: 10px !important; }
+.Margin15 { margin:15px !important; }
+.Margin15LR { margin-left: 15px !important; margin-right: 15px !important; }
+.Margin15L { margin-left: 15px !important; }
+.Margin15R { margin-right: 15px !important; }
+.Margin15TB { margin-top: 15px !important; margin-bottom: 15px !important; }
+.Margin15T { margin-top: 15px !important; }
+.Margin15B { margin-bottom: 15px !important; }
+.Margin20 { margin:20px !important; }
+.Margin20LR { margin-left: 20px !important; margin-right: 20px !important; }
+.Margin20TB { margin-top: 20px !important; margin-bottom: 20px !important; }
+.Margin25 { margin:25px !important; }
+.Margin25LR { margin-left: 25px !important; margin-right: 25px !important; }
+.Margin25TB { margin-top: 25px !important; margin-bottom: 25px !important; }
+.Margin30 { margin:30px !important; }
+.Margin30LR { margin-left: 30px !important; margin-right: 30px !important; }
+.Margin30TB { margin-top: 30px !important; margin-bottom: 30px !important; }
+
+/*************************************************************************************************
+* [END] eniFramework
+*************************************************************************************************/
+
+/*************************************************************************************************
+* [STA] *****************************************************************************************
+* Name : Common Icons
+* Remark : 공통 아이콘 디자인
+*************************************************************************************************/
+
+.Icon {
+    background: url("/Contents/Images/ICO-SET.png") no-repeat;
+}
+    .Icon.Flagged {
+        width:14px;
+        height:13px;
+        background-position: -76px -21px; 
+    }
+    .Icon.UnFlagged {
+        width:14px;
+        height:13px;
+        background-position: -94px -21px; 
+    }
+    .Icon.Seen {
+        width:21px;
+        height:20px;
+        background-position: -18px -36px; 
+    }
+    .Icon.UnSeen {
+        width:21px;
+        height:20px;
+        background-position: 3px -36px; 
+    }
+    .Icon.Seen.Answered {
+        width:21px;
+        height:20px;
+        background-position: -84px -37px;
+    }
+    .Icon.UnSeen.Answered {
+        width:21px;
+        height:20px;
+        background-position: -60px -37px;
+    }
+    .Icon.Seen.Fwd {
+        width:21px;
+        height:20px;
+        background-position: -131px -37px;
+    }
+    .Icon.UnSeen.Fwd {
+        width:21px;
+        height:20px;
+        background-position: -108px -37px;
+    }
+    .Icon.Attachments {
+        width:10px;
+        height:13px;
+        background-position: -66px -19px; 
+    }
+    .Icon.Importance {
+        background-position: -117px -1px; 
+    }
+    .Icon.FlagQuestion {
+        background-position: -283px -88px;
+    }
+    .Icon.TriangleArrowDown {
+        background-position: -17px 0px;
+    }
+    
+
+.Icon1 {
+    background: url("/Contents/Images/ICO-SET1.png") no-repeat;
+}
+    .Icon1.ContactRoot {
+        background-position: -18px -92px; 
+    }
+    .Icon1.ContactFolder {
+        background-position: -84px -108px; 
+    }
+    .Icon1.ArrowRight {
+        background-position: 0px 0px; 
+    }
+    .Icon1.ArrowLeft {
+        background-position: -29px 0px; 
+    }
+
+.Icon2 {
+    background: url("/Contents/Images/ICO-SET2.png") no-repeat;
+}
+    .Icon2.BoxAll {
+        background-position:-159px -169px;
+
+    }
+    .Icon2.BtnBackL {
+        background-position: 100% -96px;
+    }
+    .Icon2.BtnBackR {
+        background-position:0px -96px;
+    }
+
+.Icon5 {
+    background:url("/Contents/Images/ICO-SET5.png") no-repeat;
+}
+
+.Icon6 {
+    background: url("/Contents/Images/ICO-SET6.png") no-repeat;
+}
+    .Icon6.Expand {
+        background-position: -108px -183px;
+    }
+    .Icon6.UnExpand {
+        background-position: -122px -183px;
+    }
+
+.Icon7 {
+    background: url("/Contents/Images/ICO-SET7.png") no-repeat !important;
+}
+    .Icon7.DefaultButton {
+        overflow:hidden;
+        background-repeat:no-repeat;
+        background-position-x:100%;
+        background-position-y:0px;
+        background-color:transparent;
+        cursor:pointer;
+    }
+    .Icon7.DefaultButton.Text {
+        background-repeat:no-repeat;
+        background-position-x:0px;
+        background-position-y:0px;
+        background-color:transparent;
+        display:inline-block;
+        height:22px;
+        line-height:24px;
+        width:95%;
+        text-align:center !important;
+        margin:0 0 0 1px;
+        cursor:pointer;
+    }
+
+.Icon16 {
+    background: url("/Contents/Images/ICO-SET16.png") no-repeat;
+}
+/* 게시판 공지사항 마이크 표시 아이콘 */
+.Icon16.Notice {
+    width:20px;
+    height:20px;
+    background-position: -137px 3px;
+}
+.Icon16.New {
+    width:20px;
+    height:20px;
+    background-position: -119px -15px;
+}
+.Icon16.Comment {
+    width:18px;
+    height:18px;
+    background-position: -77px 4px;
+}
+
+/*************************************************************************************************
+* [END] Common Icons
+*************************************************************************************************/
+
+/*************************************************************************************************
+* [STA] *****************************************************************************************
+* Name : Control Design
+* Remark : 컨트롤 디자인
+*************************************************************************************************/
+/* Button Control CSS */
+.CButtonDX,
+.dxbButton div.dxb {
+    background:none;
+    padding:0px;
+    margin:0px;
+    border:0px;
+}
+
+.CSmallRadiusRed {
+    width:25px;
+    height:14px !important;
+    color:#575757;
+    letter-spacing:-1px;
+    background: transparent url("/Contents/Images/ICO-SET5.png") no-repeat -139px -299px !important;
+    display:inline-block;
+    white-space:nowrap;
+    cursor:pointer;
+    border: 0 !important;
+    vertical-align:middle;
+    float:left;
+    margin-right:17px;
+}
+.CSmallRadiusRed > div,
+.CSmallRadiusRed > a,
+.CSmallRadiusRed > span {
+    width:27px;
+    font-size:11px;
+    font-weight:bold;
+    height:18px !important;
+    color:white;
+    letter-spacing:-1px;
+    overflow:hidden;
+    background: transparent url("/Contents/Images/ICO-SET5.png") no-repeat 100% -299px !important;
+    display:inline-block !important;
+    cursor:pointer;
+    margin:0 0 0 10px !important;
+    padding:0 5px 0 0 !important;
+    line-height:16px;
+    /*line-height:18px \0/IE8+9; //공통으로 16px 하면 됨*/
+    vertical-align:top;
+}
+
+.CButtonSWhite {
+    width:auto;
+    height:18px !important;
+    color:#575757;
+    letter-spacing:-1px;
+    overflow:hidden;
+    background: transparent url("/Contents/Images/ICO-SET2.png") no-repeat 100% -96px !important;
+    display:inline-block;
+    white-space:nowrap;
+    cursor:pointer;
+    border: 0 !important;
+    padding: 0 !important;
+    vertical-align:middle;
+}
+.CButtonSWhite > div,
+.CButtonSWhite > a,
+.CButtonSWhite > span {
+    width:auto;
+    height:18px !important;
+    color:#575757;
+    letter-spacing:-1px;
+    overflow:hidden;
+    background: transparent url("/Contents/Images/ICO-SET2.png") no-repeat 0% -96px !important;
+    display:inline-block !important;
+    cursor:pointer;
+    margin:0 4px 0 0 !important;
+    padding:0 0 0 4px !important;
+    line-height:20px;
+    line-height:22px \0/IE8+9;
+    vertical-align:top;
+}
+
+.CButtonMSilver {
+    width:auto;
+    height:22px !important;
+    color:#575757;
+    letter-spacing:-1px;
+    overflow:hidden;
+    background: transparent url("/Contents/Images/ICO-SET7.png") no-repeat 100% 0% !important;
+    display:inline-block;
+    white-space:nowrap;
+    cursor:pointer;
+    border: 0 !important;
+    padding: 0 !important;
+    vertical-align:middle;
+}
+.CButtonMSilver > div,
+.CButtonMSilver > a {
+    width:auto;
+    height:22px;
+    color:#575757;
+    letter-spacing:-1px;
+    overflow:hidden;
+    background: transparent url("/Contents/Images/ICO-SET7.png") no-repeat 0% 0% !important;
+    display:inline-block !important;
+    cursor:pointer;
+    margin:0 6px 0 0 !important;
+    padding:0 0 0 6px !important;
+    line-height:25px !important;
+    line-height:24px \0/IE8+9;
+    vertical-align:top;
+}
+.CButtonMSilver > div img,
+.CButtonMSilver > a img {
+    color:#575757;
+    letter-spacing:-1px;
+    display:inline-block;
+    line-height:24px;
+    margin-right:3px;
+    background-attachment:scroll;
+    background-repeat:no-repeat;
+    background-size:auto;
+    background-origin:padding-box;
+    background-clip:border-box;
+    background-color:transparent;
+    vertical-align:-3px;
+    vertical-align:-4px \0/IE8+9;
+}
+.CButtonMSilverHover,
+.CButtonMSilverHover > div,
+.CButtonMSilverHover > a {
+    background-position-y: -34px !important;
+}
+.CButtonMSilverPress,
+.CButtonMSilverPress > div,
+.CButtonMSilverPress > a {
+    background-position-y: -68px !important;
+}
+.CButtonMSilverDisable,
+.CButtonMSilverDisable > div,
+.CButtonMSilverDisable > a {
+    color:#B1B1B1;
+    cursor:default;
+    background-position-y: 0px !important;
+}
+
+.CButtonLWhite {
+    width:auto;
+    height:26px !important;
+    color:#575757;
+    letter-spacing:-1px;
+    overflow:hidden;
+    background: transparent url("/Contents/Images/ICO-SET8.png") no-repeat 100% 0% !important;
+    display:inline-block;
+    white-space:nowrap;
+    cursor:pointer;
+    border: 0 !important;
+    padding: 0 !important;
+    vertical-align:middle;
+}
+.CButtonLWhite > div,
+.CButtonLWhite > a {
+    width:auto;
+    height:26px;
+    color:#575757;
+    letter-spacing:-1px;
+    overflow:hidden;
+    background: transparent url("/Contents/Images/ICO-SET8.png") no-repeat 0% 0% !important;
+    display:inline-block !important;
+    cursor:pointer;
+    margin:0 8px 0 0 !important;
+    padding:0 0 0 6px !important;
+    line-height:29px;
+    line-height:28px \0/IE8+9;
+    vertical-align:top;
+}
+.CButtonLWhite > div img,
+.CButtonLWhite > a img {
+    color:#575757;
+    letter-spacing:-1px;
+    display:inline-block;
+    line-height:28px;
+    margin-right:3px;
+    background-attachment:scroll;
+    background-repeat:no-repeat;
+    background-size:auto;
+    background-origin:padding-box;
+    background-clip:border-box;
+    background-color:transparent;
+    vertical-align:-3px;
+    vertical-align:-4px \0/IE8+9;
+}
+.CButtonLWhiteHover {
+    background-position-y: -100px !important;
+}
+.CButtonLWhiteHover > div,
+.CButtonLWhiteHover > a {
+    background-position-y: -100px !important;
+}
+
+.CButtonXLWhite {
+    font-size:16px;
+    width:auto;
+    height:35px !important;
+    color:#575757;
+    letter-spacing:-1px;
+    overflow:hidden;
+    background: transparent url("/Contents/Images/ICO-SET9.png") no-repeat 100% -120px !important;
+    display:inline-block;
+    white-space:nowrap;
+    cursor:pointer;
+    border: 0 !important;
+    padding: 0 !important;
+    vertical-align:middle;
+}
+.CButtonXLWhite > div,
+.CButtonXLWhite > a {
+    width:auto;
+    height:35px;
+    color:#575757;
+    letter-spacing:-1px;
+    overflow:hidden;
+    background: transparent url("/Contents/Images/ICO-SET9.png") no-repeat 0% -120px !important;
+    display:inline-block !important;
+    cursor:pointer;
+    margin:0 14px 0 0 !important;
+    padding:0 0 0 12px !important;
+    line-height:35px;
+    line-height:34px \0/IE8+9;
+    vertical-align:top;
+}
+.CButtonXLWhite > div img,
+.CButtonXLWhite > a img {
+    color:#575757;
+    letter-spacing:-1px;
+    display:inline-block;
+    line-height:28px;
+    margin-right:3px;
+    background-attachment:scroll;
+    background-repeat:no-repeat;
+    background-size:auto;
+    background-origin:padding-box;
+    background-clip:border-box;
+    background-color:transparent;
+    vertical-align:-3px;
+    vertical-align:-4px \0/IE8+9;
+}
+.CButtonXLWhiteHover {
+    background-position-y: -160px !important;
+}
+.CButtonXLWhiteHover > div,
+.CButtonXLWhiteHover > a {
+    background-position-y: -160px !important;
+}
+.CButtonXLWhitePress {
+    background-position-y: -200px !important;
+}
+.CButtonXLWhitePress > div,
+.CButtonXLWhitePress > a {
+    background-position-y: -200px !important;
+}
+
+.CButtonLBlue {
+    width:auto;
+    height:26px !important;
+    color:#575757;
+    letter-spacing:-1px;
+    overflow:hidden;
+    background: transparent url("/Contents/Images/ICO-SET8.png") no-repeat 100% -50px !important;
+    display:inline-block;
+    white-space:nowrap;
+    cursor:pointer;
+    border: 0 !important;
+    padding: 0 !important;
+    vertical-align:middle;
+}
+.CButtonLBlue > div,
+.CButtonLBlue > a {
+    width:auto;
+    height:26px;
+    color:#EEEEEE;
+    font-weight:bold;
+    letter-spacing:-1px;
+    overflow:hidden;
+    background: transparent url("/Contents/Images/ICO-SET8.png") no-repeat 0% -50px !important;
+    display:inline-block !important;
+    cursor:pointer;
+    margin:0 8px 0 0 !important;
+    padding:0 0 0 6px !important;
+    line-height:29px;
+    line-height:28px \0/IE8+9;
+    vertical-align:top;
+}
+.CButtonLBlue > div img,
+.CButtonLBlue > a img {
+    color:#EEEEEE;
+    font-weight:bold;
+    letter-spacing:-1px;
+    display:inline-block;
+    line-height:28px;
+    margin-right:3px;
+    background-attachment:scroll;
+    background-repeat:no-repeat;
+    background-size:auto;
+    background-origin:padding-box;
+    background-clip:border-box;
+    background-color:transparent;
+    vertical-align:-3px;
+    vertical-align:-4px \0/IE8+9;
+}
+
+
+/* Menu Control Button CSS */
+.CMenuButtonLWhite {
+    width:auto;
+    height:26px !important;
+    color:#575757;
+    letter-spacing:-1px;
+    overflow:hidden;
+    background: transparent url("/Contents/Images/ICO-SET8.png") no-repeat 100% 0% !important;
+    display:inline-block;
+    white-space:nowrap;
+    cursor:pointer;
+    border: 0 !important;
+    padding: 0 !important;
+    vertical-align:middle;
+}
+.CMenuButtonLWhite > div {
+    width:auto;
+    height:26px;
+    color:#575757;
+    letter-spacing:-1px;
+    overflow:hidden;
+    background: transparent url("/Contents/Images/ICO-SET8.png") no-repeat 0% 0% !important;
+    display:inline-block !important;
+    cursor:pointer;
+    margin:0 8px 0 0 !important;
+    padding:0 0 0 6px !important;
+    line-height:29px;
+    line-height:28px \0/IE8+9;
+    vertical-align:top;
+}
+.CMenuButtonLWhite > div img {
+    color:#575757;
+    letter-spacing:-1px;
+    display:inline-block;
+    line-height:28px;
+    margin-right:3px;
+    background-attachment:scroll;
+    background-repeat:no-repeat;
+    background-size:auto;
+    background-origin:padding-box;
+    background-clip:border-box;
+    background-color:transparent;
+    vertical-align:-3px;
+    vertical-align:-4px \0/IE8+9;
+}
+.CMenuButtonLWhite > div.dxm-popOut {
+    width:auto;
+    height:26px;
+    color:#575757;
+    letter-spacing:-1px;
+    overflow:hidden;
+    background: transparent url("/Contents/Images/ICO-SET8.png") no-repeat -13% 0% !important;
+    display:inline-block !important;
+    cursor:pointer;
+    margin:0 4px 0 0 !important;
+    padding:0px !important;
+    line-height:29px;
+    line-height:28px \0/IE8+9;
+    vertical-align:top;
+}
+.CMenuButtonLWhite > div.dxm-popOut img {
+    color:#575757;
+    letter-spacing:-1px;
+    display:inline-block;
+    line-height:28px;
+    margin-right:3px;
+    background-attachment:scroll;
+    background-repeat:no-repeat;
+    background-size:auto;
+    background-origin:padding-box;
+    background-clip:border-box;
+    background-color:transparent;
+    vertical-align:0px;
+}
+.CMenuButtonLWhiteHover,
+.CMenuButtonLWhiteHover > div {
+    background-position-y: -100px !important;
+}
+.CMenuButtonLWhiteHover > div.dxm-popOut {
+    background-position-y: -100px !important;
+    border-color:transparent !important;
+}
+
+/*
+--테그로 작성하는경우
+<div class="CButtonMSilver">
+    <div>
+        <img style="background-color:black; width:16px; height:16px;" />
+        <span>한글zzzzzzzz</span>
+    </div>
+</div>
+--컴퍼넌트 이용시
+<dx:ASPxButton runat="server" EnableTheming="false" Text="한글" AutoPostBack="false" 
+    CssClass="CButtonMSilver Font" 
+    HoverStyle-CssClass="CButtonMSilverHover" 
+    PressedStyle-CssClass="CButtonMSilverPress">
+    <Image IconID="actions_add_16x16"></Image>
+</dx:ASPxButton>
+*/
+
+/*************************************************************************************************
+* [END] OSModeuleView
+*************************************************************************************************/
+
+
+/*************************************************************************************************
+* [STA] *****************************************************************************************
+* Name : OSModeule
+* Remark : OSModeuleView Design Part
+*************************************************************************************************/
+
+.OSModuleViewBody {
+}
+
+/*************************************************************************************************
+* [END] OSModeuleView
+*************************************************************************************************/
+
+
+
+/*************************************************************************************************
+* [STA] *****************************************************************************************
+* Name : OSModeuleView
+* Remark : OSModeuleView Design Part
+*************************************************************************************************/
+.BSLBody {
+    background-color:#F5F5F5 !important;
+}
+/*.BSLBody .BSLForm .tabMain .dxtc-leftIndent,
+.BSLBody .BSLForm .tabMain .dxtc-rightIndent {
+    border-bottom:1px Solid #C2C2C2 !important;
+    background-color:#F5F5F5 !important;
+}
+.BSLBody .BSLForm .tabMain .dxtc-activeTab .dx-vam {
+    line-height:12px !important;
+}
+.BSLBody .BSLForm .tabMain .dxtc-activeTab {
+    border-top:1px Solid #C2C2C2 !important;
+    border-right:1px Solid #C2C2C2 !important;
+    border-left:1px Solid #C2C2C2 !important;
+}
+.BSLBody .BSLForm .tabMain .dxtc-content {
+    border-left: 0px !important;
+    border-right: 0px !important;
+    border-bottom: 0px !important;
+}*/
+.BSLBody .BSLForm .tabMain #BSLContainer {
+    width:100%;
+    height:100%;
+}
+/* 상단 버튼 컨테이너 */
+.BSLBody .BSLForm .tabMain #BSLContainer #BSLTopButtonCon {
+    height:20px;
+    padding: 0px 5px 0px;
+    vertical-align:bottom;
+}
+/* 조회부 컨테이너 */
+.BSLBody .BSLForm .tabMain #BSLContainer #BSLConditionCon {
+    
+}
+/* 조회부 폼 레이아웃 */
+.BSLBody .BSLForm .tabMain #BSLContainer #BSLConditionCon .frmLayout {
+    
+}
+
+
+.BSLBody .BSLForm .tabMain #BSLContainer #BSLDataCon {
+    height:100%;
+    vertical-align:top;
+    padding:0px 5px 5px;
+}
+.BSLBody .BSLForm .tabMain #BSLContainer #BSLFooterButtonCon {
+    height:20px;
+    padding: 0px 5px 0px;
+}
+/*.BSLBody .BSLForm .tabMain .dxflGroup_eniThm tr:first-child > .dxflGroupCell_eniThm > .dxflGroupBox_eniThm {
+    margin:0px !important;
+}
+.BSLBody .BSLForm .tabMain .dxflGroupBox_eniThm {
+    padding-bottom:10px !important;
+}
+.BSLBody .BSLForm .tabMain .dxflGroupBox_eniThm > .dxflGroup_eniThm tr:first-child > .dxflGroupCell_eniThm > .dxflItem_eniThm {
+    /*padding-top:3px !important;
+}*/
+.BSLBody .BSLForm .tabMain .ItemCaptionCell {
+    padding-top:4px;
+}
+.BSLBody .BSLForm .tabMain .ItemCaption {
+    line-height:14px !important;
+    vertical-align:bottom;
+}
+
+/*이하 Farpoint로 바꾸면서 사용하지 않음*/
+/* Grid Header CSS */
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvHeader_eniThm {
+    padding:2px 3px !important;
+}
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvHeader_eniThm table td:first-child {
+    padding-top:3px !important;
+}
+/* Grid Forcus & Select CSS */
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvEditFormDisplayRow_eniThm td.dxgv,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRow_eniThm td.dxgv,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRowAlt_eniThm td.dxgv,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvSelectedRow_eniThm td.dxgv,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvFocusedRow_eniThm td.dxgv {
+    padding: 2.5px 0px 1.5px 0px !important;
+}
+/* Grid Edit */
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvEditFormDisplayRow_eniThm td.dxic,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRow_eniThm td.dxic,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRowAlt_eniThm td.dxic,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvSelectedRow_eniThm td.dxic,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvFocusedRow_eniThm td.dxic,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvEditFormDisplayRow_eniThm td.dxic,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRow_eniThm td.dxic,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRowAlt_eniThm td.dxic,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvSelectedRow_eniThm td.dxic,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvFocusedRow_eniThm td.dxic {
+    padding:0px !important;
+}
+/* Grid Edit CSS */
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvEditFormDisplayRow_eniThm td.dxgv.dxgvBatchEditCell_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRow_eniThm td.dxgv.dxgvBatchEditCell_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRowAlt_eniThm td.dxgv.dxgvBatchEditCell_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvSelectedRow_eniThm td.dxgv.dxgvBatchEditCell_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvFocusedRow_eniThm td.dxgv.dxgvBatchEditCell_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvEditFormDisplayRow_eniThm td.dxgv.dxgvBatchEditModifiedCell_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRow_eniThm td.dxgv.dxgvBatchEditModifiedCell_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRowAlt_eniThm td.dxgv.dxgvBatchEditModifiedCell_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvSelectedRow_eniThm td.dxgv.dxgvBatchEditModifiedCell_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvFocusedRow_eniThm td.dxgv.dxgvBatchEditModifiedCell_eniThm {
+    padding: 0px !important;
+}
+/* Grid Button */
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvEditFormDisplayRow_eniThm .dxeButton,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRow_eniThm .dxeButton,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRowAlt_eniThm .dxeButton,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvSelectedRow_eniThm .dxeButton,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvFocusedRow_eniThm .dxeButton,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvEditFormDisplayRow_eniThm .dxeButton,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRow_eniThm .dxeButton,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRowAlt_eniThm .dxeButton,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvSelectedRow_eniThm .dxeButton,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvFocusedRow_eniThm .dxeButton {
+    padding:0px 2px !important;
+}
+/* Grid Spin Edit Up Button */
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvEditFormDisplayRow_eniThm .dxeButton.dxeSpinIncButton_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRow_eniThm .dxeButton.dxeSpinIncButton_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRowAlt_eniThm .dxeButton.dxeSpinIncButton_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvSelectedRow_eniThm .dxeButton.dxeSpinIncButton_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvFocusedRow_eniThm .dxeButton.dxeSpinIncButton_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvEditFormDisplayRow_eniThm .dxeButton.dxeSpinIncButton_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRow_eniThm .dxeButton.dxeSpinIncButton_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRowAlt_eniThm .dxeButton.dxeSpinIncButton_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvSelectedRow_eniThm .dxeButton.dxeSpinIncButton_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvFocusedRow_eniThm .dxeButton.dxeSpinIncButton_eniThm {
+    padding: 1px 3px 1px !important;
+}
+/* Grid Spin Edit Down Button */
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvEditFormDisplayRow_eniThm .dxeButton.dxeSpinDecButton_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRow_eniThm .dxeButton.dxeSpinDecButton_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRowAlt_eniThm .dxeButton.dxeSpinDecButton_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvSelectedRow_eniThm .dxeButton.dxeSpinDecButton_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvFocusedRow_eniThm .dxeButton.dxeSpinDecButton_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvEditFormDisplayRow_eniThm .dxeButton.dxeSpinDecButton_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRow_eniThm .dxeButton.dxeSpinDecButton_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvDataRowAlt_eniThm .dxeButton.dxeSpinDecButton_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvSelectedRow_eniThm .dxeButton.dxeSpinDecButton_eniThm,
+.BSLBody .BSLForm .tabMain #BSLDataCon .eniGridData .dxgvFocusedRow_eniThm .dxeButton.dxeSpinDecButton_eniThm {
+    padding:2px 3px 1px !important;
+}
+
+
+
+/*.BSLBody .BSLForm .tabMain #BSLDataCon .dxgvControl_eniThm .dxgvBatchEditCell_eniThm td.dxgv,
+.BSLBody .BSLForm .tabMain #BSLDataCon .dxgvControl_eniThm .dxgvBatchEditModifiedCell_eniThm td.dxgv,
+.BSLBody .BSLForm .tabMain #BSLDataCon .dxgvControl_eniThm .dxeTextBoxSys td.dxic {
+    padding:0px !important;
+}*/
+
+/*************************************************************************************************
+* [END] OSModeuleView
+*************************************************************************************************/
+
+/*************************************************************************************************
+* [STA] *****************************************************************************************
+* Name : OSModeuleView
+* Remark : OSModeuleView Design Part
+*************************************************************************************************/
+.PopupViewBody {
+    background-color:#F5F5F5 !important;
+}
+/*.PopupViewBody .PopupViewForm .tabMain .dxtc-leftIndent,
+.PopupViewBody .PopupViewForm .tabMain .dxtc-rightIndent {
+    border-bottom:1px Solid #C2C2C2 !important;
+    background-color:#F5F5F5 !important;
+}
+.PopupViewBody .PopupViewForm .tabMain .dxtc-activeTab .dx-vam {
+    line-height:12px !important;
+}
+.PopupViewBody .PopupViewForm .tabMain .dxtc-activeTab {
+    border-top:1px Solid #C2C2C2 !important;
+    border-right:1px Solid #C2C2C2 !important;CommonWinPopupViewContainer
+    border-left:1px Solid #C2C2C2 !important;
+}
+.PopupViewBody .PopupViewForm .tabMain .dxtc-content {
+    border-left: 0px !important;
+    border-right: 0px !important;
+    border-bottom: 0px !important;
+}*/
+.PopupViewBody .PopupViewForm #CommonWinPopupViewContainer {
+    width:100%;
+    height:100%;
+    /*overflow:auto;*/
+    /*display:inline-block;*/
+}
+.PopupViewBody .PopupViewForm #CommonWinPopupViewContainer #CommonWinPopupViewTopButtonCon {
+    height:20px;
+    padding: 0px 5px 0px;
+    vertical-align:bottom;
+}
+.PopupViewBody .PopupViewForm #CommonWinPopupViewContainer #CommonWinPopupViewConditionCon {
+    
+}
+.PopupViewBody .PopupViewForm #CommonWinPopupViewContainer #CommonWinPopupViewDataCon {
+    height:100%;
+    vertical-align:top;
+    padding:0px 5px 0px;
+}
+.PopupViewBody .PopupViewForm #CommonWinPopupViewContainer #CommonWinPopupViewFooterButtonCon {
+    height:20px;
+    padding: 0px 5px 0px;
+}
+.PopupViewBody .PopupViewForm .dxflGroup_eniThm tr:first-child > .dxflGroupCell_eniThm > .dxflGroupBox_eniThm {
+    margin:0px !important;
+}
+.PopupViewBody .PopupViewForm .dxflGroupBox_eniThm {
+    padding-bottom:10px !important;
+}
+.PopupViewBody .PopupViewForm .dxflGroupBox_eniThm > .dxflGroup_eniThm tr:first-child > .dxflGroupCell_eniThm > .dxflItem_eniThm {
+    padding-top:3px !important;
+}
+.PopupViewBody .PopupViewForm .dxflGroup_eniThm .dxflCaption_eniThm {
+    line-height:19px !important;
+}
+
+/*************************************************************************************************
+* [END] OSModeuleView
+*************************************************************************************************/
+
+

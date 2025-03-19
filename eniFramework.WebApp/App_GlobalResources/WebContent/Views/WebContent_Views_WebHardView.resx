@@ -1,0 +1,669 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CSTRESX00001" xml:space="preserve">
+    <value>웹하드</value>
+    <comment>웹하드</comment>
+  </data>
+  <data name="CSTRESX00002" xml:space="preserve">
+    <value>디아이씨</value>
+    <comment>디아이씨</comment>
+  </data>
+  <data name="CSTRESX00003" xml:space="preserve">
+    <value>Cloud</value>
+    <comment>Cloud</comment>
+  </data>
+  <data name="CSTRESX00004" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00005" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00006" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00007" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00008" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00009" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00010" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00011" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00012" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00013" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00014" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00015" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00016" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00017" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00018" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00019" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00020" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00021" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00022" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00023" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00024" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00025" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00026" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00027" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00028" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00029" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00030" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00031" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00032" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00033" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00034" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00035" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00036" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00037" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00038" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00039" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00040" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00041" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00042" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00043" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00044" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00045" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00046" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00047" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00048" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00049" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00050" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00051" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00052" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00053" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00054" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00055" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00056" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00057" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00058" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00059" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00060" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00061" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00062" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00063" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00064" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00065" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00066" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00067" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00068" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00069" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00070" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00071" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00072" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00073" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00074" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00075" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00076" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00077" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00078" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00079" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00080" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00081" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00082" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00083" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00084" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00085" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00086" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00087" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00088" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00089" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00090" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00091" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00092" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00093" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00094" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00095" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00096" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00097" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00098" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00099" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00100" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00101" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00102" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00103" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00104" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00105" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00106" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00107" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00108" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00109" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00110" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00111" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00112" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00113" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00114" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00115" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00116" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00117" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00118" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00119" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00120" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00121" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00122" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00123" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00124" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00125" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00126" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00127" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00128" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00129" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00130" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00131" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00132" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00133" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00134" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00135" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00136" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00137" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00138" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00139" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00140" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00141" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00142" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00143" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00144" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00145" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00146" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00147" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00148" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00149" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00150" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00151" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00152" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00153" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00154" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00155" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00156" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00157" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00158" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00159" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00160" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00161" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00162" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00163" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00164" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00165" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00166" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00167" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00168" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00169" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00170" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00171" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00172" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00173" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00174" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00175" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00176" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00177" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00178" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00179" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00180" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00181" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00182" xml:space="preserve">
+    <value />
+  </data>
+</root>

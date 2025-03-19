@@ -1,0 +1,42 @@
+﻿<%@ Register TagPrefix="dx" Namespace="DevExpress.Data" Assembly="DevExpress.Data.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Web" Assembly="DevExpress.Web.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="eni" Namespace="eniFramework.WebApp.Controls" Assembly="eniFramework.WebApp.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" %>
+
+<%-- eniFramework Default Mode Skin --%>
+<eni:eniDockPanel runat="server" EnableHotTrack="False">
+    <Images SpriteCssFilePath="{0}/sprite.css">
+    </Images>
+    <Styles CssFilePath="{0}/styles.css" CssPostfix="eniThm">
+	    <LoadingPanel ImageSpacing="5"/>
+    </Styles>
+</eni:eniDockPanel>
+
+<%-- eniFramework HomeDockPanel Skin --%>
+<%--LoadContentViaCallback="OnPageLoad" 속성추가시 컨트롤 내부 스크립트 작동 안함 --%>
+<eni:eniDockPanel runat="server" EnableHotTrack="False" SkinID="HomeDockPanel"
+    CloseAnimationType="None" 
+    ShowOnPageLoad="True" 
+    ShowCloseButton="False"
+    ShowRefreshButton="False" 
+    ShowSizeGrip="False" 
+    AllowedDockState="DockedOnly" 
+    EnableCallbackAnimation="False" 
+    EnableHierarchyRecreation="False" 
+    
+    RenderIFrameForPopupElements="Default" 
+    DragElement="Header">
+    <Border BorderColor="#D6D6D6" />
+    <Styles CssFilePath="{0}/styles.css" CssPostfix="eniThm">
+        <Content>
+            <Paddings Padding="0px"></Paddings>
+        </Content>
+        <Header BackColor="White">
+            <Paddings Padding="5px" />
+            <BorderBottom BorderColor="#D6D6D6" />
+            <BackgroundImage ImageUrl="none"></BackgroundImage>
+        </Header>
+        <LoadingPanel ImageSpacing="5"/>
+    </Styles>
+    <Images SpriteCssFilePath="{0}/sprite.css"></Images>
+    <SettingsLoadingPanel Enabled="true" />
+</eni:eniDockPanel>

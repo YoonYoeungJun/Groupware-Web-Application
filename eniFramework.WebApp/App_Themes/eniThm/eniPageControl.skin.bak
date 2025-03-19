@@ -1,0 +1,49 @@
+﻿<%@ Register TagPrefix="dx" Namespace="DevExpress.Data" Assembly="DevExpress.Data.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Web" Assembly="DevExpress.Web.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="eni" Namespace="eniFramework.WebApp.Controls" Assembly="eniFramework.WebApp.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" %>
+
+<%-- eniFramework Default Mode Skin --%>
+<eni:eniPageControl runat="server" CssFilePath="{0}/styles.css" SpriteCssFilePath="{0}/sprite.css" CssPostfix="eniThm" TabSpacing="0">
+    <LoadingPanelStyle ImageSpacing="5" />
+</eni:eniPageControl>
+
+<%-- eniFramework Standard Mode Skin --%>
+<eni:eniPageControl runat="server" CssFilePath="{0}/styles.css" SpriteCssFilePath="{0}/sprite.css" CssPostfix="eniThm" CssClass="tabMain" TabSpacing="0" SkinID="Standard"
+    Width="100%" EnableHierarchyRecreation="true">
+    <TabStyle>
+        <Border BorderColor="#D6D6D6" BorderStyle="Solid" BorderWidth="1px" />
+    </TabStyle>
+    <ActiveTabStyle Font-Bold="true">
+        <BorderTop BorderColor="#D6D6D6" BorderStyle="Solid" BorderWidth="1px" />
+        <BorderRight BorderColor="#D6D6D6" BorderStyle="Solid" BorderWidth="1px" />
+        <BorderBottom BorderWidth="0px" />
+        <BorderLeft BorderColor="#D6D6D6" BorderStyle="Solid" BorderWidth="1px" />
+    </ActiveTabStyle>
+    <ContentStyle Border-BorderWidth="0px">
+        <Border BorderWidth="0px"/>
+        <BorderTop BorderColor="#D6D6D6" BorderStyle="Solid" BorderWidth="1px" />
+        <Paddings Padding="1px"/>
+    </ContentStyle>
+    <LoadingPanelStyle ImageSpacing="5" />
+</eni:eniPageControl>
+
+<%-- eniFramework BSL Mode Skin --%>
+<eni:eniPageControl runat="server" CssFilePath="{0}/styles.css" SpriteCssFilePath="{0}/sprite.css" CssPostfix="eniThm" CssClass="tabMain" TabSpacing="0" CreateMode="BSLMode" SkinID="BSL"
+    Width="100%" Height="100%" 
+    EnableHierarchyRecreation="true">
+    <TabStyle BackColor="Gainsboro">
+        <Border BorderColor="#A5ACB5" BorderStyle="Solid" BorderWidth="1px" />
+    </TabStyle>
+    <ActiveTabStyle Font-Bold="true" BackColor="WhiteSmoke">
+        <BorderTop BorderColor="#A5ACB5" BorderStyle="Solid" BorderWidth="1px" />
+        <BorderRight BorderColor="#A5ACB5" BorderStyle="Solid" BorderWidth="1px" />
+        <BorderBottom BorderColor="WhiteSmoke" BorderStyle="Solid" BorderWidth="1px" />
+        <BorderLeft BorderColor="#A5ACB5" BorderStyle="Solid" BorderWidth="1px" />
+    </ActiveTabStyle>
+    <ContentStyle Border-BorderWidth="0px">
+        <Border BorderWidth="0px"/>
+        <BorderTop BorderColor="#A5ACB5" BorderStyle="Solid" BorderWidth="1px" />
+        <Paddings Padding="1px"/>
+    </ContentStyle>
+    <LoadingPanelStyle ImageSpacing="5" />
+</eni:eniPageControl>

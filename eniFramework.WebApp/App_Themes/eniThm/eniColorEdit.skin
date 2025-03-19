@@ -1,0 +1,33 @@
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Data" Assembly="DevExpress.Data.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Web" Assembly="DevExpress.Web.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="eni" Namespace="eniFramework.WebApp.Controls" Assembly="eniFramework.WebApp.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" %>
+
+<%-- eniFramework Default Mode Skin --%>
+<eni:eniColorEdit runat="server" CssFilePath="{0}/styles.css" CssPostfix="eniThm" SpriteCssFilePath="{0}/sprite.css">
+</eni:eniColorEdit>
+
+<%-- eniFramework Standard Mode Skin --%>
+<eni:eniColorEdit runat="server" CssFilePath="{0}/styles.css" CssPostfix="eniThm" SpriteCssFilePath="{0}/sprite.css" CreateMode="StandardMode" SkinID="Standard">
+</eni:eniColorEdit>
+
+<%-- eniFramework BSL Mode Skin --%>
+<eni:eniColorEdit runat="server" CssFilePath="{0}/styles.css" CssPostfix="eniThm" SpriteCssFilePath="{0}/sprite.css" CreateMode="BSLMode" SkinID="BSL">
+</eni:eniColorEdit>
+
+<%-- eniFramework Advanced-01 Mode Skin --%>
+<eni:eniColorEdit runat="server" CssFilePath="{0}/styles.css" CssPostfix="eniThm" SpriteCssFilePath="{0}/sprite.css" SkinID="Advanced-01"
+    Color="Black" AllowUserInput="False">
+</eni:eniColorEdit>
+
+<%-- eniFramework LightDark Skin --%>
+<eni:eniColorEdit runat="server" CssFilePath="{0}/styles.css" CssPostfix="eniThm" SpriteCssFilePath="{0}/sprite.css" SkinID="LightDark"
+    AllowUserInput="False" Color="#000111">
+    <Border BorderColor="#C7C7C7" />
+    <FocusedStyle Border-BorderColor="#60A9F1"></FocusedStyle>
+    <ButtonStyle BackColor="#FFFFFF" Border-BorderColor="#C7C7C7">
+        <BackgroundImage ImageUrl="none" />
+        <HoverStyle Border-BorderColor="#C7C7C7">
+            <BackgroundImage ImageUrl="none" />
+        </HoverStyle>
+    </ButtonStyle>
+</eni:eniColorEdit>

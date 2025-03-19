@@ -1,0 +1,666 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CSTRESX00001" xml:space="preserve">
+    <value>전자메일</value>
+  </data>
+  <data name="CSTRESX00002" xml:space="preserve">
+    <value>편지쓰기</value>
+  </data>
+  <data name="CSTRESX00003" xml:space="preserve">
+    <value>사용량 :</value>
+  </data>
+  <data name="CSTRESX00004" xml:space="preserve">
+    <value>메일 사용량을 표시합니다.</value>
+  </data>
+  <data name="CSTRESX00005" xml:space="preserve">
+    <value>전체</value>
+  </data>
+  <data name="CSTRESX00006" xml:space="preserve">
+    <value>안읽음</value>
+  </data>
+  <data name="CSTRESX00007" xml:space="preserve">
+    <value>더보기</value>
+  </data>
+  <data name="CSTRESX00008" xml:space="preserve">
+    <value>내게쓰기</value>
+  </data>
+  <data name="CSTRESX00009" xml:space="preserve">
+    <value>수신확인</value>
+  </data>
+  <data name="CSTRESX00010" xml:space="preserve">
+    <value>비우기</value>
+  </data>
+  <data name="CSTRESX00011" xml:space="preserve">
+    <value>전체선택</value>
+  </data>
+  <data name="CSTRESX00012" xml:space="preserve">
+    <value>페이지 내의 메일을 모두 선택합니다.</value>
+  </data>
+  <data name="CSTRESX00013" xml:space="preserve">
+    <value>읽지않음</value>
+  </data>
+  <data name="CSTRESX00014" xml:space="preserve">
+    <value>선택된 메세지들의 읽음 상태를 변경합니다.</value>
+  </data>
+  <data name="CSTRESX00015" xml:space="preserve">
+    <value>삭제</value>
+  </data>
+  <data name="CSTRESX00016" xml:space="preserve">
+    <value>선택된 메세지들을 지운 편지함으로 이동합니다.</value>
+  </data>
+  <data name="CSTRESX00017" xml:space="preserve">
+    <value>완전삭제</value>
+  </data>
+  <data name="CSTRESX00018" xml:space="preserve">
+    <value>선택된 메세지들을 지운편지함으로 이동시키지 않고 삭제합니다.</value>
+  </data>
+  <data name="CSTRESX00019" xml:space="preserve">
+    <value>스팸신고</value>
+  </data>
+  <data name="CSTRESX00020" xml:space="preserve">
+    <value>선택된 메세지들을 모두 스팸으로 등록합니다.</value>
+  </data>
+  <data name="CSTRESX00021" xml:space="preserve">
+    <value>답장</value>
+  </data>
+  <data name="CSTRESX00022" xml:space="preserve">
+    <value>선택된 메세지에 대한 답장을 작성합니다.</value>
+  </data>
+  <data name="CSTRESX00023" xml:space="preserve">
+    <value>전체답장</value>
+  </data>
+  <data name="CSTRESX00024" xml:space="preserve">
+    <value>선택된 메세지에 대한 전체답장을 작성합니다.</value>
+  </data>
+  <data name="CSTRESX00025" xml:space="preserve">
+    <value>전달</value>
+  </data>
+  <data name="CSTRESX00026" xml:space="preserve">
+    <value>선택된 메세지를 지정된 사람에게 전달합니다.</value>
+  </data>
+  <data name="CSTRESX00027" xml:space="preserve">
+    <value>이동</value>
+  </data>
+  <data name="CSTRESX00028" xml:space="preserve">
+    <value>선택된 메세지들의 폴더 위치를 변경합니다.</value>
+  </data>
+  <data name="CSTRESX00029" xml:space="preserve">
+    <value>추가기능</value>
+  </data>
+  <data name="CSTRESX00030" xml:space="preserve">
+    <value>메일함의 추가 기능을 실행 합니다.</value>
+  </data>
+  <data name="CSTRESX00031" xml:space="preserve">
+    <value>PC로 내려받기</value>
+  </data>
+  <data name="CSTRESX00032" xml:space="preserve">
+    <value>선택된 메세지를 로컬 PC로 내려받습니다. 만약 여러개의 파일이면 압축파일로 받습니다.</value>
+  </data>
+  <data name="CSTRESX00033" xml:space="preserve">
+    <value>원문 보기</value>
+  </data>
+  <data name="CSTRESX00034" xml:space="preserve">
+    <value>선택된 메세지의 메타데이터를 확인합니다(인코딩 되어있으면 인코딩된상태로 보여집니다).</value>
+  </data>
+  <data name="CSTRESX00035" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00036" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00037" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00038" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00039" xml:space="preserve">
+    <value>출력</value>
+  </data>
+  <data name="CSTRESX00040" xml:space="preserve">
+    <value>선택된 메세지를 출력합니다.</value>
+  </data>
+  <data name="CSTRESX00041" xml:space="preserve">
+    <value>보내기</value>
+  </data>
+  <data name="CSTRESX00042" xml:space="preserve">
+    <value>메일을 보냅니다.</value>
+  </data>
+  <data name="CSTRESX00043" xml:space="preserve">
+    <value>미리보기</value>
+  </data>
+  <data name="CSTRESX00044" xml:space="preserve">
+    <value>메일을 미리 확인합니다.</value>
+  </data>
+  <data name="CSTRESX00045" xml:space="preserve">
+    <value>임시보관</value>
+  </data>
+  <data name="CSTRESX00046" xml:space="preserve">
+    <value>작성된 메일을 임시 저장합니다.(첨부파일은 저장되지 않습니다)</value>
+  </data>
+  <data name="CSTRESX00047" xml:space="preserve">
+    <value>목록</value>
+  </data>
+  <data name="CSTRESX00048" xml:space="preserve">
+    <value>메일 리스트로 되돌아 갑니다.</value>
+  </data>
+  <data name="CSTRESX00049" xml:space="preserve">
+    <value>메일 항목을 전체 선택합니다.</value>
+  </data>
+  <data name="CSTRESX00050" xml:space="preserve">
+    <value>중요 메일인지를 표시합니다.</value>
+  </data>
+  <data name="CSTRESX00051" xml:space="preserve">
+    <value>읽음/읽지않음을 표시합니다.</value>
+  </data>
+  <data name="CSTRESX00052" xml:space="preserve">
+    <value>첨부파일이 있는지 여부를 표시합니다.</value>
+  </data>
+  <data name="CSTRESX00053" xml:space="preserve">
+    <value>보낸이</value>
+  </data>
+  <data name="CSTRESX00054" xml:space="preserve">
+    <value>보낸사람이 누구인지를 표시합니다.</value>
+  </data>
+  <data name="CSTRESX00055" xml:space="preserve">
+    <value>받는이</value>
+  </data>
+  <data name="CSTRESX00056" xml:space="preserve">
+    <value>받는사람이 누구인지를 표시합니다.</value>
+  </data>
+  <data name="CSTRESX00057" xml:space="preserve">
+    <value>제목</value>
+  </data>
+  <data name="CSTRESX00058" xml:space="preserve">
+    <value>메일의 제목을 표시합니다.</value>
+  </data>
+  <data name="CSTRESX00059" xml:space="preserve">
+    <value>시간</value>
+  </data>
+  <data name="CSTRESX00060" xml:space="preserve">
+    <value>메일을 받은시간을 표시합니다.</value>
+  </data>
+  <data name="CSTRESX00061" xml:space="preserve">
+    <value>보낸시간</value>
+  </data>
+  <data name="CSTRESX00062" xml:space="preserve">
+    <value>메일을 보낸시간을 표시합니다.</value>
+  </data>
+  <data name="CSTRESX00063" xml:space="preserve">
+    <value>크기</value>
+  </data>
+  <data name="CSTRESX00064" xml:space="preserve">
+    <value>메일의 크기를 표시합니다.</value>
+  </data>
+  <data name="CSTRESX00065" xml:space="preserve">
+    <value>상태</value>
+  </data>
+  <data name="CSTRESX00066" xml:space="preserve">
+    <value>메일의 상태를 표시합니다.</value>
+  </data>
+  <data name="CSTRESX00067" xml:space="preserve">
+    <value>확인시간</value>
+  </data>
+  <data name="CSTRESX00068" xml:space="preserve">
+    <value>받은사람의 확인시간을 표시합니다.</value>
+  </data>
+  <data name="CSTRESX00069" xml:space="preserve">
+    <value>받는사람</value>
+  </data>
+  <data name="CSTRESX00070" xml:space="preserve">
+    <value>받으시는분의 메일 주소를 입력하세요.</value>
+  </data>
+  <data name="CSTRESX00071" xml:space="preserve">
+    <value>주소록</value>
+  </data>
+  <data name="CSTRESX00072" xml:space="preserve">
+    <value>받으시는분을 주소록에서 찾습니다.</value>
+  </data>
+  <data name="CSTRESX00073" xml:space="preserve">
+    <value>초기화</value>
+  </data>
+  <data name="CSTRESX00074" xml:space="preserve">
+    <value>주소를 전부 삭제합니다.</value>
+  </data>
+  <data name="CSTRESX00075" xml:space="preserve">
+    <value>개인별</value>
+  </data>
+  <data name="CSTRESX00076" xml:space="preserve">
+    <value>메일 발송시 개인별로 발송합니다.</value>
+  </data>
+  <data name="CSTRESX00077" xml:space="preserve">
+    <value>참조</value>
+  </data>
+  <data name="CSTRESX00078" xml:space="preserve">
+    <value>숨참조패널을 표시 합니다.</value>
+  </data>
+  <data name="CSTRESX00079" xml:space="preserve">
+    <value>참조자로 메일을 받아보실분의 메일 주소를 입력하세요.</value>
+  </data>
+  <data name="CSTRESX00080" xml:space="preserve">
+    <value>참조자를 주소록에서 찾습니다.</value>
+  </data>
+  <data name="CSTRESX00081" xml:space="preserve">
+    <value>참조자 주소를 전부 삭제합니다.</value>
+  </data>
+  <data name="CSTRESX00082" xml:space="preserve">
+    <value>숨은참조</value>
+  </data>
+  <data name="CSTRESX00083" xml:space="preserve">
+    <value>숨은참조자로 메일을 받아보실분의 메일 주소를 입력하세요.</value>
+  </data>
+  <data name="CSTRESX00084" xml:space="preserve">
+    <value>숨은참조자를 주소록에서 찾습니다.</value>
+  </data>
+  <data name="CSTRESX00085" xml:space="preserve">
+    <value>숨은참조자 주소를 전부 삭제합니다.</value>
+  </data>
+  <data name="CSTRESX00086" xml:space="preserve">
+    <value>제목</value>
+  </data>
+  <data name="CSTRESX00087" xml:space="preserve">
+    <value>메일의 제목을 입력하세요.</value>
+  </data>
+  <data name="CSTRESX00088" xml:space="preserve">
+    <value>공지</value>
+  </data>
+  <data name="CSTRESX00089" xml:space="preserve">
+    <value>해당 메일을 공지 메일로 발송합니다.</value>
+  </data>
+  <data name="CSTRESX00090" xml:space="preserve">
+    <value>중요</value>
+  </data>
+  <data name="CSTRESX00091" xml:space="preserve">
+    <value>해당 메일을 중요 메일로 발송합니다.</value>
+  </data>
+  <data name="CSTRESX00092" xml:space="preserve">
+    <value>첨부파일</value>
+  </data>
+  <data name="CSTRESX00093" xml:space="preserve">
+    <value>첨부파일 리스트 패널을 표시 합니다.</value>
+  </data>
+  <data name="CSTRESX00094" xml:space="preserve">
+    <value>파일을 서버에 업로드 중 서버 내부오류가 발생하여 업로드 할 수 없습니다.</value>
+  </data>
+  <data name="CSTRESX00095" xml:space="preserve">
+    <value>선택한 파일을 찾을수 없어 업로드가 취소되었습니다.</value>
+  </data>
+  <data name="CSTRESX00096" xml:space="preserve">
+    <value>최대 첨부가능한 용량 6G 를 넘을수 없습니다.</value>
+  </data>
+  <data name="CSTRESX00097" xml:space="preserve">
+    <value>선택한 확장자는 업로드 할 수 없습니다.</value>
+  </data>
+  <data name="CSTRESX00098" xml:space="preserve">
+    <value>내 PC</value>
+  </data>
+  <data name="CSTRESX00099" xml:space="preserve">
+    <value>웹하드</value>
+  </data>
+  <data name="CSTRESX00100" xml:space="preserve">
+    <value>삭제</value>
+  </data>
+  <data name="CSTRESX00101" xml:space="preserve">
+    <value>선택한 파일을 삭제합니다.</value>
+  </data>
+  <data name="CSTRESX00102" xml:space="preserve">
+    <value>첨부된 파일이 없습니다.</value>
+  </data>
+  <data name="CSTRESX00103" xml:space="preserve">
+    <value>파일명</value>
+  </data>
+  <data name="CSTRESX00104" xml:space="preserve">
+    <value>업로드된 파일명을 확인합니다.</value>
+  </data>
+  <data name="CSTRESX00105" xml:space="preserve">
+    <value>확장자</value>
+  </data>
+  <data name="CSTRESX00106" xml:space="preserve">
+    <value>업로드된 파일 확장자를 확인합니다.</value>
+  </data>
+  <data name="CSTRESX00107" xml:space="preserve">
+    <value>업로드 타입</value>
+  </data>
+  <data name="CSTRESX00108" xml:space="preserve">
+    <value>업로드된 파일이 일판첨부인지 대용량첨부인지를 확인합니다.</value>
+  </data>
+  <data name="CSTRESX00109" xml:space="preserve">
+    <value>다운로드 가능기간</value>
+  </data>
+  <data name="CSTRESX00110" xml:space="preserve">
+    <value>대용량 첨부의 경우 다운로드 기간이 설정됩니다.</value>
+  </data>
+  <data name="CSTRESX00111" xml:space="preserve">
+    <value>용량</value>
+  </data>
+  <data name="CSTRESX00112" xml:space="preserve">
+    <value>업로드된 파일의 용량을 확인합니다.</value>
+  </data>
+  <data name="CSTRESX00113" xml:space="preserve">
+    <value>일반 첨부</value>
+  </data>
+  <data name="CSTRESX00114" xml:space="preserve">
+    <value>대용량 첨부</value>
+  </data>
+  <data name="CSTRESX00115" xml:space="preserve">
+    <value>중요메일</value>
+  </data>
+  <data name="CSTRESX00116" xml:space="preserve">
+    <value>주소 리스트를 확장합니다.</value>
+  </data>
+  <data name="CSTRESX00117" xml:space="preserve">
+    <value>보낸사람 :</value>
+  </data>
+  <data name="CSTRESX00118" xml:space="preserve">
+    <value>보낸사람을 표시합니다.</value>
+  </data>
+  <data name="CSTRESX00119" xml:space="preserve">
+    <value>받는사람 :</value>
+  </data>
+  <data name="CSTRESX00120" xml:space="preserve">
+    <value>받는사람을 표시합니다.</value>
+  </data>
+  <data name="CSTRESX00121" xml:space="preserve">
+    <value>참조 :</value>
+  </data>
+  <data name="CSTRESX00122" xml:space="preserve">
+    <value>참조자를 표시합니다.</value>
+  </data>
+  <data name="CSTRESX00123" xml:space="preserve">
+    <value>숨은참조 :</value>
+  </data>
+  <data name="CSTRESX00124" xml:space="preserve">
+    <value>숨은 참조자를 표시합니다.</value>
+  </data>
+  <data name="CSTRESX00125" xml:space="preserve">
+    <value>중요메일</value>
+  </data>
+  <data name="CSTRESX00126" xml:space="preserve">
+    <value>일반메일</value>
+  </data>
+  <data name="CSTRESX00127" xml:space="preserve">
+    <value>읽음</value>
+  </data>
+  <data name="CSTRESX00128" xml:space="preserve">
+    <value>읽지않음</value>
+  </data>
+  <data name="CSTRESX00129" xml:space="preserve">
+    <value>전달</value>
+  </data>
+  <data name="CSTRESX00130" xml:space="preserve">
+    <value>첨부파일 갯수 {0}개</value>
+  </data>
+  <data name="CSTRESX00131" xml:space="preserve">
+    <value>오늘</value>
+  </data>
+  <data name="CSTRESX00132" xml:space="preserve">
+    <value>어제</value>
+  </data>
+  <data name="CSTRESX00133" xml:space="preserve">
+    <value>{0} 개</value>
+  </data>
+  <data name="CSTRESX00134" xml:space="preserve">
+    <value>제한없음</value>
+  </data>
+  <data name="CSTRESX00135" xml:space="preserve">
+    <value>알수없음</value>
+  </data>
+  <data name="CSTRESX00136" xml:space="preserve">
+    <value>(받는사람 없음)</value>
+  </data>
+  <data name="CSTRESX00137" xml:space="preserve">
+    <value>(참조자 없음)</value>
+  </data>
+  <data name="CSTRESX00138" xml:space="preserve">
+    <value>(숨은참조자 없음)</value>
+  </data>
+  <data name="CSTRESX00139" xml:space="preserve">
+    <value>답장 : {0}</value>
+  </data>
+  <data name="CSTRESX00140" xml:space="preserve">
+    <value>전체답장 : {0}</value>
+  </data>
+  <data name="CSTRESX00141" xml:space="preserve">
+    <value>전달 : {0}</value>
+  </data>
+  <data name="CSTRESX00142" xml:space="preserve">
+    <value>[제목 없음]</value>
+  </data>
+  <data name="CSTRESX00143" xml:space="preserve">
+    <value>수신확인</value>
+  </data>
+  <data name="CSTRESX00144" xml:space="preserve">
+    <value>까지(30일간)</value>
+  </data>
+  <data name="CSTRESX00145" xml:space="preserve">
+    <value>첨부 :</value>
+  </data>
+  <data name="CSTRESX00146" xml:space="preserve">
+    <value>전체해지</value>
+  </data>
+  <data name="CSTRESX00147" xml:space="preserve">
+    <value>선택된 확인데이터를 삭제 합니다.</value>
+  </data>
+  <data name="CSTRESX00148" xml:space="preserve">
+    <value>중요메일</value>
+  </data>
+  <data name="CSTRESX00149" xml:space="preserve">
+    <value>중요메일만 표시합니다.</value>
+  </data>
+  <data name="CSTRESX00150" xml:space="preserve">
+    <value>첨부메일</value>
+  </data>
+  <data name="CSTRESX00151" xml:space="preserve">
+    <value>첨부파일이 존재하는 메일만 표시합니다.</value>
+  </data>
+  <data name="CSTRESX00152" xml:space="preserve">
+    <value>받는사람</value>
+  </data>
+  <data name="CSTRESX00153" xml:space="preserve">
+    <value>수신인에 자신이 포함된 메일만 표시합니다.</value>
+  </data>
+  <data name="CSTRESX00154" xml:space="preserve">
+    <value>비우기</value>
+  </data>
+  <data name="CSTRESX00155" xml:space="preserve">
+    <value>메일함의 메일을 비웁니다.</value>
+  </data>
+  <data name="CSTRESX00156" xml:space="preserve">
+    <value>모두 읽음표시</value>
+  </data>
+  <data name="CSTRESX00157" xml:space="preserve">
+    <value>메일함의 읽지않은 메일을 읽음으로 변경합니다.</value>
+  </data>
+  <data name="CSTRESX00158" xml:space="preserve">
+    <value>읽은 메일 삭제</value>
+  </data>
+  <data name="CSTRESX00159" xml:space="preserve">
+    <value>읽은 메일을 삭제합니다.</value>
+  </data>
+  <data name="CSTRESX00160" xml:space="preserve">
+    <value>읽지 않은 메일 삭제</value>
+  </data>
+  <data name="CSTRESX00161" xml:space="preserve">
+    <value>읽지 않은 메일을 삭제합니다.</value>
+  </data>
+  <data name="CSTRESX00162" xml:space="preserve">
+    <value>메일쓰기</value>
+  </data>
+  <data name="CSTRESX00163" xml:space="preserve">
+    <value>해당 주소로 새 메일을 작성합니다.</value>
+  </data>
+  <data name="CSTRESX00164" xml:space="preserve">
+    <value>보낸 사람으로 검색하기</value>
+  </data>
+  <data name="CSTRESX00165" xml:space="preserve">
+    <value>해당 폴더에서 이사람이 보낸메일을 검색합니다.</value>
+  </data>
+  <data name="CSTRESX00166" xml:space="preserve">
+    <value>받는 사람으로 검색하기</value>
+  </data>
+  <data name="CSTRESX00167" xml:space="preserve">
+    <value>해당 폴더에서 이사람이 받는사람으로 지정된 메일을 검색합니다.</value>
+  </data>
+  <data name="CSTRESX00168" xml:space="preserve">
+    <value>보낸 사람으로 검색하기(전체)</value>
+  </data>
+  <data name="CSTRESX00169" xml:space="preserve">
+    <value>전체 폴더에서 이사람이 보낸메일을 검색합니다.</value>
+  </data>
+  <data name="CSTRESX00170" xml:space="preserve">
+    <value>받는 사람으로 검색하기(전체)</value>
+  </data>
+  <data name="CSTRESX00171" xml:space="preserve">
+    <value>전체 폴더에서 이사람이 받는사람으로 지정된 메일을 검색합니다.</value>
+  </data>
+  <data name="CSTRESX00172" xml:space="preserve">
+    <value>주고받은 메일 표시</value>
+  </data>
+  <data name="CSTRESX00173" xml:space="preserve">
+    <value>이 사람과 주고 받은 메세지를 확인합니다.</value>
+  </data>
+  <data name="CSTRESX00174" xml:space="preserve">
+    <value>중요 플레그 지정하기</value>
+  </data>
+  <data name="CSTRESX00175" xml:space="preserve">
+    <value>선택된 주소로 들어오는 메일은 중요 플레그를 자동으로 추가합니다.</value>
+  </data>
+  <data name="CSTRESX00176" xml:space="preserve">
+    <value>주소추가</value>
+  </data>
+  <data name="CSTRESX00177" xml:space="preserve">
+    <value>이 사람을 주소록에 추가합니다.</value>
+  </data>
+  <data name="CSTRESX00178" xml:space="preserve">
+    <value>차단하기</value>
+  </data>
+  <data name="CSTRESX00179" xml:space="preserve">
+    <value>이 사람을 차단합니다.</value>
+  </data>
+  <data name="CSTRESX00180" xml:space="preserve">
+    <value>받은 메일 모두 삭제</value>
+  </data>
+  <data name="CSTRESX00181" xml:space="preserve">
+    <value>이 사람에게 받은 메일을 모두 삭제합니다.</value>
+  </data>
+  <data name="CSTRESX00182" xml:space="preserve">
+    <value>메일 쓰기화면을 로딩중입니다. 잠시만 기다려 주세요.</value>
+  </data>
+</root>

@@ -1,0 +1,207 @@
+/* Common */
+body {
+    color: black;
+
+    font-size: 11px;
+	padding: 0px; 
+	margin: 0px;
+}
+.BodyBackColor {
+    background-color: #A9ACB4;
+}
+a {
+    color: #5a9ddb;
+    text-decoration: underline;   
+}
+a:hover {
+    color: #9aceff;
+}
+a:visited {
+    color: #c983e4;
+    text-decoration: underline;   
+}
+div.PageContent {
+    padding: 0px 0px 0px 0px;
+}
+/* Action Container Panel */
+.ACPanel 
+{
+	background-color: #9B9EA7;
+    border-collapse: separate;
+	border-top: solid 1px #696969;
+	padding: 2px 5px 1px 20px;
+	height: 25px;
+}	
+/* Main table */
+.Main {
+	background: white;
+}
+h1 {
+	color: Black;
+	
+	font-size: 200%;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-weight: normal;
+	margin: 0px 0px 0px 0px;
+	padding: 0px;
+}
+/* Footer */
+.FooterCopyright {
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	text-align: right;
+	
+	color: #E5E9ED;
+}
+/* Dialog */
+body.Dialog {
+	background-color: White !important;
+}
+div.DialogPageContent {
+	margin: 0px;
+}
+div.Header {
+	width: 100%;
+	height: 80px;
+	margin: 0px;
+}
+.PopupWindow .dxpc-footer {
+    background: white!important;
+    border-top: none!important;
+}
+/* Error */
+.Error {
+	color: Black;
+}
+
+/* Controls customization */
+.dxgvControl_eniThm {
+	width: 100%;
+}
+.dxtcControl_eniThm,
+.dxtcLite_eniThm {
+    width: 100% !important;
+}
+.NavigationTabsActionContainer .dxtcControl_eniThm,
+.NavigationTabsActionContainer .dxtcLite_eniThm {
+	background-color: #9B9EA7;
+	border-top: solid 1px #696969;
+}
+.NavigationTabsActionContainer .dxtcPageContent_eniThm,
+.NavigationTabsActionContainer .dxtcLite_eniThm .dxtc-content {
+	padding-left: 18px;
+    border: none !important;
+}
+.NavigationTabsActionContainer .dxtcLeftIndentCell_eniThm div,
+.NavigationTabsActionContainer .dxtcLite_eniThm .dxtc-leftIndent {
+	width: 15px !important;
+}
+.NavigationTabsActionContainer .dxtcLite_eniThm .dxtc-tab,
+.NavigationTabsActionContainer .dxtcLite_eniThm .dxtc-activeTab
+{
+    margin-top: 4px !important;
+}
+.NavigationTabsActionContainer .dxtcLite_eniThm .dxtc-leftIndent,
+.NavigationTabsActionContainer .dxtcLite_eniThm .dxtc-spacer,
+.NavigationTabsActionContainer .dxtcLite_eniThm .dxtc-rightIndent,
+.NavigationTabsActionContainer .dxtcLite_eniThm .dxtc-sbWrapper,
+.NavigationTabsActionContainer .dxtcLite_eniThm .dxtc-sbIndent,
+.NavigationTabsActionContainer .dxtcLite_eniThm .dxtc-sbSpacer
+{
+	height: 25px;
+}
+.NavigationTabsActionContainer .dxtc-content .dxmLite_eniThm .menuLinks_eniThm
+{
+    padding-left: 22px !important;
+}
+.NavigationTabsActionContainer .dxtcLite_eniThm .dxtc-strip
+{
+    padding-top: 0px !important;
+} 
+.ACV .dxmVerticalMenuItemWithImage_eniThm
+{
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+}
+/* NavigationHistory (NavigationHistoryActionContainer) */
+.NavigationHistoryLinks {
+	color: #86888D;
+	padding: 0px 0px 0px 2px;
+}
+.NavigationHistoryLinks a:hover {
+	text-decoration: underline;
+    color: #9aceff;
+}
+.NavigationHistoryLinks a, .NavigationHistoryLinks a:visited {
+	text-decoration: underline;
+    color: #5a9ddb;
+}
+.NavigationHistoryLinks a.Current, .NavigationHistoryLinks a.Current:hover, .NavigationHistoryLinks a.Current:visited {
+	text-decoration: none;
+	color: #86888D;
+}
+.Security .dxmMenuSeparator_eniThm,
+.Security .dxmLite_eniThm .dxm-separator {
+	padding: 0px 11px 0px 11px!important;
+}
+.Security .dxmLite_eniThm .dxm-separator b
+{
+    margin-top: 0px !important;
+}
+.TabsContainer .dxmMenuSeparator_eniThm,
+.TabsContainer .dxmLite_eniThm .dxm-separator {
+	padding: 0px 10px 0px 16px!important;
+}
+.LayoutTabContainerWithNestedFrame > .Item:first-child > .NestedFrame > .ToolBarUpdatePanel > .ToolBar .dxmMenu_eniThm,
+.LayoutTabContainerWithNestedFrame > .Item:first-child > .NestedFrame > .ToolBarUpdatePanel > .ToolBar .dxmLite_eniThm .dxm-main {
+	border-top: 0px;
+}
+.LayoutTabContainerWithNestedFrame > .Item > .NestedFrame > .ToolBarUpdatePanel > .ToolBar .dxmMenu_eniThm,
+.LayoutTabContainerWithNestedFrame > .Item > .NestedFrame > .ToolBarUpdatePanel > .ToolBar .dxmLite_eniThm .dxm-main
+{
+	border-left: 0px;
+	border-right: 0px;
+}
+.Layout .TabControlContent {
+	padding: 0px !important;
+}
+.Layout .TabControlContent > div {
+	padding: 0px !important;
+}
+.HorizontalTemplateHeader,
+.VerticalTemplateHeader,
+.Header {
+	background-color: #A9ACB4;
+}
+.RecordsNavigationContainer .menuLinks_eniThm {
+	padding-left: 8px;
+}
+.RecordsNavigationContainer .menuLinks_eniThm .dxmMenuItemWithImage_eniThm {
+	padding-left: 3px;
+}
+.RecordsNavigationContainer .dxmLite_eniThm .dxm-content,
+.RecordsNavigationContainer .dxmLite_eniThm .dxm-disabled.dxm-content
+{
+    padding-left: 1px !important;
+    padding-right: 1px !important;
+}
+.EditModeActions .dxmLite_eniThm
+{
+	margin-right: 3px !important;
+}
+.Content .EditModeActions .dxmLite_eniThm
+{
+    margin-right: 2px !important;
+}
+.RecordsNavigationContainer .dxmLite_eniThm
+{
+    margin-right: 7px !important;
+}
+.ACH.MainToolbar .dxmLite_eniThm .dxm-main
+{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+.dxtvControl_eniThm.TreeViewNavControl a {
+    color: #000;
+}

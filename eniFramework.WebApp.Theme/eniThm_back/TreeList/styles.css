@@ -1,0 +1,298 @@
+.dxtlControl_eniThm
+{
+	cursor: default;
+	font: 11px Dotum, '돋움', 'Segoe UI', Helvetica, 'Droid Sans', AppleSDGothicNeo, Tahoma, Geneva, sans-serif;
+	color: Black;
+	border: 1px solid #868b91;
+}
+.dxtlControl_eniThm caption
+{
+	font-weight: normal;
+	color: Black;
+	padding: 3px 3px 5px;
+	text-align: center;
+	background: #e8ebee url('CssImages/TitleBack.png') repeat-x left top;
+	border-bottom: 0 solid #868b91;
+	border: 1px solid #868b91;
+}
+
+/* Indent cells */
+.dxtlIndent_eniThm,
+.dxtlIndentWithButton_eniThm
+{
+	vertical-align: top;
+	background: white none no-repeat top center;
+}
+.dxtlIndent_eniThm
+{
+	padding: 0 11px;
+}
+.dxtlIndentWithButton_eniThm
+{
+	padding: 4px 5px;
+}
+.dxtlSelectionCell_eniThm
+{
+	border-width: 0;
+}
+
+/* Tree-lines cells */
+.dxtlLineRoot_eniThm,
+.dxtlLineFirst_eniThm,
+.dxtlLineMiddle_eniThm,
+.dxtlLineLast_eniThm,
+.dxtlLineFirstRtl_eniThm,
+.dxtlLineMiddleRtl_eniThm,
+.dxtlLineLastRtl_eniThm
+{
+	background-color: Transparent;
+}
+
+.dxtlIndent_eniThm,
+.dxtlIndentWithButton_eniThm
+{
+	background-color: White;
+}
+
+/* Headers */
+.dxtlHeader_eniThm,
+.dxtlControl_eniThm .dxtlHSDC
+{
+    background: #e7eaee url('CssImages/HeaderBack.png') repeat-x left top;
+}
+.dxtlHeader_eniThm
+{
+	border: 1px solid #868b91;
+	padding: 5px 6px;
+	font-weight: normal;
+	color: #3b3b3b;
+}
+.dxtlHeader_eniThm table.dxtl
+{
+	border-collapse: collapse;
+	width: 100%;
+}
+.dxtlHeader_eniThm td.dxtl
+{
+	padding: 0;
+}
+.dxtlHeader_eniThm,
+.dxtlHeader_eniThm td.dxtl
+{
+	white-space: nowrap;
+	text-align: left;
+	overflow: hidden;
+}
+
+/* Nodes */
+.dxtlNode_eniThm
+{
+	background: white none;
+}
+.dxtlAltNode_eniThm > td.dxtl,
+.dxtlAltNode_eniThm > .dxtlCommandCell_eniThm,
+.dxtlAltNode_eniThm > .dxtlSelectionCell_eniThm
+{
+	background: #f7f7f8 none;
+}
+.dxtlAltNode_eniThm > .dxtlIndent_eniThm,
+.dxtlSelectedNode_eniThm > .dxtlIndent_eniThm,
+.dxtlFocusedNode_eniThm > .dxtlIndent_eniThm
+{
+	background: White none;
+}
+.dxtlSelectedNode_eniThm > td.dxtl,
+.dxtlSelectedNode_eniThm > .dxtlCommandCell_eniThm,
+.dxtlSelectedNode_eniThm > .dxtlSelectionCell_eniThm
+{
+	background: #faedb6 none;
+	color: Black;
+}
+.dxtlFocusedNode_eniThm td.dxtl,
+.dxtlFocusedNode_eniThm .dxtlCommandCell_eniThm,
+.dxtlFocusedNode_eniThm .dxtlSelectionCell_eniThm
+{
+	background: #fdf7d9 none;
+	color: Black;
+}
+.dxtlInlineEditNode_eniThm
+{
+	background: white none;
+}
+.dxtlEditFormDisplayNode_eniThm
+{
+	background: #f9fafb none;
+}
+
+.dxtlNode_eniThm td.dxtl,
+.dxtlAltNode_eniThm  td.dxtl,
+.dxtlSelectedNode_eniThm td.dxtl,
+.dxtlFocusedNode_eniThm td.dxtl,
+.dxtlEditFormDisplayNode_eniThm td.dxtl,
+.dxtlCommandCell_eniThm
+{
+	padding: 4px 6px;
+	border-width: 0;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.dxtlHeader_eniThm .dxbButton_eniThm,
+.dxtlCommandCell_eniThm .dxbButton_eniThm
+{
+    margin: 0 2px;
+}
+.dxtlHeader_eniThm .dxbButton_eniThm .dxb,
+.dxtlCommandCell_eniThm .dxbButton_eniThm .dxb
+{
+    padding-top: 0;
+    padding-bottom: 2px;
+}
+.dxtlEditFormDisplayNode_eniThm td.dxtl,
+.dxtlEditFormDisplayNode_eniThm td.dxtl__cc
+{
+	border-bottom: 1px solid #dbdee1;
+}
+.dxtlInlineEditNode_eniThm td.dxtl
+{
+	border-width: 0;
+	padding: 1px;
+}
+
+/* Preview */
+.dxtlPreview_eniThm
+{
+	background: #efeff0 none;
+	color: #777777;
+	padding: 14px;
+	border-width: 0;
+	overflow: hidden;
+}
+
+/* Footers */
+.dxtlGroupFooter_eniThm,
+.dxtlFooter_eniThm,
+.dxtlControl_eniThm .dxtlFSDC
+{
+	background-color: #f6f7f9;
+}
+.dxtlGroupFooter_eniThm td.dxtl,
+.dxtlFooter_eniThm td.dxtl
+{
+	padding: 6px;
+	white-space: nowrap;
+	border-top: 1px solid #dbdee1;
+	border-right: 1px solid #dbdee1;
+	border-bottom: 1px solid #dbdee1;
+	border-left-color: #dbdee1;
+	border-left-style: solid;
+	border-left-width: 0!important;
+	overflow: hidden;
+}
+.dxtlGroupFooter_eniThm .dx-ar > br,
+.dxtlFooter_eniThm .dx-ar > br
+{
+    float: none; 
+}
+
+/* Pagers */
+.dxtlPagerTopPanel_eniThm,
+.dxtlPagerBottomPanel_eniThm
+{
+	background: #e7eaee url('CssImages/PagerPanelBack.png') repeat-x left top;
+}
+.dxtlPagerTopPanel_eniThm
+{
+	border-bottom: 1px solid #b0b3b7;
+	padding-bottom: 2px;
+}
+.dxtlPagerBottomPanel_eniThm
+{
+	border-top: 1px solid #b0b3b7;
+	padding-bottom: 2px;
+}
+
+/* Editing */
+.dxtlEditForm_eniThm
+{
+	background: #f9fafb none;
+	border-width: 0;
+	padding: 8px 10px 10px;
+}
+.dxtlEditFormCaption_eniThm,
+.dxtlEditFormEditCell_eniThm
+{
+	padding: 4px;
+}
+.dxtlEditFormCaption_eniThm
+{
+	padding-left: 10px;
+	white-space: nowrap;
+}
+.dxtlError_eniThm
+{
+	background: #e9edf1 none;
+	color: #ba1717;
+	padding: 6px 10px;
+	border-width: 0;
+}
+.dxtlPopupEditForm_eniThm
+{
+	padding: 12px;
+}
+
+/* Links */
+.dxtlControl_eniThm a
+{
+	color: #5a9ddb;
+	text-decoration: none;
+}
+.dxtlControl_eniThm a:hover
+{
+	text-decoration: underline;
+}
+
+.dxtlSelectedNode_eniThm a,
+.dxtlFocusedNode_eniThm a
+{
+	color: #5a9ddb;
+	text-decoration: none;
+}
+.dxtlSelectedNode_eniThm a:hover,
+.dxtlFocusedNode_eniThm a:hover
+{
+	text-decoration: underline;
+}
+.dxtlCommandCell_eniThm a
+{
+	margin-right: 3px;
+}
+
+/* Loading panel */
+.dxtlLoadingPanel_eniThm
+{
+	font: 11px Dotum, '돋움', 'Segoe UI', Helvetica, 'Droid Sans', AppleSDGothicNeo, Tahoma, Geneva, sans-serif;
+	color: #585e68;
+	background: White none;
+	border: 1px solid #80858d;
+}
+.dxtlLoadingPanel_eniThm td.dx
+{
+	white-space: nowrap;
+	text-align: center;
+	padding: 10px 14px;
+}
+.dxtlLoadingPanel_eniThm .dxlp-loadingImage
+{
+	background-image: url('../Web/Loading.gif');
+	height: 16px;
+	width: 16px;
+}
+
+/* Disabled */
+.dxtlDisabled_eniThm,
+.dxtlDisabled_eniThm .dxtl
+{
+	color: #989898;
+	cursor: default;
+}
+

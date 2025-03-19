@@ -1,0 +1,404 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CSTRESX00000" xml:space="preserve">
+    <value>个人设置</value>
+    <comment>개인설정</comment>
+  </data>
+  <data name="CSTRESX00001" xml:space="preserve">
+    <value>个人信息</value>
+    <comment>개인정보</comment>
+  </data>
+  <data name="CSTRESX00002" xml:space="preserve">
+    <value>个人新信息管理.</value>
+    <comment>개인 신상 정보를 관리합니다.</comment>
+  </data>
+  <data name="CSTRESX00003" xml:space="preserve">
+    <value>Groupware设置</value>
+    <comment>그룹웨어 설정</comment>
+  </data>
+  <data name="CSTRESX00004" xml:space="preserve">
+    <value>Groupware基准信息管理.</value>
+    <comment>그룹웨어 기준정보를 관리합니다.</comment>
+  </data>
+  <data name="CSTRESX00005" xml:space="preserve">
+    <value>收件箱管理</value>
+    <comment>메일함 관리</comment>
+  </data>
+  <data name="CSTRESX00006" xml:space="preserve">
+    <value>收件箱管理.</value>
+    <comment>메일함을 관리합니다.</comment>
+  </data>
+  <data name="CSTRESX00007" xml:space="preserve">
+    <value>公告栏设置</value>
+    <comment>게시판 설정</comment>
+  </data>
+  <data name="CSTRESX00008" xml:space="preserve">
+    <value>公告栏设置管理.</value>
+    <comment>게시판 설정을 관리합니다.</comment>
+  </data>
+  <data name="CSTRESX00009" xml:space="preserve">
+    <value>署名/回帖设置</value>
+    <comment>서명/답장 설정</comment>
+  </data>
+  <data name="CSTRESX00010" xml:space="preserve">
+    <value>署名及回帖设置管理.</value>
+    <comment>서명 및 답장 설정을 관리합니다.</comment>
+  </data>
+  <data name="CSTRESX00011" xml:space="preserve">
+    <value>垃圾箱设置</value>
+    <comment>스팸 설정</comment>
+  </data>
+  <data name="CSTRESX00012" xml:space="preserve">
+    <value>垃圾邮件关联的设置管理.</value>
+    <comment>스팸 메일에 관련된 설정을 관리합니다.</comment>
+  </data>
+  <data name="CSTRESX00013" xml:space="preserve">
+    <value>收信拒收/解除</value>
+    <comment>수신 차단/해제</comment>
+  </data>
+  <data name="CSTRESX00014" xml:space="preserve">
+    <value>管理收信拒收.</value>
+    <comment>수신 차단을 관리합니다.</comment>
+  </data>
+  <data name="CSTRESX00015" xml:space="preserve">
+    <value>外部邮件导入</value>
+    <comment>외부 메일 가져오기</comment>
+  </data>
+  <data name="CSTRESX00016" xml:space="preserve">
+    <value>外部邮件导入管理.</value>
+    <comment>외부 메일 가져오기를 관리합니다.</comment>
+  </data>
+  <data name="CSTRESX00017" xml:space="preserve">
+    <value>패밀리 싸이트</value>
+    <comment>패밀리 싸이트</comment>
+  </data>
+  <data name="CSTRESX00018" xml:space="preserve">
+    <value>패밀리 싸이트에 관한 설정을 관리합니다.</value>
+    <comment>패밀리 싸이트에 관한 설정을 관리합니다.</comment>
+  </data>
+  <data name="CSTRESX00019" xml:space="preserve">
+    <value>我的信息</value>
+    <comment>내 정보</comment>
+  </data>
+  <data name="CSTRESX00020" xml:space="preserve">
+    <value>照片</value>
+    <comment>사진</comment>
+  </data>
+  <data name="CSTRESX00021" xml:space="preserve">
+    <value>社员证照片</value>
+    <comment>사원증 사진</comment>
+  </data>
+  <data name="CSTRESX00022" xml:space="preserve">
+    <value>上传照片</value>
+    <comment>사진 올리기</comment>
+  </data>
+  <data name="CSTRESX00023" xml:space="preserve">
+    <value>删除</value>
+    <comment>삭제</comment>
+  </data>
+  <data name="CSTRESX00024" xml:space="preserve">
+    <value>删除照片.</value>
+    <comment>사진을 삭제합니다.</comment>
+  </data>
+  <data name="CSTRESX00025" xml:space="preserve">
+    <value>姓名(韩文/中文)</value>
+    <comment>이름(한글/중문)</comment>
+  </data>
+  <data name="CSTRESX00026" xml:space="preserve">
+    <value>协力公司的情况,有可能没有指定.</value>
+    <comment>협력업체의 경우 지정되어있지 않을수도 있습니다.</comment>
+  </data>
+  <data name="CSTRESX00027" xml:space="preserve">
+    <value>姓名(英文)</value>
+    <comment>이름(영문)</comment>
+  </data>
+  <data name="CSTRESX00028" xml:space="preserve">
+    <value>英文姓名没有指定.请指定英文姓名.</value>
+    <comment>영문 이름이 지정되어있지 않습니다. 영문이름을 지정하세요.</comment>
+  </data>
+  <data name="CSTRESX00029" xml:space="preserve">
+    <value>*协力公司的情况,有可能没有指定.</value>
+    <comment>*협력업체의 경우 지정되어있지 않을수도 있습니다.</comment>
+  </data>
+  <data name="CSTRESX00030" xml:space="preserve">
+    <value>姓名(汉字/中文)</value>
+    <comment>이름(한자/중문)</comment>
+  </data>
+  <data name="CSTRESX00031" xml:space="preserve">
+    <value>汉字姓名没有指定,请指定汉字姓名.</value>
+    <comment>한자 이름이 지정되어있지 않습니다. 한자 이름을 지정하세요.</comment>
+  </data>
+  <data name="CSTRESX00032" xml:space="preserve">
+    <value>协力公司的情况,有可能没有指定.</value>
+    <comment>협력업체의 경우 지정되어있지 않을수도 있습니다.</comment>
+  </data>
+  <data name="CSTRESX00033" xml:space="preserve">
+    <value>姓名(名称)</value>
+    <comment>이름(닉네임)</comment>
+  </data>
+  <data name="CSTRESX00034" xml:space="preserve">
+    <value>名称没有设置.请设置名称.</value>
+    <comment>닉네임이 설정되어있지 않습니다. 닉네임을 설정하세요.</comment>
+  </data>
+  <data name="CSTRESX00035" xml:space="preserve">
+    <value>*名称未设置时,标记其他Groupware使用者姓名.</value>
+    <comment>*닉네임 미설정시 다른 그룹웨어 사용자에게는 이름이 표시됩니다.</comment>
+  </data>
+  <data name="CSTRESX00036" xml:space="preserve">
+    <value>请输入一行介绍.</value>
+    <comment>한 줄 소개를 입력하세요.</comment>
+  </data>
+  <data name="CSTRESX00037" xml:space="preserve">
+    <value>*一行介绍,请表现下自己.</value>
+    <comment>*한 줄 소개로 개성있는 나를 표현해 보세요.</comment>
+  </data>
+  <data name="CSTRESX00038" xml:space="preserve">
+    <value>账户(识别号码) - 有效日</value>
+    <comment>아이디(식별번호) - 유효일</comment>
+  </data>
+  <data name="CSTRESX00039" xml:space="preserve">
+    <value>外部认证邮箱地址</value>
+    <comment>외부 인증 메일 주소</comment>
+  </data>
+  <data name="CSTRESX00040" xml:space="preserve">
+    <value>外部认证邮箱没有设置,请设置外部认证邮箱.</value>
+    <comment>외부 인증메일이 설정되어있지 않습니다. 외부 인증메일을 설정하세요.</comment>
+  </data>
+  <data name="CSTRESX00041" xml:space="preserve">
+    <value>*外部认证邮箱是密码丢失时,发送临时密码发送到设置的邮箱地址.</value>
+    <comment>*외부 인증메일이란 비밀번호 분실시 설정된 메일주로소 임시 비밀번호가 발송됩니다.</comment>
+  </data>
+  <data name="CSTRESX00042" xml:space="preserve">
+    <value>密码 - 有效日</value>
+    <comment>비밀번호 - 유효일</comment>
+  </data>
+  <data name="CSTRESX00043" xml:space="preserve">
+    <value>英文 小/大 特殊文字组合.</value>
+    <comment>영문 소/대 특수문자 조합니다.</comment>
+  </data>
+  <data name="CSTRESX00044" xml:space="preserve">
+    <value>*请再次确认密码.</value>
+    <comment>*비밀번호를 다시 확인합니다.</comment>
+  </data>
+  <data name="CSTRESX00045" xml:space="preserve">
+    <value>生日</value>
+    <comment>생일</comment>
+  </data>
+  <data name="CSTRESX00046" xml:space="preserve">
+    <value>入社日</value>
+    <comment>입사일</comment>
+  </data>
+  <data name="CSTRESX00047" xml:space="preserve">
+    <value>社内内线号码</value>
+    <comment>사내 내선 번호</comment>
+  </data>
+  <data name="CSTRESX00048" xml:space="preserve">
+    <value>社内内线号码没有设置,请指定内线号码.</value>
+    <comment>사내 내선 번호가 설정되어있지 않습니다. 내선번호를 지정하세요.</comment>
+  </data>
+  <data name="CSTRESX00049" xml:space="preserve">
+    <value>*请输入社内内线号码.例如0585的话输入585,所有电话号码设置.</value>
+    <comment>*사내 내선번호만 입력하시면 됩니다. 예를들어 0585 이면 585만 입력하시면 전체 전화번호가 설정됩니다.</comment>
+  </data>
+  <data name="CSTRESX00050" xml:space="preserve">
+    <value>没有指定的手机号码.请指定手机号码.</value>
+    <comment>휴대폰 번호가 지정되어있지 않습니다. 휴대폰 번호를 지정하세요.</comment>
+  </data>
+  <data name="CSTRESX00051" xml:space="preserve">
+    <value>*手机号码变更时请更新下号码. ERP使用者信息无法自动变更.</value>
+    <comment>*휴대폰 번호가 변경되었으면 변경된 번호로 업데이트 하세요. 단 ERP 사용자 정보에는 자동으로 변경되지는 않습니다.</comment>
+  </data>
+  <data name="CSTRESX00052" xml:space="preserve">
+    <value>紧急联系方式</value>
+    <comment>긴급연락망</comment>
+  </data>
+  <data name="CSTRESX00053" xml:space="preserve">
+    <value>是否指定紧急联系方式.</value>
+    <comment>긴급연락망을 지정하여부세요.</comment>
+  </data>
+  <data name="CSTRESX00054" xml:space="preserve">
+    <value>*紧急联系方式是有要紧的业务,才能联系的方式.</value>
+    <comment>*긴급연락망은 정말 급한 업무적인 일로 연락이 가능한 번호여야 합니다.</comment>
+  </data>
+  <data name="CSTRESX00055" xml:space="preserve">
+    <value>地址</value>
+    <comment>주소</comment>
+  </data>
+  <data name="CSTRESX00056" xml:space="preserve">
+    <value>组织 / 属性</value>
+    <comment>조직 / 속성</comment>
+  </data>
+  <data name="CSTRESX00057" xml:space="preserve">
+    <value>所属事业场</value>
+    <comment>소속 사업장</comment>
+  </data>
+  <data name="CSTRESX00058" xml:space="preserve">
+    <value>所属工厂</value>
+    <comment>소속 공장</comment>
+  </data>
+  <data name="CSTRESX00059" xml:space="preserve">
+    <value>所属部门</value>
+    <comment>소속 부서</comment>
+  </data>
+  <data name="CSTRESX00060" xml:space="preserve">
+    <value>职位</value>
+    <comment>직급</comment>
+  </data>
+  <data name="CSTRESX00061" xml:space="preserve">
+    <value>账户种类</value>
+    <comment>계정 종류</comment>
+  </data>
+  <data name="CSTRESX00062" xml:space="preserve">
+    <value>账户类型</value>
+    <comment>계정 타입</comment>
+  </data>
+  <data name="CSTRESX00063" xml:space="preserve">
+    <value>账户区分</value>
+    <comment>계정 구분</comment>
+  </data>
+  <data name="CSTRESX00064" xml:space="preserve">
+    <value>变更事项保存</value>
+    <comment>변경사항 저장</comment>
+  </data>
+  <data name="CSTRESX00065" xml:space="preserve">
+    <value>变更的所有内容保存.</value>
+    <comment>변경된 모든내용을 저장합니다.</comment>
+  </data>
+  <data name="CSTRESX00066" xml:space="preserve">
+    <value>取消</value>
+    <comment>취소</comment>
+  </data>
+  <data name="CSTRESX00067" xml:space="preserve">
+    <value>变更事项取消</value>
+    <comment>변경사항을 취소합니다.</comment>
+  </data>
+  <data name="CSTRESX00068" xml:space="preserve">
+    <value>一行介绍</value>
+    <comment>한줄소개</comment>
+  </data>
+  <data name="CSTRESX00069" xml:space="preserve">
+    <value>账户邮箱地址</value>
+    <comment>계정 메일 주소</comment>
+  </data>
+  <data name="CSTRESX00070" xml:space="preserve">
+    <value>手机号码</value>
+    <comment>휴대폰번호</comment>
+  </data>
+</root>

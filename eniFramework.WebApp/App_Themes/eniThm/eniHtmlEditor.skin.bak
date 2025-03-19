@@ -1,0 +1,318 @@
+﻿<%@ Register TagPrefix="dx" Namespace="DevExpress.Data" Assembly="DevExpress.Data.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register Assembly="DevExpress.Web.ASPxHtmlEditor.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web.ASPxHtmlEditor" TagPrefix="dx" %>
+<%@ Register TagPrefix="eni" Namespace="eniFramework.WebApp.Controls" Assembly="eniFramework.WebApp.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" %>
+
+<%-- eniFramework Default Mode Skin --%>
+<eni:eniHtmlEditor runat="server" Width="740px">
+    <Images SpriteCssFilePath="{0}/sprite.css">
+	</Images>
+    <ImagesFileManager>
+        <FolderContainerNodeLoadingPanel Url="Web/tvNodeLoading.gif" />
+    </ImagesFileManager>
+	<Styles CssPostfix="eniThm" CssFilePath="{0}/styles.css">
+        <ViewArea Border-BorderColor="#868b91" />
+    </Styles>
+	<StylesStatusBar>
+        <StatusBar TabSpacing="0">
+            <Paddings Padding="0" />
+        </StatusBar>    
+    </StylesStatusBar>
+</eni:eniHtmlEditor>
+
+
+<%-- eniFramework Mail Skin --%>
+<eni:eniHtmlEditor runat="server" SkinID="Mail"
+    Width="100%"
+    ActiveView="Design"
+    AccessibilityCompliant="True">
+    <SettingsText DesignViewTab="디자인" HtmlViewTab="소스" PreviewTab="미리보기"/>
+    <Settings AllowContextMenu="False" AllowCustomColorsInColorPickers="true"/>
+    <SettingsResize AllowResize="true" />
+    <SettingsHtmlEditing EnterMode="P" AllowScripts="false" AllowIFrames="false" AllowFormElements="false" AllowIdAttributes="true" AllowedDocumentType="XHTML" AllowStyleAttributes="true" 
+                            UpdateBoldItalic="true" UpdateDeprecatedElements="true"/>
+    <SettingsImageSelector Enabled="true"></SettingsImageSelector>
+    <Border BorderColor="Silver" BorderStyle="Solid" BorderWidth="1px"/>
+    <BorderLeft BorderWidth="0px" />
+    <BorderRight BorderWidth="0px" />
+    <BorderBottom BorderWidth="0px" />
+    <Images SpriteCssFilePath="{0}/sprite.css" MenuIconSet="Colored"></Images>
+    <ImagesFileManager>
+        <FolderContainerNodeLoadingPanel Url="Web/tvNodeLoading.gif" />
+    </ImagesFileManager>
+	<Styles CssPostfix="eniThm" CssFilePath="{0}/styles.css">
+        <ViewArea Border-BorderColor="#868b91" />
+    </Styles>
+	<StylesStatusBar>
+        <StatusBar TabSpacing="0">
+            <Paddings Padding="0" />
+        </StatusBar>    
+    </StylesStatusBar>
+    <Toolbars>
+        <dx:HtmlEditorToolbar>
+            <Items>
+                <dx:ToolbarFontNameEdit ToolTip="글꼴" DefaultCaption="돋움 (가나다라)" Width="130px">
+                    <Items>
+                        <dx:ToolbarListEditItem Text="돋움 (가나다라)" Value="Dotum" Selected="False" />
+                        <dx:ToolbarListEditItem Text="돋움체 (가나다라)" Value="Dotumche" />
+                        <dx:ToolbarListEditItem Text="굴림 (가나다라)" Value="Gulim" />
+                        <dx:ToolbarListEditItem Text="굴림체 (가나다라)" Value="Gulimche" />
+                        <dx:ToolbarListEditItem Text="바탕 (가나다라)" Value="Batang" />
+                        <dx:ToolbarListEditItem Text="바탕체 (가나다라)" Value="Batangche" />
+                        <dx:ToolbarListEditItem Text="궁서 (가나다라)" Value="Gungsuh" />
+                        <dx:ToolbarListEditItem Text="Arial (ABCabc)" Value="Arial" />
+                        <dx:ToolbarListEditItem Text="Tahoma (ABCabc)" Value="Tahoma" />
+                        <dx:ToolbarListEditItem Text="Times New Roman (ABCabc)" Value="Times New Roman" />
+                        <dx:ToolbarListEditItem Text="Verdana (ABCabc)" Value="Verdana" />
+                        <dx:ToolbarListEditItem Text="Courier New (ABCabc)" Value="Courier New" />
+                    </Items>
+                </dx:ToolbarFontNameEdit>
+                <dx:ToolbarFontSizeEdit ToolTip="크기" DefaultCaption="가나다ABCabc (1pt)" Width="130px">
+                    <Items>
+                        <dx:ToolbarListEditItem Text="가나다ABCabc (1pt)" Value="1"  Selected="True" />
+                        <dx:ToolbarListEditItem Text="가나다ABCabc (2pt)" Value="2" />
+                        <dx:ToolbarListEditItem Text="가나다ABCabc (3pt)" Value="3" />
+                        <dx:ToolbarListEditItem Text="가나다ABCabc (4pt)" Value="4" />
+                        <dx:ToolbarListEditItem Text="가나다ABCabc (5pt)" Value="5" />
+                        <dx:ToolbarListEditItem Text="가나다ABCabc (6pt)" Value="6" />
+                        <dx:ToolbarListEditItem Text="가나다ABCabc (7pt)" Value="7" />
+                    </Items>
+                </dx:ToolbarFontSizeEdit>
+                <dx:ToolbarRemoveFormatButton BeginGroup="true"></dx:ToolbarRemoveFormatButton>
+                <dx:ToolbarInsertOrderedListButton BeginGroup="true"></dx:ToolbarInsertOrderedListButton>
+                <dx:ToolbarInsertUnorderedListButton></dx:ToolbarInsertUnorderedListButton>
+                <dx:ToolbarIndentButton></dx:ToolbarIndentButton>
+                <dx:ToolbarOutdentButton></dx:ToolbarOutdentButton>    
+                <dx:ToolbarBoldButton BeginGroup="true"></dx:ToolbarBoldButton>
+                <dx:ToolbarItalicButton></dx:ToolbarItalicButton>
+                <dx:ToolbarUnderlineButton></dx:ToolbarUnderlineButton>
+                <dx:ToolbarStrikethroughButton></dx:ToolbarStrikethroughButton>
+                <dx:ToolbarJustifyLeftButton BeginGroup="true"></dx:ToolbarJustifyLeftButton>
+                <dx:ToolbarJustifyCenterButton></dx:ToolbarJustifyCenterButton>
+                <dx:ToolbarJustifyCenterButton></dx:ToolbarJustifyCenterButton>
+                <dx:ToolbarJustifyFullButton></dx:ToolbarJustifyFullButton>
+                <dx:ToolbarBackColorButton BeginGroup="true"></dx:ToolbarBackColorButton>
+                <dx:ToolbarFontColorButton></dx:ToolbarFontColorButton>
+                <dx:ToolbarSuperscriptButton BeginGroup="true"></dx:ToolbarSuperscriptButton>
+                <dx:ToolbarSubscriptButton></dx:ToolbarSubscriptButton>
+                <dx:ToolbarInsertLinkDialogButton BeginGroup="true"></dx:ToolbarInsertLinkDialogButton>
+                <dx:ToolbarUnlinkButton></dx:ToolbarUnlinkButton>
+                <dx:ToolbarInsertImageDialogButton></dx:ToolbarInsertImageDialogButton>
+                <dx:ToolbarTableOperationsDropDownButton BeginGroup="True">
+                    <Items>
+                        <dx:ToolbarInsertTableDialogButton BeginGroup="True" ViewStyle="ImageAndText">
+                        </dx:ToolbarInsertTableDialogButton>
+                        <dx:ToolbarTablePropertiesDialogButton BeginGroup="True">
+                        </dx:ToolbarTablePropertiesDialogButton>
+                        <dx:ToolbarTableRowPropertiesDialogButton>
+                        </dx:ToolbarTableRowPropertiesDialogButton>
+                        <dx:ToolbarTableColumnPropertiesDialogButton>
+                        </dx:ToolbarTableColumnPropertiesDialogButton>
+                        <dx:ToolbarTableCellPropertiesDialogButton>
+                        </dx:ToolbarTableCellPropertiesDialogButton>
+                        <dx:ToolbarInsertTableRowAboveButton BeginGroup="True">
+                        </dx:ToolbarInsertTableRowAboveButton>
+                        <dx:ToolbarInsertTableRowBelowButton>
+                        </dx:ToolbarInsertTableRowBelowButton>
+                        <dx:ToolbarInsertTableColumnToLeftButton>
+                        </dx:ToolbarInsertTableColumnToLeftButton>
+                        <dx:ToolbarInsertTableColumnToRightButton>
+                        </dx:ToolbarInsertTableColumnToRightButton>
+                        <dx:ToolbarSplitTableCellHorizontallyButton BeginGroup="True">
+                        </dx:ToolbarSplitTableCellHorizontallyButton>
+                        <dx:ToolbarSplitTableCellVerticallyButton>
+                        </dx:ToolbarSplitTableCellVerticallyButton>
+                        <dx:ToolbarMergeTableCellRightButton>
+                        </dx:ToolbarMergeTableCellRightButton>
+                        <dx:ToolbarMergeTableCellDownButton>
+                        </dx:ToolbarMergeTableCellDownButton>
+                        <dx:ToolbarDeleteTableButton BeginGroup="True">
+                        </dx:ToolbarDeleteTableButton>
+                        <dx:ToolbarDeleteTableRowButton>
+                        </dx:ToolbarDeleteTableRowButton>
+                        <dx:ToolbarDeleteTableColumnButton>
+                        </dx:ToolbarDeleteTableColumnButton>
+                    </Items>
+                </dx:ToolbarTableOperationsDropDownButton>
+                <dx:ToolbarExportDropDownButton BeginGroup="True">
+                    <Items>
+                        <dx:ToolbarExportDropDownItem Format="Rtf">
+                        </dx:ToolbarExportDropDownItem>
+                        <dx:ToolbarExportDropDownItem Format="Pdf">
+                        </dx:ToolbarExportDropDownItem>
+                        <dx:ToolbarExportDropDownItem Format="Txt">
+                        </dx:ToolbarExportDropDownItem>
+                        <dx:ToolbarExportDropDownItem Format="Docx">
+                        </dx:ToolbarExportDropDownItem>
+                        <dx:ToolbarExportDropDownItem Format="Odt">
+                        </dx:ToolbarExportDropDownItem>
+                        <dx:ToolbarExportDropDownItem Format="Mht">
+                        </dx:ToolbarExportDropDownItem>
+                    </Items>
+                </dx:ToolbarExportDropDownButton>
+                <dx:ToolbarFullscreenButton BeginGroup="true"></dx:ToolbarFullscreenButton>
+            </Items>
+        </dx:HtmlEditorToolbar>
+    </Toolbars>
+</eni:eniHtmlEditor>
+
+<%-- eniFramework Board Skin --%>
+<eni:eniHtmlEditor runat="server" SkinID="Board"
+    Width="100%" Height="100%" 
+    ActiveView="Design"
+    AccessibilityCompliant="True">
+    <Settings AllowContextMenu="False" AllowCustomColorsInColorPickers="true"/>
+    <SettingsResize AllowResize="true" />
+    <SettingsHtmlEditing EnterMode="P" AllowScripts="false" AllowIFrames="false" AllowFormElements="false" AllowIdAttributes="true" AllowedDocumentType="XHTML" AllowStyleAttributes="true" 
+                            UpdateBoldItalic="true" UpdateDeprecatedElements="true"/>
+    <SettingsImageSelector Enabled="true"></SettingsImageSelector>
+    <Border BorderColor="Silver" BorderStyle="Solid" BorderWidth="1px"/>
+    <BorderLeft BorderWidth="0px" />
+    <BorderRight BorderWidth="0px" />
+    <BorderBottom BorderWidth="0px" />
+    <Images SpriteCssFilePath="{0}/sprite.css" MenuIconSet="Colored"></Images>
+    <ImagesFileManager>
+        <FolderContainerNodeLoadingPanel Url="Web/tvNodeLoading.gif" />
+    </ImagesFileManager>
+	<Styles CssPostfix="eniThm" CssFilePath="{0}/styles.css">
+        <ViewArea Border-BorderColor="#868b91" />
+    </Styles>
+	<StylesStatusBar>
+        <StatusBar TabSpacing="0">
+            <Paddings Padding="0" />
+        </StatusBar>    
+    </StylesStatusBar>
+</eni:eniHtmlEditor>
+
+
+<%-- eniFramework Advanced-01 Skin --%>
+<eni:eniHtmlEditor runat="server" CssClass="eniHtmlEditor-Advanced-01" SkinID="Advanced-01"
+    Width="100%"
+    ActiveView="Design">
+    <Settings AllowContextMenu="False" AllowCustomColorsInColorPickers="true"/>
+    <SettingsResize AllowResize="true" />
+    <SettingsHtmlEditing EnterMode="P" AllowScripts="false" AllowIFrames="false" AllowFormElements="false" UpdateBoldItalic="true" UpdateDeprecatedElements="true"/>
+    <SettingsImageSelector Enabled="true"></SettingsImageSelector>
+    <SettingsText DesignViewTab="디자인" HtmlViewTab="소스" PreviewTab="미리보기"/>
+    <Border BorderColor="Silver" BorderStyle="Solid" BorderWidth="1px"/>
+    <BorderLeft BorderWidth="0px" />
+    <BorderRight BorderWidth="0px" />
+    <BorderBottom BorderWidth="0px" />
+    <Images SpriteCssFilePath="{0}/sprite.css" MenuIconSet="Colored"></Images>
+    <ImagesFileManager>
+        <FolderContainerNodeLoadingPanel Url="Web/tvNodeLoading.gif" />
+    </ImagesFileManager>
+	<Styles CssPostfix="eniThm" CssFilePath="{0}/styles.css">
+        <ViewArea Border-BorderColor="#868b91" />
+    </Styles>
+	<StylesStatusBar>
+        <StatusBar TabSpacing="0">
+            <Paddings Padding="0" />
+        </StatusBar>    
+    </StylesStatusBar>
+    <Toolbars>
+        <dx:HtmlEditorToolbar>
+            <Items>
+                <dx:ToolbarFontNameEdit ToolTip="글꼴" DefaultCaption="돋움 (가나다라)" Width="130px">
+                    <Items>
+                        <dx:ToolbarListEditItem Text="돋움 (가나다라)" Value="Dotum" Selected="True" />
+                        <dx:ToolbarListEditItem Text="돋움체 (가나다라)" Value="Dotumche" />
+                        <dx:ToolbarListEditItem Text="굴림 (가나다라)" Value="Gulim" />
+                        <dx:ToolbarListEditItem Text="굴림체 (가나다라)" Value="Gulimche" />
+                        <dx:ToolbarListEditItem Text="바탕 (가나다라)" Value="Batang" />
+                        <dx:ToolbarListEditItem Text="바탕체 (가나다라)" Value="Batangche" />
+                        <dx:ToolbarListEditItem Text="궁서 (가나다라)" Value="Gungsuh" />
+                        <dx:ToolbarListEditItem Text="Arial (ABCabc)" Value="Arial" />
+                        <dx:ToolbarListEditItem Text="Tahoma (ABCabc)" Value="Tahoma" />
+                        <dx:ToolbarListEditItem Text="Times New Roman (ABCabc)" Value="Times New Roman" />
+                        <dx:ToolbarListEditItem Text="Verdana (ABCabc)" Value="Verdana" />
+                        <dx:ToolbarListEditItem Text="Courier New (ABCabc)" Value="Courier New" />
+                    </Items>
+                </dx:ToolbarFontNameEdit>
+                <dx:ToolbarFontSizeEdit ToolTip="크기" DefaultCaption="가나다ABCabc (11pt)" Width="130px">
+                    <Items>
+                        <dx:ToolbarListEditItem Text="가나다ABCabc (10pt)" Value="1" />
+                        <dx:ToolbarListEditItem Text="가나다ABCabc (11pt)" Value="2" Selected="True" />
+                        <dx:ToolbarListEditItem Text="가나다ABCabc (12pt)" Value="3" />
+                        <dx:ToolbarListEditItem Text="가나다ABCabc (13pt)" Value="4" />
+                        <dx:ToolbarListEditItem Text="가나다ABCabc (14pt)" Value="5" />
+                        <dx:ToolbarListEditItem Text="가나다ABCabc (18pt)" Value="6" />
+                        <dx:ToolbarListEditItem Text="가나다ABCabc (24pt)" Value="7" />
+                    </Items>
+                </dx:ToolbarFontSizeEdit>
+                <dx:ToolbarRemoveFormatButton BeginGroup="true"></dx:ToolbarRemoveFormatButton>
+                <dx:ToolbarInsertOrderedListButton BeginGroup="true"></dx:ToolbarInsertOrderedListButton>
+                <dx:ToolbarInsertUnorderedListButton></dx:ToolbarInsertUnorderedListButton>
+                <dx:ToolbarIndentButton></dx:ToolbarIndentButton>
+                <dx:ToolbarOutdentButton></dx:ToolbarOutdentButton>    
+                <dx:ToolbarBoldButton BeginGroup="true"></dx:ToolbarBoldButton>
+                <dx:ToolbarItalicButton></dx:ToolbarItalicButton>
+                <dx:ToolbarUnderlineButton></dx:ToolbarUnderlineButton>
+                <dx:ToolbarStrikethroughButton></dx:ToolbarStrikethroughButton>
+                <dx:ToolbarJustifyLeftButton BeginGroup="true"></dx:ToolbarJustifyLeftButton>
+                <dx:ToolbarJustifyCenterButton></dx:ToolbarJustifyCenterButton>
+                <dx:ToolbarJustifyCenterButton></dx:ToolbarJustifyCenterButton>
+                <dx:ToolbarJustifyFullButton></dx:ToolbarJustifyFullButton>
+                <dx:ToolbarBackColorButton BeginGroup="true"></dx:ToolbarBackColorButton>
+                <dx:ToolbarFontColorButton></dx:ToolbarFontColorButton>
+                <dx:ToolbarSuperscriptButton BeginGroup="true"></dx:ToolbarSuperscriptButton>
+                <dx:ToolbarSubscriptButton></dx:ToolbarSubscriptButton>
+                <dx:ToolbarInsertLinkDialogButton BeginGroup="true"></dx:ToolbarInsertLinkDialogButton>
+                <dx:ToolbarUnlinkButton></dx:ToolbarUnlinkButton>
+                <dx:ToolbarInsertImageDialogButton></dx:ToolbarInsertImageDialogButton>
+                <dx:ToolbarTableOperationsDropDownButton BeginGroup="True">
+                    <Items>
+                        <dx:ToolbarInsertTableDialogButton BeginGroup="True" ViewStyle="ImageAndText">
+                        </dx:ToolbarInsertTableDialogButton>
+                        <dx:ToolbarTablePropertiesDialogButton BeginGroup="True">
+                        </dx:ToolbarTablePropertiesDialogButton>
+                        <dx:ToolbarTableRowPropertiesDialogButton>
+                        </dx:ToolbarTableRowPropertiesDialogButton>
+                        <dx:ToolbarTableColumnPropertiesDialogButton>
+                        </dx:ToolbarTableColumnPropertiesDialogButton>
+                        <dx:ToolbarTableCellPropertiesDialogButton>
+                        </dx:ToolbarTableCellPropertiesDialogButton>
+                        <dx:ToolbarInsertTableRowAboveButton BeginGroup="True">
+                        </dx:ToolbarInsertTableRowAboveButton>
+                        <dx:ToolbarInsertTableRowBelowButton>
+                        </dx:ToolbarInsertTableRowBelowButton>
+                        <dx:ToolbarInsertTableColumnToLeftButton>
+                        </dx:ToolbarInsertTableColumnToLeftButton>
+                        <dx:ToolbarInsertTableColumnToRightButton>
+                        </dx:ToolbarInsertTableColumnToRightButton>
+                        <dx:ToolbarSplitTableCellHorizontallyButton BeginGroup="True">
+                        </dx:ToolbarSplitTableCellHorizontallyButton>
+                        <dx:ToolbarSplitTableCellVerticallyButton>
+                        </dx:ToolbarSplitTableCellVerticallyButton>
+                        <dx:ToolbarMergeTableCellRightButton>
+                        </dx:ToolbarMergeTableCellRightButton>
+                        <dx:ToolbarMergeTableCellDownButton>
+                        </dx:ToolbarMergeTableCellDownButton>
+                        <dx:ToolbarDeleteTableButton BeginGroup="True">
+                        </dx:ToolbarDeleteTableButton>
+                        <dx:ToolbarDeleteTableRowButton>
+                        </dx:ToolbarDeleteTableRowButton>
+                        <dx:ToolbarDeleteTableColumnButton>
+                        </dx:ToolbarDeleteTableColumnButton>
+                    </Items>
+                </dx:ToolbarTableOperationsDropDownButton>
+                <dx:ToolbarExportDropDownButton BeginGroup="True">
+                    <Items>
+                        <dx:ToolbarExportDropDownItem Format="Rtf">
+                        </dx:ToolbarExportDropDownItem>
+                        <dx:ToolbarExportDropDownItem Format="Pdf">
+                        </dx:ToolbarExportDropDownItem>
+                        <dx:ToolbarExportDropDownItem Format="Txt">
+                        </dx:ToolbarExportDropDownItem>
+                        <dx:ToolbarExportDropDownItem Format="Docx">
+                        </dx:ToolbarExportDropDownItem>
+                        <dx:ToolbarExportDropDownItem Format="Odt">
+                        </dx:ToolbarExportDropDownItem>
+                        <dx:ToolbarExportDropDownItem Format="Mht">
+                        </dx:ToolbarExportDropDownItem>
+                    </Items>
+                </dx:ToolbarExportDropDownButton>
+                <dx:ToolbarFullscreenButton BeginGroup="true"></dx:ToolbarFullscreenButton>
+            </Items>
+        </dx:HtmlEditorToolbar>
+    </Toolbars>
+</eni:eniHtmlEditor>

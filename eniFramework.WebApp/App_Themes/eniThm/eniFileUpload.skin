@@ -1,0 +1,26 @@
+﻿<%@ Register TagPrefix="dx" Namespace="DevExpress.Data" Assembly="DevExpress.Data.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Web" Assembly="DevExpress.Web.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="eni" Namespace="eniFramework.WebApp.Controls" Assembly="eniFramework.WebApp.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" %>
+
+<%-- eniFramework Default Mode Skin --%>
+<eni:eniFileUpload runat="server" CssPostfix="eniThm" SpriteCssFilePath="{0}/sprite.css" CssFilePath="{0}/styles.css">
+</eni:eniFileUpload>
+
+<%-- eniFramework Advanced-01 Mode Skin --%>
+<eni:eniFileUpload runat="server" CssPostfix="eniThm" SpriteCssFilePath="{0}/sprite.css" CssFilePath="{0}/styles.css" SkinID="Advanced-01">
+    <BrowseButtonStyle CssClass="Advanced-01_ButtonMSilver" ForeColor="#575757">
+        <HoverStyle CssClass="Advanced-01_ButtonMSilverHover"/>
+        <DisabledStyle CssClass="Advanced-01_ButtonMSilverDisable"></DisabledStyle>
+    </BrowseButtonStyle>
+    <TextBoxStyle CssClass="Advanced-01_TextBoxStyle" />
+</eni:eniFileUpload>
+
+<%-- eniFramework LightDark Skin --%>
+<eni:eniFileUpload runat="server" CssPostfix="eniThm" SpriteCssFilePath="{0}/sprite.css" CssFilePath="{0}/styles.css" SkinID="LightDark">
+    <Border BorderColor="#DCDBDB" />
+    <TextBoxStyle Border-BorderWidth="0" />
+    <BrowseButtonStyle BackColor="#FFFFFF" Border-BorderColor="#C7C7C7" BackgroundImage-ImageUrl="none">
+        <HoverStyle BackgroundImage-ImageUrl="none" Border-BorderColor="#B3B3B3"></HoverStyle>
+        <Paddings PaddingTop="5px" PaddingBottom="2px" PaddingLeft="9px" PaddingRight="9px" />
+    </BrowseButtonStyle>
+</eni:eniFileUpload>

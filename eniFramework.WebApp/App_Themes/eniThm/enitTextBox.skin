@@ -1,0 +1,25 @@
+﻿<%@ Register TagPrefix="dx" Namespace="DevExpress.Data" Assembly="DevExpress.Data.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Web" Assembly="DevExpress.Web.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="eni" Namespace="eniFramework.WebApp.Controls" Assembly="eniFramework.WebApp.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" %>
+
+<%-- eniFramework Default Mode Skin --%>
+<eni:eniTextBox runat="server" SpriteCssFilePath="{0}/sprite.css" CssFilePath="{0}/styles.css" CssPostfix="eniThm">
+</eni:eniTextBox>
+
+<%-- eniFramework Advanced-01 Mode Skin --%>
+<eni:eniTextBox runat="server" SpriteCssFilePath="{0}/sprite.css" CssFilePath="{0}/styles.css" CssPostfix="eniThm" SkinID="Advanced-01"
+    AutoPostBack="false">
+    <FocusedStyle CssClass="Advanced-01_FocusedStyle"></FocusedStyle>
+    <DisabledStyle CssClass="Advanced-01_DisableStyle"></DisabledStyle>
+</eni:eniTextBox>
+
+<%-- eniFramework BSL Mode Skin --%>
+<eni:eniTextBox runat="server" SpriteCssFilePath="{0}/sprite.css" CssFilePath="{0}/styles.css" CssPostfix="eniThm" CreateMode="BSLMode" SkinID="BSL">
+</eni:eniTextBox>
+
+<%-- eniFramework LightDark Skin --%>
+<eni:eniTextBox runat="server" SpriteCssFilePath="{0}/sprite.css" CssFilePath="{0}/styles.css" CssPostfix="eniThm" SkinID="LightDark"
+    AutoPostBack="false">
+    <Border BorderColor="#C7C7C7" />
+    <FocusedStyle Border-BorderColor="#60A9F1"></FocusedStyle>
+</eni:eniTextBox>

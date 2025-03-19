@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CSTRESX00001" xml:space="preserve">
+    <value>使用者信息管理</value>
+  </data>
+  <data name="CSTRESX00002" xml:space="preserve">
+    <value>使用者帐号</value>
+    <comment>사용자 아이디</comment>
+  </data>
+  <data name="CSTRESX00003" xml:space="preserve">
+    <value>社员密码</value>
+    <comment>사원번호</comment>
+  </data>
+  <data name="CSTRESX00004" xml:space="preserve">
+    <value>有效日</value>
+    <comment>유효일</comment>
+  </data>
+  <data name="CSTRESX00005" xml:space="preserve">
+    <value>变更前密码</value>
+    <comment>변경전 비밀번호</comment>
+  </data>
+  <data name="CSTRESX00006" xml:space="preserve">
+    <value>密码</value>
+    <comment>비밀번호</comment>
+  </data>
+  <data name="CSTRESX00007" xml:space="preserve">
+    <value>密码有效日</value>
+    <comment>비밀번호 유효일</comment>
+  </data>
+  <data name="CSTRESX00008" xml:space="preserve">
+    <value>密码解密</value>
+    <comment>비밀번호 복호화</comment>
+  </data>
+  <data name="CSTRESX00009" xml:space="preserve">
+    <value>域名</value>
+    <comment>도메인</comment>
+  </data>
+  <data name="CSTRESX00010" xml:space="preserve">
+    <value>姓</value>
+    <comment>성</comment>
+  </data>
+  <data name="CSTRESX00011" xml:space="preserve">
+    <value>名</value>
+    <comment>이름</comment>
+  </data>
+  <data name="CSTRESX00012" xml:space="preserve">
+    <value>全名</value>
+    <comment>전체 이름</comment>
+  </data>
+  <data name="CSTRESX00013" xml:space="preserve">
+    <value>英文 名</value>
+    <comment>영문 이름</comment>
+  </data>
+  <data name="CSTRESX00014" xml:space="preserve">
+    <value>韩文 名</value>
+    <comment>한자 이름</comment>
+  </data>
+  <data name="CSTRESX00015" xml:space="preserve">
+    <value>生日</value>
+    <comment>생일</comment>
+  </data>
+  <data name="CSTRESX00016" xml:space="preserve">
+    <value>使用者种类</value>
+    <comment>사용자 종류</comment>
+  </data>
+  <data name="CSTRESX00017" xml:space="preserve">
+    <value>使用者类型</value>
+    <comment>사용자 타입</comment>
+  </data>
+  <data name="CSTRESX00018" xml:space="preserve">
+    <value>使用者区分</value>
+    <comment>사용자 구분</comment>
+  </data>
+  <data name="CSTRESX00019" xml:space="preserve">
+    <value>所属事业场</value>
+    <comment>소속 사업장</comment>
+  </data>
+  <data name="CSTRESX00020" xml:space="preserve">
+    <value>所属工厂</value>
+    <comment>소속 공장</comment>
+  </data>
+  <data name="CSTRESX00021" xml:space="preserve">
+    <value>所属部门</value>
+    <comment>소속 부서</comment>
+  </data>
+  <data name="CSTRESX00022" xml:space="preserve">
+    <value>职务</value>
+    <comment>직급</comment>
+  </data>
+  <data name="CSTRESX00023" xml:space="preserve">
+    <value>入社日</value>
+    <comment>입사일</comment>
+  </data>
+  <data name="CSTRESX00024" xml:space="preserve">
+    <value>外部认证邮箱</value>
+    <comment>외부 인증메일</comment>
+  </data>
+  <data name="CSTRESX00025" xml:space="preserve">
+    <value>邮编号码</value>
+    <comment>우편번호</comment>
+  </data>
+  <data name="CSTRESX00026" xml:space="preserve">
+    <value>地址</value>
+    <comment>주소</comment>
+  </data>
+  <data name="CSTRESX00027" xml:space="preserve">
+    <value>内线号码</value>
+    <comment>내선 번호</comment>
+  </data>
+  <data name="CSTRESX00028" xml:space="preserve">
+    <value>紧急号码</value>
+    <comment>긴급 전화번호</comment>
+  </data>
+  <data name="CSTRESX00029" xml:space="preserve">
+    <value>手机号码</value>
+    <comment>핸드폰 번호</comment>
+  </data>
+  <data name="CSTRESX00030" xml:space="preserve">
+    <value>变更前管理者</value>
+    <comment>변견전 관리자</comment>
+  </data>
+  <data name="CSTRESX00031" xml:space="preserve">
+    <value>管理者</value>
+    <comment>관리자</comment>
+  </data>
+  <data name="CSTRESX00032" xml:space="preserve">
+    <value>变更前邮件</value>
+    <comment>변경전 메일</comment>
+  </data>
+  <data name="CSTRESX00033" xml:space="preserve">
+    <value>邮件</value>
+    <comment>메일</comment>
+  </data>
+  <data name="CSTRESX00034" xml:space="preserve">
+    <value>邮件地址</value>
+    <comment>메일 주소</comment>
+  </data>
+  <data name="CSTRESX00035" xml:space="preserve">
+    <value>邮件容量</value>
+    <comment>메일 용량</comment>
+  </data>
+  <data name="CSTRESX00036" xml:space="preserve">
+    <value>邮件等级</value>
+    <comment>메일 레벨</comment>
+  </data>
+  <data name="CSTRESX00037" xml:space="preserve">
+    <value>备注</value>
+    <comment>비고</comment>
+  </data>
+  <data name="CSTRESX00038" xml:space="preserve">
+    <value>变更前是否使用</value>
+    <comment>변경전 사용여부</comment>
+  </data>
+  <data name="CSTRESX00039" xml:space="preserve">
+    <value>是否适用</value>
+    <comment>사용여부</comment>
+  </data>
+  <data name="CSTRESX00040" xml:space="preserve">
+    <value>事业场代码</value>
+    <comment>사업장 코드</comment>
+  </data>
+  <data name="CSTRESX00041" xml:space="preserve">
+    <value>工厂代码</value>
+    <comment>공장 코드</comment>
+  </data>
+  <data name="CSTRESX00042" xml:space="preserve">
+    <value>部门代码</value>
+    <comment>부서 코드</comment>
+  </data>
+  <data name="CSTRESX00043" xml:space="preserve">
+    <value>ERP NO</value>
+    <comment>ERP NO</comment>
+  </data>
+  <data name="CSTRESX00044" xml:space="preserve">
+    <value>姓名</value>
+    <comment>이름</comment>
+  </data>
+  <data name="CSTRESX00045" xml:space="preserve">
+    <value>帐号</value>
+    <comment>아이디</comment>
+  </data>
+  <data name="CSTRESX00046" xml:space="preserve">
+    <value>事业场代码</value>
+    <comment>사업장 코드</comment>
+  </data>
+  <data name="CSTRESX00047" xml:space="preserve">
+    <value>事业场代码名</value>
+    <comment>사업장 코드명</comment>
+  </data>
+  <data name="CSTRESX00048" xml:space="preserve">
+    <value>工厂代码</value>
+    <comment>공장 코드</comment>
+  </data>
+  <data name="CSTRESX00049" xml:space="preserve">
+    <value>工厂代码名</value>
+    <comment>공장 코드명</comment>
+  </data>
+  <data name="CSTRESX00050" xml:space="preserve">
+    <value>部门代码</value>
+    <comment>부서 코드</comment>
+  </data>
+  <data name="CSTRESX00051" xml:space="preserve">
+    <value>部门代码名</value>
+    <comment>부서 코드명</comment>
+  </data>
+  <data name="CSTRESX00052" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00053" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CSTRESX00054" xml:space="preserve">
+    <value />
+  </data>
+</root>

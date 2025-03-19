@@ -1,0 +1,503 @@
+.dxcvControl_eniThm,
+.dxcvDisabled_eniThm
+{
+    border: 1px solid #868b91;
+    font: 11px Dotum, '돋움', 'Segoe UI', Helvetica, 'Droid Sans', AppleSDGothicNeo, Tahoma, Geneva, sans-serif;
+    background-color: #e7eaee;
+    color: Black;
+    cursor: default;
+}
+.dxcvDisabled_eniThm
+{
+    color: #989898;
+}
+.dxcvControl_eniThm a
+{
+    color: #5a9ddb;
+    text-decoration: none;
+}
+.dxcvControl_eniThm a:hover
+{
+    text-decoration: underline;
+}
+.dxcvControl_eniThm a:hover.dxbDisabled_eniThm
+{
+    color: #989898;
+    text-decoration: none;
+}
+.dxcvDisabled_eniThm a
+{
+    color: #989898;
+}
+.dxcvLoadingPanel_eniThm
+{
+    font: 11px Dotum, '돋움', 'Segoe UI', Helvetica, 'Droid Sans', AppleSDGothicNeo, Tahoma, Geneva, sans-serif;
+    color: #585e68;
+    background: White none;
+    border: 1px solid #80858d;
+}
+.dxcvLoadingPanel_eniThm td.dx
+{
+    white-space: nowrap;
+    text-align: center;
+    padding: 10px 14px;
+}
+.dxcvLoadingPanel_eniThm .dxlp-loadingImage,
+.dxcvLoadingPanelStatusBar_eniThm .dxlp-loadingImage
+{
+    background-image: url('../Web/Loading.gif');
+    height: 16px;
+    width: 16px;
+}
+.dxcvLoadingPanelStatusBar_eniThm
+{
+    background-color: Transparent;
+}
+.dxcvLoadingPanelStatusBar_eniThm td
+{
+    white-space: nowrap;
+    text-align: center;
+    padding: 0 2px;
+}
+.dxcvFilterPopupWindow_eniThm
+{
+    color: Black;
+    border: 1px solid #a5acb5;
+}
+.dxcvFilterPopupItemsArea_eniThm
+{
+    color: Black;
+    background-color: White;
+    padding-top: 1px;
+}
+.dxcvFilterPopupButtonPanel_eniThm
+{
+    background-color: #e9edf1;
+    border-top: 1px solid #a5acb5;
+    color: Black;
+}
+.dxcvFilterPopupItem_eniThm td.dxcv,
+.dxcvFilterPopupActiveItem_eniThm td.dxcv,
+.dxcvFilterPopupSelectedItem_eniThm td.dxcv
+{
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+    padding: 3px 2px 3px 3px;
+    cursor: default;
+    white-space: nowrap;
+}
+.dxcvFilterPopupActiveItem_eniThm
+{
+    background: #e2ecf7 none;
+    color: Black;
+}
+.dxcvFilterPopupSelectedItem_eniThm
+{
+    background: #ecedef none;
+    color: Black;
+}
+.dxcvTable_eniThm
+{
+    background-color: White;
+    border-width: 0;
+    border-collapse: separate !important;
+    overflow: hidden;
+    padding: 20px;
+}
+.dxcvHeader_eniThm
+{
+    cursor: pointer;
+    white-space: nowrap;
+    padding: 5px 6px;
+    border: 1px solid #a5acb5;
+    background: #e7ebef url('cvHeaderBack.png') repeat-x left top;
+    overflow: hidden;
+    font-weight: normal;
+    text-align: left;
+}
+.dxcvHeader_eniThm,
+.dxcvHeader_eniThm table
+{
+    color: #3c3c3c;
+}
+.dxcvHeader_eniThm td
+{
+    white-space: nowrap;
+}
+.dxcvHeader_eniThm a
+{
+    color: #5a9ddb;
+    text-decoration: underline;
+}
+.dxcvHeader_eniThm a.dxcvCommandItem_eniThm
+{
+    margin: 0 3px 0 0;
+    text-decoration: none;
+}
+.dxcvHeader_eniThm a.dxcvCommandItem_eniThm:hover
+{
+    text-decoration: underline;
+}
+.dxcvCommandItem_eniThm
+{
+    vertical-align: middle;
+}
+.dxcvCustomization_eniThm,
+.dxcvPopupEditForm_eniThm
+{
+    padding: 0;
+    margin: 0;
+}
+.dxcvTitlePanel_eniThm,
+.dxcvTable_eniThm caption
+{
+    font-weight: normal;
+    padding: 3px 3px 5px;
+    text-align: center;
+    background: #e8ebee url('cvTitleBack.png') repeat-x left top;
+    color: Black;
+    border-bottom: 1px solid #a5acb5;
+}
+.dxcvStatusBar_eniThm
+{
+    background: #e9edf1 none;
+    border-top: 1px solid #a5acb5;
+}
+.dxcvStatusBar_eniThm tr.dxcv
+{
+    height: 20px;
+}
+.dxcvStatusBar_eniThm tr.dxcv > td
+{
+    padding: 4px;
+}
+.dxcvStatusBar_eniThm tr.dxcv span .dxbButtonSys:first-child
+{
+    margin-left: 2px;
+}
+.dxbButton_eniThm[class~="dxcvCommandItem_eniThm"]
+{
+    margin: 0px 2px 0px 2px;
+}
+.dxbButton_eniThm[class~="dxcvCommandItem_eniThm"] .dxb
+{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.dxcvPagerTopPanel_eniThm,
+.dxcvPagerBottomPanel_eniThm
+{
+    background: #e7eaee url('cvPagerPanelBack.png') repeat-x left top;
+}
+.dxcvPagerTopPanel_eniThm
+{
+    border-bottom: 1px solid #868B91;
+}
+.dxcvPagerBottomPanel_eniThm
+{
+    border-top: 1px solid #868B91;
+}
+.dxcvControl_eniThm .dxctToolbar_eniThm.dxm-main.dxcvCTTop
+{
+    border-bottom: 1px solid #868B91;
+}
+.dxcvControl_eniThm .dxctToolbar_eniThm.dxm-main.dxcvCTBottom
+{
+    border-top: 1px solid #868B91;
+}
+.dxcvFilterBar_eniThm
+{
+    border-top: 1px solid #a5acb5;
+    background: #e9edf1 none;
+}
+.dxcvFilterBar_eniThm a
+{
+    color: #5a9ddb;
+    text-decoration: underline;
+}
+.dxcvFilterBarCheckBoxCell_eniThm
+{
+    padding: 0 7px 0 3px;
+}
+.dxcvFilterBarImageCell_eniThm
+{
+    padding: 0 1px 0 3px;
+    cursor: pointer;
+}
+.dxcvFilterBarExpressionCell_eniThm
+{
+    padding: 5px 5px 8px 0;
+    white-space: nowrap;
+}
+.dxcvFilterBarClearButtonCell_eniThm
+{
+    padding: 5px 6px 8px;
+}
+.dxcvFilterBuilderMainArea_eniThm
+{
+    background: white none;
+    padding: 6px 2px;
+}
+.dxcvFilterBuilderButtonArea_eniThm
+{
+    background: #e9edf1 none;
+    border-top: 1px solid #c9cdd2;
+    padding: 6px;
+    white-space: nowrap;
+}
+.dxcvControl_eniThm .dxpLite_eniThm,
+.dxcvDisabled_eniThm .dxpLite_eniThm
+{
+    padding-top: 4px;
+}
+.dxcvControl_eniThm .dxcvHFSAC
+{
+    padding: 7px 0 0 6px;
+}
+.dxcvControl_eniThm .dxcvHFSC
+{
+    padding: 7px 0 5px;
+}
+.dxcvControl_eniThm .dxcvHFSC div
+{
+    height: 1px;
+    background: #868B91;
+}
+.dxcvControl_eniThm div[id$='DXEPLPC']
+{
+    height: 39px;
+}
+.dxcvControl_eniThm .dxcvHFSD
+{
+    height: 1px;
+    margin: 2px 0;
+}
+.dxcvControl_eniThm .dxcvHFDRC
+{
+    margin: 15px 15px 25px;
+}
+.dxcvControl_eniThm .dxcvHFDRP
+{
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: 9px 0 6px;
+}
+.dxcvControl_eniThm .dxcvHFDRP[id*="HFFDE"]
+{
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+.dxcvControl_eniThm .dxcvHFDRP[id*="HFTDE"]
+{
+    margin-bottom: 25px;
+}
+/* Removes flicking in iOS Safari*/
+.dxcvTable_eniThm
+{
+    -webkit-tap-highlight-color: transparent;
+}
+.dxcvSearchPanel_eniThm
+{
+    padding: 7px 4px 7px 6px;
+    border-bottom: 1px solid #a5acb5;
+}
+.dxcvSearchPanel_eniThm > table
+{
+    width: 70%;
+    max-width: 450px;
+}
+.dxcvControl_eniThm .dxcvSearchPanel_eniThm .dxbButton_eniThm
+{
+    margin-left: 7px;
+    margin-right: 0;
+}
+*[dir="rtl"].dxcvControl_eniThm .dxcvSearchPanel_eniThm .dxbButton_eniThm
+{
+    margin-left: 0;
+    margin-right: 7px;
+}
+.dxcvControl_eniThm .dxcvHL
+{
+    background: #ffd83a;
+    color: Black;
+    font-weight: bold;
+    font-style: normal;
+}
+/* TODO remove (replace to command button style) */
+.dxcvControl_eniThm .dxcvSearchPanel_eniThm .dxbButton_eniThm
+{
+    font-size: 0.9em;
+    margin-top: -2px;
+    margin-bottom: -2px;
+}
+.dxcvControl_eniThm .dxcvSearchPanel_eniThm .dxbButton_eniThm .dxb
+{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.dxcvCard_eniThm,
+.dxcvFlowCard_eniThm,
+.dxcvEmptyCard_eniThm,
+.dxcvEmptyHiddenCard_eniThm
+{
+    width: 250px;
+    height: 180px;
+    vertical-align: top;
+}
+.dxcvCard_eniThm,
+.dxcvFlowCard_eniThm,
+.dxcvEmptyCard_eniThm
+{
+    border: 1px solid #A5ACB5;
+    background-color: #E8EBEE;
+    color: #262626;
+    outline: none;
+}
+.dxcvEmptyCard_eniThm
+{
+    text-align: center;
+    vertical-align: middle;
+}
+.dxcvEmptyHiddenCard_eniThm
+{
+    border: 1px solid transparent;
+    background-color: transparent;
+}
+.dxcvFlowCard_eniThm,
+div.dxcvEmptyCard_eniThm
+{
+    display: inline-block;
+    margin: 20px 0 0 20px;
+    overflow: hidden;
+}
+.dxcvSelectedCard_eniThm,
+.dxcvFocusedCard_eniThm
+{
+    border-color: #A5ACB5;
+    outline: 3px solid #FEE085;
+}
+.dxcvFocusedCard_eniThm
+{
+    background-color: White;
+}
+.dxcvCardHover_eniThm
+{
+    border-color: #A5ACB5;
+    outline: 3px solid #E2ECF7;
+}
+.dxcvCard_eniThm .dxflCaption_eniThm,
+.dxcvFlowCard_eniThm .dxflCaption_eniThm
+{
+    color: #7F7F7F;
+}
+.dxcvCard_eniThm .dxflViewFormLayoutSys .dxflCommandItemSys,
+.dxcvFlowCard_eniThm .dxflViewFormLayoutSys .dxflCommandItemSys
+{
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+.dxcvHeaderPanel_eniThm
+{
+    background-color: #e9edf1;
+    border-bottom: 1px solid #868B91;
+    padding: 2px 20px 8px 20px;
+}
+div.dxcvHeader_eniThm
+{
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: 8px;
+}
+.dxcvSummaryPanel_eniThm
+{
+    background-color: #f6f7f9;
+    border-top: 1px solid #868B91;
+    padding: 8px 21px;
+}
+.dxcvSummaryItem_eniThm
+{
+    display: inline-block;
+    margin: 5px 8px 5px 0;
+}
+.dxcvControl_eniThm .dxcvSeparator_eniThm,
+.dxcvControl_eniThm .dxcvSeparator_eniThm div
+{
+    width: 20px;
+    height: 20px;
+}
+.dxcvControl_eniThm td.dxcvBatchEditCell_eniThm
+{
+    padding: 0;
+    outline-width: 0 !important;
+}
+.dxcvControl_eniThm .dxcvBatchEditModifiedCell_eniThm
+{
+    background: #d7f9c7;
+    outline-style: solid;
+    outline-color: #d7f9c7;
+    outline-width: 2px;
+}
+.dxcvBatchEditDeletedItem_eniThm,
+.dxcvBatchEditDeletedItem_eniThm.dxcvBatchEditNewItem_eniThm
+{
+    background: #F8F8F8;
+}
+.dxcvBatchEditDeletedItem_eniThm td:not(.dxcvCommandColumn_eniThm),
+.dxcvControl_eniThm .dxcvBatchEditDeletedItem_eniThm .dxflCaptionCell_eniThm .dxflCaption_eniThm
+{
+    color: rgba(0,0,0,0.5) !important;
+}
+.dxcvBatchEditDeletedItem_eniThm td.dxcvBatchEditModifiedCell_eniThm
+{
+    background-color: #eefbe7;
+    outline-style: none;
+}
+.dxcvBatchEditNewItem_eniThm
+{
+    background: #F0FAEA;
+}
+.dxcvControl_eniThm .dxcvErrorCell
+{
+    padding-left: 5px;
+    width: 1px;
+}
+.dxcvControl_eniThm .dxcvErrorCell img
+{
+    margin: -3px 0;
+}
+.dxcvStatusBar_eniThm .dxbButton_eniThm
+{
+    margin-right: 10px;
+}
+.dxcvControl_eniThm td.dxcvBatchEditCell_eniThm .dxichCellSys
+{
+    padding-left: 0;
+}
+.dxcvControl_eniThm .dxcvEMBC
+{
+    background: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: -20px;
+}
+.dxcvCardError_eniThm
+{
+    background-color: #DBDEE1;
+    border-top: 1px solid #A5ACB5;
+    color: #BA1717;
+    padding: 6px 13px;
+}
+.dxcvFocusedCell_eniThm
+{
+    box-shadow: inset 2px 2px 0 #2292B1, inset -2px -2px 0 #2292B1;
+    -webkit-box-shadow: inset 2px 2px 0 #2292B1, inset -2px -2px 0 #2292B1;
+    -moz-box-shadow: inset 2px 2px 0 #2292B1, inset -2px -2px 0 #2292B1;
+}
+.dxcvFocusedCell_eniThm .dxcvBatchEditModifiedCell_eniThm:not(.dxcvBatchEditCell_eniThm)
+{
+    outline: none;
+    box-shadow: 2px 1px 0 #d7f9c7, 2px 0px 0 #d7f9c7;
+    -webkit-box-shadow: 2px 1px 0 #d7f9c7, 2px 0px 0 #d7f9c7;
+    -moz-box-shadow: 2px 1px 0 #d7f9c7, 2px 0px 0 #d7f9c7;
+}

@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DEE614A9-C89D-45CA-A192-4BC8F710BC56}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DevExpress.Web</RootNamespace>
+    <AssemblyName>DevExpress.Web.v17.1</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <SignAssembly>true</SignAssembly>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\DevExpress.DLL\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\DevExpress.DLL\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DelaySign>true</DelaySign>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Classes\LocalizationRes.et.resx" />
+    <EmbeddedResource Include="Classes\LocalizationRes.hi.resx" />
+    <EmbeddedResource Include="Classes\LocalizationRes.id.resx" />
+    <EmbeddedResource Include="Classes\LocalizationRes.kk.resx" />
+    <EmbeddedResource Include="Classes\LocalizationRes.ms.resx" />
+    <EmbeddedResource Include="Classes\LocalizationRes.th.resx" />
+    <EmbeddedResource Include="Classes\LocalizationRes.zh.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit\LocalizationRes.et.resx" />
+    <EmbeddedResource Include="Edit\LocalizationRes.hi.resx" />
+    <EmbeddedResource Include="Edit\LocalizationRes.th.resx" />
+    <EmbeddedResource Include="Edit\LocalizationRes.zh.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grid\LocalizationRes.et.resx" />
+    <EmbeddedResource Include="Grid\LocalizationRes.hi.resx" />
+    <EmbeddedResource Include="Grid\LocalizationRes.th.resx" />
+    <EmbeddedResource Include="Grid\LocalizationRes.zh.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grid\LocalizationRes.zh-TW.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grid\LocalizationRes.zh-CN.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grid\LocalizationRes.vi.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grid\LocalizationRes.uk.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grid\LocalizationRes.tr.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grid\LocalizationRes.ta.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grid\LocalizationRes.sr-Latn-RS.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grid\LocalizationRes.sr-Latn-CS.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grid\LocalizationRes.sr-Cyrl-RS.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grid\LocalizationRes.sr-Cyrl-CS.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grid\LocalizationRes.pt.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grid\LocalizationRes.mk.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grid\LocalizationRes.lt.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grid\LocalizationRes.ko.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grid\LocalizationRes.hy.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grid\LocalizationRes.he.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grid\LocalizationRes.fi.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grid\LocalizationRes.fa.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grid\LocalizationRes.de-CH.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grid\LocalizationRes.ca.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grid\LocalizationRes.bg.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit\LocalizationRes.zh-TW.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit\LocalizationRes.zh-CN.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit\LocalizationRes.vi.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit\LocalizationRes.uk.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit\LocalizationRes.tr.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit\LocalizationRes.ta.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit\LocalizationRes.sr-Latn-RS.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit\LocalizationRes.sr-Latn-CS.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit\LocalizationRes.sr-Cyrl-RS.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit\LocalizationRes.sr-Cyrl-CS.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit\LocalizationRes.pt.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit\LocalizationRes.mk.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit\LocalizationRes.lt.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit\LocalizationRes.ko.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit\LocalizationRes.is.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit\LocalizationRes.hy.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit\LocalizationRes.he.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit\LocalizationRes.fi.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit\LocalizationRes.fa.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit\LocalizationRes.de-CH.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit\LocalizationRes.ca.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit\LocalizationRes.bg.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\LocalizationRes.zh-TW.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\LocalizationRes.zh-CN.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\LocalizationRes.vi.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\LocalizationRes.uk.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\LocalizationRes.tr.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\LocalizationRes.ta.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\LocalizationRes.sr-Latn-RS.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\LocalizationRes.sr-Latn-CS.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\LocalizationRes.sr-Cyrl-RS.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\LocalizationRes.sr-Cyrl-CS.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\LocalizationRes.mk.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\LocalizationRes.lt.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\LocalizationRes.ko.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\LocalizationRes.is.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\LocalizationRes.hy.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\LocalizationRes.he.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\LocalizationRes.fi.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\LocalizationRes.fa.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\LocalizationRes.de-CH.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\LocalizationRes.ca.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\LocalizationRes.bg.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\LocalizationRes.zh-Hant.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grid\LocalizationRes.zh-Hant.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit\LocalizationRes.zh-Hant.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Classes\LocalizationRes.ar.resx" />
+    <EmbeddedResource Include="Classes\LocalizationRes.cs.resx" />
+    <EmbeddedResource Include="Classes\LocalizationRes.da.resx" />
+    <EmbeddedResource Include="Classes\LocalizationRes.de.resx" />
+    <EmbeddedResource Include="Classes\LocalizationRes.el.resx" />
+    <EmbeddedResource Include="Classes\LocalizationRes.es.resx" />
+    <EmbeddedResource Include="Classes\LocalizationRes.fr.resx" />
+    <EmbeddedResource Include="Classes\LocalizationRes.hr.resx" />
+    <EmbeddedResource Include="Classes\LocalizationRes.hu.resx" />
+    <EmbeddedResource Include="Classes\LocalizationRes.it.resx" />
+    <EmbeddedResource Include="Classes\LocalizationRes.ja.resx" />
+    <EmbeddedResource Include="Classes\LocalizationRes.lv.resx" />
+    <EmbeddedResource Include="Classes\LocalizationRes.nl.resx" />
+    <EmbeddedResource Include="Classes\LocalizationRes.no.resx" />
+    <EmbeddedResource Include="Classes\LocalizationRes.pl.resx" />
+    <EmbeddedResource Include="Classes\LocalizationRes.pt-BR.resx" />
+    <EmbeddedResource Include="Classes\LocalizationRes.pt.resx" />
+    <EmbeddedResource Include="Classes\LocalizationRes.resx" />
+    <EmbeddedResource Include="Classes\LocalizationRes.ro.resx" />
+    <EmbeddedResource Include="Classes\LocalizationRes.ru.resx" />
+    <EmbeddedResource Include="Classes\LocalizationRes.sk.resx" />
+    <EmbeddedResource Include="Classes\LocalizationRes.sl.resx" />
+    <EmbeddedResource Include="Classes\LocalizationRes.sr-Latn-BA.resx" />
+    <EmbeddedResource Include="Classes\LocalizationRes.sv.resx" />
+    <EmbeddedResource Include="Classes\LocalizationRes.zh-Hans.resx" />
+    <EmbeddedResource Include="Edit\LocalizationRes.ar.resx" />
+    <EmbeddedResource Include="Edit\LocalizationRes.cs.resx" />
+    <EmbeddedResource Include="Edit\LocalizationRes.da.resx" />
+    <EmbeddedResource Include="Edit\LocalizationRes.de.resx" />
+    <EmbeddedResource Include="Edit\LocalizationRes.el.resx" />
+    <EmbeddedResource Include="Edit\LocalizationRes.es.resx" />
+    <EmbeddedResource Include="Edit\LocalizationRes.fr.resx" />
+    <EmbeddedResource Include="Edit\LocalizationRes.hr.resx" />
+    <EmbeddedResource Include="Edit\LocalizationRes.hu.resx" />
+    <EmbeddedResource Include="Edit\LocalizationRes.it.resx" />
+    <EmbeddedResource Include="Edit\LocalizationRes.ja.resx" />
+    <EmbeddedResource Include="Edit\LocalizationRes.lv.resx" />
+    <EmbeddedResource Include="Edit\LocalizationRes.nl.resx" />
+    <EmbeddedResource Include="Edit\LocalizationRes.no.resx" />
+    <EmbeddedResource Include="Edit\LocalizationRes.pl.resx" />
+    <EmbeddedResource Include="Edit\LocalizationRes.pt-BR.resx" />
+    <EmbeddedResource Include="Edit\LocalizationRes.resx" />
+    <EmbeddedResource Include="Edit\LocalizationRes.ro.resx" />
+    <EmbeddedResource Include="Edit\LocalizationRes.ru.resx" />
+    <EmbeddedResource Include="Edit\LocalizationRes.sk.resx" />
+    <EmbeddedResource Include="Edit\LocalizationRes.sl.resx" />
+    <EmbeddedResource Include="Edit\LocalizationRes.sr-Latn-BA.resx" />
+    <EmbeddedResource Include="Edit\LocalizationRes.sv.resx" />
+    <EmbeddedResource Include="Edit\LocalizationRes.zh-Hans.resx" />
+    <EmbeddedResource Include="Grid\LocalizationRes.ar.resx" />
+    <EmbeddedResource Include="Grid\LocalizationRes.cs.resx" />
+    <EmbeddedResource Include="Grid\LocalizationRes.da.resx" />
+    <EmbeddedResource Include="Grid\LocalizationRes.de.resx" />
+    <EmbeddedResource Include="Grid\LocalizationRes.el.resx" />
+    <EmbeddedResource Include="Grid\LocalizationRes.es.resx" />
+    <EmbeddedResource Include="Grid\LocalizationRes.fr.resx" />
+    <EmbeddedResource Include="Grid\LocalizationRes.hr.resx" />
+    <EmbeddedResource Include="Grid\LocalizationRes.hu.resx" />
+    <EmbeddedResource Include="Grid\LocalizationRes.is.resx" />
+    <EmbeddedResource Include="Grid\LocalizationRes.it.resx" />
+    <EmbeddedResource Include="Grid\LocalizationRes.ja.resx" />
+    <EmbeddedResource Include="Grid\LocalizationRes.lv.resx" />
+    <EmbeddedResource Include="Grid\LocalizationRes.nl.resx" />
+    <EmbeddedResource Include="Grid\LocalizationRes.no.resx" />
+    <EmbeddedResource Include="Grid\LocalizationRes.pl.resx" />
+    <EmbeddedResource Include="Grid\LocalizationRes.pt-BR.resx" />
+    <EmbeddedResource Include="Grid\LocalizationRes.resx" />
+    <EmbeddedResource Include="Grid\LocalizationRes.ro.resx" />
+    <EmbeddedResource Include="Grid\LocalizationRes.ru.resx" />
+    <EmbeddedResource Include="Grid\LocalizationRes.sk.resx" />
+    <EmbeddedResource Include="Grid\LocalizationRes.sl.resx" />
+    <EmbeddedResource Include="Grid\LocalizationRes.sr-Latn-BA.resx" />
+    <EmbeddedResource Include="Grid\LocalizationRes.sv.resx" />
+    <EmbeddedResource Include="Grid\LocalizationRes.zh-Hans.resx" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

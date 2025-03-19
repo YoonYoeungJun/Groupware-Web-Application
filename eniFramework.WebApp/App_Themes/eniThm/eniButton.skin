@@ -1,0 +1,55 @@
+﻿<%@ Register TagPrefix="dx" Namespace="DevExpress.Data" Assembly="DevExpress.Data.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="dx" Namespace="DevExpress.Web" Assembly="DevExpress.Web.v17.1, Version=17.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" %>
+<%@ Register TagPrefix="eni" Namespace="eniFramework.WebApp.Controls" Assembly="eniFramework.WebApp.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" %>
+
+<%-- eniFramework Default Mode Skin --%>
+<eni:eniButton runat="server" SpriteCssFilePath="{0}/sprite.css" CssFilePath="{0}/styles.css" CssPostfix="eniThm"
+    AutoPostBack="false" UseSubmitBehavior="false">
+</eni:eniButton>
+
+<%-- eniFramework Standard Mode Skin --%>
+<eni:eniButton runat="server" SpriteCssFilePath="{0}/sprite.css" CssFilePath="{0}/styles.css" CssPostfix="eniThm" CreateMode="StandardMode" SkinID="Standard"
+    AutoPostBack="false" UseSubmitBehavior="false">
+</eni:eniButton>
+
+
+<%-- eniFramework Advanced-S-01 Mode Skin --%>
+<%--<eni:eniButton runat="server" SpriteCssFilePath="{0}/sprite.css" CssFilePath="{0}/styles.css" CssPostfix="eniThm" CssClass="eniButton-Advanced-S-01" SkinID="Advanced-S-01"
+    AutoPostBack="false" UseSubmitBehavior="false">
+    <HoverStyle CssClass="Advanced-S-01_ButtonMSilverHover"></HoverStyle>
+    <PressedStyle CssClass="Advanced-S-01_ButtonMSilverPress"></PressedStyle>
+    <DisabledStyle CssClass="Advanced-S-01_ButtonMSilverDisable"></DisabledStyle>
+</eni:eniButton>--%>
+
+<%-- eniFramework Advanced-M-01 Mode Skin --%>
+<eni:eniButton runat="server" SpriteCssFilePath="{0}/sprite.css" CssFilePath="{0}/styles.css" CssPostfix="eniThm" CssClass="eniButton-Advanced-M-01" SkinID="Advanced-M-01"
+    AutoPostBack="false" UseSubmitBehavior="false">
+    <HoverStyle CssClass="Advanced-M-01_ButtonMSilverHover"></HoverStyle>
+    <PressedStyle CssClass="Advanced-M-01_ButtonMSilverPress"></PressedStyle>
+    <DisabledStyle CssClass="Advanced-M-01_ButtonMSilverDisable"></DisabledStyle>
+</eni:eniButton>
+
+<%-- eniFramework Advanced-L-01 Mode Skin --%>
+<eni:eniButton runat="server" SpriteCssFilePath="{0}/sprite.css" CssFilePath="{0}/styles.css" CssPostfix="eniThm" CssClass="eniButton-Advanced-L-01" SkinID="Advanced-L-01"
+    AutoPostBack="false" UseSubmitBehavior="false">
+    <HoverStyle CssClass="Advanced-L-01_ButtonMSilverHover"></HoverStyle>
+    <PressedStyle CssClass="Advanced-L-01_ButtonMSilverPress"></PressedStyle>
+    <DisabledStyle CssClass="Advanced-L-01_ButtonMSilverDisable"></DisabledStyle>
+</eni:eniButton>
+
+<%-- eniFramework Advanced-XL-01 Mode Skin --%>
+<eni:eniButton runat="server" SpriteCssFilePath="{0}/sprite.css" CssFilePath="{0}/styles.css" CssPostfix="eniThm" CssClass="eniButton-Advanced-XL-01" SkinID="Advanced-XL-01"
+    Height="35px" AutoPostBack="false" UseSubmitBehavior="false">
+    <HoverStyle CssClass="Advanced-XL-01_ButtonXLSilverHover"></HoverStyle>
+    <PressedStyle CssClass="Advanced-XL-01_ButtonXLSilverPress"></PressedStyle>
+    <DisabledStyle CssClass="Advanced-XL-01_ButtonXLSilverDisable"></DisabledStyle>
+</eni:eniButton>
+
+<%-- eniFramework LightDark Mode Skin --%>
+<eni:eniButton runat="server" SpriteCssFilePath="{0}/sprite.css" CssFilePath="{0}/styles.css" CssPostfix="eniThm" SkinID="LightDark"
+    AutoPostBack="false" UseSubmitBehavior="false"
+    BackColor="#FFFFFF">
+    <Border BorderColor="#DCDBDB" />
+    <BackgroundImage ImageUrl="none" />
+    <HoverStyle BackColor="#FFFFFF" BackgroundImage-ImageUrl="none" Border-BorderColor="#B3B3B3"></HoverStyle>
+</eni:eniButton>
